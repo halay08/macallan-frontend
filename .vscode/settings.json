@@ -1,0 +1,30 @@
+{
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown"
+  ],
+  "editor.formatOnPaste": true,
+  "prettier.singleQuote": true,
+  "vetur.validation.template": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "emmet.syntaxProfiles": {},
+  "editor.renderWhitespace": "all",
+  "workbench.colorTheme": "Visual Studio Dark",
+  "editor.formatOnSave": true,
+  "editor.fontLigatures": false,
+  "prettier.trailingComma": "all",
+  "prettier.jsxSingleQuote": true,
+  "prettier.arrowParens": "avoid",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontWeight": null
+}
