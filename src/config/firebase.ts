@@ -1,7 +1,8 @@
 import 'firebase/auth';
 import 'firebase/functions';
+import 'firebase/storage';
 import firebase from 'firebase/app';
-import { FirebaseEmulator } from '.';
+import { FirebaseEmulator } from './firebaseEmulator';
 
 const {
   REACT_APP_FIREBASE_DATABASE_URL,
@@ -10,7 +11,7 @@ const {
   REACT_APP_FIREBASE_API_KEY,
   REACT_APP_FIREBASE_AUTH_DOMAIN,
   REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  REACT_APP_USE_FIREBASE_EMULATOR = false
+  REACT_APP_USE_FIREBASE_EMULATOR = ''
 } = process.env;
 
 const config = {
@@ -26,12 +27,13 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-if (REACT_APP_USE_FIREBASE_EMULATOR) {
+if (parseFloat(REACT_APP_USE_FIREBASE_EMULATOR) > 0) {
   const emulator = new FirebaseEmulator(firebase);
   emulator.useAuth().useFunctions();
 }
 
 const auth = firebase.auth();
 const functions = firebase.functions();
+const storage = firebase.app().storage();
 
-export { auth, functions, firebase };
+export { auth, functions, firebase, storage };
