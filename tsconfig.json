@@ -16,25 +16,7 @@
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
-    "paths": {
-      "@/src": ["."],
-      "@/src/*": ["./*"],
-      "@/app/*": ["app/*"],
-      "@/app": ["app"],
-      "@/config/*": ["config/*"],
-      "@/config": ["config"],
-      "@/locales/*": ["locales/*"],
-      "@/locales": ["locales"],
-      "@/store/*": ["store/*"],
-      "@/store": ["store"],
-      "@/styles/*": ["styles/*"],
-      "@/styles": ["styles"],
-      "@/types/*": ["types/*"],
-      "@/types": ["types"],
-      "@/utils/*": ["utils/*"],
-      "@/utils": ["utils"],
-    }
+    "baseUrl": "./src"
   },
   "include": ["src"]
 }
