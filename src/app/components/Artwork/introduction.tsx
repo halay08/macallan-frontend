@@ -1,15 +1,18 @@
 import styled from 'styled-components/macro';
 
-export function Introduction() {
+export function Instruction() {
   return (
     <Wrapper>
-      <Background alt="CYO_background" src="/CYO/01_intro_background@3x.png" />
-      <Concept alt="CYO_concept" src="/CYO/01_intro_concept3@3.png" />
+      <Background
+        alt="CYO_background"
+        src="/Artwork/01_intro_background@3x.png"
+      />
+      <Concept alt="CYO_concept" src="/Artwork/01_intro_concept3@3.png" />
       <Content className="font-AGaramondPro-regular px-4">
         Unleash your inner creativity to create your own art work here.
       </Content>
       <Button>
-        <img alt="CYO_start_button" src="/CYO/01_btn_start@3.png" />
+        <img alt="CYO_start_button" src="/Artwork/01_btn_start@3.png" />
       </Button>
     </Wrapper>
   );
