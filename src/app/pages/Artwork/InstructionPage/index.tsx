@@ -1,7 +1,12 @@
+import { Instruction } from 'app/components/Artwork';
 import styled from 'styled-components/macro';
 
-export const PageContent = () => {
-  return <Wrapper>Hello</Wrapper>;
+export const InstructionPage = () => {
+  return (
+    <Wrapper>
+      <Instruction />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.main`

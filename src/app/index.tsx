@@ -16,6 +16,7 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { FormatPage } from './pages/Artwork/FormatPage';
+import { InstructionPage } from './pages/Artwork/InstructionPage';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -35,6 +36,11 @@ export function App() {
           exact
           path={process.env.PUBLIC_URL + '/artwork/format'}
           component={FormatPage}
+        />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/artwork/instruction'}
+          component={InstructionPage}
         />
         <Route component={NotFoundPage} />
       </Switch>
