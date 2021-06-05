@@ -1,7 +1,12 @@
+import { Introduction } from 'app/components/CYO';
 import styled from 'styled-components/macro';
 
 export const PageContent = () => {
-  return <Wrapper>Hello</Wrapper>;
+  return (
+    <Wrapper>
+      <Introduction />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.main`
