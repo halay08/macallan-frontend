@@ -1,18 +1,10 @@
-import { Instruction } from 'app/components/Artwork';
-import styled from 'styled-components/macro';
+import { Instruction } from './components';
+import { PageWrapper } from 'app/components/PageWrapper';
 
 export const InstructionPage = () => {
   return (
-    <Wrapper>
+    <PageWrapper hasFooter={false} hasHeader={false}>
       <Instruction />
-    </Wrapper>
+    </PageWrapper>
   );
 };
-
-const Wrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 320px;
-`;

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { PageContent } from './components/PageContent';
+import { PageContent } from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
 
 export const FormatPage = () => {

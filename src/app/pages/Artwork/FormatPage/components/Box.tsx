@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   border-top: 1px solid #bbb;
   width: 100%;
   position: absolute;
-  bottom: 130px;
+  bottom: 70px;
 `;
 const BoxWrapper = styled.div`
   max-width: 325px;

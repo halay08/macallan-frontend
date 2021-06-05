@@ -4,11 +4,11 @@ import styled from 'styled-components/macro';
 export const Logo = () => {
   return (
     <a href="/" className="logo m-auto">
-      <LogoWrapper />
+      <LogoStyled />
     </a>
   );
 };
 
-const LogoWrapper = styled(LogoSvg)`
+const LogoStyled = styled(LogoSvg)`
   width: 200px;
 `;

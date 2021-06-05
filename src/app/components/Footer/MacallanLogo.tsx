@@ -1,14 +1,22 @@
 import { ReactComponent as LogoSvg } from './assets/macallan-logo.svg';
 import styled from 'styled-components/macro';
 
-export const MacallanLogo = () => {
+interface MacallanLogoProps {
+  width?: string;
+  className?: string;
+}
+
+export const MacallanLogo: React.FC<MacallanLogoProps> = ({
+  width = '180px',
+  className = ''
+}) => {
+  const LogoStyled = styled(LogoSvg)`
+    width: ${width};
+  `;
+
   return (
     <a href="/" className="logo m-auto">
-      <LogoWrapper />
+      <LogoStyled className={className} />
     </a>
   );
 };
-
-const LogoWrapper = styled(LogoSvg)`
-  width: 180px;
-`;

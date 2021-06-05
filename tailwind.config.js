@@ -35,7 +35,24 @@ module.exports = {
       content: 'calc(100vh - 175px)'
     },
     fontFamily: {
-      primary: ['Helvetica', 'Arial', 'sans-serif'],
+      primary: [
+        'AGaramondPro-Regular',
+        'ui-serif',
+        'Georgia',
+        'Cambria',
+        'Times New Roman',
+        'Times',
+        'serif'
+      ],
+      'primary-bold': [
+        'AGaramondPro-Bold',
+        'ui-serif',
+        'Georgia',
+        'Cambria',
+        'Times New Roman',
+        'Times',
+        'serif'
+      ],
       secondary: ['Helvetica', 'Arial', 'sans-serif'],
       sans: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'

@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
-import { Box } from './Box';
+import { Box } from '.';
 
 export const PageContent = () => {
   return (
     <Wrapper>
-      <Box></Box>
+      <Box />
     </Wrapper>
   );
 };

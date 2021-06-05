@@ -4,17 +4,23 @@ import { Footer } from '../Footer';
 
 interface PageWrapperProps {
   children: ReactNode;
+  hasHeader?: boolean;
+  hasFooter?: boolean;
 }
 
-export const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
+export const PageWrapper: React.FC<PageWrapperProps> = ({
+  children,
+  hasHeader = true,
+  hasFooter = true
+}) => {
   return (
     <div className="box-border">
       <div className="flex flex-col">
-        <Header />
+        {hasHeader && <Header />}
         <section className="flex items-center justify-center min-h-content">
           {children}
         </section>
-        <Footer />
+        {hasFooter && <Footer />}
       </div>
     </div>
   );
