@@ -5,31 +5,21 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px'
-    },
     colors: {
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
-      yellow: colors.yellow
+      primary: {
+        light: '##F9DC06',
+        DEFAULT: '#ECC200',
+        dark: '#CC8A1C'
+      },
+      secondary: {
+        light: '#252525',
+        DEFAULT: '#0E0E0E',
+        dark: '#000000'
+      }
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif']
-    },
-    extend: {
-      spacing: {
-        128: '32rem',
-        144: '36rem'
-      },
-      borderRadius: {
-        '4xl': '2rem'
-      }
+      primary: ['Helvetica', 'Arial', 'sans-serif'],
+      secondary: ['Helvetica', 'Arial', 'sans-serif']
     }
   },
   variants: {

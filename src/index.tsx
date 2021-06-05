@@ -5,6 +5,9 @@
  * code.
  */
 
+// Use consistent styling
+import 'styles/tailwind.css';
+
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
@@ -12,9 +15,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import FontFaceObserver from 'fontfaceobserver';
-
-// Use consistent styling
-import 'sanitize.css/sanitize.css';
 
 import { App } from 'app';
 
