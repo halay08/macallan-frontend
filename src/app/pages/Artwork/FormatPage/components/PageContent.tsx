@@ -1,7 +1,12 @@
 import styled from 'styled-components/macro';
+import { Box } from './Box';
 
 export const PageContent = () => {
-  return <Wrapper>Hello</Wrapper>;
+  return (
+    <Wrapper>
+      <Box></Box>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.main`
@@ -9,5 +14,4 @@ const Wrapper = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 320px;
 `;

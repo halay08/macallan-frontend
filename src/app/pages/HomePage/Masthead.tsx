@@ -1,14 +1,12 @@
 import styled from 'styled-components/macro';
-import { Logos } from './Logos';
 import { Title } from './components/Title';
 import { Lead } from './components/Lead';
 
 export function Masthead() {
   return (
     <Wrapper>
-      <Logos />
-      <Title>Macallan Frontend</Title>
-      <Lead>Welcome to Macallan Project.</Lead>
+      <Title className="text-secondary">Macallan Frontend</Title>
+      <Lead className="text-secondary">Welcome to Macallan Project.</Lead>
     </Wrapper>
   );
 }
