@@ -21,27 +21,34 @@ export const Shape: React.FC<ShapeProps> = ({ icon, width = 60 }) => {
   return (
     <Wrapper className="flex flex-row items-center justify-between">
       {icon === ShapeType.HALF_CIRCLE && (
-        <HalfCircle style={{ width: `${width}px` }} />
+        <HalfCircle
+          className="cursor-pointer"
+          style={{ width: `${width}px` }}
+        />
       )}
-      {icon === ShapeType.CIRCLE && <Circle style={{ width: `${width}px` }} />}
+      {icon === ShapeType.CIRCLE && (
+        <Circle className="cursor-pointer" style={{ width: `${width}px` }} />
+      )}
       {icon === ShapeType.TRIANGLE && (
-        <Triangle style={{ width: `${width}px` }} />
+        <Triangle className="cursor-pointer" style={{ width: `${width}px` }} />
       )}
-      {icon === ShapeType.SQUARE && <Square style={{ width: `${width}px` }} />}
+      {icon === ShapeType.SQUARE && (
+        <Square className="cursor-pointer" style={{ width: `${width}px` }} />
+      )}
       {icon === ShapeType.PENTAGON && (
-        <Pentagon style={{ width: `${width}px` }} />
+        <Pentagon className="cursor-pointer" style={{ width: `${width}px` }} />
       )}
       {icon === ShapeType.CUT_SQUARE && (
-        <CutSquare style={{ width: `${width}px` }} />
+        <CutSquare className="cursor-pointer" style={{ width: `${width}px` }} />
       )}
       {icon === ShapeType.HEXAGON && (
-        <Hexagon style={{ width: `${width}px` }} />
+        <Hexagon className="cursor-pointer" style={{ width: `${width}px` }} />
       )}
       {icon === ShapeType.HEPTAGON && (
-        <Heptagon style={{ width: `${width}px` }} />
+        <Heptagon className="cursor-pointer" style={{ width: `${width}px` }} />
       )}
       {icon === ShapeType.OCTAGON && (
-        <Octagon style={{ width: `${width}px` }} />
+        <Octagon className="cursor-pointer" style={{ width: `${width}px` }} />
       )}
     </Wrapper>
   );

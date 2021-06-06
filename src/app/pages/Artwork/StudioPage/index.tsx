@@ -17,7 +17,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ type = 'shape' }) => {
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
       <PageWrapper>
-        <Stage size={stageSize} className="mb-10"></Stage>
+        <Stage size={stageSize} className="mb-1"></Stage>
         {type === 'shape' && <ShapeBox />}
       </PageWrapper>
     </>

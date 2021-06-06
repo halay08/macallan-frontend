@@ -20,13 +20,20 @@ export const Stage: React.FC<StageProps> = ({ size, className = '' }) => {
       height = '100vw';
   }
 
-  const Wrapper = styled.div`
+  const Container = styled.div`
     min-height: ${height};
   `;
 
   return (
-    <Wrapper
-      className={`flex flex-row items-center justify-between w-screen bg-gray-light ${className}`}
-    ></Wrapper>
+    <Wrapper>
+      <Container
+        className={`flex flex-row items-center justify-between w-screen bg-gray-light ${className}`}
+      ></Container>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  max-height: calc(100vh - 363px);
+  overflow: auto;
+`;

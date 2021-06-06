@@ -18,7 +18,7 @@ export const Footer: React.FC<Partial<FooterProps>> = ({
   const history = useHistory();
 
   return (
-    <FooterWrapper className={`w-screen bg-white ${className}`}>
+    <FooterWrapper className={`w-screen bg-white fixed bottom-0 ${className}`}>
       <FooterInner className="flex flex-row items-center justify-between h-full">
         {showPrevButton && (
           <PrevButton

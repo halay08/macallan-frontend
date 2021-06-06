@@ -4,7 +4,7 @@ import { ShapeType } from 'types/artwork/studio';
 
 export const ShapeBox = () => {
   return (
-    <Wrapper className="">
+    <Wrapper className="fixed bg-white">
       <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">
@@ -23,6 +23,7 @@ export const ShapeBox = () => {
 
 const Wrapper = styled.div`
   width: 100%;
+  bottom: 85px;
 `;
 const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;
