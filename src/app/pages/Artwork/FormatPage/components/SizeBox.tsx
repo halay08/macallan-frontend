@@ -1,23 +1,45 @@
 import styled from 'styled-components/macro';
+import { StageSize } from 'types/artwork/studio';
+import { useLocalStorage } from 'utils/localStorage';
+import { useHistory } from 'react-router-dom';
 
 export const SizeBox = () => {
+  const history = useHistory();
+  const [, setStageSize] = useLocalStorage('stageSize', 'square');
+
+  const storeStageSize = (size: StageSize) => {
+    setStageSize(size);
+    history.push('/artwork/studio/shape');
+  };
+
   return (
     <Wrapper className="p-7 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid">
       <BoxWrapper className="m-auto">
         <div className="grid text-center mb-8 font-serif">
-          <strong className="font-semibold">STEP 1: CHOOSE FORMAT</strong>
+          <strong className="font-medium text-tiny">
+            STEP 1: CHOOSE FORMAT
+          </strong>
         </div>
         <div className="grid grid-cols-3 items-end text-center">
           <div className="group">
-            <Square className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"></Square>
+            <Square
+              onClick={() => storeStageSize(StageSize.SQUARE)}
+              className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
+            ></Square>
             <span className="m-2 block group-hover:text-primary">Square</span>
           </div>
           <div className="group">
-            <Mobile className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"></Mobile>
+            <Mobile
+              onClick={() => storeStageSize(StageSize.MOBILE)}
+              className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
+            ></Mobile>
             <span className="m-2 block group-hover:text-primary">9:16</span>
           </div>
           <div className="group">
-            <Desktop className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"></Desktop>
+            <Desktop
+              onClick={() => storeStageSize(StageSize.DESKTOP)}
+              className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
+            ></Desktop>
             <span className="m-2 block group-hover:text-primary">16:9</span>
           </div>
         </div>

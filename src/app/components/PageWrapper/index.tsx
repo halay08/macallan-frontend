@@ -21,9 +21,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
     <div className="box-border">
       <div className="flex flex-col">
         {hasHeader && <Header />}
-        <section className="flex items-center justify-center min-h-content">
-          {children}
-        </section>
+        <section className="min-h-content">{children}</section>
         {hasFooter && (
           <Footer
             showNextButton={showPrevButton}

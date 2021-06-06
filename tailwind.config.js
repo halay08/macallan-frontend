@@ -6,6 +6,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
+      white: colors.white,
       primary: {
         light: '##F9DC06',
         DEFAULT: '#ECC200',
@@ -19,7 +20,7 @@ module.exports = {
       gray: {
         light: colors.gray[300],
         DEFAULT: colors.gray,
-        dark: colors.gray[800]
+        dark: colors.gray[600]
       }
     },
     fill: {
@@ -36,7 +37,7 @@ module.exports = {
       gray: {
         light: colors.gray[300],
         DEFAULT: colors.gray,
-        dark: colors.gray[800]
+        dark: colors.gray[600]
       }
     },
     borderWidth: {
@@ -49,7 +50,7 @@ module.exports = {
       8: '8px'
     },
     minHeight: {
-      content: 'calc(100vh - 172px)'
+      content: 'calc(100vh - 162px)'
     },
     fontFamily: {
       primary: [
@@ -73,10 +74,24 @@ module.exports = {
       secondary: ['Helvetica', 'Arial', 'sans-serif'],
       sans: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
+    },
+    fontSize: {
+      xs: '.75rem',
+      sm: '.875rem',
+      tiny: '.875rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      '7xl': '5rem'
     }
   },
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [require('tailwind-scrollbar')]
 };

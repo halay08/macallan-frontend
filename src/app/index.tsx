@@ -43,7 +43,7 @@ export function App() {
         />
         <Route
           exact
-          path={process.env.PUBLIC_URL + '/artwork/studio'}
+          path={process.env.PUBLIC_URL + '/artwork/studio/:type'}
           component={StudioPage}
         />
         <Route component={NotFoundPage} />

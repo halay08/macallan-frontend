@@ -1,1 +1,2 @@
-export * from './Shape';
+export * from './Stage';
+export * from './ShapeBox';

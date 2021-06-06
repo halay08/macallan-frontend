@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { useHistory } from 'react-router-dom';
 import { MacallanLogo } from './MacallanLogo';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
@@ -14,18 +15,28 @@ export const Footer: React.FC<Partial<FooterProps>> = ({
   showPrevButton = true,
   showNextButton = true
 }) => {
+  const history = useHistory();
+
   return (
-    <FooterWrapper className={`fixed bottom-0 w-screen ${className}`}>
+    <FooterWrapper className={`w-screen bg-white ${className}`}>
       <FooterInner className="flex flex-row items-center justify-between h-full">
         {showPrevButton && (
-          <PrevButton className="rounded-full focus:outline-none focus:bg-primary ml-5">
-            <PrevButtonSvg className="w-8" />
+          <PrevButton
+            onClick={() => history.goBack()}
+            className="rounded-full focus:outline-none active:outline-none ml-5"
+          >
+            <PrevButtonSvg className="w-8 m-auto" />
+            <span className="block text-xs text-secondary mt-1">BACK</span>
           </PrevButton>
         )}
         <MacallanLogo />
         {showNextButton && (
-          <NextButton className="rounded-full focus:outline-none focus:bg-primary mr-5">
-            <NextButtonSvg className="w-8" />
+          <NextButton
+            onClick={() => history.goForward()}
+            className="rounded-full focus:outline-none focus:outline-none mr-5"
+          >
+            <NextButtonSvg className="w-8 m-auto" />
+            <span className="block text-xs text-secondary mt-1">NEXT</span>
           </NextButton>
         )}
       </FooterInner>
@@ -34,7 +45,7 @@ export const Footer: React.FC<Partial<FooterProps>> = ({
 };
 
 const FooterWrapper = styled.footer`
-  height: 70px;
+  height: 85px;
 `;
 const FooterInner = styled.div``;
 const PrevButton = styled.button`

@@ -6,8 +6,7 @@ export const StartButton = () => {
   const history = useHistory();
 
   const gotoFormatPage = () => {
-    let path = `/artwork/format`;
-    history.push(path);
+    history.push('/artwork/format');
   };
 
   return (

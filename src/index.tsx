@@ -6,7 +6,7 @@
  */
 
 // Use consistent styling
-import 'styles/tailwind.css';
+import 'styles/global.css';
 
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
