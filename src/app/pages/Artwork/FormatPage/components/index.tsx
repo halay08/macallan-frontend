@@ -1,2 +1,1 @@
-export * from './Box';
-export * from './PageContent';
+export * from './SizeBox';

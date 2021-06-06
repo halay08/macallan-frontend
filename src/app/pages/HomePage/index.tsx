@@ -12,7 +12,7 @@ export function HomePage() {
           content="Macallan - Create Your Own homepage"
         />
       </Helmet>
-      <PageWrapper>
+      <PageWrapper showNextButton={false} showPrevButton={false}>
         <Masthead />
       </PageWrapper>
     </>

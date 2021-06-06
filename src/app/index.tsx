@@ -15,8 +15,7 @@ import { GlobalStyle } from '../styles/global-styles';
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import { FormatPage } from './pages/Artwork/FormatPage';
-import { InstructionPage } from './pages/Artwork/InstructionPage';
+import { FormatPage, InstructionPage, StudioPage } from './pages';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -41,6 +40,11 @@ export function App() {
           exact
           path={process.env.PUBLIC_URL + '/artwork/instruction'}
           component={InstructionPage}
+        />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/artwork/studio'}
+          component={StudioPage}
         />
         <Route component={NotFoundPage} />
       </Switch>

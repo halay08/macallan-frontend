@@ -22,6 +22,23 @@ module.exports = {
         dark: colors.gray[800]
       }
     },
+    fill: {
+      primary: {
+        light: '##F9DC06',
+        DEFAULT: '#ECC200',
+        dark: '#CC8A1C'
+      },
+      secondary: {
+        light: '#252525',
+        DEFAULT: '#0E0E0E',
+        dark: '#000000'
+      },
+      gray: {
+        light: colors.gray[300],
+        DEFAULT: colors.gray,
+        dark: colors.gray[800]
+      }
+    },
     borderWidth: {
       DEFAULT: '1px',
       0: '0',
@@ -32,7 +49,7 @@ module.exports = {
       8: '8px'
     },
     minHeight: {
-      content: 'calc(100vh - 175px)'
+      content: 'calc(100vh - 172px)'
     },
     fontFamily: {
       primary: [

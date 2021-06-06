@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro';
 
-export const Box = () => {
+export const SizeBox = () => {
   return (
-    <Wrapper className="p-7 border-t-1 border-solid border-gray-light">
+    <Wrapper className="p-7 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid">
       <BoxWrapper className="m-auto">
         <div className="grid text-center mb-8 font-serif">
           <strong className="font-semibold">STEP 1: CHOOSE FORMAT</strong>

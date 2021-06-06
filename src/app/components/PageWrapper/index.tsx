@@ -6,12 +6,16 @@ interface PageWrapperProps {
   children: ReactNode;
   hasHeader?: boolean;
   hasFooter?: boolean;
+  showPrevButton?: boolean;
+  showNextButton?: boolean;
 }
 
 export const PageWrapper: React.FC<PageWrapperProps> = ({
   children,
   hasHeader = true,
-  hasFooter = true
+  hasFooter = true,
+  showPrevButton = true,
+  showNextButton = true
 }) => {
   return (
     <div className="box-border">
@@ -20,7 +24,12 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
         <section className="flex items-center justify-center min-h-content">
           {children}
         </section>
-        {hasFooter && <Footer />}
+        {hasFooter && (
+          <Footer
+            showNextButton={showPrevButton}
+            showPrevButton={showPrevButton}
+          />
+        )}
       </div>
     </div>
   );
