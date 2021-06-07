@@ -3,8 +3,6 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
-import { ShapeType } from 'types/artwork/studio';
-import { drawSvg } from 'app/helpers/konvaShape';
 
 export const TextBox = () => {
   const { stage } = useSelector<AppState, AppState['studio']>(
