@@ -1,14 +1,18 @@
 import styled from 'styled-components/macro';
 import { StageSize } from 'types/artwork/studio';
 import { ColorPicker, Texture } from './Navigation';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Konva from 'konva';
+import { setStage } from 'redux/actions/studio';
+import { useDispatch } from 'react-redux';
 
 interface StageFrameProps {
   size: StageSize;
 }
 
 export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
+  const dispatch = useDispatch();
+
   const stageWidth = window.innerWidth;
   // Default is square type.
   let stageHeight: number = stageWidth;
@@ -21,17 +25,16 @@ export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
       stageHeight = (stageWidth * 9) / 16;
   }
 
-  const [, setStage] = useState({} as Konva.Stage);
-
   useEffect(() => {
-    const s = new Konva.Stage({
+    const stage = new Konva.Stage({
       container: 'stageContainer',
       width: stageWidth,
       height: stageHeight,
       name: 'studio'
     });
-    setStage(s);
-  }, [stageWidth, stageHeight]);
+
+    dispatch(setStage(stage));
+  }, [stageWidth, stageHeight, dispatch]);
 
   return (
     <Wrapper className="flex flex-row items-center justify-center">

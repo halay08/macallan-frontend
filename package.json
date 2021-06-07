@@ -79,6 +79,7 @@
     "@craco/craco": "6.1.2",
     "@heroicons/react": "1.0.1",
     "@reduxjs/toolkit": "^1.4.0",
+    "connected-react-router": "6.9.1",
     "firebase": "8.6.4",
     "firebaseui": "4.8.0",
     "fontfaceobserver": "^2.1.0",

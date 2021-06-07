@@ -13,7 +13,10 @@ import 'react-app-polyfill/stable';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import FontFaceObserver from 'fontfaceobserver';
+import configureStore, { history } from './redux/store';
+import { ConnectedRouter } from 'connected-react-router';
 
 import { App } from 'app';
 
@@ -23,6 +26,8 @@ import reportWebVitals from 'reportWebVitals';
 
 // Initialize languages
 import './locales/i18n';
+
+const store = configureStore();
 
 // Observe loading of Inter (to remove 'Inter', remove the <link> tag in
 // the index.html file and this observer)
@@ -36,11 +41,15 @@ openSansObserver.load().then(() => {
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
 ReactDOM.render(
-  <HelmetProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </HelmetProvider>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <HelmetProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </HelmetProvider>
+    </ConnectedRouter>
+  </Provider>,
   MOUNT_NODE
 );
 

@@ -23,4 +23,16 @@ enum StageSize {
   DESKTOP = 'desktop'
 }
 
+type ISvgShapeAttribute = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fill: string;
+  name: string;
+  draggable: boolean;
+};
+
+export type { ISvgShapeAttribute };
+
 export { StageType, ShapeType, StageSize };

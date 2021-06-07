@@ -8,7 +8,7 @@ import {
   Hexagon,
   Heptagon,
   Octagon
-} from './assets';
+} from '../../assets';
 import styled from 'styled-components/macro';
 import { ShapeType } from 'types/artwork/studio';
 
