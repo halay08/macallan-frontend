@@ -24,7 +24,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
         <section>{children}</section>
         {hasFooter && (
           <Footer
-            showNextButton={showPrevButton}
+            showNextButton={showNextButton}
             showPrevButton={showPrevButton}
           />
         )}

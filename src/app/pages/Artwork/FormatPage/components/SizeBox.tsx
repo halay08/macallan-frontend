@@ -5,11 +5,11 @@ import { useHistory } from 'react-router-dom';
 
 export const SizeBox = () => {
   const history = useHistory();
-  const [, setStageSize] = useLocalStorage('stageSize', 'square');
+  const [, setStageSize] = useLocalStorage('stageSize', StageSize.SQUARE);
 
   const storeStageSize = (size: StageSize) => {
     setStageSize(size);
-    history.push('/artwork/studio/shape');
+    history.push('/artwork/studio');
   };
 
   return (

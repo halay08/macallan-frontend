@@ -8,12 +8,16 @@ interface FooterProps {
   className: string;
   showPrevButton: boolean;
   showNextButton: boolean;
+  nextButtonHandler: Function;
+  prevButtonHandler: Function;
 }
 
 export const Footer: React.FC<Partial<FooterProps>> = ({
   className = '',
   showPrevButton = true,
-  showNextButton = true
+  showNextButton = true,
+  nextButtonHandler,
+  prevButtonHandler
 }) => {
   const history = useHistory();
 
@@ -22,7 +26,9 @@ export const Footer: React.FC<Partial<FooterProps>> = ({
       <FooterInner className="flex flex-row items-center justify-between h-full">
         {showPrevButton && (
           <PrevButton
-            onClick={() => history.goBack()}
+            onClick={() =>
+              prevButtonHandler ? prevButtonHandler() : history.goBack()
+            }
             className="rounded-full focus:outline-none active:outline-none ml-5"
           >
             <PrevButtonSvg className="w-8 m-auto" />
@@ -32,7 +38,9 @@ export const Footer: React.FC<Partial<FooterProps>> = ({
         <MacallanLogo />
         {showNextButton && (
           <NextButton
-            onClick={() => history.goForward()}
+            onClick={() =>
+              nextButtonHandler ? nextButtonHandler() : history.goForward()
+            }
             className="rounded-full focus:outline-none focus:outline-none mr-5"
           >
             <NextButtonSvg className="w-8 m-auto" />

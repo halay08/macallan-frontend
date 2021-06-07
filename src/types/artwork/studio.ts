@@ -1,4 +1,4 @@
-enum StageType {
+enum SceneType {
   SHAPE = 'shape',
   TEXT = 'text',
   ICON = 'icon',
@@ -35,4 +35,4 @@ type ISvgShapeAttribute = {
 
 export type { ISvgShapeAttribute };
 
-export { StageType, ShapeType, StageSize };
+export { SceneType, ShapeType, StageSize };

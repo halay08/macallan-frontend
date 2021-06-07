@@ -1,21 +1,42 @@
 import { Helmet } from 'react-helmet-async';
-import { ShapeBox, StageFrame } from './components';
+import { Footer } from 'app/components/Footer';
+import { ShapeBox, StageFrame, TextBox } from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useLocalStorage } from 'utils/localStorage';
-import { useState, useEffect } from 'react';
-import { StageSize } from 'types/artwork/studio';
+import { useState } from 'react';
+import { SceneType, StageSize } from 'types/artwork/studio';
 
-type StudioPageProps = {
-  type: string;
-};
+export const StudioPage = () => {
+  const [size] = useLocalStorage('stageSize', StageSize.SQUARE);
+  const [scene, setScene] = useState(SceneType.SHAPE);
 
-export const StudioPage: React.FC<StudioPageProps> = ({ type = 'shape' }) => {
-  const [localSize] = useLocalStorage('stageSize', 'square');
-  const [size, setSize] = useState(StageSize.SQUARE);
+  const nextButtonHandler = () => {
+    switch (scene) {
+      case SceneType.SHAPE:
+        setScene(SceneType.TEXT);
+        break;
+      case SceneType.TEXT:
+        setScene(SceneType.ICON);
+        break;
+      case SceneType.ICON:
+        setScene(SceneType.BOTTLE);
+        break;
+    }
+  };
 
-  useEffect(() => {
-    setSize(localSize);
-  }, [localSize]);
+  const prevButtonHandler = () => {
+    switch (scene) {
+      case SceneType.TEXT:
+        setScene(SceneType.SHAPE);
+        break;
+      case SceneType.ICON:
+        setScene(SceneType.TEXT);
+        break;
+      case SceneType.BOTTLE:
+        setScene(SceneType.ICON);
+        break;
+    }
+  };
 
   return (
     <>
@@ -23,9 +44,14 @@ export const StudioPage: React.FC<StudioPageProps> = ({ type = 'shape' }) => {
         <title>Create Your Own - Studio</title>
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
-      <PageWrapper>
+      <PageWrapper hasFooter={false}>
         <StageFrame size={size} />
-        {type === 'shape' && <ShapeBox />}
+        {scene === SceneType.SHAPE && <ShapeBox />}
+        {scene === SceneType.TEXT && <TextBox />}
+        <Footer
+          nextButtonHandler={nextButtonHandler}
+          prevButtonHandler={prevButtonHandler}
+        />
       </PageWrapper>
     </>
   );
