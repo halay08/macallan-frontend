@@ -14,4 +14,16 @@ export class ContentService extends HttpsCallable {
     const contents = await this.callHttpsCallable('getContents', options);
     return contents;
   }
+
+  async getById(id) {
+    const content = await this.callHttpsCallable('getContentById', { id });
+    return content;
+  }
+
+  async getByTitle(title) {
+    const content = await this.callHttpsCallable('getContentByTitle', {
+      title
+    });
+    return content;
+  }
 }
