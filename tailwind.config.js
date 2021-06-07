@@ -18,6 +18,7 @@ module.exports = {
         dark: '#000000'
       },
       gray: {
+        xlight: colors.gray[100],
         light: colors.gray[300],
         DEFAULT: colors.gray,
         dark: colors.gray[600]
@@ -35,6 +36,7 @@ module.exports = {
         dark: '#000000'
       },
       gray: {
+        xlight: colors.gray[100],
         light: colors.gray[300],
         DEFAULT: colors.gray,
         dark: colors.gray[600]

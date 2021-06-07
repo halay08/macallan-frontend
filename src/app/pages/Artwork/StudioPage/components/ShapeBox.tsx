@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { Shape } from 'app/components/Shape';
+import { Shape } from './Shape';
 import { ShapeType } from 'types/artwork/studio';
 
 export const ShapeBox = () => {
