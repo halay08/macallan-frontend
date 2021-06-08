@@ -77,9 +77,13 @@ export const ShapeBox = () => {
             STEP 2: CHOOSE SHAPE
           </strong>
         </div>
-        <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
+        <div className="flex flex-nowrap scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
           {Object.keys(shapes).map(shape => (
-            <Button key={shape} onClick={() => drawTexture(ShapeType[shape])}>
+            <Button
+              className="mr-4"
+              key={shape}
+              onClick={() => drawTexture(ShapeType[shape])}
+            >
               <Shape src={shapes[shape]} />
             </Button>
           ))}
