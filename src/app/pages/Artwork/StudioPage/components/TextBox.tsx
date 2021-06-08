@@ -40,7 +40,7 @@ export const TextBox = () => {
 
         // put text on canvas
         ctx.font = '180px HhSamuel-E80W';
-        ctx.fillText(text, 60, 130);
+        ctx.fillText(text, 60, 150);
         ctx.fill();
 
         // use compositing to draw the background image
@@ -57,7 +57,7 @@ export const TextBox = () => {
           draggable: true
         });
 
-        layer.add(node);
+        setTimeout(() => layer.add(node), 1000);
       }
     };
     image.src = `/assets/textures/img/${texture}`;
@@ -74,7 +74,7 @@ export const TextBox = () => {
       draggable: true
     });
 
-    layer.add(node);
+    setTimeout(() => layer.add(node), 1000);
   };
 
   const onTextChanged = evt => {

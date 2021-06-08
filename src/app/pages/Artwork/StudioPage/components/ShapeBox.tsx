@@ -28,7 +28,7 @@ export const ShapeBox = () => {
         shapeImage.onload = () => {
           ctx.beginPath();
           // put image on canvas
-          ctx.drawImage(shapeImage, 0, 0);
+          ctx.drawImage(shapeImage, 0, 0, 160, 160);
 
           // use compositing to draw the background image
           // only where the text has been drawn

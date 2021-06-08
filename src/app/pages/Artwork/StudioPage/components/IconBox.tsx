@@ -58,7 +58,7 @@ export const IconBox = () => {
         iconImage.onload = () => {
           ctx.beginPath();
           // put image on canvas
-          ctx.drawImage(iconImage, 0, 0);
+          ctx.drawImage(iconImage, 0, 0, 60, 60);
 
           // use compositing to draw the background image
           // only where the text has been drawn
