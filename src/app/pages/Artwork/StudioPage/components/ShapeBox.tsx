@@ -46,7 +46,7 @@ export const ShapeBox = () => {
 
           layer.add(node);
         };
-        shapeImage.src = `/assets/shapes/${shape}`;
+        shapeImage.src = `/assets/shapes/svg/${shape}`;
       }
     };
 
@@ -85,7 +85,7 @@ export const ShapeBox = () => {
         <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
           {Object.keys(shapes).map(shape => (
             <Button key={shape} onClick={() => drawTexture(ShapeType[shape])}>
-              <Shape Component={shapes[shape]} />
+              <Shape src={shapes[shape]} />
             </Button>
           ))}
         </div>

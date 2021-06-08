@@ -1,12 +1,12 @@
-import { ReactComponent as HalfCircle } from './half_circle.svg';
-import { ReactComponent as Circle } from './circle.svg';
-import { ReactComponent as Triangle } from './triangle.svg';
-import { ReactComponent as Square } from './square.svg';
-import { ReactComponent as Pentagon } from './pentagon.svg';
-import { ReactComponent as CutSquare } from './cut_square.svg';
-import { ReactComponent as Hexagon } from './hexagon.svg';
-import { ReactComponent as Heptagon } from './heptagon.svg';
-import { ReactComponent as Octagon } from './octagon.svg';
+import HalfCircle from './half_circle.png';
+import Circle from './circle.png';
+import Triangle from './triangle.png';
+import Square from './square.png';
+import Pentagon from './pentagon.png';
+import CutSquare from './cut_square.png';
+import Hexagon from './hexagon.png';
+import Heptagon from './heptagon.png';
+import Octagon from './octagon.png';
 
 export {
   HalfCircle,

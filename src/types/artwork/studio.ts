@@ -13,7 +13,7 @@ enum ShapeType {
   CutSquare = 'cut_square.svg',
   Pentagon = 'pentagon.svg',
   Hexagon = 'hexagon.svg',
-  Heptagon = 'heptagon.vsg',
+  Heptagon = 'heptagon.svg',
   Octagon = 'octagon.svg'
 }
 

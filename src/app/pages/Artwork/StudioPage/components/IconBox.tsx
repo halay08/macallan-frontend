@@ -25,7 +25,7 @@ export const IconBox = () => {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(iconImage, 0, 0);
+        ctx.drawImage(iconImage, 0, 0, 60, 60);
 
         const node = new Konva.Image({
           x: 60,
@@ -37,7 +37,8 @@ export const IconBox = () => {
         layer.add(node);
       }
     };
-    iconImage.src = `/assets/icons/${icon}`;
+    iconImage.src = `/assets/icons/svg/${icon}`;
+    console.log(iconImage.src);
   };
 
   const drawTexture = (icon: string) => {
@@ -75,7 +76,7 @@ export const IconBox = () => {
 
           layer.add(node);
         };
-        iconImage.src = `/assets/icons/${icon}`;
+        iconImage.src = `/assets/icons/svg/${icon}`;
       }
     };
 
@@ -115,18 +116,18 @@ export const IconBox = () => {
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">STEP 4: ADD ICONS</strong>
         </div>
-        <div className="flex flex-nowrap flex-row justify-between gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
+        <div className="flex flex-nowrap flex-row justify-between gap-4 pl-4 pr-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
           {firstHalf.map((icon, index) => (
             <div key={icon}>
               <Button onClick={() => drawTexture(IconType[icon])}>
-                <Icon Component={icons[icon]} />
+                <Icon src={icons[icon]} />
               </Button>
               {secondHalf[index] && (
                 <Button
                   className="mt-2"
                   onClick={() => drawTexture(IconType[secondHalf[index]])}
                 >
-                  <Icon Component={icons[secondHalf[index]]} />
+                  <Icon src={icons[secondHalf[index]]} />
                 </Button>
               )}
               {secondHalf[index] === undefined && <div />}
