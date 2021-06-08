@@ -6,15 +6,15 @@ enum SceneType {
 }
 
 enum ShapeType {
-  HALF_CIRCLE = 'HalfCircle',
-  CIRCLE = 'Circle',
-  TRIANGLE = 'Triangle',
-  SQUARE = 'Square',
-  CUT_SQUARE = 'CutSquare',
-  PENTAGON = 'Pentagon',
-  HEXAGON = 'Hexagon',
-  HEPTAGON = 'Heptagon',
-  OCTAGON = 'Octagon'
+  HALF_CIRCLE = 'half-circle.svg',
+  CIRCLE = 'circle.svg',
+  TRIANGLE = 'triangle.svg',
+  SQUARE = 'square.svg',
+  CUT_SQUARE = 'cut-square.svg',
+  PENTAGON = 'pentagon.svg',
+  HEXAGON = 'hexagon.svg',
+  HEPTAGON = 'heptagon.vsg',
+  OCTAGON = 'octagon.svg'
 }
 
 enum StageSize {

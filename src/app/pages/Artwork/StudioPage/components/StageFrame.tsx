@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
+import { DEFAULT_COLOR } from 'config/studio';
 
 interface StageFrameProps {
   size: StageSize;
@@ -33,7 +34,9 @@ export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
       name: 'studio'
     });
 
-    dispatch(setStage({ stage, color: '', texture: '' }));
+    console.log(DEFAULT_COLOR);
+
+    dispatch(setStage({ stage, color: DEFAULT_COLOR, texture: '' }));
   }, [stageWidth, stageHeight, dispatch]);
 
   return (

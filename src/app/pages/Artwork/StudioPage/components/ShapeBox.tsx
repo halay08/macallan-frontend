@@ -5,62 +5,54 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { ShapeType } from 'types/artwork/studio';
-import { drawSvg } from 'app/helpers/konvaShape';
 
 export const ShapeBox = () => {
-  const { stage } = useSelector<AppState, AppState['studio']>(
+  const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
   const [layer, setLayer] = useState(new Konva.Layer());
   const [, setTransformer] = useState(new Konva.Transformer());
-  const assetPath = '/assets/shapes';
 
-  const drawShape = (shape: ShapeType) => {
-    switch (shape) {
-      case ShapeType.HALF_CIRCLE:
-        drawSvg(`${assetPath}/half-circle.svg`, layer, {
-          name: 'half-circle'
-        });
-        break;
-      case ShapeType.CIRCLE:
-        drawSvg(`${assetPath}/circle.svg`, layer, {
-          name: 'circle'
-        });
-        break;
-      case ShapeType.TRIANGLE:
-        drawSvg(`${assetPath}/triangle.svg`, layer, {
-          name: 'triangle'
-        });
-        break;
-      case ShapeType.CUT_SQUARE:
-        drawSvg(`${assetPath}/cut-square.svg`, layer, {
-          name: 'cut-square'
-        });
-        break;
-      case ShapeType.PENTAGON:
-        drawSvg(`${assetPath}/pentagon.svg`, layer, {
-          name: 'pentagon'
-        });
-        break;
-      case ShapeType.HEXAGON:
-        drawSvg(`${assetPath}/hexagon.svg`, layer, {
-          name: 'hexagon'
-        });
-        break;
-      case ShapeType.HEPTAGON:
-        drawSvg(`${assetPath}/heptagon.svg`, layer, {
-          name: 'hexagon'
-        });
-        break;
-      case ShapeType.OCTAGON:
-        drawSvg(`${assetPath}/octagon.svg`, layer, {
-          name: 'hexagon'
-        });
-        break;
-      default:
-        drawSvg(`${assetPath}/square.svg`, layer, {
-          name: 'square'
-        });
+  const drawTexture = (shape: string) => {
+    var textureImage = new window.Image();
+    textureImage.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      if (ctx) {
+        ctx.save();
+
+        var shapeImage = new window.Image();
+        shapeImage.onload = () => {
+          ctx.beginPath();
+          // put image on canvas
+          ctx.drawImage(shapeImage, 0, 0);
+
+          // use compositing to draw the background image
+          // only where the text has been drawn
+          ctx.beginPath();
+          ctx.globalCompositeOperation = 'source-in';
+          ctx.drawImage(textureImage, 0, 0);
+          ctx.restore();
+
+          const node = new Konva.Image({
+            x: 60,
+            y: 60,
+            image: canvas,
+            draggable: true
+          });
+
+          layer.add(node);
+        };
+        shapeImage.src = `/assets/shapes/${shape}`;
+      }
+    };
+
+    if (texture) {
+      textureImage.src = `/assets/textures/${texture}`;
+    } else {
+      textureImage.src = `/assets/colors/${color.replace('#', '')}.png`;
+      console.log(textureImage.src);
     }
   };
 
@@ -90,7 +82,7 @@ export const ShapeBox = () => {
         </div>
         <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
           {Object.values(ShapeType).map(shape => (
-            <Button key={shape} onClick={() => drawShape(shape)}>
+            <Button key={shape} onClick={() => drawTexture(shape)}>
               <Shape icon={shape} />
             </Button>
           ))}
