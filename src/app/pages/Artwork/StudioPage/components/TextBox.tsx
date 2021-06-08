@@ -3,6 +3,7 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
+import { DEFAULT_COLOR } from 'config';
 
 export const TextBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -50,8 +51,8 @@ export const TextBox = () => {
         ctx.restore();
 
         const node = new Konva.Image({
-          x: 60,
-          y: 60,
+          x: stage.width() / 2 - 100,
+          y: stage.height() / 2,
           image: canvas,
           draggable: true
         });
@@ -59,17 +60,17 @@ export const TextBox = () => {
         layer.add(node);
       }
     };
-    image.src = `/assets/textures/${texture}`;
+    image.src = `/assets/textures/img/${texture}`;
   };
 
   const drawText = (text: string) => {
     const node = new Konva.Text({
-      x: 60,
-      y: 60,
+      x: stage.width() / 2 - 100,
+      y: stage.height() / 2,
       text,
       fontSize: 180,
       fontFamily: 'HhSamuel-E80W',
-      fill: color,
+      fill: color ? color : DEFAULT_COLOR,
       draggable: true
     });
 

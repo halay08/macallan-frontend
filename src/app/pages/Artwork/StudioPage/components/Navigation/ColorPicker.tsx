@@ -4,11 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import { setColor, setTexture } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
-
-enum ToolbarStatus {
-  SHOW = 'show',
-  HIDE = 'hide'
-}
+import { ToolbarStatus } from 'types';
 
 export const ColorPicker = () => {
   const [toolbarStatus, setToolbarStatus] = useState(ToolbarStatus.SHOW);
@@ -24,9 +20,14 @@ export const ColorPicker = () => {
   };
 
   const pickColor = (color: string) => {
-    setCurrentColor(color);
-    dispatch(setColor({ color }));
-    dispatch(setTexture({ texture: '' }));
+    if (color === currentColor) {
+      setCurrentColor('');
+      dispatch(setColor({ color: '' }));
+    } else {
+      setCurrentColor(color);
+      dispatch(setColor({ color }));
+      dispatch(setTexture({ texture: '' }));
+    }
   };
 
   return (
@@ -44,12 +45,14 @@ export const ColorPicker = () => {
           <Button
             key={color}
             onClick={() => pickColor(color)}
-            className={`${
-              currentColor === color ? 'active ' : ''
-            } group w-5 h-5 mb-2 block`}
+            className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
           >
             <span
-              className="rounded-full w-5 h-5 block border border-solid border-gray-light"
+              className={`${
+                currentColor === color
+                  ? 'border-3 border-solid border-primary'
+                  : 'border border-solid border-gray-light'
+              } rounded-full w-5 h-5 block`}
               style={{ backgroundColor: color }}
             ></span>
           </Button>

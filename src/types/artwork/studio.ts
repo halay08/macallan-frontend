@@ -6,21 +6,64 @@ enum SceneType {
 }
 
 enum ShapeType {
-  HALF_CIRCLE = 'half-circle.svg',
-  CIRCLE = 'circle.svg',
-  TRIANGLE = 'triangle.svg',
-  SQUARE = 'square.svg',
-  CUT_SQUARE = 'cut-square.svg',
-  PENTAGON = 'pentagon.svg',
-  HEXAGON = 'hexagon.svg',
-  HEPTAGON = 'heptagon.vsg',
-  OCTAGON = 'octagon.svg'
+  HalfCircle = 'half_circle.svg',
+  Circle = 'circle.svg',
+  Triangle = 'triangle.svg',
+  Square = 'square.svg',
+  CutSquare = 'cut_square.svg',
+  Pentagon = 'pentagon.svg',
+  Hexagon = 'hexagon.svg',
+  Heptagon = 'heptagon.vsg',
+  Octagon = 'octagon.svg'
+}
+
+enum IconType {
+  Generic01 = 'icon_generic_01.svg',
+  Generic02 = 'icon_generic_02.svg',
+  Generic03 = 'icon_generic_03.svg',
+  Generic04 = 'icon_generic_04.svg',
+  Generic05 = 'icon_generic_05.svg',
+  Generic06 = 'icon_generic_06.svg',
+  Generic07 = 'icon_generic_07.svg',
+  HappyNewYear01 = 'icon_happy_new_year_01.svg',
+  HappyNewYear02 = 'icon_happy_new_year_02.svg',
+  HappyNewYear03 = 'icon_happy_new_year_03.svg',
+  HappyNewYear04 = 'icon_happy_new_year_04.svg',
+  HappyNewYear05 = 'icon_happy_new_year_05.svg',
+  HappyNewYear06 = 'icon_happy_new_year_06.svg',
+  HappyNewYear07 = 'icon_happy_new_year_07.svg',
+  Occasion01 = 'icon_occasion_01.svg',
+  Occasion02 = 'icon_occasion_02.svg',
+  Occasion03 = 'icon_occasion_03.svg',
+  Occasion04 = 'icon_occasion_04.svg',
+  Occasion05 = 'icon_occasion_05.svg',
+  Occasion06 = 'icon_occasion_06.svg',
+  Occasion07 = 'icon_occasion_07.svg',
+  Xmas01 = 'icon_xmas_01.svg',
+  Xmas02 = 'icon_xmas_02.svg',
+  Xmas03 = 'icon_xmas_03.svg',
+  Xmas04 = 'icon_xmas_04.svg',
+  Xmas05 = 'icon_xmas_05.svg',
+  Xmas06 = 'icon_xmas_06.svg',
+  Xmas07 = 'icon_xmas_07.svg',
+  Xmas08 = 'icon_xmas_08.svg',
+  Xmas09 = 'icon_xmas_09.svg',
+  Xmas010 = 'icon_xmas_10.svg',
+  Xmas011 = 'icon_xmas_11.svg',
+  Xmas012 = 'icon_xmas_12.svg',
+  Xmas013 = 'icon_xmas_13.svg',
+  Xmas014 = 'icon_xmas_14.svg'
 }
 
 enum StageSize {
   SQUARE = 'square',
   MOBILE = 'mobile',
   DESKTOP = 'desktop'
+}
+
+enum ToolbarStatus {
+  SHOW = 'show',
+  HIDE = 'hide'
 }
 
 type ISvgShapeAttribute = {
@@ -33,6 +76,12 @@ type ISvgShapeAttribute = {
   draggable: boolean;
 };
 
-export type { ISvgShapeAttribute };
+type ISvgComponent = React.FunctionComponent<
+  React.SVGProps<SVGSVGElement> & {
+    title?: string;
+  }
+>;
 
-export { SceneType, ShapeType, StageSize };
+export type { ISvgShapeAttribute, ISvgComponent };
+
+export { SceneType, ShapeType, IconType, StageSize, ToolbarStatus };

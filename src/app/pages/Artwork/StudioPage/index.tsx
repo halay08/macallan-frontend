@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Footer } from 'app/components/Footer';
-import { ShapeBox, StageFrame, TextBox } from './components';
+import { ShapeBox, StageFrame, TextBox, IconBox } from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useLocalStorage } from 'utils/localStorage';
 import { useState } from 'react';
@@ -48,6 +48,7 @@ export const StudioPage = () => {
         <StageFrame size={size} />
         {scene === SceneType.SHAPE && <ShapeBox />}
         {scene === SceneType.TEXT && <TextBox />}
+        {scene === SceneType.ICON && <IconBox />}
         <Footer
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}

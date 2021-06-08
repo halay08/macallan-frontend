@@ -4,7 +4,9 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
-import { ShapeType } from 'types/artwork/studio';
+import * as shapes from '../assets/shapes';
+import { ShapeType } from 'types';
+import { DEFAULT_COLOR } from 'config';
 
 export const ShapeBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -36,8 +38,8 @@ export const ShapeBox = () => {
           ctx.restore();
 
           const node = new Konva.Image({
-            x: 60,
-            y: 60,
+            x: stage.width() / 2 - 100,
+            y: stage.height() / 2,
             image: canvas,
             draggable: true
           });
@@ -49,10 +51,10 @@ export const ShapeBox = () => {
     };
 
     if (texture) {
-      textureImage.src = `/assets/textures/${texture}`;
+      textureImage.src = `/assets/textures/img/${texture}`;
     } else {
-      textureImage.src = `/assets/colors/${color.replace('#', '')}.png`;
-      console.log(textureImage.src);
+      const colorFile = color.length === 0 ? DEFAULT_COLOR : color;
+      textureImage.src = `/assets/colors/${colorFile.replace('#', '')}.png`;
     }
   };
 
@@ -81,9 +83,9 @@ export const ShapeBox = () => {
           </strong>
         </div>
         <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
-          {Object.values(ShapeType).map(shape => (
-            <Button key={shape} onClick={() => drawTexture(shape)}>
-              <Shape icon={shape} />
+          {Object.keys(shapes).map(shape => (
+            <Button key={shape} onClick={() => drawTexture(ShapeType[shape])}>
+              <Shape Component={shapes[shape]} />
             </Button>
           ))}
         </div>
