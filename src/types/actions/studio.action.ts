@@ -1,15 +1,23 @@
-import Konva from 'konva';
-export const GET_STAGE = 'GET_STAGE';
+import { IStudioState } from '../reducers/studio';
 export const SET_STAGE = 'SET_STAGE';
-
-export interface GetStageAction {
-  type: typeof GET_STAGE;
-  payload: Konva.Stage;
-}
+export const SET_COLOR = 'SET_COLOR';
+export const SET_TEXTURE = 'SET_TEXTURE';
 
 export interface SetStageAction {
   type: typeof SET_STAGE;
-  payload: Konva.Stage;
+  payload: IStudioState;
 }
 
-export type StudioActionTypes = GetStageAction | SetStageAction;
+export interface SetColorAction {
+  type: typeof SET_COLOR;
+  payload: Pick<IStudioState, 'color'>;
+}
+export interface SetTextureAction {
+  type: typeof SET_TEXTURE;
+  payload: Pick<IStudioState, 'texture'>;
+}
+
+export type StudioActionTypes =
+  | SetColorAction
+  | SetTextureAction
+  | SetStageAction;

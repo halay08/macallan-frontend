@@ -51,7 +51,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run checkTs && lint-staged",
+      "pre-commit": "yarn run checkTs && lint-staged && tsc",
       "prepare-commit-msg": "devmoji -e",
       "commit-msg": "if git-branch-is dev; then commitlint -E HUSKY_GIT_PARAMS; fi"
     }

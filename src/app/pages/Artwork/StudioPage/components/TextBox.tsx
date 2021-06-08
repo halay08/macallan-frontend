@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Konva from 'konva';
 
 export const TextBox = () => {
-  const { stage } = useSelector<AppState, AppState['studio']>(
+  const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
   const [layer, setLayer] = useState(new Konva.Layer());
@@ -27,18 +27,66 @@ export const TextBox = () => {
     }
   }, [stage]);
 
-  const onTextChanged = evt => {
-    const text = evt.target.value.toUpperCase();
+  const drawTexture = (texture: string, text: string) => {
+    var image = new window.Image();
+    image.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      if (ctx) {
+        ctx.save();
+        ctx.beginPath();
+
+        // put text on canvas
+        ctx.font = '180px HhSamuel-E80W';
+        ctx.fillText(text, 60, 130);
+        ctx.fill();
+
+        // use compositing to draw the background image
+        // only where the text has been drawn
+        ctx.beginPath();
+        ctx.globalCompositeOperation = 'source-in';
+        ctx.drawImage(image, 0, 0);
+        ctx.restore();
+
+        const node = new Konva.Image({
+          x: 60,
+          y: 60,
+          image: canvas,
+          draggable: true
+        });
+
+        layer.add(node);
+      }
+    };
+    image.src = `/assets/textures/${texture}`;
+  };
+
+  const drawText = (text: string) => {
     const node = new Konva.Text({
       x: 60,
       y: 60,
       text,
       fontSize: 180,
       fontFamily: 'HhSamuel-E80W',
-      fill: '#ccc',
+      fill: color,
       draggable: true
     });
+
     layer.add(node);
+  };
+
+  const onTextChanged = evt => {
+    const text = evt.target.value.toUpperCase();
+
+    if (texture && texture.length > 0) {
+      drawTexture(texture, text);
+    } else {
+      drawText(text);
+    }
+
+    evt.target.value = '';
+    evt.target.focus();
   };
 
   return (
@@ -49,11 +97,14 @@ export const TextBox = () => {
             STEP 3: PERSONALISE WITH ALPHANUMERIC
           </strong>
         </div>
-        <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
+        <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll relative">
+          <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0">
+            Tap to type a character here
+          </div>
           <TextField
             className="w-screen opacity-0"
             maxLength={1}
-            onChange={evt => onTextChanged(evt)}
+            onKeyUp={evt => onTextChanged(evt)}
           />
         </div>
       </BoxWrapper>

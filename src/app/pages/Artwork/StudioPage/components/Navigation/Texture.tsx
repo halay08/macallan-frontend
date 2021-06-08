@@ -1,9 +1,11 @@
 import styled from 'styled-components/macro';
-import { ReactComponent as Texture1Svg } from '../../assets/textture-1.svg';
-import { ReactComponent as Texture2Svg } from '../../assets/textture-2.svg';
-import { ReactComponent as Texture3Svg } from '../../assets/textture-3.svg';
+import { ReactComponent as Texture1Svg } from '../../assets/textures/texture-1.svg';
+import { ReactComponent as Texture2Svg } from '../../assets/textures/texture-2.svg';
+import { ReactComponent as Texture3Svg } from '../../assets/textures/texture-3.svg';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
+import { setTexture } from 'redux/actions/studio';
+import { useDispatch } from 'react-redux';
 
 enum ToolbarStatus {
   SHOW = 'show',
@@ -12,6 +14,8 @@ enum ToolbarStatus {
 
 export const Texture = () => {
   const [toolbarStatus, setToolbarStatus] = useState(ToolbarStatus.SHOW);
+  const [currentTexture, setCurrentTexture] = useState('');
+  const dispatch = useDispatch();
 
   const togglePicker = () => {
     setToolbarStatus(
@@ -19,6 +23,11 @@ export const Texture = () => {
         ? ToolbarStatus.HIDE
         : ToolbarStatus.SHOW
     );
+  };
+
+  const pickTexture = (texture: string) => {
+    setCurrentTexture(texture);
+    dispatch(setTexture({ texture }));
   };
 
   return (
@@ -45,9 +54,30 @@ export const Texture = () => {
           toolbarStatus === ToolbarStatus.HIDE ? ' p-0' : ' p-2 pb-0'
         }`}
       >
-        <Texture1Svg className="rounded-full w-5 h-5 block mb-2 border border-solid border-gray-light" />
-        <Texture2Svg className="rounded-full w-5 h-5 block mb-2 border border-solid border-gray-light" />
-        <Texture3Svg className="rounded-full w-5 h-5 block mb-2 border border-solid border-gray-light" />
+        <Button
+          className={`${
+            currentTexture === 'texture-1.svg' ? 'active ' : ''
+          } group w-5 h-5 mb-2 block`}
+          onClick={() => pickTexture('texture-1.jpg')}
+        >
+          <Texture1Svg className="rounded-full w-5 h-5 block border border-solid border-gray-light" />
+        </Button>
+        <Button
+          className={`${
+            currentTexture === 'texture-2.svg' ? 'active ' : ''
+          } group w-5 h-5 mb-2 block`}
+          onClick={() => pickTexture('texture-2.jpg')}
+        >
+          <Texture2Svg className="rounded-full w-5 h-5 block border border-solid border-gray-light" />
+        </Button>
+        <Button
+          className={`${
+            currentTexture === 'texture-3.svg' ? 'active ' : ''
+          } group w-5 h-5 mb-2 block`}
+          onClick={() => pickTexture('texture-3.jpg')}
+        >
+          <Texture3Svg className="rounded-full w-5 h-5 block border border-solid border-gray-light" />
+        </Button>
       </Container>
     </Wrapper>
   );

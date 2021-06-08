@@ -1,27 +1,39 @@
-import { Studio } from 'types/reducers';
-import { GET_STAGE, SET_STAGE, StudioActionTypes } from 'types/actions';
+import { IStudioState } from 'types/reducers';
+import {
+  SET_STAGE,
+  SET_COLOR,
+  SET_TEXTURE,
+  StudioActionTypes
+} from 'types/actions';
 
-const initialState: Studio = {
-  stage: {} as any
+const initialState: IStudioState = {
+  stage: {} as any,
+  color: '',
+  texture: ''
 };
 
 const StudioReducer = (
   state = initialState,
   action: StudioActionTypes
-): Studio => {
+): IStudioState => {
   switch (action.type) {
-    case GET_STAGE:
-      return {
-        ...state,
-        stage: action.payload
-      };
-
     case SET_STAGE:
       return {
         ...state,
-        stage: action.payload
+        stage: action.payload.stage,
+        color: action.payload.color,
+        texture: action.payload.texture
       };
-
+    case SET_COLOR:
+      return {
+        ...state,
+        color: action.payload.color
+      };
+    case SET_TEXTURE:
+      return {
+        ...state,
+        texture: action.payload.texture
+      };
     default:
       return state;
   }

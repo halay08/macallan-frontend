@@ -33,7 +33,7 @@ export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
       name: 'studio'
     });
 
-    dispatch(setStage(stage));
+    dispatch(setStage({ stage, color: '', texture: '' }));
   }, [stageWidth, stageHeight, dispatch]);
 
   return (

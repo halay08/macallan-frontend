@@ -1,7 +1,9 @@
 import styled from 'styled-components/macro';
-import { pickerColors } from 'config/studio';
+import { pickerColors, DEFAULT_COLOR } from 'config/studio';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
+import { setColor, setTexture } from 'redux/actions/studio';
+import { useDispatch } from 'react-redux';
 
 enum ToolbarStatus {
   SHOW = 'show',
@@ -10,6 +12,8 @@ enum ToolbarStatus {
 
 export const ColorPicker = () => {
   const [toolbarStatus, setToolbarStatus] = useState(ToolbarStatus.SHOW);
+  const [currentColor, setCurrentColor] = useState(DEFAULT_COLOR);
+  const dispatch = useDispatch();
 
   const togglePicker = () => {
     setToolbarStatus(
@@ -17,6 +21,12 @@ export const ColorPicker = () => {
         ? ToolbarStatus.HIDE
         : ToolbarStatus.SHOW
     );
+  };
+
+  const pickColor = (color: string) => {
+    setCurrentColor(color);
+    dispatch(setColor({ color }));
+    dispatch(setTexture({ texture: '' }));
   };
 
   return (
@@ -31,11 +41,18 @@ export const ColorPicker = () => {
         }`}
       >
         {pickerColors.map(color => (
-          <span
+          <Button
             key={color}
-            className="rounded-full w-5 h-5 block mb-2 border border-solid border-gray-light"
-            style={{ backgroundColor: color }}
-          ></span>
+            onClick={() => pickColor(color)}
+            className={`${
+              currentColor === color ? 'active ' : ''
+            } group w-5 h-5 mb-2 block`}
+          >
+            <span
+              className="rounded-full w-5 h-5 block border border-solid border-gray-light"
+              style={{ backgroundColor: color }}
+            ></span>
+          </Button>
         ))}
       </Container>
       <ChevronLeftWrapper className="h-10 bg-white rounded-r-md flex flex-col items-center justify-center border border-solid border-gray-light border-l-0">

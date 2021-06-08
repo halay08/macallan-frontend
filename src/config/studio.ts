@@ -9,3 +9,5 @@ export const pickerColors = [
   '#000000',
   '#FFFFFF'
 ];
+
+export const DEFAULT_COLOR = '#DBDAD7';
