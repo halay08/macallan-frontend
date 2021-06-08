@@ -1,14 +1,22 @@
 import { Helmet } from 'react-helmet-async';
 import { Footer } from 'app/components/Footer';
-import { ShapeBox, StageFrame, TextBox, IconBox } from './components';
+import {
+  ShapeBox,
+  StageFrame,
+  TextBox,
+  IconBox,
+  BottleBox
+} from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useLocalStorage } from 'utils/localStorage';
 import { useState } from 'react';
 import { SceneType, StageSize } from 'types/artwork/studio';
+import { useHistory } from 'react-router-dom';
 
 export const StudioPage = () => {
   const [size] = useLocalStorage('stageSize', StageSize.SQUARE);
   const [scene, setScene] = useState(SceneType.SHAPE);
+  const history = useHistory();
 
   const nextButtonHandler = () => {
     switch (scene) {
@@ -26,6 +34,9 @@ export const StudioPage = () => {
 
   const prevButtonHandler = () => {
     switch (scene) {
+      case SceneType.SHAPE:
+        history.push('/artwork/format');
+        break;
       case SceneType.TEXT:
         setScene(SceneType.SHAPE);
         break;
@@ -49,6 +60,7 @@ export const StudioPage = () => {
         {scene === SceneType.SHAPE && <ShapeBox />}
         {scene === SceneType.TEXT && <TextBox />}
         {scene === SceneType.ICON && <IconBox />}
+        {scene === SceneType.BOTTLE && <BottleBox />}
         <Footer
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}

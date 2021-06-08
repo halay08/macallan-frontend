@@ -17,6 +17,12 @@ enum ShapeType {
   Octagon = 'octagon.svg'
 }
 
+enum BottleType {
+  Bottle01 = 'bottle_01.png',
+  Bottle02 = 'bottle_02.png',
+  Bottle03 = 'bottle_03.png'
+}
+
 enum IconType {
   Generic01 = 'icon_generic_01.svg',
   Generic02 = 'icon_generic_02.svg',
@@ -84,4 +90,4 @@ type ISvgComponent = React.FunctionComponent<
 
 export type { ISvgShapeAttribute, ISvgComponent };
 
-export { SceneType, ShapeType, IconType, StageSize, ToolbarStatus };
+export { SceneType, ShapeType, IconType, BottleType, StageSize, ToolbarStatus };

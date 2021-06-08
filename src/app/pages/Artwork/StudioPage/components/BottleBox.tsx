@@ -1,43 +1,44 @@
 import styled from 'styled-components/macro';
-import { Icon } from './Icon';
+import { Bottle } from './Bottle';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
-import * as icons from '../assets/icons';
-import { IconType } from 'types';
+import * as bottles from '../assets/bottles';
+import { BottleType } from 'types';
 import { DEFAULT_COLOR } from 'config';
 import { createImageNode, getCanvas } from 'app/helpers';
 
-export const IconBox = () => {
+export const BottleBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
   const [layer, setLayer] = useState(new Konva.Layer());
   const [, setTransformer] = useState(new Konva.Transformer());
 
-  const drawIcon = (icon: string) => {
+  const drawBottle = (bottle: string) => {
     const canvas = getCanvas(stage);
     const ctx = canvas.getContext('2d');
 
-    const iconImage = new window.Image();
-    iconImage.onload = () => {
+    const bottleImage = new window.Image();
+    bottleImage.onload = () => {
       if (ctx) {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(iconImage, 0, 0, 60, 60);
+        ctx.drawImage(bottleImage, 0, 0, 55, 206);
 
         const node = createImageNode(stage, canvas);
         layer.add(node);
       }
     };
-    iconImage.src = `/assets/icons/svg/${icon}`;
+    bottleImage.src = `/assets/bottles/${bottle}`;
+    console.log(bottleImage.src);
   };
 
-  const drawTexture = (icon: string) => {
+  const drawTexture = (bottle: string) => {
     if (color.length === 0 && texture.length === 0) {
-      return drawIcon(icon);
+      return drawBottle(bottle);
     }
 
     const textureImage = new window.Image();
@@ -48,11 +49,11 @@ export const IconBox = () => {
       if (ctx) {
         ctx.save();
 
-        const iconImage = new window.Image();
-        iconImage.onload = () => {
+        const bottleImage = new window.Image();
+        bottleImage.onload = () => {
           ctx.beginPath();
           // put image on canvas
-          ctx.drawImage(iconImage, 0, 0, 60, 60);
+          ctx.drawImage(bottleImage, 0, 0, 55, 206);
 
           // use compositing to draw the background image
           // only where the text has been drawn
@@ -64,7 +65,7 @@ export const IconBox = () => {
           const node = createImageNode(stage, canvas);
           layer.add(node);
         };
-        iconImage.src = `/assets/icons/svg/${icon}`;
+        bottleImage.src = `/assets/bottles/${bottle}`;
       }
     };
 
@@ -92,33 +93,22 @@ export const IconBox = () => {
     }
   }, [stage]);
 
-  const iconKeys = Object.keys(icons);
-  const half = Math.ceil(iconKeys.length / 2);
-  const firstHalf = iconKeys.slice(0, half);
-  const secondHalf = iconKeys.slice(-half + 1);
+  const bottleKeys = Object.keys(bottles);
 
   return (
     <Wrapper className="fixed bg-white">
-      <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
+      <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid">
         <div className="grid text-center mb-5 font-serif">
-          <strong className="font-medium text-tiny">STEP 4: ADD ICONS</strong>
+          <strong className="font-medium text-tiny">STEP 4: ADD BOTTLE</strong>
         </div>
-        <div className="flex flex-nowrap flex-row justify-between gap-7 pl-4 pr-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
-          {firstHalf.map((icon, index) => (
-            <div key={icon}>
-              <Button onClick={() => drawTexture(IconType[icon])}>
-                <Icon src={icons[icon]} />
-              </Button>
-              {secondHalf[index] && (
-                <Button
-                  className="mt-2"
-                  onClick={() => drawTexture(IconType[secondHalf[index]])}
-                >
-                  <Icon src={icons[secondHalf[index]]} />
-                </Button>
-              )}
-              {secondHalf[index] === undefined && <div />}
-            </div>
+        <div className="flex flex-nowrap flex-row items-center justify-center gap-8 pl-4 pr-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
+          {bottleKeys.map(bottle => (
+            <Button
+              key={bottle}
+              onClick={() => drawTexture(BottleType[bottle])}
+            >
+              <Bottle src={bottles[bottle]} />
+            </Button>
           ))}
         </div>
       </BoxWrapper>

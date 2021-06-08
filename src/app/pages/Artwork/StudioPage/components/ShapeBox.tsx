@@ -7,6 +7,7 @@ import Konva from 'konva';
 import * as shapes from '../assets/shapes';
 import { ShapeType } from 'types';
 import { DEFAULT_COLOR } from 'config';
+import { createImageNode, getCanvas } from 'app/helpers';
 
 export const ShapeBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -16,19 +17,19 @@ export const ShapeBox = () => {
   const [, setTransformer] = useState(new Konva.Transformer());
 
   const drawTexture = (shape: string) => {
-    var textureImage = new window.Image();
+    const textureImage = new window.Image();
     textureImage.onload = () => {
-      const canvas = document.createElement('canvas');
+      const canvas = getCanvas(stage);
       const ctx = canvas.getContext('2d');
 
       if (ctx) {
         ctx.save();
 
-        var shapeImage = new window.Image();
+        const shapeImage = new window.Image();
         shapeImage.onload = () => {
           ctx.beginPath();
           // put image on canvas
-          ctx.drawImage(shapeImage, 0, 0, 160, 160);
+          ctx.drawImage(shapeImage, 0, 0, 150, 150);
 
           // use compositing to draw the background image
           // only where the text has been drawn
@@ -37,13 +38,7 @@ export const ShapeBox = () => {
           ctx.drawImage(textureImage, 0, 0);
           ctx.restore();
 
-          const node = new Konva.Image({
-            x: stage.width() / 2 - 100,
-            y: stage.height() / 2,
-            image: canvas,
-            draggable: true
-          });
-
+          const node = createImageNode(stage, canvas);
           layer.add(node);
         };
         shapeImage.src = `/assets/shapes/svg/${shape}`;

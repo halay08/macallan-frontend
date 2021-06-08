@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { DEFAULT_COLOR } from 'config';
+import { getCanvas, createImageNode } from 'app/helpers';
 
 export const TextBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -31,7 +32,7 @@ export const TextBox = () => {
   const drawTexture = (texture: string, text: string) => {
     var image = new window.Image();
     image.onload = () => {
-      const canvas = document.createElement('canvas');
+      const canvas = getCanvas(stage);
       const ctx = canvas.getContext('2d');
 
       if (ctx) {
@@ -50,13 +51,7 @@ export const TextBox = () => {
         ctx.drawImage(image, 0, 0);
         ctx.restore();
 
-        const node = new Konva.Image({
-          x: stage.width() / 2 - 100,
-          y: stage.height() / 2,
-          image: canvas,
-          draggable: true
-        });
-
+        const node = createImageNode(stage, canvas);
         setTimeout(() => layer.add(node), 1000);
       }
     };
