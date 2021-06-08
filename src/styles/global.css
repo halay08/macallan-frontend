@@ -14,25 +14,26 @@
 
 @font-face {
   font-family: 'AGaramondPro-Bold';
-  src: local('AGaramondPro-Bold'),
+  src: url(styles/fonts/AGaramondPro-Bold.otf),
     url(styles/fonts/AGaramondPro-Bold.otf) format('otf');
 }
 
 @font-face {
   font-family: 'AGaramondPro-Regular';
-  src: local('AGaramondPro-Regular'),
+  src: url(styles/fonts/AGaramondPro-Regular.otf),
     url(styles/fonts/AGaramondPro-Regular.otf) format('otf');
 }
 
 @font-face {
   font-family: 'DIN-Alternate-Bold';
-  src: local('DIN-Alternate-Bold'),
+  src: url(styles/fonts/DIN-Alternate-Bold.ttf),
     url(styles/fonts/DIN-Alternate-Bold.ttf) format('ttf');
 }
 
 @font-face {
   font-family: 'HhSamuel-E80W';
-  src: local('HhSamuel-E80W'), url(styles/fonts/HhSamuel-E80W.ttf) format('ttf');
+  src: url(styles/fonts/HhSamuel-E80W.ttf),
+    url(styles/fonts/HhSamuel-E80W.ttf) format('ttf');
 }
 
 @layer utilities {
