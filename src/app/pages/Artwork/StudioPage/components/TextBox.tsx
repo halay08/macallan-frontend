@@ -52,7 +52,7 @@ export const TextBox = () => {
         ctx.restore();
 
         const node = createImageNode(stage, canvas);
-        setTimeout(() => layer.add(node), 1000);
+        setTimeout(() => layer.add(node), 2000);
       }
     };
     image.src = `/assets/textures/img/${texture}`;
@@ -69,7 +69,7 @@ export const TextBox = () => {
       draggable: true
     });
 
-    setTimeout(() => layer.add(node), 1000);
+    setTimeout(() => layer.add(node), 2000);
   };
 
   const onTextChanged = evt => {
