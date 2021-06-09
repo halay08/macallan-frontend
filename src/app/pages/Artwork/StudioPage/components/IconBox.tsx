@@ -8,6 +8,8 @@ import * as icons from '../assets/icons';
 import { IconType } from 'types';
 import { DEFAULT_COLOR } from 'config';
 import { createImageNode, getCanvas } from 'app/helpers';
+import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
+import { useDispatch } from 'react-redux';
 
 export const IconBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -15,11 +17,13 @@ export const IconBox = () => {
   );
   const [layer, setLayer] = useState(new Konva.Layer());
   const [, setTransformer] = useState(new Konva.Transformer());
+  const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
     const canvas = getCanvas(stage);
     const ctx = canvas.getContext('2d');
 
+    dispatch(fetchStart());
     const iconImage = new window.Image();
     iconImage.onload = () => {
       if (ctx) {
@@ -31,6 +35,10 @@ export const IconBox = () => {
         const node = createImageNode(stage, canvas);
         layer.add(node);
       }
+      dispatch(fetchSuccess());
+    };
+    iconImage.onerror = error => {
+      dispatch(fetchError(error as string));
     };
     iconImage.src = `/assets/icons/svg/${icon}`;
   };
@@ -63,6 +71,9 @@ export const IconBox = () => {
 
           const node = createImageNode(stage, canvas);
           layer.add(node);
+        };
+        iconImage.onerror = error => {
+          dispatch(fetchError(error as string));
         };
         iconImage.src = `/assets/icons/svg/${icon}`;
       }
@@ -107,14 +118,14 @@ export const IconBox = () => {
           {firstHalf.map((icon, index) => (
             <div key={icon}>
               <Button
-                className="mr-7"
+                className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
                 onClick={() => drawTexture(IconType[icon])}
               >
                 <Icon src={icons[icon]} />
               </Button>
               {secondHalf[index] && (
                 <Button
-                  className="mt-2"
+                  className="p-1 focus:outline-none focus:shadow-md active:shadow-md"
                   onClick={() => drawTexture(IconType[secondHalf[index]])}
                 >
                   <Icon src={icons[secondHalf[index]]} />
@@ -137,4 +148,6 @@ const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;
   border-top: 1px solid #bbb;
 `;
-const Button = styled.button``;
+const Button = styled.button`
+  height: fit-content;
+`;

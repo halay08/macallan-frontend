@@ -15,9 +15,15 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { FormatPage, InstructionPage, StudioPage } from './pages';
+import { Loader } from 'app/components/Loader';
+import { AppState } from 'redux/store';
+import { useSelector } from 'react-redux';
 
 export function App() {
   const { i18n } = useTranslation();
+  const { loading } = useSelector<AppState, AppState['common']>(
+    ({ common }) => common
+  );
   return (
     <BrowserRouter>
       <Helmet
@@ -28,25 +34,31 @@ export function App() {
         <meta name="description" content="A React SPA application" />
       </Helmet>
 
-      <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
-        <Route
-          exact
-          path={process.env.PUBLIC_URL + '/artwork/format'}
-          component={FormatPage}
-        />
-        <Route
-          exact
-          path={process.env.PUBLIC_URL + '/artwork/instruction'}
-          component={InstructionPage}
-        />
-        <Route
-          exact
-          path={process.env.PUBLIC_URL + '/artwork/studio'}
-          component={StudioPage}
-        />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Loader isLoading={loading}>
+        <Switch>
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/'}
+            component={HomePage}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/artwork/format'}
+            component={FormatPage}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/artwork/instruction'}
+            component={InstructionPage}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/artwork/studio'}
+            component={StudioPage}
+          />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Loader>
       <GlobalStyle />
     </BrowserRouter>
   );
