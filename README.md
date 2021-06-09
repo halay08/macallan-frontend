@@ -17,20 +17,34 @@ $ yarn && yarn start
 
 ### Call a function using Firebase SDK
 
->The Cloud Functions for Firebase client SDKs let you call functions directly from a Firebase app. [Learn more](https://firebase.google.com/docs/functions/callable).
+Create a Firebase-callable-function class in `src/@crema/services/functions`
 
 ```ts
-import { functions } from '@app/config';
+import HttpsCallable from '../httpsCallable';
 
-var testFirestoreCreate = functions.httpsCallable('testFirestoreCreate');
-    //For the testFirestoreCreate we have defined that testFirestoreCreate takes some data as a parameter
-    testFirestoreCreate({
-        email: 'halay08@gmail.com'
-        firstName: '<User first name>',
-        lastName: '<User last name>',
-        country: '<A optional field>',
-        region: '<A optional field>',
-})
+export class ArtworkService extends HttpsCallable {
+  async createArtwork(data) {
+    const artwork = await this.callHttpsCallable('createArtwork', data);
+    return artwork;
+  }
+
+  /**
+   * Get all artwork with options
+   * @param options options to get artworks. Options contain:
+   *  limit: maximum result returned
+   *  startAfter: id of last document
+   *  withTrashed: true || false
+   *  status: in_review || approved || rejected
+   *  createdBy: id of created user
+   *  orderBy: Array of { field, order: asc | desc }
+   *
+   * @returns list of artworks
+   */
+  async getArtworks(options = {}) {
+    const artworks = await this.callHttpsCallable('getArtworks', options);
+    return artworks;
+  }
+}
 ```
 
 ## Troubleshooting
