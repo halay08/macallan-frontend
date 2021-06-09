@@ -44,4 +44,26 @@ export class ArtworkService extends HttpsCallable {
     });
     return artworks;
   }
+
+  /**
+   * Approve artwork
+   * @param id artwork id
+   *
+   * @returns updated artwork
+   */
+  async approveArtwork(id = '') {
+    const artwork = await this.callHttpsCallable('approveArtwork', id);
+    return artwork;
+  }
+
+  /**
+   * Reject artwork
+   * @param id artwork id
+   *
+   * @returns updated artwork
+   */
+  async rejectArtwork(id = '') {
+    const artwork = await this.callHttpsCallable('rejectArtwork', id);
+    return artwork;
+  }
 }
