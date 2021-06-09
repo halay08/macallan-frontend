@@ -6,6 +6,11 @@ export class ArtworkService extends HttpsCallable {
     return artwork;
   }
 
+  async getArtworkById(id) {
+    const artwork = await this.callHttpsCallable('getArtworkById', { id });
+    return artwork;
+  }
+
   /**
    * Get all artwork with options
    * @param options options to get artworks. Options contain:
