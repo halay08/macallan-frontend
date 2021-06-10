@@ -8,6 +8,8 @@ import * as bottles from '../assets/bottles';
 import { BottleType } from 'types';
 import { DEFAULT_COLOR } from 'config';
 import { createImageNode, getCanvas } from 'app/helpers';
+import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
+import { useDispatch } from 'react-redux';
 
 export const BottleBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -15,11 +17,13 @@ export const BottleBox = () => {
   );
   const [layer, setLayer] = useState(new Konva.Layer());
   const [, setTransformer] = useState(new Konva.Transformer());
+  const dispatch = useDispatch();
 
   const drawBottle = (bottle: string) => {
     const canvas = getCanvas(stage);
     const ctx = canvas.getContext('2d');
 
+    dispatch(fetchStart());
     const bottleImage = new window.Image();
     bottleImage.onload = () => {
       if (ctx) {
@@ -31,6 +35,10 @@ export const BottleBox = () => {
         const node = createImageNode(stage, canvas);
         layer.add(node);
       }
+      dispatch(fetchSuccess());
+    };
+    bottleImage.onerror = error => {
+      dispatch(fetchError(error as string));
     };
     bottleImage.src = `/assets/bottles/${bottle}`;
     console.log(bottleImage.src);
@@ -104,7 +112,7 @@ export const BottleBox = () => {
         <div className="flex flex-nowrap flex-row items-center justify-center pl-4 pr-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
           {bottleKeys.map(bottle => (
             <Button
-              className="ml-4 mr-4"
+              className="p-4 focus:outline-none focus:shadow-md active:shadow-md"
               key={bottle}
               onClick={() => drawTexture(BottleType[bottle])}
             >
@@ -125,4 +133,6 @@ const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;
   border-top: 1px solid #bbb;
 `;
-const Button = styled.button``;
+const Button = styled.button`
+  height: fit-content;
+`;

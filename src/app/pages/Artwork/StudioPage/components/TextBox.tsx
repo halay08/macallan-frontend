@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { DEFAULT_COLOR } from 'config';
 import { getCanvas, createImageNode } from 'app/helpers';
+import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
+import { useDispatch } from 'react-redux';
 
 export const TextBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -12,6 +14,7 @@ export const TextBox = () => {
   );
   const [layer, setLayer] = useState(new Konva.Layer());
   const [, setTransformer] = useState(new Konva.Transformer());
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (stage.name !== undefined) {
@@ -31,6 +34,7 @@ export const TextBox = () => {
 
   const drawTexture = (texture: string, text: string) => {
     var image = new window.Image();
+    dispatch(fetchStart());
     image.onload = () => {
       const canvas = getCanvas(stage);
       const ctx = canvas.getContext('2d');
@@ -54,6 +58,10 @@ export const TextBox = () => {
         const node = createImageNode(stage, canvas);
         setTimeout(() => layer.add(node), 2000);
       }
+      dispatch(fetchSuccess());
+    };
+    image.onerror = error => {
+      dispatch(fetchError(error as string));
     };
     image.src = `/assets/textures/img/${texture}`;
   };
@@ -68,8 +76,11 @@ export const TextBox = () => {
       fill: color ? color : DEFAULT_COLOR,
       draggable: true
     });
-
-    setTimeout(() => layer.add(node), 2000);
+    dispatch(fetchStart());
+    setTimeout(() => {
+      layer.add(node);
+      dispatch(fetchSuccess());
+    }, 2000);
   };
 
   const onTextChanged = evt => {

@@ -8,6 +8,8 @@ import * as shapes from '../assets/shapes';
 import { ShapeType } from 'types';
 import { DEFAULT_COLOR } from 'config';
 import { createImageNode, getCanvas } from 'app/helpers';
+import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
+import { useDispatch } from 'react-redux';
 
 export const ShapeBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
@@ -15,6 +17,7 @@ export const ShapeBox = () => {
   );
   const [layer, setLayer] = useState(new Konva.Layer());
   const [, setTransformer] = useState(new Konva.Transformer());
+  const dispatch = useDispatch();
 
   const drawTexture = (shape: string) => {
     const textureImage = new window.Image();
@@ -24,7 +27,7 @@ export const ShapeBox = () => {
 
       if (ctx) {
         ctx.save();
-
+        dispatch(fetchStart());
         const shapeImage = new window.Image();
         shapeImage.onload = () => {
           ctx.beginPath();
@@ -40,6 +43,10 @@ export const ShapeBox = () => {
 
           const node = createImageNode(stage, canvas);
           layer.add(node);
+          dispatch(fetchSuccess());
+        };
+        shapeImage.onerror = error => {
+          dispatch(fetchError(error as string));
         };
         shapeImage.src = `/assets/shapes/svg/${shape}`;
       }
@@ -80,7 +87,7 @@ export const ShapeBox = () => {
         <div className="flex flex-nowrap scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
           {Object.keys(shapes).map(shape => (
             <Button
-              className="mr-4"
+              className="p-2 focus:outline-none focus:shadow-md active:shadow-md"
               key={shape}
               onClick={() => drawTexture(ShapeType[shape])}
             >
@@ -101,4 +108,6 @@ const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;
   border-top: 1px solid #bbb;
 `;
-const Button = styled.button``;
+const Button = styled.button`
+  height: fit-content;
+`;
