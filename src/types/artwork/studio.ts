@@ -64,7 +64,8 @@ enum IconType {
 enum StageSize {
   SQUARE = 'square',
   MOBILE = 'mobile',
-  DESKTOP = 'desktop'
+  DESKTOP = 'desktop',
+  UNDEFINED = ''
 }
 
 enum ToolbarStatus {

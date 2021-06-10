@@ -1,15 +1,26 @@
 import styled from 'styled-components/macro';
-import { StageSize } from 'types/artwork/studio';
-import { useLocalStorage } from 'utils/localStorage';
-import { useHistory } from 'react-router-dom';
+import { StageSize } from 'types';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFormat } from 'redux/actions';
+import { AppState } from 'redux/store';
+import { useEffect } from 'react';
 
 export const SizeBox = () => {
-  const history = useHistory();
-  const [, setStageSize] = useLocalStorage('stageSize', StageSize.SQUARE);
+  const selectedFormat = useSelector<AppState, AppState['format']>(
+    ({ format }) => format
+  );
+  const dispatch = useDispatch();
+  const refs = {};
+
+  useEffect(() => {
+    if (!selectedFormat) return;
+
+    (refs[selectedFormat] as any).focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedFormat]);
 
   const storeStageSize = (size: StageSize) => {
-    setStageSize(size);
-    history.push('/artwork/studio');
+    dispatch(setFormat(size));
   };
 
   return (
@@ -23,6 +34,7 @@ export const SizeBox = () => {
         <div className="grid grid-cols-3 items-end text-center">
           <div className="group">
             <Square
+              ref={e => (refs[StageSize.SQUARE] = e)}
               onClick={() => storeStageSize(StageSize.SQUARE)}
               className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
             ></Square>
@@ -30,6 +42,7 @@ export const SizeBox = () => {
           </div>
           <div className="group">
             <Mobile
+              ref={e => (refs[StageSize.MOBILE] = e)}
               onClick={() => storeStageSize(StageSize.MOBILE)}
               className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
             ></Mobile>
@@ -37,6 +50,7 @@ export const SizeBox = () => {
           </div>
           <div className="group">
             <Desktop
+              ref={e => (refs[StageSize.DESKTOP] = e)}
               onClick={() => storeStageSize(StageSize.DESKTOP)}
               className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
             ></Desktop>

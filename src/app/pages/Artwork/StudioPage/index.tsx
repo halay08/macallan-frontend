@@ -8,15 +8,18 @@ import {
   BottleBox
 } from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
-import { useLocalStorage } from 'utils/localStorage';
-import { useState } from 'react';
-import { SceneType, StageSize } from 'types/artwork/studio';
+import { useEffect, useState } from 'react';
+import { SceneType } from 'types/artwork/studio';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setColor, setTexture } from 'redux/actions/studio';
+import { AppState } from 'redux/store';
+import { useSelector } from 'react-redux';
 
 export const StudioPage = () => {
-  const [size] = useLocalStorage('stageSize', StageSize.SQUARE);
+  const size = useSelector<AppState, AppState['format']>(
+    ({ format }) => format
+  );
   const [scene, setScene] = useState(SceneType.SHAPE);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -25,6 +28,10 @@ export const StudioPage = () => {
     dispatch(setColor({ color: '' }));
     dispatch(setTexture({ texture: '' }));
   };
+
+  useEffect(() => {
+    if (!size) history.goBack();
+  }, [size, history]);
 
   const nextButtonHandler = () => {
     // Reset selected color/texture.

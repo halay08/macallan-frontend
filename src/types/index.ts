@@ -1,4 +1,11 @@
-import { CommonActionTypes, StudioActionTypes } from './actions';
+import {
+  CommonActionTypes,
+  FormatActionTypes,
+  StudioActionTypes
+} from './actions';
 export * from './artwork';
 
-export type AppActions = CommonActionTypes | StudioActionTypes;
+export type AppActions =
+  | CommonActionTypes
+  | StudioActionTypes
+  | FormatActionTypes;

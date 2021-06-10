@@ -8,6 +8,8 @@ interface PageWrapperProps {
   hasFooter?: boolean;
   showPrevButton?: boolean;
   showNextButton?: boolean;
+  nextButtonHandler?: Function;
+  prevButtonHandler?: Function;
 }
 
 export const PageWrapper: React.FC<PageWrapperProps> = ({
@@ -15,7 +17,9 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
   hasHeader = true,
   hasFooter = true,
   showPrevButton = true,
-  showNextButton = true
+  showNextButton = true,
+  nextButtonHandler,
+  prevButtonHandler
 }) => {
   return (
     <div className="box-border">
@@ -24,6 +28,8 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
         <section>{children}</section>
         {hasFooter && (
           <Footer
+            nextButtonHandler={nextButtonHandler}
+            prevButtonHandler={prevButtonHandler}
             showNextButton={showNextButton}
             showPrevButton={showPrevButton}
           />
