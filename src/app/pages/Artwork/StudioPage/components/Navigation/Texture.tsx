@@ -57,11 +57,11 @@ export const Texture = () => {
       >
         <Button
           className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
-          onClick={() => pickTexture('texture_01.jpg')}
+          onClick={() => pickTexture('texture_01.png')}
         >
           <Texture01Svg
             className={`${
-              currentTexture === 'texture_01.jpg'
+              currentTexture === 'texture_01.png'
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
             } rounded-full w-5 h-5 block`}
@@ -69,11 +69,11 @@ export const Texture = () => {
         </Button>
         <Button
           className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
-          onClick={() => pickTexture('texture_02.jpg')}
+          onClick={() => pickTexture('texture_02.png')}
         >
           <Texture02Svg
             className={`${
-              currentTexture === 'texture_02.jpg'
+              currentTexture === 'texture_02.png'
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
             } rounded-full w-5 h-5 block`}
@@ -81,11 +81,11 @@ export const Texture = () => {
         </Button>
         <Button
           className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
-          onClick={() => pickTexture('texture_03.jpg')}
+          onClick={() => pickTexture('texture_03.png')}
         >
           <Texture03Svg
             className={`${
-              currentTexture === 'texture_03.jpg'
+              currentTexture === 'texture_03.png'
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
             } rounded-full w-5 h-5 block`}
