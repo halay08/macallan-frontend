@@ -12,13 +12,24 @@ import { useLocalStorage } from 'utils/localStorage';
 import { useState } from 'react';
 import { SceneType, StageSize } from 'types/artwork/studio';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setColor, setTexture } from 'redux/actions/studio';
 
 export const StudioPage = () => {
   const [size] = useLocalStorage('stageSize', StageSize.SQUARE);
   const [scene, setScene] = useState(SceneType.SHAPE);
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const resetSelectedStyles = () => {
+    dispatch(setColor({ color: '' }));
+    dispatch(setTexture({ texture: '' }));
+  };
 
   const nextButtonHandler = () => {
+    // Reset selected color/texture.
+    resetSelectedStyles();
+
     switch (scene) {
       case SceneType.SHAPE:
         setScene(SceneType.TEXT);
@@ -33,6 +44,9 @@ export const StudioPage = () => {
   };
 
   const prevButtonHandler = () => {
+    // Reset selected color/texture.
+    resetSelectedStyles();
+
     switch (scene) {
       case SceneType.SHAPE:
         history.push('/artwork/format');

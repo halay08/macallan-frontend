@@ -4,13 +4,16 @@ import { ReactComponent as Texture02Svg } from '../../assets/textures/svg/textur
 import { ReactComponent as Texture03Svg } from '../../assets/textures/svg/texture_03.svg';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
-import { setTexture } from 'redux/actions/studio';
-import { useDispatch } from 'react-redux';
+import { setColor, setTexture } from 'redux/actions/studio';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToolbarStatus } from 'types';
+import { AppState } from 'redux/store';
 
 export const Texture = () => {
   const [toolbarStatus, setToolbarStatus] = useState(ToolbarStatus.SHOW);
-  const [currentTexture, setCurrentTexture] = useState('');
+  const { texture: currentTexture } = useSelector<AppState, AppState['studio']>(
+    ({ studio }) => studio
+  );
   const dispatch = useDispatch();
 
   const togglePicker = () => {
@@ -23,11 +26,10 @@ export const Texture = () => {
 
   const pickTexture = (texture: string) => {
     if (texture === currentTexture) {
-      setCurrentTexture('');
       dispatch(setTexture({ texture: '' }));
     } else {
-      setCurrentTexture(texture);
       dispatch(setTexture({ texture }));
+      dispatch(setColor({ color: '' }));
     }
   };
 

@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as bottles from '../assets/bottles';
 import { BottleType } from 'types';
-import { DEFAULT_COLOR } from 'config';
-import { createImageNode, getCanvas } from 'app/helpers';
+import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
+import { createImageNode, getCanvas, selectObject } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
 
@@ -15,12 +15,14 @@ export const BottleBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
+  const [width] = useState(55);
+  const [height] = useState(206);
   const [layer, setLayer] = useState(new Konva.Layer());
-  const [, setTransformer] = useState(new Konva.Transformer());
+  const [transformer, setTransformer] = useState(new Konva.Transformer());
   const dispatch = useDispatch();
 
   const drawBottle = (bottle: string) => {
-    const canvas = getCanvas(stage);
+    const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
 
     dispatch(fetchStart());
@@ -30,10 +32,14 @@ export const BottleBox = () => {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(bottleImage, 0, 0, 55, 206);
+        ctx.drawImage(bottleImage, 0, 0, width, height);
 
         const node = createImageNode(stage, canvas);
         layer.add(node);
+
+        // by default select all shapes
+        transformer.nodes([node]);
+        selectObject(stage, transformer);
       }
       dispatch(fetchSuccess());
     };
@@ -51,7 +57,7 @@ export const BottleBox = () => {
 
     const textureImage = new window.Image();
     textureImage.onload = () => {
-      const canvas = getCanvas(stage);
+      const canvas = getCanvas(stage, { width, height });
       const ctx = canvas.getContext('2d');
 
       if (ctx) {
@@ -61,7 +67,7 @@ export const BottleBox = () => {
         bottleImage.onload = () => {
           ctx.beginPath();
           // put image on canvas
-          ctx.drawImage(bottleImage, 0, 0, 55, 206);
+          ctx.drawImage(bottleImage, 0, 0, width, height);
 
           // use compositing to draw the background image
           // only where the text has been drawn
@@ -72,6 +78,10 @@ export const BottleBox = () => {
 
           const node = createImageNode(stage, canvas);
           layer.add(node);
+
+          // by default select all shapes
+          transformer.nodes([node]);
+          selectObject(stage, transformer);
         };
         bottleImage.src = `/assets/bottles/${bottle}`;
       }
@@ -88,7 +98,9 @@ export const BottleBox = () => {
   useEffect(() => {
     if (stage.name !== undefined) {
       var initiatingLayer = new Konva.Layer();
-      var initiatingTransformer = new Konva.Transformer();
+      var initiatingTransformer = new Konva.Transformer(
+        DEFAULT_TRANSFORMER_OPT
+      );
 
       // Add layer to stage
       stage.add(initiatingLayer);

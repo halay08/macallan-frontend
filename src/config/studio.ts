@@ -10,4 +10,10 @@ export const pickerColors = [
   '#FFFFFF'
 ];
 
+export const DEFAULT_TRANSFORMER_OPT = {
+  resizeEnabled: false,
+  rotateEnabled: false,
+  anchorStrokeWidth: 2
+};
+
 export const DEFAULT_COLOR = '#DBDAD7';

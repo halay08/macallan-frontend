@@ -36,8 +36,8 @@
     "test": "craco test",
     "start:prod": "yarn run build && serve -s build",
     "checkTs": "tsc --noEmit",
-    "eslint": "eslint --ext js,ts,tsx",
-    "lint": "yarn run eslint --fix src",
+    "lint": "eslint --ext js,ts,tsx",
+    "lint:fix": "yarn run eslint --fix src",
     "lint:css": "stylelint src/**/*.css",
     "prettify": "prettier --write"
   },

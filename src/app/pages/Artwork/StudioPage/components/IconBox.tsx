@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as icons from '../assets/icons';
 import { IconType } from 'types';
-import { DEFAULT_COLOR } from 'config';
-import { createImageNode, getCanvas } from 'app/helpers';
+import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
+import { createImageNode, getCanvas, selectObject } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
 
@@ -15,12 +15,14 @@ export const IconBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
+  const [width] = useState(60);
+  const [height] = useState(60);
   const [layer, setLayer] = useState(new Konva.Layer());
-  const [, setTransformer] = useState(new Konva.Transformer());
+  const [transformer, setTransformer] = useState(new Konva.Transformer());
   const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
-    const canvas = getCanvas(stage);
+    const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
 
     dispatch(fetchStart());
@@ -30,10 +32,14 @@ export const IconBox = () => {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(iconImage, 0, 0, 60, 60);
+        ctx.drawImage(iconImage, 0, 0, width, height);
 
         const node = createImageNode(stage, canvas);
         layer.add(node);
+
+        // by default select all shapes
+        transformer.nodes([node]);
+        selectObject(stage, transformer);
       }
       dispatch(fetchSuccess());
     };
@@ -50,7 +56,7 @@ export const IconBox = () => {
 
     const textureImage = new window.Image();
     textureImage.onload = () => {
-      const canvas = getCanvas(stage);
+      const canvas = getCanvas(stage, { width, height });
       const ctx = canvas.getContext('2d');
 
       if (ctx) {
@@ -60,7 +66,7 @@ export const IconBox = () => {
         iconImage.onload = () => {
           ctx.beginPath();
           // put image on canvas
-          ctx.drawImage(iconImage, 0, 0, 60, 60);
+          ctx.drawImage(iconImage, 50, 50, width, height);
 
           // use compositing to draw the background image
           // only where the text has been drawn
@@ -71,12 +77,21 @@ export const IconBox = () => {
 
           const node = createImageNode(stage, canvas);
           layer.add(node);
+
+          // by default select all shapes
+          transformer.nodes([node]);
+          selectObject(stage, transformer);
         };
         iconImage.onerror = error => {
           dispatch(fetchError(error as string));
         };
         iconImage.src = `/assets/icons/svg/${icon}`;
       }
+      dispatch(fetchSuccess());
+    };
+
+    textureImage.onerror = error => {
+      dispatch(fetchError(error as string));
     };
 
     if (texture) {
@@ -90,7 +105,9 @@ export const IconBox = () => {
   useEffect(() => {
     if (stage.name !== undefined) {
       var initiatingLayer = new Konva.Layer();
-      var initiatingTransformer = new Konva.Transformer();
+      var initiatingTransformer = new Konva.Transformer(
+        DEFAULT_TRANSFORMER_OPT
+      );
 
       // Add layer to stage
       stage.add(initiatingLayer);

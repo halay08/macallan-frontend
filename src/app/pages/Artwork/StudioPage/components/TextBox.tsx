@@ -3,8 +3,8 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
-import { DEFAULT_COLOR } from 'config';
-import { getCanvas, createImageNode } from 'app/helpers';
+import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
+import { getCanvas, createImageNode, selectObject } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
 
@@ -13,13 +13,15 @@ export const TextBox = () => {
     ({ studio }) => studio
   );
   const [layer, setLayer] = useState(new Konva.Layer());
-  const [, setTransformer] = useState(new Konva.Transformer());
+  const [transformer, setTransformer] = useState(new Konva.Transformer());
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (stage.name !== undefined) {
       var initiatingLayer = new Konva.Layer();
-      var initiatingTransformer = new Konva.Transformer();
+      var initiatingTransformer = new Konva.Transformer(
+        DEFAULT_TRANSFORMER_OPT
+      );
 
       // Add layer to stage
       stage.add(initiatingLayer);
@@ -36,16 +38,16 @@ export const TextBox = () => {
     var image = new window.Image();
     dispatch(fetchStart());
     image.onload = () => {
-      const canvas = getCanvas(stage);
+      const canvas = getCanvas(stage, { width: 80, height: 150 });
       const ctx = canvas.getContext('2d');
-
       if (ctx) {
         ctx.save();
         ctx.beginPath();
 
         // put text on canvas
         ctx.font = '180px HhSamuel-E80W';
-        ctx.fillText(text, 60, 150);
+        ctx.textAlign = 'center';
+        ctx.fillText(text, 40, 150);
         ctx.fill();
 
         // use compositing to draw the background image
@@ -56,8 +58,12 @@ export const TextBox = () => {
         ctx.restore();
 
         const node = createImageNode(stage, canvas);
-        setTimeout(() => layer.add(node), 2000);
+        layer.add(node);
+        // by default select all shapes
+        transformer.nodes([node]);
+        selectObject(stage, transformer);
       }
+
       dispatch(fetchSuccess());
     };
     image.onerror = error => {
@@ -68,19 +74,22 @@ export const TextBox = () => {
 
   const drawText = (text: string) => {
     const node = new Konva.Text({
-      x: stage.width() / 2 - 100,
-      y: stage.height() / 2,
+      x: 40,
+      y: 150,
       text,
+      width: 80,
+      height: 150,
+      align: 'center',
       fontSize: 180,
       fontFamily: 'HhSamuel-E80W',
       fill: color ? color : DEFAULT_COLOR,
       draggable: true
     });
-    dispatch(fetchStart());
-    setTimeout(() => {
-      layer.add(node);
-      dispatch(fetchSuccess());
-    }, 2000);
+
+    layer.add(node);
+    // by default select all shapes
+    transformer.nodes([node]);
+    selectObject(stage, transformer);
   };
 
   const onTextChanged = evt => {
@@ -105,7 +114,7 @@ export const TextBox = () => {
           </strong>
         </div>
         <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll relative">
-          <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0">
+          <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0 font-alternate">
             Tap to type a character here
           </div>
           <TextField

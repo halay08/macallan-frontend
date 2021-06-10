@@ -1,14 +1,17 @@
 import styled from 'styled-components/macro';
-import { pickerColors, DEFAULT_COLOR } from 'config/studio';
+import { pickerColors } from 'config/studio';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import { setColor, setTexture } from 'redux/actions/studio';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToolbarStatus } from 'types';
+import { AppState } from 'redux/store';
 
 export const ColorPicker = () => {
   const [toolbarStatus, setToolbarStatus] = useState(ToolbarStatus.SHOW);
-  const [currentColor, setCurrentColor] = useState(DEFAULT_COLOR);
+  const { color: currentColor } = useSelector<AppState, AppState['studio']>(
+    ({ studio }) => studio
+  );
   const dispatch = useDispatch();
 
   const togglePicker = () => {
@@ -21,10 +24,8 @@ export const ColorPicker = () => {
 
   const pickColor = (color: string) => {
     if (color === currentColor) {
-      setCurrentColor('');
       dispatch(setColor({ color: '' }));
     } else {
-      setCurrentColor(color);
       dispatch(setColor({ color }));
       dispatch(setTexture({ texture: '' }));
     }

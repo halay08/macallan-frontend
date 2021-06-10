@@ -1,9 +1,24 @@
 import Konva from 'konva';
+import { ICanvasOption } from 'types';
 
-export const getCanvas = (stage: Konva.Stage): HTMLCanvasElement => {
+export const getCanvas = (
+  stage: Konva.Stage,
+  option?: Partial<ICanvasOption>
+): HTMLCanvasElement => {
   const canvas = document.createElement('canvas');
-  canvas.width = stage.width();
-  canvas.height = stage.height();
+
+  const defaultOpt = {
+    width: stage.width(),
+    height: stage.height()
+  };
+
+  const canvasOpt = {
+    ...defaultOpt,
+    ...option
+  };
+
+  canvas.width = canvasOpt.width;
+  canvas.height = canvasOpt.height;
 
   return canvas;
 };
@@ -16,6 +31,7 @@ export const createImageNode = (
     x: canvas.width / 2,
     y: canvas.height / 3,
     image: canvas,
-    draggable: true
+    draggable: true,
+    opacity: 0.93
   });
 };

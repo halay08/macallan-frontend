@@ -88,6 +88,11 @@ type ISvgComponent = React.FunctionComponent<
   }
 >;
 
-export type { ISvgShapeAttribute, ISvgComponent };
+type ICanvasOption = {
+  width: number;
+  height: number;
+};
+
+export type { ISvgShapeAttribute, ISvgComponent, ICanvasOption };
 
 export { SceneType, ShapeType, IconType, BottleType, StageSize, ToolbarStatus };
