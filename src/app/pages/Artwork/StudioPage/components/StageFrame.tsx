@@ -13,19 +13,19 @@ interface StageFrameProps {
 export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
   const dispatch = useDispatch();
 
-  const stageWidth = window.innerWidth;
-  // Default is square type.
-  let stageHeight: number = stageWidth;
-
-  switch (size) {
-    case StageSize.MOBILE:
-      stageHeight = (stageWidth * 16) / 9;
-      break;
-    case StageSize.DESKTOP:
-      stageHeight = (stageWidth * 9) / 16;
-  }
-
   useEffect(() => {
+    const stageWidth = window.innerWidth;
+    // Default is square type.
+    let stageHeight: number = stageWidth;
+
+    switch (size) {
+      case StageSize.MOBILE:
+        stageHeight = (stageWidth * 16) / 9;
+        break;
+      case StageSize.DESKTOP:
+        stageHeight = (stageWidth * 9) / 16;
+    }
+
     const stage = new Konva.Stage({
       container: 'stageContainer',
       width: stageWidth,
@@ -34,7 +34,7 @@ export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
     });
 
     dispatch(setStage({ stage, color: '', texture: '' }));
-  }, [stageWidth, stageHeight, dispatch]);
+  }, []);
 
   return (
     <Wrapper className="flex flex-row items-center justify-center">

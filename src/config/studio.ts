@@ -11,7 +11,7 @@ export const pickerColors = [
 ];
 
 export const DEFAULT_TRANSFORMER_OPT = {
-  resizeEnabled: false,
+  resizeEnabled: true,
   rotateEnabled: false,
   anchorStrokeWidth: 2
 };

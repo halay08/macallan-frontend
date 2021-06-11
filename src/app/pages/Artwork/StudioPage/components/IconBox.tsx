@@ -5,14 +5,22 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as icons from '../assets/icons';
-import { IconType } from 'types';
-import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
-import { createImageNode, getCanvas, selectObject } from 'app/helpers';
+import { IconType, StageSize } from 'types';
+import { DEFAULT_TRANSFORMER_OPT } from 'config';
+import {
+  createImageNode,
+  getCanvas,
+  getImageObjectPos,
+  selectObject
+} from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
 
 export const IconBox = () => {
-  const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
+  const format = useSelector<AppState, AppState['format']>(
+    ({ format }) => format
+  );
+  const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
   const [width] = useState(60);
@@ -25,16 +33,18 @@ export const IconBox = () => {
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
 
-    dispatch(fetchStart());
     const iconImage = new window.Image();
     iconImage.onload = () => {
       if (ctx) {
+        dispatch(fetchStart());
         ctx.save();
         ctx.beginPath();
         // put image on canvas
         ctx.drawImage(iconImage, 0, 0, width, height);
 
-        const node = createImageNode(stage, canvas);
+        const [x, y] = getImageObjectPos(format);
+
+        const node = createImageNode(canvas, 1, { x, y });
         layer.add(node);
 
         // by default select all shapes
@@ -47,59 +57,6 @@ export const IconBox = () => {
       dispatch(fetchError(error as string));
     };
     iconImage.src = `/assets/icons/svg/${icon}`;
-  };
-
-  const drawTexture = (icon: string) => {
-    if (color.length === 0 && texture.length === 0) {
-      return drawIcon(icon);
-    }
-
-    const textureImage = new window.Image();
-    textureImage.onload = () => {
-      const canvas = getCanvas(stage, { width, height });
-      const ctx = canvas.getContext('2d');
-
-      if (ctx) {
-        ctx.save();
-
-        const iconImage = new window.Image();
-        iconImage.onload = () => {
-          ctx.beginPath();
-          // put image on canvas
-          ctx.drawImage(iconImage, 50, 50, width, height);
-
-          // use compositing to draw the background image
-          // only where the text has been drawn
-          ctx.beginPath();
-          ctx.globalCompositeOperation = 'source-in';
-          ctx.drawImage(textureImage, 0, 0);
-          ctx.restore();
-
-          const node = createImageNode(stage, canvas);
-          layer.add(node);
-
-          // by default select all shapes
-          transformer.nodes([node]);
-          selectObject(stage, transformer);
-        };
-        iconImage.onerror = error => {
-          dispatch(fetchError(error as string));
-        };
-        iconImage.src = `/assets/icons/svg/${icon}`;
-      }
-      dispatch(fetchSuccess());
-    };
-
-    textureImage.onerror = error => {
-      dispatch(fetchError(error as string));
-    };
-
-    if (texture) {
-      textureImage.src = `/assets/textures/img/${texture}`;
-    } else {
-      const colorFile = color.length === 0 ? DEFAULT_COLOR : color;
-      textureImage.src = `/assets/colors/${colorFile.replace('#', '')}.png`;
-    }
   };
 
   useEffect(() => {
@@ -136,14 +93,14 @@ export const IconBox = () => {
             <div key={icon}>
               <Button
                 className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
-                onClick={() => drawTexture(IconType[icon])}
+                onClick={() => drawIcon(IconType[icon])}
               >
                 <Icon src={icons[icon]} />
               </Button>
               {secondHalf[index] && (
                 <Button
                   className="p-1 focus:outline-none focus:shadow-md active:shadow-md"
-                  onClick={() => drawTexture(IconType[secondHalf[index]])}
+                  onClick={() => drawIcon(IconType[secondHalf[index]])}
                 >
                   <Icon src={icons[secondHalf[index]]} />
                 </Button>

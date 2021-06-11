@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
-import { ReactComponent as Texture01Svg } from '../../assets/textures/svg/texture_01.svg';
-import { ReactComponent as Texture02Svg } from '../../assets/textures/svg/texture_02.svg';
-import { ReactComponent as Texture03Svg } from '../../assets/textures/svg/texture_03.svg';
+import texture1bg from '../../assets/textures/img/texture_01_bg.png';
+import texture2bg from '../../assets/textures/img/texture_02_bg.png';
+import texture3bg from '../../assets/textures/img/texture_03_bg.png';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
-import { setColor, setTexture } from 'redux/actions/studio';
+import { setTexture } from 'redux/actions/studio';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToolbarStatus } from 'types';
 import { AppState } from 'redux/store';
@@ -29,7 +29,6 @@ export const Texture = () => {
       dispatch(setTexture({ texture: '' }));
     } else {
       dispatch(setTexture({ texture }));
-      dispatch(setColor({ color: '' }));
     }
   };
 
@@ -61,36 +60,36 @@ export const Texture = () => {
           className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
           onClick={() => pickTexture('texture_01.png')}
         >
-          <Texture01Svg
+          <Texture01
             className={`${
               currentTexture === 'texture_01.png'
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
-            } rounded-full w-5 h-5 block`}
+            } rounded-full w-5 h-5 inline-block`}
           />
         </Button>
         <Button
           className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
           onClick={() => pickTexture('texture_02.png')}
         >
-          <Texture02Svg
+          <Texture02
             className={`${
               currentTexture === 'texture_02.png'
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
-            } rounded-full w-5 h-5 block`}
+            } rounded-full w-5 h-5 inline-block`}
           />
         </Button>
         <Button
           className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
           onClick={() => pickTexture('texture_03.png')}
         >
-          <Texture03Svg
+          <Texture03
             className={`${
               currentTexture === 'texture_03.png'
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
-            } rounded-full w-5 h-5 block`}
+            } rounded-full w-5 h-5 inline-block`}
           />
         </Button>
       </Container>
@@ -102,3 +101,14 @@ const Wrapper = styled.div``;
 const Container = styled.div``;
 const Button = styled.button``;
 const ChevronLeftWrapper = styled.div``;
+const Texture01 = styled.span`
+  background: url(${texture1bg}) center center no-repeat;
+  background-size: 500%;
+`;
+const Texture02 = styled.span`
+  background: url(${texture2bg}) center center no-repeat;
+  background-size: 300%;
+`;
+const Texture03 = styled.span`
+  background: url(${texture3bg}) center center no-repeat;
+`;

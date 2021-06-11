@@ -5,15 +5,23 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as bottles from '../assets/bottles';
-import { BottleType } from 'types';
-import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
-import { createImageNode, getCanvas, selectObject } from 'app/helpers';
+import { BottleType, StageSize } from 'types';
+import { DEFAULT_TRANSFORMER_OPT } from 'config';
+import {
+  createImageNode,
+  getCanvas,
+  getImageObjectPos,
+  selectObject
+} from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
 
 export const BottleBox = () => {
-  const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
+  const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
+  );
+  const format = useSelector<AppState, AppState['format']>(
+    ({ format }) => format
   );
   const [width] = useState(55);
   const [height] = useState(206);
@@ -34,7 +42,9 @@ export const BottleBox = () => {
         // put image on canvas
         ctx.drawImage(bottleImage, 0, 0, width, height);
 
-        const node = createImageNode(stage, canvas);
+        const [x, y] = getImageObjectPos(format);
+
+        const node = createImageNode(canvas, 1, { x, y });
         layer.add(node);
 
         // by default select all shapes
@@ -48,51 +58,6 @@ export const BottleBox = () => {
     };
     bottleImage.src = `/assets/bottles/${bottle}`;
     console.log(bottleImage.src);
-  };
-
-  const drawTexture = (bottle: string) => {
-    if (color.length === 0 && texture.length === 0) {
-      return drawBottle(bottle);
-    }
-
-    const textureImage = new window.Image();
-    textureImage.onload = () => {
-      const canvas = getCanvas(stage, { width, height });
-      const ctx = canvas.getContext('2d');
-
-      if (ctx) {
-        ctx.save();
-
-        const bottleImage = new window.Image();
-        bottleImage.onload = () => {
-          ctx.beginPath();
-          // put image on canvas
-          ctx.drawImage(bottleImage, 0, 0, width, height);
-
-          // use compositing to draw the background image
-          // only where the text has been drawn
-          ctx.beginPath();
-          ctx.globalCompositeOperation = 'source-in';
-          ctx.drawImage(textureImage, 0, 0);
-          ctx.restore();
-
-          const node = createImageNode(stage, canvas);
-          layer.add(node);
-
-          // by default select all shapes
-          transformer.nodes([node]);
-          selectObject(stage, transformer);
-        };
-        bottleImage.src = `/assets/bottles/${bottle}`;
-      }
-    };
-
-    if (texture) {
-      textureImage.src = `/assets/textures/img/${texture}`;
-    } else {
-      const colorFile = color.length === 0 ? DEFAULT_COLOR : color;
-      textureImage.src = `/assets/colors/${colorFile.replace('#', '')}.png`;
-    }
   };
 
   useEffect(() => {
@@ -126,7 +91,7 @@ export const BottleBox = () => {
             <Button
               className="p-4 focus:outline-none focus:shadow-md active:shadow-md"
               key={bottle}
-              onClick={() => drawTexture(BottleType[bottle])}
+              onClick={() => drawBottle(BottleType[bottle])}
             >
               <Bottle src={bottles[bottle]} />
             </Button>

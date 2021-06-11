@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { pickerColors } from 'config/studio';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
-import { setColor, setTexture } from 'redux/actions/studio';
+import { setColor } from 'redux/actions/studio';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToolbarStatus } from 'types';
 import { AppState } from 'redux/store';
@@ -27,7 +27,6 @@ export const ColorPicker = () => {
       dispatch(setColor({ color: '' }));
     } else {
       dispatch(setColor({ color }));
-      dispatch(setTexture({ texture: '' }));
     }
   };
 

@@ -5,13 +5,22 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as shapes from '../assets/shapes';
-import { ShapeType } from 'types';
+import { ShapeType, StageSize } from 'types';
 import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
-import { createImageNode, getCanvas, selectObject } from 'app/helpers';
-import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
+import {
+  createImageNode,
+  getCanvas,
+  selectObject,
+  addImage,
+  getImageObjectPos
+} from 'app/helpers';
+import { fetchStart, fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
 
 export const ShapeBox = () => {
+  const format = useSelector<AppState, AppState['format']>(
+    ({ format }) => format
+  );
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
@@ -21,55 +30,68 @@ export const ShapeBox = () => {
   const [transformer, setTransformer] = useState(new Konva.Transformer());
   const dispatch = useDispatch();
 
-  const drawTexture = (shape: string) => {
-    const textureImage = new window.Image();
-    textureImage.onload = () => {
-      const canvas = getCanvas(stage, { width, height });
-      const ctx = canvas.getContext('2d');
+  const drawTexture = async (shape: string) => {
+    const canvas = getCanvas(stage, { width, height });
+    const ctx = canvas.getContext('2d');
 
-      if (ctx) {
-        ctx.save();
-        dispatch(fetchStart());
-        const shapeImage = new window.Image();
-        shapeImage.onload = () => {
-          ctx.beginPath();
-          // put image on canvas
-          ctx.drawImage(shapeImage, 0, 0, width, height);
+    if (ctx) {
+      ctx.save();
+      dispatch(fetchStart());
 
-          // use compositing to draw the background image
-          // only where the text has been drawn
-          ctx.beginPath();
-          ctx.globalCompositeOperation = 'source-in';
-          ctx.drawImage(
-            textureImage,
-            0,
-            0,
-            width + width * 0.5,
-            height + height * 0.5
-          );
-          ctx.restore();
+      let textureImage;
+      let colorImage;
 
-          const node = createImageNode(stage, canvas);
-          layer.add(node);
-
-          // by default select all shapes
-          transformer.nodes([node]);
-          selectObject(stage, transformer);
-
-          dispatch(fetchSuccess());
-        };
-        shapeImage.onerror = error => {
-          dispatch(fetchError(error as string));
-        };
-        shapeImage.src = `/assets/shapes/svg/${shape}`;
+      if (color) {
+        const colorFile = color.length === 0 ? DEFAULT_COLOR : color;
+        colorImage = await addImage(
+          `/assets/colors/${colorFile.replace('#', '')}.png`
+        );
       }
-    };
+      if (texture) {
+        textureImage = await addImage(`/assets/textures/img/${texture}`);
+      }
 
-    if (texture) {
-      textureImage.src = `/assets/textures/img/${texture}`;
-    } else {
-      const colorFile = color.length === 0 ? DEFAULT_COLOR : color;
-      textureImage.src = `/assets/colors/${colorFile.replace('#', '')}.png`;
+      const shapeImage = await addImage(`/assets/shapes/svg/${shape}`);
+
+      ctx.beginPath();
+      // put image on canvas
+      ctx.drawImage(shapeImage as any, 0, 0, width, height);
+
+      // use compositing to draw the background image
+      // only where the text has been drawn
+      ctx.beginPath();
+      ctx.globalCompositeOperation = 'source-in';
+      if (textureImage) {
+        ctx.drawImage(
+          textureImage,
+          0,
+          0,
+          width + width * 0.5,
+          height + height * 0.5
+        );
+      }
+
+      if (colorImage) {
+        ctx.drawImage(
+          colorImage,
+          0,
+          0,
+          width + width * 0.5,
+          height + height * 0.5
+        );
+      }
+
+      const [x, y] = getImageObjectPos(format);
+
+      ctx.restore();
+      const node = createImageNode(canvas, 0.93, { x, y });
+      layer.add(node);
+
+      // by default select all shapes
+      transformer.nodes([node]);
+      selectObject(stage, transformer);
+
+      dispatch(fetchSuccess());
     }
   };
 

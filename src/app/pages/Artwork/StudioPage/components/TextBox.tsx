@@ -4,11 +4,21 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
-import { getCanvas, createImageNode, selectObject } from 'app/helpers';
-import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
+import {
+  getCanvas,
+  createImageNode,
+  selectObject,
+  addImage,
+  getImageObjectPos
+} from 'app/helpers';
+import { fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
+import { StageSize } from 'types';
 
 export const TextBox = () => {
+  const format = useSelector<AppState, AppState['format']>(
+    ({ format }) => format
+  );
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
@@ -36,48 +46,50 @@ export const TextBox = () => {
     }
   }, [stage]);
 
-  const drawTexture = (texture: string, text: string) => {
-    var image = new window.Image();
-    dispatch(fetchStart());
-    image.onload = () => {
-      const canvas = getCanvas(stage, { width, height });
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        ctx.save();
-        ctx.beginPath();
+  const drawTexture = async (texture: string, text: string) => {
+    const canvas = getCanvas(stage, { width, height });
+    const ctx = canvas.getContext('2d');
+    const textureImage = await addImage(`/assets/textures/img/${texture}`);
+    const colorFile = color.length === 0 ? '#000000' : color;
+    const colorImage = await addImage(
+      `/assets/colors/${colorFile.replace('#', '')}.png`
+    );
 
-        // put text on canvas
-        ctx.font = '180px HhSamuel-E80W';
-        ctx.textAlign = 'center';
-        ctx.fillText(text, width / 2, height);
-        ctx.fill();
+    if (ctx) {
+      ctx.save();
+      ctx.beginPath();
 
-        // use compositing to draw the background image
-        // only where the text has been drawn
-        ctx.beginPath();
-        ctx.globalCompositeOperation = 'source-in';
-        ctx.drawImage(image, 0, 0, width + width * 0.5, height + height * 0.5);
-        ctx.restore();
+      // put text on canvas
+      ctx.font = '180px HhSamuel-E80W';
+      ctx.textAlign = 'center';
+      ctx.fillText(text, width / 2, height);
+      ctx.fill();
 
-        const node = createImageNode(stage, canvas);
-        layer.add(node);
-        // by default select all shapes
-        transformer.nodes([node]);
-        selectObject(stage, transformer);
-      }
+      // use compositing to draw the background image
+      // only where the text has been drawn
+      ctx.beginPath();
+      ctx.globalCompositeOperation = 'source-in';
+      ctx.drawImage(textureImage as any, 0, 0, width, height);
+      ctx.drawImage(colorImage as any, 0, 0, width, height);
+      ctx.restore();
 
-      dispatch(fetchSuccess());
-    };
-    image.onerror = error => {
-      dispatch(fetchError(error as string));
-    };
-    image.src = `/assets/textures/img/${texture}`;
+      const [x, y] = getImageObjectPos(format);
+      const node = createImageNode(canvas, 1, { x, y });
+      layer.add(node);
+      // by default select all shapes
+      transformer.nodes([node]);
+      selectObject(stage, transformer);
+    }
+
+    dispatch(fetchSuccess());
   };
 
   const drawText = (text: string) => {
+    const [x, y] = getImageObjectPos(format);
+
     const node = new Konva.Text({
-      x: width / 2,
-      y: height,
+      x,
+      y,
       text,
       width,
       height,
