@@ -12,6 +12,8 @@ export const TextBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
+  const [width] = useState(80);
+  const [height] = useState(150);
   const [layer, setLayer] = useState(new Konva.Layer());
   const [transformer, setTransformer] = useState(new Konva.Transformer());
   const dispatch = useDispatch();
@@ -38,7 +40,7 @@ export const TextBox = () => {
     var image = new window.Image();
     dispatch(fetchStart());
     image.onload = () => {
-      const canvas = getCanvas(stage, { width: 80, height: 150 });
+      const canvas = getCanvas(stage, { width, height });
       const ctx = canvas.getContext('2d');
       if (ctx) {
         ctx.save();
@@ -47,14 +49,14 @@ export const TextBox = () => {
         // put text on canvas
         ctx.font = '180px HhSamuel-E80W';
         ctx.textAlign = 'center';
-        ctx.fillText(text, 40, 150);
+        ctx.fillText(text, width / 2, height);
         ctx.fill();
 
         // use compositing to draw the background image
         // only where the text has been drawn
         ctx.beginPath();
         ctx.globalCompositeOperation = 'source-in';
-        ctx.drawImage(image, 0, 0);
+        ctx.drawImage(image, 0, 0, width + width * 0.5, height + height * 0.5);
         ctx.restore();
 
         const node = createImageNode(stage, canvas);
@@ -74,11 +76,11 @@ export const TextBox = () => {
 
   const drawText = (text: string) => {
     const node = new Konva.Text({
-      x: 40,
-      y: 150,
+      x: width / 2,
+      y: height,
       text,
-      width: 80,
-      height: 150,
+      width,
+      height,
       align: 'center',
       fontSize: 180,
       fontFamily: 'HhSamuel-E80W',
