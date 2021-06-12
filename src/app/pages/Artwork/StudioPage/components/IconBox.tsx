@@ -6,12 +6,13 @@ import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as icons from '../assets/icons';
 import { IconType } from 'types';
-import { DEFAULT_TRANSFORMER_OPT } from 'config';
+import { defaultTransformerConfig } from 'config';
 import {
   createImageNode,
   getCanvas,
   getImageObjectPos,
-  selectObject
+  onNodeAction,
+  onStageTap
 } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -26,7 +27,9 @@ export const IconBox = () => {
   const [width] = useState(60);
   const [height] = useState(60);
   const [layer, setLayer] = useState(new Konva.Layer());
-  const [transformer, setTransformer] = useState(new Konva.Transformer());
+  const [transformer] = useState(
+    new Konva.Transformer(defaultTransformerConfig)
+  );
   const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
@@ -49,7 +52,10 @@ export const IconBox = () => {
 
         // by default select all shapes
         transformer.nodes([node]);
-        selectObject(stage, transformer);
+
+        // Set events
+        onNodeAction(node, transformer);
+        onStageTap(stage, transformer);
       }
       dispatch(fetchSuccess());
     };
@@ -62,20 +68,15 @@ export const IconBox = () => {
   useEffect(() => {
     if (stage.name !== undefined) {
       var initiatingLayer = new Konva.Layer();
-      var initiatingTransformer = new Konva.Transformer(
-        DEFAULT_TRANSFORMER_OPT
-      );
 
       // Add layer to stage
       stage.add(initiatingLayer);
-
       // Add transformer to layer
-      initiatingLayer.add(initiatingTransformer);
+      initiatingLayer.add(transformer);
 
-      setLayer(initiatingLayer as any);
-      setTransformer(initiatingTransformer as any);
+      setLayer(initiatingLayer);
     }
-  }, [stage]);
+  }, [stage, transformer]);
 
   const iconKeys = Object.keys(icons);
   const half = Math.ceil(iconKeys.length / 2);

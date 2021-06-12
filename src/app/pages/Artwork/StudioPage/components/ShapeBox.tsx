@@ -6,13 +6,14 @@ import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as shapes from '../assets/shapes';
 import { ShapeType } from 'types';
-import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
+import { DEFAULT_COLOR, defaultTransformerConfig } from 'config';
 import {
   createImageNode,
   getCanvas,
-  selectObject,
+  onStageTap,
   addImage,
-  getImageObjectPos
+  getImageObjectPos,
+  onNodeAction
 } from 'app/helpers';
 import { fetchStart, fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -27,7 +28,9 @@ export const ShapeBox = () => {
   const [width] = useState(150);
   const [height] = useState(150);
   const [layer, setLayer] = useState(new Konva.Layer());
-  const [transformer, setTransformer] = useState(new Konva.Transformer());
+  const [transformer] = useState(
+    new Konva.Transformer(defaultTransformerConfig)
+  );
   const dispatch = useDispatch();
 
   const drawTexture = async (shape: string) => {
@@ -85,11 +88,15 @@ export const ShapeBox = () => {
 
       ctx.restore();
       const node = createImageNode(canvas, 0.93, { x, y });
+
       layer.add(node);
 
       // by default select all shapes
       transformer.nodes([node]);
-      selectObject(stage, transformer);
+
+      // Set events
+      onNodeAction(node, transformer);
+      onStageTap(stage, transformer);
 
       dispatch(fetchSuccess());
     }
@@ -98,20 +105,15 @@ export const ShapeBox = () => {
   useEffect(() => {
     if (stage.name !== undefined) {
       var initiatingLayer = new Konva.Layer();
-      var initiatingTransformer = new Konva.Transformer(
-        DEFAULT_TRANSFORMER_OPT
-      );
 
       // Add layer to stage
       stage.add(initiatingLayer);
-
       // Add transformer to layer
-      initiatingLayer.add(initiatingTransformer);
+      initiatingLayer.add(transformer);
 
-      setLayer(initiatingLayer as any);
-      setTransformer(initiatingTransformer as any);
+      setLayer(initiatingLayer);
     }
-  }, [stage]);
+  }, [stage, transformer]);
 
   return (
     <Wrapper className="fixed bg-white">

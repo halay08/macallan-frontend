@@ -1,3 +1,5 @@
+import Konva from 'konva';
+
 export const pickerColors = [
   '#CC3A3A',
   '#FFC34A',
@@ -10,10 +12,12 @@ export const pickerColors = [
   '#FFFFFF'
 ];
 
-export const DEFAULT_TRANSFORMER_OPT = {
+export const defaultTransformerConfig: Konva.TransformerConfig = {
   resizeEnabled: true,
   rotateEnabled: false,
-  anchorStrokeWidth: 2
+  anchorStrokeWidth: 2,
+  keepRatio: true,
+  enabledAnchors: ['top-left', 'top-right', 'bottom-left', 'bottom-right']
 };
 
 export const DEFAULT_COLOR = '#DBDAD7';

@@ -3,13 +3,14 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
-import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
+import { DEFAULT_COLOR, defaultTransformerConfig } from 'config';
 import {
   getCanvas,
   createImageNode,
-  selectObject,
+  onStageTap,
   addImage,
-  getImageObjectPos
+  getImageObjectPos,
+  onNodeAction
 } from 'app/helpers';
 import { fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -24,26 +25,23 @@ export const TextBox = () => {
   const [width] = useState(80);
   const [height] = useState(150);
   const [layer, setLayer] = useState(new Konva.Layer());
-  const [transformer, setTransformer] = useState(new Konva.Transformer());
+  const [transformer] = useState(
+    new Konva.Transformer(defaultTransformerConfig)
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (stage.name !== undefined) {
       var initiatingLayer = new Konva.Layer();
-      var initiatingTransformer = new Konva.Transformer(
-        DEFAULT_TRANSFORMER_OPT
-      );
 
       // Add layer to stage
       stage.add(initiatingLayer);
-
       // Add transformer to layer
-      initiatingLayer.add(initiatingTransformer);
+      initiatingLayer.add(transformer);
 
-      setLayer(initiatingLayer as any);
-      setTransformer(initiatingTransformer as any);
+      setLayer(initiatingLayer);
     }
-  }, [stage]);
+  }, [stage, transformer]);
 
   const drawTexture = async (texture: string, text: string) => {
     const canvas = getCanvas(stage, { width, height });
@@ -75,9 +73,13 @@ export const TextBox = () => {
       const [x, y] = getImageObjectPos(format);
       const node = createImageNode(canvas, 1, { x, y });
       layer.add(node);
+
       // by default select all shapes
       transformer.nodes([node]);
-      selectObject(stage, transformer);
+
+      // Set events
+      onNodeAction(node, transformer);
+      onStageTap(stage, transformer);
     }
 
     dispatch(fetchSuccess());
@@ -100,9 +102,13 @@ export const TextBox = () => {
     });
 
     layer.add(node);
+
     // by default select all shapes
     transformer.nodes([node]);
-    selectObject(stage, transformer);
+
+    // Set events
+    onNodeAction(node, transformer);
+    onStageTap(stage, transformer);
   };
 
   const onTextChanged = evt => {

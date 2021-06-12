@@ -5,9 +5,12 @@ import {
   SET_TEXTURE,
   StudioActionTypes
 } from 'types/actions';
+import Konva from 'konva';
+import { defaultTransformerConfig } from 'config';
 
 const initialState: IStudioState = {
   stage: {} as any,
+  transformer: new Konva.Transformer(defaultTransformerConfig),
   color: '',
   texture: ''
 };
@@ -21,6 +24,9 @@ const StudioReducer = (
       return {
         ...state,
         stage: action.payload.stage,
+        transformer:
+          action.payload.transformer ||
+          new Konva.Transformer(defaultTransformerConfig),
         color: action.payload.color,
         texture: action.payload.texture
       };

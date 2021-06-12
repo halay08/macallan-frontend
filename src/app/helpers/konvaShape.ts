@@ -38,7 +38,7 @@ const drawSvg = (
   });
 };
 
-const selectObject = (stage: Konva.Stage, transformer: Konva.Transformer) => {
+const onStageTap = (stage: Konva.Stage, transformer: Konva.Transformer) => {
   // clicks should select/deselect shapes
   stage.on('click tap', function (e) {
     // if click on empty area - remove all selections
@@ -47,27 +47,30 @@ const selectObject = (stage: Konva.Stage, transformer: Konva.Transformer) => {
       return;
     }
 
-    // do we pressed shift or ctrl?
-    const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
-    const isSelected = transformer.nodes().indexOf(e.target) >= 0;
-
-    if (!metaPressed && !isSelected) {
-      // if no key pressed and the node is not selected
-      // select just one
-      transformer.nodes([e.target]);
-    } else if (metaPressed && isSelected) {
-      // if we pressed keys and node was selected
-      // we need to remove it from selection:
-      const nodes = transformer.nodes().slice(); // use slice to have new copy of array
-      // remove node from array
-      nodes.splice(nodes.indexOf(e.target), 1);
-      transformer.nodes(nodes);
-    } else if (metaPressed && !isSelected) {
-      // add the node into selection
-      const nodes = transformer.nodes().concat([e.target]);
-      transformer.nodes(nodes);
-    }
+    // Delete all transformer nodes, keep only current target
+    transformer.nodes([e.target]);
   });
 };
 
-export { selectObject, drawSvg, createSquare };
+const onNodeAction = (node: Konva.Shape, transformer: Konva.Transformer) => {
+  /*
+   * dblclick to remove box for desktop app
+   * and dbltap to remove box for mobile app
+   */
+  node.on('dblclick dbltap', function () {
+    // Destroy object
+    this.destroy();
+
+    // Delete all transformer nodes
+    transformer.nodes([]);
+  });
+
+  node.on('mouseover', function () {
+    document.body.style.cursor = 'move';
+  });
+  node.on('mouseout', function () {
+    document.body.style.cursor = 'move';
+  });
+};
+
+export { onStageTap, drawSvg, createSquare, onNodeAction };
