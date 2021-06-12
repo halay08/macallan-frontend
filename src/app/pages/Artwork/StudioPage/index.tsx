@@ -70,6 +70,7 @@ export const StudioPage = () => {
     }
   };
 
+  const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
   return (
     <>
       <Helmet>
@@ -77,7 +78,7 @@ export const StudioPage = () => {
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
       <PageWrapper hasFooter={false}>
-        <StageFrame format={format} />
+        <StageFrame format={format} shouldShowTools={shouldShowTools} />
         {scene === SceneType.SHAPE && <ShapeBox />}
         {scene === SceneType.TEXT && <TextBox />}
         {scene === SceneType.ICON && <IconBox />}

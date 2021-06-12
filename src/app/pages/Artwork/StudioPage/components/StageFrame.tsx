@@ -6,11 +6,15 @@ import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
 
-interface StageFrameProps {
+type StageFrameProps = {
   format: StageSize;
-}
+  shouldShowTools: Boolean;
+};
 
-export const StageFrame: React.FC<StageFrameProps> = ({ format }) => {
+export const StageFrame = ({
+  format,
+  shouldShowTools
+}: StageFrameProps): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,12 +38,17 @@ export const StageFrame: React.FC<StageFrameProps> = ({ format }) => {
     });
 
     dispatch(setStage({ stage, color: '', texture: '' }));
-  }, [dispatch, format]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Wrapper className="flex flex-row items-center justify-center">
-      <ColorPicker />
-      <Texture />
+      {shouldShowTools && (
+        <>
+          <ColorPicker />
+          <Texture />
+        </>
+      )}
       <StageContainer id="stageContainer" />
     </Wrapper>
   );
