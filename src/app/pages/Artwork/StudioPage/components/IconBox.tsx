@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as icons from '../assets/icons';
-import { IconType, StageSize } from 'types';
+import { IconType } from 'types';
 import { DEFAULT_TRANSFORMER_OPT } from 'config';
 import {
   createImageNode,

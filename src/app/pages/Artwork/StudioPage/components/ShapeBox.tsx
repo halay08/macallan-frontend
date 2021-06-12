@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as shapes from '../assets/shapes';
-import { ShapeType, StageSize } from 'types';
+import { ShapeType } from 'types';
 import { DEFAULT_COLOR, DEFAULT_TRANSFORMER_OPT } from 'config';
 import {
   createImageNode,

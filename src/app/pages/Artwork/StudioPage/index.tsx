@@ -17,7 +17,7 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 
 export const StudioPage = () => {
-  const size = useSelector<AppState, AppState['format']>(
+  const format = useSelector<AppState, AppState['format']>(
     ({ format }) => format
   );
   const [scene, setScene] = useState(SceneType.SHAPE);
@@ -30,8 +30,8 @@ export const StudioPage = () => {
   };
 
   useEffect(() => {
-    if (!size) history.goBack();
-  }, [size, history]);
+    if (!format) history.goBack();
+  }, [format, history]);
 
   const nextButtonHandler = () => {
     // Reset selected color/texture.
@@ -77,7 +77,7 @@ export const StudioPage = () => {
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
       <PageWrapper hasFooter={false}>
-        <StageFrame size={size} />
+        <StageFrame format={format} />
         {scene === SceneType.SHAPE && <ShapeBox />}
         {scene === SceneType.TEXT && <TextBox />}
         {scene === SceneType.ICON && <IconBox />}

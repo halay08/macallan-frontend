@@ -7,10 +7,10 @@ import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
 
 interface StageFrameProps {
-  size: StageSize;
+  format: StageSize;
 }
 
-export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
+export const StageFrame: React.FC<StageFrameProps> = ({ format }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
     // Default is square type.
     let stageHeight: number = stageWidth;
 
-    switch (size) {
+    switch (format) {
       case StageSize.MOBILE:
         stageHeight = (stageWidth * 16) / 9;
         break;
@@ -34,7 +34,7 @@ export const StageFrame: React.FC<StageFrameProps> = ({ size }) => {
     });
 
     dispatch(setStage({ stage, color: '', texture: '' }));
-  }, []);
+  }, [dispatch, format]);
 
   return (
     <Wrapper className="flex flex-row items-center justify-center">

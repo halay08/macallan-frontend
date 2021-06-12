@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import * as bottles from '../assets/bottles';
-import { BottleType, StageSize } from 'types';
+import { BottleType } from 'types';
 import { DEFAULT_TRANSFORMER_OPT } from 'config';
 import {
   createImageNode,

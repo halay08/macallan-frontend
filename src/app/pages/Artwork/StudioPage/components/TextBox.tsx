@@ -13,7 +13,6 @@ import {
 } from 'app/helpers';
 import { fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
-import { StageSize } from 'types';
 
 export const TextBox = () => {
   const format = useSelector<AppState, AppState['format']>(
