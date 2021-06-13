@@ -45,7 +45,7 @@ export const StageFrame = ({
 
   return (
     <Wrapper
-      className="flex flex-row items-top justify-center relative"
+      className="flex flex-row items-center justify-center relative"
       height={height}
     >
       {shouldShowTools && (
@@ -56,9 +56,9 @@ export const StageFrame = ({
       )}
       <StageContainer
         id="stageContainer"
-        className={`flex flex-row items-top justify-center ${
+        className={`flex flex-row items-center justify-center ${
           format === StageFormat.DESKTOP
-            ? 'border border-t-0 border-b-1 border-r-0 border-l-0 border-dashed border-gray-light'
+            ? 'border border-t-1 border-b-1 border-r-0 border-l-0 border-dashed border-gray-light'
             : ''
         }`}
       />
