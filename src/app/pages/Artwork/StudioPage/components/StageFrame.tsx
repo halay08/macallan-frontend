@@ -42,20 +42,27 @@ export const StageFrame = ({
   }, []);
 
   return (
-    <Wrapper className="flex flex-row items-center justify-center">
+    <Wrapper className="flex flex-row items-top justify-center">
       {shouldShowTools && (
         <>
           <ColorPicker />
           <Texture />
         </>
       )}
-      <StageContainer id="stageContainer" />
+      <StageContainer
+        id="stageContainer"
+        className={`flex flex-row items-top justify-center ${
+          format === StageSize.DESKTOP
+            ? 'border border-t-0 border-b-1 border-r-0 border-l-0 border-dashed border-gray-light'
+            : ''
+        }`}
+      />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  height: calc(100vh - 363px);
+  max-height: calc(100vh - 363px);
   overflow: auto;
 `;
 const StageContainer = styled.div``;
