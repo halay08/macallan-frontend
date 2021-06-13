@@ -1,10 +1,10 @@
-import { ReactComponent as ConceptSvg } from '../assets/concept.svg';
+import conceptPng from '../assets/concept.png';
 import styled from 'styled-components/macro';
 
 export const Concept = () => {
-  return <ConceptWrapper />;
+  return <ConceptWrapper src={conceptPng} />;
 };
 
-const ConceptWrapper = styled(ConceptSvg)`
+const ConceptWrapper = styled.img`
   width: 255px;
 `;
