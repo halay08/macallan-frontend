@@ -17,6 +17,7 @@ import {
 } from 'app/helpers';
 import { fetchStart, fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const ShapeBox = () => {
   const format = useSelector<AppState, AppState['format']>(
@@ -131,17 +132,19 @@ export const ShapeBox = () => {
             STEP 2: CHOOSE SHAPE
           </strong>
         </div>
-        <div className="flex flex-nowrap scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
-          {Object.keys(shapes).map(shape => (
-            <Button
-              className="p-2 focus:outline-none focus:shadow-md active:shadow-md"
-              key={shape}
-              onClick={() => drawTexture(ShapeType[shape])}
-            >
-              <Shape src={shapes[shape]} />
-            </Button>
-          ))}
-        </div>
+        <PerfectScrollbar options={{ suppressScrollY: true }}>
+          <div className="flex flex-nowrap h-28">
+            {Object.keys(shapes).map(shape => (
+              <Button
+                className="p-2 focus:outline-none focus:shadow-md active:shadow-md"
+                key={shape}
+                onClick={() => drawTexture(ShapeType[shape])}
+              >
+                <Shape src={shapes[shape]} />
+              </Button>
+            ))}
+          </div>
+        </PerfectScrollbar>
       </BoxWrapper>
     </Wrapper>
   );

@@ -14,6 +14,7 @@ import {
 } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const IconBox = () => {
   const format = useSelector<AppState, AppState['format']>(
@@ -73,27 +74,29 @@ export const IconBox = () => {
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">STEP 4: ADD ICONS</strong>
         </div>
-        <div className="flex flex-nowrap flex-row justify-between pl-4 pr-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
-          {firstHalf.map((icon, index) => (
-            <div key={icon}>
-              <Button
-                className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
-                onClick={() => drawIcon(IconType[icon])}
-              >
-                <Icon src={icons[icon]} />
-              </Button>
-              {secondHalf[index] && (
+        <PerfectScrollbar options={{ suppressScrollY: true }}>
+          <div className="flex flex-nowrap flex-row justify-between pl-4 pr-4 h-28">
+            {firstHalf.map((icon, index) => (
+              <div key={icon}>
                 <Button
-                  className="p-1 focus:outline-none focus:shadow-md active:shadow-md"
-                  onClick={() => drawIcon(IconType[secondHalf[index]])}
+                  className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
+                  onClick={() => drawIcon(IconType[icon])}
                 >
-                  <Icon src={icons[secondHalf[index]]} />
+                  <Icon src={icons[icon]} />
                 </Button>
-              )}
-              {secondHalf[index] === undefined && <div />}
-            </div>
-          ))}
-        </div>
+                {secondHalf[index] && (
+                  <Button
+                    className="p-1 focus:outline-none focus:shadow-md active:shadow-md"
+                    onClick={() => drawIcon(IconType[secondHalf[index]])}
+                  >
+                    <Icon src={icons[secondHalf[index]]} />
+                  </Button>
+                )}
+                {secondHalf[index] === undefined && <div />}
+              </div>
+            ))}
+          </div>
+        </PerfectScrollbar>
       </BoxWrapper>
     </Wrapper>
   );

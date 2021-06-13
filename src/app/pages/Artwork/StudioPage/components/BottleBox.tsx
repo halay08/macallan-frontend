@@ -70,7 +70,7 @@ export const BottleBox = () => {
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">STEP 4: ADD BOTTLE</strong>
         </div>
-        <div className="flex flex-nowrap flex-row items-center justify-center pl-4 pr-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll">
+        <div className="flex flex-nowrap flex-row items-center justify-center pl-4 pr-4 h-28">
           {bottleKeys.map(bottle => (
             <Button
               className="p-4 focus:outline-none focus:shadow-md active:shadow-md"
