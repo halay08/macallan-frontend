@@ -3,11 +3,10 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
-import { DEFAULT_COLOR, defaultTransformerConfig } from 'config';
+import { DEFAULT_COLOR } from 'config';
 import {
   getCanvas,
   createImageNode,
-  onStageTap,
   addImage,
   getImageObjectPos,
   onNodeAction
@@ -25,9 +24,6 @@ export const TextBox = () => {
   const [width] = useState(80);
   const [height] = useState(150);
   const [layer, setLayer] = useState(new Konva.Layer());
-  const [transformer] = useState(
-    new Konva.Transformer(defaultTransformerConfig)
-  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,12 +32,9 @@ export const TextBox = () => {
 
       // Add layer to stage
       stage.add(initiatingLayer);
-      // Add transformer to layer
-      initiatingLayer.add(transformer);
-
       setLayer(initiatingLayer);
     }
-  }, [stage, transformer]);
+  }, [stage]);
 
   const drawTexture = async (texture: string, text: string) => {
     const canvas = getCanvas(stage, { width, height });
@@ -72,14 +65,16 @@ export const TextBox = () => {
 
       const [x, y] = getImageObjectPos(format);
       const node = createImageNode(canvas, 1, { x, y });
+      node.setAttr('name', 'text');
       layer.add(node);
 
-      // by default select all shapes
+      // Select current node by default
+      const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+      transformer.setAttr('rotateEnabled', false);
       transformer.nodes([node]);
 
       // Set events
-      onNodeAction(node, transformer);
-      onStageTap(stage, transformer);
+      onNodeAction(node);
     }
 
     dispatch(fetchSuccess());
@@ -103,12 +98,13 @@ export const TextBox = () => {
 
     layer.add(node);
 
-    // by default select all shapes
+    // Select current node by default
+    const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+    transformer.setAttr('rotateEnabled', false);
     transformer.nodes([node]);
 
     // Set events
-    onNodeAction(node, transformer);
-    onStageTap(stage, transformer);
+    onNodeAction(node);
   };
 
   const onTextChanged = evt => {

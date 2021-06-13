@@ -11,8 +11,7 @@ import {
   createImageNode,
   getCanvas,
   getImageObjectPos,
-  onNodeAction,
-  onStageTap
+  onNodeAction
 } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -48,14 +47,16 @@ export const BottleBox = () => {
         const [x, y] = getImageObjectPos(format);
 
         const node = createImageNode(canvas, 1, { x, y });
+        node.setAttr('name', 'bottle');
         layer.add(node);
 
-        // by default select all shapes
+        // Select current node by default
+        const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+        transformer.setAttr('rotateEnabled', false);
         transformer.nodes([node]);
 
         // Set events
-        onNodeAction(node, transformer);
-        onStageTap(stage, transformer);
+        onNodeAction(node);
       }
       dispatch(fetchSuccess());
     };

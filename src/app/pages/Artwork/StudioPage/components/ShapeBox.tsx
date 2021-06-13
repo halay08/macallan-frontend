@@ -29,7 +29,10 @@ export const ShapeBox = () => {
   const [height] = useState(150);
   const [layer, setLayer] = useState(new Konva.Layer());
   const [transformer] = useState(
-    new Konva.Transformer(defaultTransformerConfig)
+    new Konva.Transformer({
+      ...defaultTransformerConfig,
+      rotateEnabled: false
+    })
   );
   const dispatch = useDispatch();
 
@@ -88,15 +91,17 @@ export const ShapeBox = () => {
 
       ctx.restore();
       const node = createImageNode(canvas, 0.93, { x, y });
+      node.setAttr('name', 'shape');
 
       layer.add(node);
 
-      // by default select all shapes
-      transformer.nodes([node]);
+      // Set double click/tab event
+      onNodeAction(node);
 
-      // Set events
-      onNodeAction(node, transformer);
-      onStageTap(stage, transformer);
+      // Select current node by default
+      const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+      transformer.setAttr('rotateEnabled', true);
+      transformer.nodes([node]);
 
       dispatch(fetchSuccess());
     }
@@ -112,6 +117,9 @@ export const ShapeBox = () => {
       initiatingLayer.add(transformer);
 
       setLayer(initiatingLayer);
+
+      // Set double click/tab event
+      onStageTap(stage);
     }
   }, [stage, transformer]);
 

@@ -38,21 +38,42 @@ const drawSvg = (
   });
 };
 
-const onStageTap = (stage: Konva.Stage, transformer: Konva.Transformer) => {
+const onStageTap = (stage: Konva.Stage) => {
   // clicks should select/deselect shapes
   stage.on('click tap', function (e) {
-    // if click on empty area - remove all selections
+    const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+
+    if (!transformer) {
+      return;
+    }
+
     if (e.target === stage) {
+      // if click on empty area - remove all selections
       transformer.nodes([]);
       return;
     }
 
     // Delete all transformer nodes, keep only current target
-    transformer.nodes([e.target]);
+    if (e.target) {
+      if (e.target.getAttr('name') === 'shape') {
+        transformer.setAttr('rotateEnabled', true);
+      } else {
+        transformer.setAttr('rotateEnabled', false);
+      }
+      transformer.nodes([e.target]);
+    }
   });
 };
 
-const onNodeAction = (node: Konva.Shape, transformer: Konva.Transformer) => {
+const onNodeAction = (node: Konva.Shape) => {
+  const stage = node.getStage();
+
+  if (!stage) {
+    return;
+  }
+
+  const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+
   /*
    * dblclick to remove box for desktop app
    * and dbltap to remove box for mobile app
