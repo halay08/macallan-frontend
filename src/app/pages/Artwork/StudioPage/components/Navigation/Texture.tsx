@@ -34,7 +34,7 @@ export const Texture = () => {
 
   return (
     <Wrapper
-      className={`fixed z-50 right-0 top-48 flex flex-row items-center justify-center${
+      className={`absolute z-50 right-0 top-24 flex flex-row items-center justify-center${
         toolbarStatus === ToolbarStatus.HIDE ? ' w-0' : ''
       }`}
     >

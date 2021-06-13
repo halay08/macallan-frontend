@@ -1,12 +1,12 @@
-import { StageSize } from 'types';
+import { StageFormat } from 'types';
 import { SET_FORMAT, FormatActionTypes } from 'types/actions';
 
-const initialState: StageSize = StageSize.UNDEFINED;
+const initialState: StageFormat = StageFormat.UNDEFINED;
 
 const FormatReducer = (
   state = initialState,
   action: FormatActionTypes
-): StageSize => {
+): StageFormat => {
   switch (action.type) {
     case SET_FORMAT:
       return action.payload;
