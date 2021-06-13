@@ -61,7 +61,7 @@ enum IconType {
   Xmas014 = 'icon_xmas_14.svg'
 }
 
-enum StageSize {
+enum StageFormat {
   SQUARE = 'square',
   MOBILE = 'mobile',
   DESKTOP = 'desktop',
@@ -98,4 +98,11 @@ type IObjectPos = {
 
 export type { ISvgShapeAttribute, ISvgComponent, IObjectPos };
 
-export { SceneType, ShapeType, IconType, BottleType, StageSize, ToolbarStatus };
+export {
+  SceneType,
+  ShapeType,
+  IconType,
+  BottleType,
+  StageFormat,
+  ToolbarStatus
+};

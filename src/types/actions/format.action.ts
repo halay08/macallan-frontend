@@ -1,9 +1,9 @@
-import { StageSize } from 'types/artwork';
+import { StageFormat } from 'types/artwork';
 
 export const SET_FORMAT = 'SET_FORMAT';
 
 export interface SetFormatAction {
   type: typeof SET_FORMAT;
-  payload: StageSize;
+  payload: StageFormat;
 }
 export type FormatActionTypes = SetFormatAction;

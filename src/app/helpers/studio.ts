@@ -1,5 +1,5 @@
 import Konva from 'konva';
-import { IObjectPos, StageSize } from 'types';
+import { IObjectPos, StageFormat } from 'types';
 
 export const getCanvas = (
   stage: Konva.Stage,
@@ -46,16 +46,16 @@ export const addImage = src => {
   });
 };
 
-export const getImageObjectPos = (format: StageSize) => {
+export const getImageObjectPos = (format: StageFormat) => {
   let x = 0,
     y = 0;
 
   switch (format) {
-    case StageSize.MOBILE:
+    case StageFormat.MOBILE:
       x = 150;
       y = 250;
       break;
-    case StageSize.DESKTOP:
+    case StageFormat.DESKTOP:
       x = 150;
       y = 5;
       break;

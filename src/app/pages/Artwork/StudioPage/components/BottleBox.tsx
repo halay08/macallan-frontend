@@ -65,7 +65,7 @@ export const BottleBox = () => {
   const bottleKeys = Object.keys(bottles);
 
   return (
-    <Wrapper className="fixed bg-white">
+    <Wrapper className="bg-white">
       <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid">
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">STEP 4: ADD BOTTLE</strong>
