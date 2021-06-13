@@ -2,11 +2,10 @@ import styled from 'styled-components/macro';
 import { Bottle } from './Bottle';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Konva from 'konva';
 import * as bottles from '../assets/bottles';
 import { BottleType } from 'types';
-import { defaultTransformerConfig } from 'config';
 import {
   createImageNode,
   getCanvas,
@@ -25,15 +24,12 @@ export const BottleBox = () => {
   );
   const [width] = useState(55);
   const [height] = useState(206);
-  const [layer, setLayer] = useState(new Konva.Layer());
-  const [transformer] = useState(
-    new Konva.Transformer(defaultTransformerConfig)
-  );
   const dispatch = useDispatch();
 
   const drawBottle = (bottle: string) => {
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
+    const [layer] = stage.getLayers();
 
     dispatch(fetchStart());
     const bottleImage = new window.Image();
@@ -65,19 +61,6 @@ export const BottleBox = () => {
     };
     bottleImage.src = `/assets/bottles/${bottle}`;
   };
-
-  useEffect(() => {
-    if (stage.name !== undefined) {
-      var initiatingLayer = new Konva.Layer();
-
-      // Add layer to stage
-      stage.add(initiatingLayer);
-      // Add transformer to layer
-      initiatingLayer.add(transformer);
-
-      setLayer(initiatingLayer);
-    }
-  }, [stage, transformer]);
 
   const bottleKeys = Object.keys(bottles);
 

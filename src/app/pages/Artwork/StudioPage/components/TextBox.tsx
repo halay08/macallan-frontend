@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Konva from 'konva';
 import { DEFAULT_COLOR } from 'config';
 import {
@@ -23,20 +23,10 @@ export const TextBox = () => {
   );
   const [width] = useState(80);
   const [height] = useState(150);
-  const [layer, setLayer] = useState(new Konva.Layer());
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (stage.name !== undefined) {
-      var initiatingLayer = new Konva.Layer();
-
-      // Add layer to stage
-      stage.add(initiatingLayer);
-      setLayer(initiatingLayer);
-    }
-  }, [stage]);
-
   const drawTexture = async (texture: string, text: string) => {
+    const [layer] = stage.getLayers();
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
     const textureImage = await addImage(`/assets/textures/img/${texture}`);
@@ -81,6 +71,7 @@ export const TextBox = () => {
   };
 
   const drawText = (text: string) => {
+    const [layer] = stage.getLayers();
     const [x, y] = getImageObjectPos(format);
 
     const node = new Konva.Text({

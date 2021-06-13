@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { Icon } from './Icon';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Konva from 'konva';
 import * as icons from '../assets/icons';
 import { IconType } from 'types';
@@ -24,12 +24,12 @@ export const IconBox = () => {
   );
   const [width] = useState(60);
   const [height] = useState(60);
-  const [layer, setLayer] = useState(new Konva.Layer());
   const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
+    const [layer] = stage.getLayers();
 
     const iconImage = new window.Image();
     iconImage.onload = () => {
@@ -61,16 +61,6 @@ export const IconBox = () => {
     };
     iconImage.src = `/assets/icons/svg/${icon}`;
   };
-
-  useEffect(() => {
-    if (stage.name !== undefined) {
-      var initiatingLayer = new Konva.Layer();
-
-      // Add layer to stage
-      stage.add(initiatingLayer);
-      setLayer(initiatingLayer);
-    }
-  }, [stage]);
 
   const iconKeys = Object.keys(icons);
   const half = Math.ceil(iconKeys.length / 2);
