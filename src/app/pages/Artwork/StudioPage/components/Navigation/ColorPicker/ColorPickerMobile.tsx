@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToolbarStatus } from 'types';
 import { AppState } from 'redux/store';
 
-export const ColorPicker = () => {
+export const ColorPickerMobile = () => {
   const [toolbarStatus, setToolbarStatus] = useState(ToolbarStatus.SHOW);
   const { color: currentColor } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio

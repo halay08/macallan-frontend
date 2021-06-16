@@ -2,7 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { Footer } from 'app/components/Footer';
 import {
   ShapeBox,
-  StageFrame,
+  StageFrameDesktop,
+  StageFrameMobile,
   TextBox,
   IconBox,
   BottleBox
@@ -15,6 +16,7 @@ import { useDispatch } from 'react-redux';
 import { setColor, setTexture } from 'redux/actions/studio';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
+import { useResponsive } from 'utils/responsive';
 
 export const StudioPage = () => {
   const format = useSelector<AppState, AppState['format']>(
@@ -23,6 +25,7 @@ export const StudioPage = () => {
   const [scene, setScene] = useState(SceneType.SHAPE);
   const history = useHistory();
   const dispatch = useDispatch();
+  const { isMobile } = useResponsive();
 
   const resetSelectedStyles = () => {
     dispatch(setColor({ color: '' }));
@@ -77,17 +80,28 @@ export const StudioPage = () => {
         <title>Create Your Own - Studio</title>
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
-      <PageWrapper hasFooter={false}>
-        <StageFrame format={format} shouldShowTools={shouldShowTools} />
-        {scene === SceneType.SHAPE && <ShapeBox />}
-        {scene === SceneType.TEXT && <TextBox />}
-        {scene === SceneType.ICON && <IconBox />}
-        {scene === SceneType.BOTTLE && <BottleBox />}
-        <Footer
-          nextButtonHandler={nextButtonHandler}
-          prevButtonHandler={prevButtonHandler}
-        />
-      </PageWrapper>
+      {isMobile ? (
+        <PageWrapper hasFooter={false}>
+          <StageFrameMobile format={format} shouldShowTools={shouldShowTools} />
+          {scene === SceneType.SHAPE && <ShapeBox />}
+          {scene === SceneType.TEXT && <TextBox />}
+          {scene === SceneType.ICON && <IconBox />}
+          {scene === SceneType.BOTTLE && <BottleBox />}
+          <Footer
+            nextButtonHandler={nextButtonHandler}
+            prevButtonHandler={prevButtonHandler}
+          />
+        </PageWrapper>
+      ) : (
+        <PageWrapper StageFrame={<StageFrameDesktop format={format} />}>
+          <div className="flex pt-20">
+            {scene === SceneType.SHAPE && <ShapeBox />}
+            {scene === SceneType.TEXT && <TextBox />}
+            {scene === SceneType.ICON && <IconBox />}
+            {scene === SceneType.BOTTLE && <BottleBox />}
+          </div>
+        </PageWrapper>
+      )}
     </>
   );
 };
