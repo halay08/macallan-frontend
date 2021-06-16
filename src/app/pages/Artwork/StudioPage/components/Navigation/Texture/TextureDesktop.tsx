@@ -4,7 +4,6 @@ import texture2bg from '../../../assets/textures/img/texture_02_bg.png';
 import texture3bg from '../../../assets/textures/img/texture_03_bg.png';
 import { setTexture } from 'redux/actions/studio';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { AppState } from 'redux/store';
 
 export const TextureDesktop = () => {
@@ -32,7 +31,7 @@ export const TextureDesktop = () => {
       {textureIcons.map(({ name, Component }) => (
         <Button
           key={name}
-          className="group w-8 h-8 mx-2 block focus:outline-none active:outline-none"
+          className="group mx-4 block focus:outline-none active:outline-none"
           onClick={() => pickTexture(name)}
         >
           <Component
@@ -40,7 +39,7 @@ export const TextureDesktop = () => {
               currentTexture === name
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
-            } rounded-full w-8 h-8 inline-block`}
+            } rounded-full w-12 h-12 inline-block`}
           />
         </Button>
       ))}

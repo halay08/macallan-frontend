@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
+import { useResponsive } from 'utils/responsive';
 
 type StageFrameProps = {
   format: StageFormat;
@@ -15,6 +16,7 @@ export const StageFrameMobile = ({
   format,
   shouldShowTools
 }: StageFrameProps): JSX.Element => {
+  const { isMobile } = useResponsive();
   const dispatch = useDispatch();
   const [height, setHeight] = useState(0);
 
@@ -48,7 +50,7 @@ export const StageFrameMobile = ({
       className="flex flex-row items-center justify-center relative"
       height={height}
     >
-      {shouldShowTools && (
+      {!!(shouldShowTools && isMobile) && (
         <>
           <ColorPicker />
           <Texture />

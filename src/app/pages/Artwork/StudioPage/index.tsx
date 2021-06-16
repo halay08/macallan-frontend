@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import { Footer } from 'app/components/Footer';
 import {
   ShapeBox,
   StageFrameDesktop,
@@ -81,20 +80,28 @@ export const StudioPage = () => {
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
       {isMobile ? (
-        <PageWrapper hasFooter={false}>
-          <StageFrameMobile format={format} shouldShowTools={shouldShowTools} />
+        <PageWrapper
+          nextButtonHandler={nextButtonHandler}
+          prevButtonHandler={prevButtonHandler}
+          StageFrame={
+            <StageFrameMobile
+              format={format}
+              shouldShowTools={shouldShowTools}
+            />
+          }
+        >
           {scene === SceneType.SHAPE && <ShapeBox />}
           {scene === SceneType.TEXT && <TextBox />}
           {scene === SceneType.ICON && <IconBox />}
           {scene === SceneType.BOTTLE && <BottleBox />}
-          <Footer
-            nextButtonHandler={nextButtonHandler}
-            prevButtonHandler={prevButtonHandler}
-          />
         </PageWrapper>
       ) : (
-        <PageWrapper StageFrame={<StageFrameDesktop format={format} />}>
-          <div className="flex pt-20">
+        <PageWrapper
+          nextButtonHandler={nextButtonHandler}
+          prevButtonHandler={prevButtonHandler}
+          StageFrame={<StageFrameDesktop format={format} />}
+        >
+          <div className="flex pt-28 h-full">
             {scene === SceneType.SHAPE && <ShapeBox />}
             {scene === SceneType.TEXT && <TextBox />}
             {scene === SceneType.ICON && <IconBox />}
