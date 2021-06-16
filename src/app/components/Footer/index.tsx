@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { MacallanLogo } from './MacallanLogo';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
+import { useResponsive } from 'utils/responsive';
 
 interface FooterProps {
   className: string;
@@ -20,10 +21,11 @@ export const Footer: React.FC<Partial<FooterProps>> = ({
   prevButtonHandler
 }) => {
   const history = useHistory();
+  const { isMobile } = useResponsive();
 
   return (
-    <FooterWrapper className={`w-screen bg-white bottom-0 ${className}`}>
-      <FooterInner className="flex flex-row items-center justify-between h-full">
+    <FooterWrapper className={`bottom-0 ${className}`}>
+      <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
         {showPrevButton && (
           <PrevButton
             onClick={() =>
@@ -31,22 +33,30 @@ export const Footer: React.FC<Partial<FooterProps>> = ({
             }
             className="rounded-full focus:outline-none active:outline-none ml-5"
           >
-            <PrevButtonSvg className="w-8 m-auto" />
-            <span className="block text-xs text-secondary mt-1">BACK</span>
+            <PrevButtonSvg className="w-8 md:w-12 m-auto" />
+            <span className="block text-xs md:text-lg text-secondary mt-1">
+              BACK
+            </span>
           </PrevButton>
         )}
-        <MacallanLogo />
-        {showNextButton && (
-          <NextButton
-            onClick={() =>
-              nextButtonHandler ? nextButtonHandler() : history.goForward()
-            }
-            className="rounded-full focus:outline-none focus:outline-none mr-5"
-          >
-            <NextButtonSvg className="w-8 m-auto" />
-            <span className="block text-xs text-secondary mt-1">NEXT</span>
-          </NextButton>
-        )}
+        <MacallanLogo width={isMobile ? '180px' : '360px'} />
+        <NextButton
+          onClick={() =>
+            showNextButton
+              ? nextButtonHandler
+                ? nextButtonHandler()
+                : history.goForward()
+              : {}
+          }
+          className={`rounded-full focus:outline-none focus:outline-none mr-5 ${
+            showNextButton ? '' : 'opacity-50 cursor-not-allowed'
+          }`}
+        >
+          <NextButtonSvg className="w-8 md:w-12 m-auto" />
+          <span className="block text-xs md:text-lg text-secondary mt-1">
+            NEXT
+          </span>
+        </NextButton>
       </FooterInner>
     </FooterWrapper>
   );
