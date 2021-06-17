@@ -1,7 +1,17 @@
 {
   "projects": {
     "develop": "macallan-dev",
+    "staging": "macallan-ecf92",
     "production": "macallan",
     "default": "macallan-dev"
+  },
+  "targets": {
+    "macallan-ecf92": {
+      "hosting": {
+        "macallan-staging": [
+          "macallan-staging"
+        ]
+      }
+    }
   }
 }

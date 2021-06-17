@@ -48,3 +48,9 @@ export class ArtworkService extends HttpsCallable {
 ```
 
 ## Troubleshooting
+
+If you see the message like `Error: Deploy target macallan-staging not configured for project macallan-ecf92. Configure with`, please try to run the command below:
+
+```
+$ firebase target:apply hosting macallan-staging macallan-staging
+```
