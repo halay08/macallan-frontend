@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { StageFormat } from 'types/artwork/studio';
-import { ColorPicker, Texture } from './Navigation';
+import { ColorPicker, Texture } from '../Navigation';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
@@ -11,7 +11,7 @@ type StageFrameProps = {
   shouldShowTools: Boolean;
 };
 
-export const StageFrame = ({
+export const StageFrameMobile = ({
   format,
   shouldShowTools
 }: StageFrameProps): JSX.Element => {
@@ -67,7 +67,6 @@ export const StageFrame = ({
 };
 
 const Wrapper = styled.div<{ height: number }>`
-  // height: calc(100vh - 363px);
   height: ${props => `${props.height}px`};
   min-height: 300px;
 `;
