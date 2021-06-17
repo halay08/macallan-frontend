@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { TextureDesktop } from '../Navigation';
+import { Texture } from '../Navigation';
 import { useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { useEffect, useState } from 'react';
@@ -32,7 +32,7 @@ export const TextBoxDesktop = ({ onTextChanged }: props) => {
 
   const renderCharacters = characters => {
     return (
-      <Wrapper textureBg={textureBg} className="mb-6 leading-tight">
+      <Wrapper textureBg={textureBg} className="mb-6 text-5xl leading-tight">
         {characters.map(c => (
           <Button
             key={c}
@@ -54,8 +54,10 @@ export const TextBoxDesktop = ({ onTextChanged }: props) => {
           STEP 3: PERSONALISE WITH ALPHANUMERIC
         </strong>
       </div>
-      <div className="m-auto px-24 text-5xl font-Samuel">
-        <TextureDesktop />
+      <div className="m-auto px-24 font-Samuel">
+        <div className="mb-8">
+          <Texture />
+        </div>
         {renderCharacters(uppercase)}
         {renderCharacters(lowercase)}
         {renderCharacters(numbers)}
