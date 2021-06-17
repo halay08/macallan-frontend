@@ -1,20 +1,22 @@
 import styled from 'styled-components/macro';
 import { StageFormat } from 'types/artwork/studio';
-import { ColorPicker, Texture } from './Navigation';
+import { ColorPicker, Texture } from '../Navigation';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
+import { useResponsive } from 'utils/responsive';
 
 type StageFrameProps = {
   format: StageFormat;
   shouldShowTools: Boolean;
 };
 
-export const StageFrame = ({
+export const StageFrameMobile = ({
   format,
   shouldShowTools
 }: StageFrameProps): JSX.Element => {
+  const { isMobile } = useResponsive();
   const dispatch = useDispatch();
   const [height, setHeight] = useState(0);
 
@@ -48,7 +50,7 @@ export const StageFrame = ({
       className="flex flex-row items-center justify-center relative"
       height={height}
     >
-      {shouldShowTools && (
+      {!!(shouldShowTools && isMobile) && (
         <>
           <ColorPicker />
           <Texture />
@@ -67,7 +69,6 @@ export const StageFrame = ({
 };
 
 const Wrapper = styled.div<{ height: number }>`
-  // height: calc(100vh - 363px);
   height: ${props => `${props.height}px`};
   min-height: 300px;
 `;

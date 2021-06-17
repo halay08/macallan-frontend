@@ -1,10 +1,9 @@
-import styled from 'styled-components/macro';
-import { Shape } from './Shape';
+import { Shape } from '../Shape';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Konva from 'konva';
-import * as shapes from '../assets/shapes';
+import * as shapes from '../../assets/shapes';
 import { ShapeType } from 'types';
 import { DEFAULT_COLOR, defaultTransformerConfig } from 'config';
 import {
@@ -18,8 +17,9 @@ import {
 import { fetchStart, fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { ColorPicker, Texture } from '../Navigation';
 
-export const ShapeBox = () => {
+export const ShapeBoxDesktop = () => {
   const format = useSelector<AppState, AppState['format']>(
     ({ format }) => format
   );
@@ -125,39 +125,33 @@ export const ShapeBox = () => {
   }, [stage, transformer]);
 
   return (
-    <Wrapper className="bg-white">
-      <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
+    <div className="w-full">
+      <div className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-5 font-serif">
-          <strong className="font-medium text-tiny">
+          <strong className="font-AGaramondPro-bold text-2xl">
             STEP 2: CHOOSE SHAPE
           </strong>
         </div>
         <PerfectScrollbar options={{ suppressScrollY: true }}>
-          <div className="flex flex-nowrap h-28">
+          <div className="flex flex-wrap justify-center">
             {Object.keys(shapes).map(shape => (
-              <Button
+              <button
                 className="p-2 focus:outline-none focus:shadow-md active:shadow-md"
                 key={shape}
                 onClick={() => drawTexture(ShapeType[shape])}
               >
                 <Shape src={shapes[shape]} />
-              </Button>
+              </button>
             ))}
           </div>
+          <div className="mt-6">
+            <ColorPicker />
+          </div>
+          <div className="my-6">
+            <Texture />
+          </div>
         </PerfectScrollbar>
-      </BoxWrapper>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  width: 100%;
-  bottom: 85px;
-`;
-const BoxWrapper = styled.div`
-  box-shadow: inset 0px 17px 16px -10px #ccc;
-  border-top: 1px solid #bbb;
-`;
-const Button = styled.button`
-  height: fit-content;
-`;

@@ -1,20 +1,22 @@
 import styled from 'styled-components/macro';
-import texture1bg from '../../assets/textures/img/texture_01_bg.png';
-import texture2bg from '../../assets/textures/img/texture_02_bg.png';
-import texture3bg from '../../assets/textures/img/texture_03_bg.png';
+import texture1bg from '../../../assets/textures/img/texture_01_bg.png';
+import texture2bg from '../../../assets/textures/img/texture_02_bg.png';
+import texture3bg from '../../../assets/textures/img/texture_03_bg.png';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import { setTexture } from 'redux/actions/studio';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToolbarStatus } from 'types';
 import { AppState } from 'redux/store';
+import { useResponsive } from 'utils/responsive';
 
-export const Texture = () => {
+export const TextureMobile = () => {
   const [toolbarStatus, setToolbarStatus] = useState(ToolbarStatus.SHOW);
   const { texture: currentTexture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
   const dispatch = useDispatch();
+  const { isMobile } = useResponsive();
 
   const togglePicker = () => {
     setToolbarStatus(
@@ -32,7 +34,13 @@ export const Texture = () => {
     }
   };
 
-  return (
+  const textureIcons = [
+    { name: 'texture_01.png', Component: Texture01 },
+    { name: 'texture_02.png', Component: Texture02 },
+    { name: 'texture_03.png', Component: Texture03 }
+  ];
+
+  return isMobile ? (
     <Wrapper
       className={`absolute z-50 right-0 top-24 flex flex-row items-center justify-center${
         toolbarStatus === ToolbarStatus.HIDE ? ' w-0' : ''
@@ -56,44 +64,40 @@ export const Texture = () => {
           toolbarStatus === ToolbarStatus.HIDE ? ' p-0' : ' p-2 pb-0'
         }`}
       >
-        <Button
-          className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
-          onClick={() => pickTexture('texture_01.png')}
-        >
-          <Texture01
-            className={`${
-              currentTexture === 'texture_01.png'
-                ? 'border-2 border-solid border-primary'
-                : 'border border-solid border-gray-light'
-            } rounded-full w-5 h-5 inline-block`}
-          />
-        </Button>
-        <Button
-          className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
-          onClick={() => pickTexture('texture_02.png')}
-        >
-          <Texture02
-            className={`${
-              currentTexture === 'texture_02.png'
-                ? 'border-2 border-solid border-primary'
-                : 'border border-solid border-gray-light'
-            } rounded-full w-5 h-5 inline-block`}
-          />
-        </Button>
-        <Button
-          className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
-          onClick={() => pickTexture('texture_03.png')}
-        >
-          <Texture03
-            className={`${
-              currentTexture === 'texture_03.png'
-                ? 'border-2 border-solid border-primary'
-                : 'border border-solid border-gray-light'
-            } rounded-full w-5 h-5 inline-block`}
-          />
-        </Button>
+        {textureIcons.map(({ name, Component }) => (
+          <Button
+            className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
+            onClick={() => pickTexture(name)}
+          >
+            <Component
+              className={`${
+                currentTexture === name
+                  ? 'border-2 border-solid border-primary'
+                  : 'border border-solid border-gray-light'
+              } rounded-full w-5 h-5 inline-block`}
+            />
+          </Button>
+        ))}
       </Container>
     </Wrapper>
+  ) : (
+    <Container className="flex justify-center">
+      {textureIcons.map(({ name, Component }) => (
+        <Button
+          key={name}
+          className="group w-8 h-8 mx-2 block focus:outline-none active:outline-none"
+          onClick={() => pickTexture(name)}
+        >
+          <Component
+            className={`${
+              currentTexture === name
+                ? 'border-2 border-solid border-primary'
+                : 'border border-solid border-gray-light'
+            } rounded-full w-8 h-8 inline-block`}
+          />
+        </Button>
+      ))}
+    </Container>
   );
 };
 
