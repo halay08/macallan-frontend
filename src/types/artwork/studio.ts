@@ -2,7 +2,8 @@ enum SceneType {
   SHAPE = 'shape',
   TEXT = 'text',
   ICON = 'icon',
-  BOTTLE = 'bottle'
+  BOTTLE = 'bottle',
+  SIGN_OFF = 'signOff'
 }
 
 enum ShapeType {
