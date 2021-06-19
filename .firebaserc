@@ -12,6 +12,13 @@
           "macallan-staging"
         ]
       }
+    },
+    "macallan-dev": {
+      "hosting": {
+        "macallan-dev": [
+          "macallan-dev"
+        ]
+      }
     }
   }
 }
