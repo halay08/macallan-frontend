@@ -1,11 +1,10 @@
-import styled from 'styled-components/macro';
-import { Bottle } from './Bottle';
+import { BottleBoxDesktop } from './BottleBoxDesktop';
+import { BottleBoxMobile } from './BottleBoxMobile';
+import { useResponsive } from 'utils/responsive';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import Konva from 'konva';
-import * as bottles from '../assets/bottles';
-import { BottleType } from 'types';
 import {
   createImageNode,
   getCanvas,
@@ -62,38 +61,11 @@ export const BottleBox = () => {
     bottleImage.src = `/assets/bottles/${bottle}`;
   };
 
-  const bottleKeys = Object.keys(bottles);
+  const { isMobile } = useResponsive();
 
-  return (
-    <Wrapper className="bg-white">
-      <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid">
-        <div className="grid text-center mb-5 font-serif">
-          <strong className="font-medium text-tiny">STEP 4: ADD BOTTLE</strong>
-        </div>
-        <div className="flex flex-nowrap flex-row items-center justify-center pl-4 pr-4 h-28">
-          {bottleKeys.map(bottle => (
-            <Button
-              className="p-4 focus:outline-none focus:shadow-md active:shadow-md"
-              key={bottle}
-              onClick={() => drawBottle(BottleType[bottle])}
-            >
-              <Bottle src={bottles[bottle]} />
-            </Button>
-          ))}
-        </div>
-      </BoxWrapper>
-    </Wrapper>
+  return isMobile ? (
+    <BottleBoxMobile drawBottle={drawBottle} />
+  ) : (
+    <BottleBoxDesktop drawBottle={drawBottle} />
   );
 };
-
-const Wrapper = styled.div`
-  width: 100%;
-  bottom: 85px;
-`;
-const BoxWrapper = styled.div`
-  box-shadow: inset 0px 17px 16px -10px #ccc;
-  border-top: 1px solid #bbb;
-`;
-const Button = styled.button`
-  height: fit-content;
-`;
