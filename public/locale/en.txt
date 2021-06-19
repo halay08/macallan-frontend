@@ -1,0 +1,24 @@
+#: locale=en
+
+## Tour
+
+### Description
+
+### Title
+tour.name = Untitled 5
+
+## Media
+
+### Title
+panorama_E28F7057_FAD4_AED3_41EC_18C831070634.label = V11_01_Mastery
+panorama_E2B2863D_FAD3_D257_41D9_4E2B1D45FD4B.label = V11_02_CC_Gallery 
+panorama_E2BA6CA6_FAD4_5675_41C1_8A3EB5EB1CAD.label = V11_02_CYO
+panorama_E2BEA0A8_FAD4_6E7D_41E4_9694BBBA4EB0.label = V11_01_Mastery_taste 
+panorama_E3F014DB_FADC_57D3_41D6_94870C45955A.label = image (6)
+panorama_E3FE20FC_FAD4_6FD5_41D7_3B939BF6034C.label = V11_01_place
+panorama_EC45F6E6_F953_D3F5_41D7_0BFFA06DD2F7.label = Collaboration with MC3  copy
+
+## Hotspot
+
+### Tooltip
+HotspotPanoramaOverlayArea_EEC95318_F9B4_B25D_41C7_40764212D78B.toolTip = ENTER \
