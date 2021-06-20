@@ -40,7 +40,7 @@ export function App() {
           <Route
             exact
             path={process.env.PUBLIC_URL + '/'}
-            component={HomePage}
+            component={VirtualPage}
           />
           <Route
             exact
@@ -56,11 +56,6 @@ export function App() {
             exact
             path={process.env.PUBLIC_URL + '/artwork/studio'}
             component={StudioPage}
-          />
-          <Route
-            exact
-            path={process.env.PUBLIC_URL + '/virtual'}
-            component={VirtualPage}
           />
           <Route component={NotFoundPage} />
         </Switch>
