@@ -18,8 +18,9 @@ export const IconBoxDesktop = ({ drawIcon }: props) => {
       </div>
       <div className="m-auto">
         <div className="grid grid-cols-7 gap 5">
-          {iconKeys.map((icon, index) => (
+          {iconKeys.map(icon => (
             <Button
+              key={icon}
               className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
               onClick={() => drawIcon(IconType[icon])}
             >

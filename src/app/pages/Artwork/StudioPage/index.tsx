@@ -54,6 +54,9 @@ export const StudioPage = () => {
       case SceneType.BOTTLE:
         setScene(SceneType.SIGN_OFF);
         break;
+      case SceneType.SIGN_OFF:
+        history.push('/artwork/uploaded');
+        break;
     }
   };
 

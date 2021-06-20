@@ -38,6 +38,21 @@ export const StageFrameDesktop = ({ format }: StageFrameProps): JSX.Element => {
       name: 'studio'
     });
 
+    const layer = new Konva.Layer();
+    stage.add(layer);
+
+    const background = new Konva.Rect({
+      x: 0,
+      y: 0,
+      width: stage.width(),
+      height: stage.height(),
+      fill: '#fff',
+      // remove background from hit graph for better perf
+      // because we don't need any events on the background
+      listening: false
+    });
+    layer.add(background);
+
     dispatch(setStage({ stage, color: '', texture: '' }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [format]);
