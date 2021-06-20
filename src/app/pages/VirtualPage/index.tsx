@@ -39,6 +39,7 @@ export function VirtualPage() {
       if (tdvPlayerScript) tdvPlayerScript.remove();
       if (script) script.remove();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
