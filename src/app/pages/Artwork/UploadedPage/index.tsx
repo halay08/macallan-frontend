@@ -3,7 +3,7 @@ import { UploadedMobile } from './UploadedMobile';
 import { useResponsive } from 'utils/responsive';
 import { Helmet } from 'react-helmet-async';
 import { PageWrapper } from 'app/components/PageWrapper';
-import { FinalImageDesktop, FinalImageMobile } from './FinalImage';
+import { FinalImage } from './FinalImage';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
@@ -36,14 +36,14 @@ export const UploadedPage = () => {
       {isMobile ? (
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
-          StageFrame={<FinalImageMobile />}
+          StageFrame={<FinalImage />}
         >
           <UploadedMobile handleClick={handleClick} />
         </PageWrapper>
       ) : (
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
-          StageFrame={<FinalImageDesktop />}
+          StageFrame={<FinalImage />}
         >
           <div className="flex pt-28 h-full">
             <UploadedDesktop handleClick={handleClick} />

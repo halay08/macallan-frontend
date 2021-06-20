@@ -4,32 +4,13 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { StageFormat } from 'types';
-import Konva from 'konva';
 
 export const FinalImageDesktop = () => {
-  const { stage } = useSelector<AppState, AppState['studio']>(
-    ({ studio }) => studio
-  );
   const selectedFormat = useSelector<AppState, AppState['format']>(
     ({ format }) => format
   );
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    if (!stage.name) return;
-
-    const [transformer] = stage.find('Transformer') as Konva.Transformer[];
-    transformer.nodes([]);
-
-    stage.toImage({
-      callback(image) {
-        image.className = 'w-3/4';
-        document.getElementById('finalImageContainer')?.append(image);
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     const maxWidth = window.innerWidth * 0.45;

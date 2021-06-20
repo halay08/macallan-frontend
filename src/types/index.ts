@@ -1,4 +1,5 @@
 import {
+  ArtworkActionTypes,
   CommonActionTypes,
   FormatActionTypes,
   StudioActionTypes
@@ -8,4 +9,5 @@ export * from './artwork';
 export type AppActions =
   | CommonActionTypes
   | StudioActionTypes
-  | FormatActionTypes;
+  | FormatActionTypes
+  | ArtworkActionTypes;

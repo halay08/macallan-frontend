@@ -8,6 +8,7 @@ import { getCanvas, onNodeAction, createImageNode } from 'app/helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { Layer } from 'konva/lib/Layer';
+import { setMessage } from 'redux/actions';
 
 export const SignOff = () => {
   const { isMobile } = useResponsive();
@@ -101,6 +102,7 @@ export const SignOff = () => {
     const text = evt.target.value;
     drawText(text);
 
+    dispatch(setMessage(text));
     evt.target.focus();
   };
 
