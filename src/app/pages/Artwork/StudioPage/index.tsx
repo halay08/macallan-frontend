@@ -11,7 +11,7 @@ import {
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useEffect, useState } from 'react';
 import { SceneType } from 'types/artwork/studio';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Prompt } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setColor, setTexture } from 'redux/actions/studio';
 import { AppState } from 'redux/store';
@@ -35,7 +35,17 @@ export const StudioPage = () => {
 
   useEffect(() => {
     if (!format) history.goBack();
-  }, [format, history]);
+
+    const confirmation = ev => {
+      ev.returnValue = 'Are you sure? Your work will be lost!';
+    };
+    window.addEventListener('beforeunload', confirmation);
+
+    return () => {
+      window.removeEventListener('beforeunload', confirmation);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const nextButtonHandler = () => {
     // Reset selected color/texture.
@@ -100,6 +110,20 @@ export const StudioPage = () => {
     }
   }, [scene]);
 
+  const confirmationHandler = (location, action) => {
+    if (action !== 'PUSH') return true;
+
+    if (location.pathname.includes('format')) {
+      return 'Are you sure? Your work will be lost!';
+    }
+
+    if (location.pathname.includes('uploaded')) {
+      return 'Are you sure? You will not able to edit your work anymore!';
+    }
+
+    return true;
+  };
+
   const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
   return (
     <>
@@ -107,6 +131,7 @@ export const StudioPage = () => {
         <title>Create Your Own - Studio</title>
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
+      <Prompt message={confirmationHandler} />
       {isMobile ? (
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
