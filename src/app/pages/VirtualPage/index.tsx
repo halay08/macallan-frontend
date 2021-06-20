@@ -2,12 +2,10 @@ import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import TourHelper from './helpers';
 import { loadScript } from 'app/helpers';
-import { useResponsive } from 'utils/responsive';
 
 export function VirtualPage() {
   const viewerRef = useRef<HTMLDivElement>(null);
   const preloadRef = useRef<HTMLDivElement>(null);
-  const { isMobile } = useResponsive();
 
   const addFullScreenStyle = (element: HTMLElement) => {
     element.style.width = '100%';
@@ -27,11 +25,7 @@ export function VirtualPage() {
       if (!window.TDV) return;
       addFullScreenStyle(document.documentElement);
       addFullScreenStyle(document.body);
-      const tour = new TourHelper(
-        viewerRef.current,
-        preloadRef.current,
-        isMobile
-      );
+      const tour = new TourHelper(viewerRef.current, preloadRef.current);
       tour.onLoad();
     })();
 
@@ -39,7 +33,6 @@ export function VirtualPage() {
       if (tdvPlayerScript) tdvPlayerScript.remove();
       if (script) script.remove();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
