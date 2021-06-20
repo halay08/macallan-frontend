@@ -5,7 +5,8 @@ import {
   StageFrameMobile,
   TextBox,
   IconBox,
-  BottleBox
+  BottleBox,
+  SignOff
 } from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useEffect, useState } from 'react';
@@ -22,6 +23,7 @@ export const StudioPage = () => {
     ({ format }) => format
   );
   const [scene, setScene] = useState(SceneType.SHAPE);
+  const [Content, setContent] = useState(<ShapeBox />);
   const history = useHistory();
   const dispatch = useDispatch();
   const { isMobile } = useResponsive();
@@ -49,6 +51,9 @@ export const StudioPage = () => {
       case SceneType.ICON:
         setScene(SceneType.BOTTLE);
         break;
+      case SceneType.BOTTLE:
+        setScene(SceneType.SIGN_OFF);
+        break;
     }
   };
 
@@ -69,8 +74,31 @@ export const StudioPage = () => {
       case SceneType.BOTTLE:
         setScene(SceneType.ICON);
         break;
+      case SceneType.SIGN_OFF:
+        setScene(SceneType.BOTTLE);
+        break;
     }
   };
+
+  useEffect(() => {
+    switch (scene) {
+      case SceneType.SHAPE:
+        setContent(<ShapeBox />);
+        break;
+      case SceneType.TEXT:
+        setContent(<TextBox />);
+        break;
+      case SceneType.ICON:
+        setContent(<IconBox />);
+        break;
+      case SceneType.BOTTLE:
+        setContent(<BottleBox />);
+        break;
+      case SceneType.SIGN_OFF:
+        setContent(<SignOff />);
+        break;
+    }
+  }, [scene]);
 
   const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
   return (
@@ -90,10 +118,7 @@ export const StudioPage = () => {
             />
           }
         >
-          {scene === SceneType.SHAPE && <ShapeBox />}
-          {scene === SceneType.TEXT && <TextBox />}
-          {scene === SceneType.ICON && <IconBox />}
-          {scene === SceneType.BOTTLE && <BottleBox />}
+          {Content}
         </PageWrapper>
       ) : (
         <PageWrapper
@@ -101,12 +126,7 @@ export const StudioPage = () => {
           prevButtonHandler={prevButtonHandler}
           StageFrame={<StageFrameDesktop format={format} />}
         >
-          <div className="flex pt-28 h-full">
-            {scene === SceneType.SHAPE && <ShapeBox />}
-            {scene === SceneType.TEXT && <TextBox />}
-            {scene === SceneType.ICON && <IconBox />}
-            {scene === SceneType.BOTTLE && <BottleBox />}
-          </div>
+          <div className="flex pt-28 h-full">{Content}</div>
         </PageWrapper>
       )}
     </>
