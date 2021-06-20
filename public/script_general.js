@@ -2797,7 +2797,8 @@
       {
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'image',
-        click: "this.mainPlayList.set('selectedIndex', 0)",
+        // click: "this.mainPlayList.set('selectedIndex', 0)",
+        click: "window.location.href = '/artwork/instruction'",
         id: 'HotspotPanoramaOverlayArea_E2367C1D_FAF7_B657_41D8_FCDA6708999F'
       },
       {
