@@ -18,10 +18,7 @@ export class TourHelper {
   viewer: HTMLDivElement;
   preloadContainer: HTMLDivElement;
 
-  constructor(
-    viewer: HTMLDivElement,
-    preloadContainer: HTMLDivElement,
-  ) {
+  constructor(viewer: HTMLDivElement, preloadContainer: HTMLDivElement) {
     this.viewer = viewer;
     this.preloadContainer = preloadContainer;
   }
