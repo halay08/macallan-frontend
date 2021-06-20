@@ -12,7 +12,6 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from '../styles/global-styles';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
-import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import { FormatPage, InstructionPage, StudioPage, VirtualPage } from './pages';

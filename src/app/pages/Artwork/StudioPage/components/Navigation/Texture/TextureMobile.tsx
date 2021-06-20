@@ -66,6 +66,7 @@ export const TextureMobile = () => {
       >
         {textureIcons.map(({ name, Component }) => (
           <Button
+            key={name}
             className="group w-5 h-5 mb-2 block focus:outline-none active:outline-none"
             onClick={() => pickTexture(name)}
           >

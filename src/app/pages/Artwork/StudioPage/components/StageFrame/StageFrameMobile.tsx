@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import { StageFormat } from 'types/artwork/studio';
 import { ColorPicker, Texture } from '../Navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
@@ -18,7 +18,6 @@ export const StageFrameMobile = ({
 }: StageFrameProps): JSX.Element => {
   const { isMobile } = useResponsive();
   const dispatch = useDispatch();
-  const [height, setHeight] = useState(0);
 
   useEffect(() => {
     const stageWidth = window.innerWidth;
@@ -40,16 +39,12 @@ export const StageFrameMobile = ({
       name: 'studio'
     });
 
-    setHeight(stageHeight);
     dispatch(setStage({ stage, color: '', texture: '' }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <Wrapper
-      className="flex flex-row items-center justify-center relative"
-      height={height}
-    >
+    <Wrapper className="flex flex-row items-center justify-center relative">
       {!!(shouldShowTools && isMobile) && (
         <>
           <ColorPicker />
@@ -68,8 +63,7 @@ export const StageFrameMobile = ({
   );
 };
 
-const Wrapper = styled.div<{ height: number }>`
-  height: ${props => `${props.height}px`};
+const Wrapper = styled.div`
   min-height: 300px;
 `;
 const StageContainer = styled.div`

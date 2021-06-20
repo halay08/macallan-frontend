@@ -5,12 +5,14 @@ import { StageFrameDesktop as StageFrame } from '../StudioPage/components/StageF
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
+import { useResponsive } from 'utils/responsive';
 
 export const FormatPage = () => {
   const history = useHistory();
   const selectedFormat = useSelector<AppState, AppState['format']>(
     ({ format }) => format
   );
+  const { isMobile } = useResponsive();
 
   const nextButtonHandler = () => {
     if (!selectedFormat) return;
@@ -18,7 +20,11 @@ export const FormatPage = () => {
   };
 
   const renderStageFrame = () =>
-    selectedFormat ? <StageFrame format={selectedFormat} /> : <></>;
+    selectedFormat && !isMobile ? (
+      <StageFrame format={selectedFormat} />
+    ) : (
+      <></>
+    );
 
   return (
     <>
