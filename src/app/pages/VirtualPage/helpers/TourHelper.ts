@@ -13,14 +13,22 @@ export class TourHelper {
   static HLS: string = '/lib/Hls.js?v=1623410382216';
   static QUERY_STRING_PARAMETERS: string = 'v=1623410382216';
   static GENERAL_SCRIPT: string = '/script_general.js?v=1623410382216';
+  static GENERAL_SCRIPT_MOBILE: string =
+    '/script_general_mobile.js?v=1623410382216';
 
   tour: any;
   viewer: HTMLDivElement;
   preloadContainer: HTMLDivElement;
+  isMobile: boolean;
 
-  constructor(viewer: HTMLDivElement, preloadContainer: HTMLDivElement) {
+  constructor(
+    viewer: HTMLDivElement,
+    preloadContainer: HTMLDivElement,
+    isMobile: boolean
+  ) {
     this.viewer = viewer;
     this.preloadContainer = preloadContainer;
+    this.isMobile = isMobile;
   }
 
   loadTour() {
@@ -37,7 +45,9 @@ export class TourHelper {
     );
 
     this.tour = new window.TDV.Tour(settings, {
-      general: TourHelper.GENERAL_SCRIPT
+      general: this.isMobile
+        ? TourHelper.GENERAL_SCRIPT_MOBILE
+        : TourHelper.GENERAL_SCRIPT
     });
 
     this.tour.bind(
