@@ -74,6 +74,17 @@ enum ToolbarStatus {
   HIDE = 'hide'
 }
 
+enum UploadedTypes {
+  DouyinIcon = 'douyin.png',
+  DownloadIcon = 'download.png',
+  EcardIcon = 'e-card',
+  FacebookIcon = 'facebook.png',
+  TwitterIcon = 'twitter.png',
+  WechatIcon = 'wechat.png',
+  WeiboIcon = 'weibo.png',
+  WhatsappIcon = 'whatsapp.png'
+}
+
 type ISvgShapeAttribute = {
   x: number;
   y: number;
@@ -105,5 +116,6 @@ export {
   IconType,
   BottleType,
   StageFormat,
-  ToolbarStatus
+  ToolbarStatus,
+  UploadedTypes
 };
