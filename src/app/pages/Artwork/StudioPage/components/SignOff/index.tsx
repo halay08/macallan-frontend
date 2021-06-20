@@ -105,7 +105,7 @@ export const SignOff = () => {
   };
 
   return isMobile ? (
-    <SignOffMobile />
+    <SignOffMobile onTextChanged={onTextChanged} />
   ) : (
     <SignOffDesktop
       onTextChanged={onTextChanged}
