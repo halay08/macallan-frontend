@@ -38,7 +38,7 @@ export const TextBoxDesktop = ({ onTextChanged }: props) => {
             key={c}
             className="px-2 focus:outline-none focus:shadow-md active:shadow-md"
             value={c}
-            onClick={evt => onTextChanged(evt)}
+            onClick={() => onTextChanged(c)}
           >
             {c}
           </Button>

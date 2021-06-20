@@ -5,6 +5,15 @@ type props = {
 };
 
 export const TextBox = ({ onTextChanged }: props) => {
+  const onKeyUp = evt => {
+    const text = evt.target.value;
+
+    onTextChanged(text);
+
+    evt.target.value = '';
+    evt.target.focus();
+  };
+
   return (
     <Wrapper className="bg-white">
       <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
@@ -20,7 +29,7 @@ export const TextBox = ({ onTextChanged }: props) => {
           <TextField
             className="w-screen opacity-0"
             maxLength={1}
-            onKeyUp={evt => onTextChanged(evt)}
+            onKeyUp={onKeyUp}
           />
         </div>
       </BoxWrapper>

@@ -101,17 +101,12 @@ export const TextBox = () => {
     onNodeAction(node);
   };
 
-  const onTextChanged = evt => {
-    const text = evt.target.value;
-
+  const onTextChanged = text => {
     if (texture && texture.length > 0) {
       drawTexture(texture, text);
     } else {
       drawText(text);
     }
-
-    evt.target.value = '';
-    evt.target.focus();
   };
 
   if (isMobile) {
