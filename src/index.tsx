@@ -24,6 +24,9 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import reportWebVitals from 'reportWebVitals';
 
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+
 // Initialize languages
 import './locales/i18n';
 
@@ -40,12 +43,21 @@ openSansObserver.load().then(() => {
 
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
+const alertOptions = {
+  position: positions.BOTTOM_CENTER,
+  timeout: 3000,
+  offset: '30px',
+  transition: transitions.SCALE
+};
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <HelmetProvider>
         <React.StrictMode>
-          <App />
+          <AlertProvider template={AlertTemplate} {...alertOptions}>
+            <App />
+          </AlertProvider>
         </React.StrictMode>
       </HelmetProvider>
     </ConnectedRouter>

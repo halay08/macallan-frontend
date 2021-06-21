@@ -1,7 +1,7 @@
 import { useResponsive } from 'utils/responsive';
 import { FinalImageDesktop } from './FinalImageDesktop';
 import { FinalImageMobile } from './FinalImageMobile';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import Konva from 'konva';
 import { useEffect } from 'react';
@@ -9,6 +9,13 @@ import { storage } from 'config';
 import { v4 as uuidv4 } from 'uuid';
 import { ArtworkService } from 'app/services';
 import { base64toBlob } from 'app/helpers';
+import {
+  fetchError,
+  fetchStart,
+  fetchSuccess,
+  setImageId
+} from 'redux/actions';
+import { ERROR_MESSAGE } from 'app/helpers/constants';
 
 export const FinalImage = () => {
   const { isMobile } = useResponsive();
@@ -18,6 +25,7 @@ export const FinalImage = () => {
   const { message } = useSelector<AppState, AppState['artwork']>(
     ({ artwork }) => artwork
   );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!stage.name) return;
@@ -27,12 +35,17 @@ export const FinalImage = () => {
 
     stage.toImage({
       callback(image) {
+        if (!isMobile) {
+          image.className = 'w-3/4';
+        }
         document.getElementById('finalImageContainer')?.append(image);
       }
     });
 
     (async () => {
       try {
+        dispatch(fetchStart());
+
         const id = uuidv4();
         const data = {
           imgUrl: `images/${id}.png`,
@@ -43,8 +56,11 @@ export const FinalImage = () => {
         const artworkService = new ArtworkService();
         await artworkService.createArtwork(data);
         await uploadToStorage(id);
+        dispatch(setImageId(id));
+        dispatch(fetchSuccess());
       } catch (e) {
-        console.log(e);
+        const { message = ERROR_MESSAGE } = e;
+        dispatch(fetchError(message));
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
