@@ -327,7 +327,7 @@
               class: 'ImageResource',
               levels: [
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -336,7 +336,7 @@
                   height: 23040
                 },
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -345,7 +345,7 @@
                   height: 11776
                 },
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -354,7 +354,7 @@
                   height: 6144
                 },
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -363,7 +363,7 @@
                   height: 3072
                 },
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -372,7 +372,7 @@
                   height: 1536
                 },
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -381,7 +381,7 @@
                   height: 1024
                 },
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   tags: ['ondemand', 'preload'],
                   class: 'TiledImageResourceLevel',
@@ -390,7 +390,7 @@
                   height: 512
                 },
                 {
-                  url: 'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_0/f/vr/0.jpg',
                   colCount: 1,
                   tags: 'mobilevr',
                   class: 'TiledImageResourceLevel',
@@ -401,7 +401,7 @@
               ]
             },
             thumbnailUrl:
-              'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_t.jpg'
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_t.jpg'
           }
         ],
         partial: true,
@@ -415,7 +415,7 @@
           'this.popup_E371A1DF_FAD4_B1D3_41D7_2E47FA7406ED'
         ],
         thumbnailUrl:
-          'media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_136F3C6D_0FD9_FD87_41B4_EEC7C0CE4052_t.jpg',
         pitch: 0,
         hfovMax: 30,
         data: {
@@ -687,7 +687,7 @@
               class: 'ImageResource',
               levels: [
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -696,7 +696,7 @@
                   height: 23040
                 },
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -705,7 +705,7 @@
                   height: 11776
                 },
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -714,7 +714,7 @@
                   height: 6144
                 },
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -723,7 +723,7 @@
                   height: 3072
                 },
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -732,7 +732,7 @@
                   height: 1536
                 },
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -741,7 +741,7 @@
                   height: 1024
                 },
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   tags: ['ondemand', 'preload'],
                   class: 'TiledImageResourceLevel',
@@ -750,7 +750,7 @@
                   height: 512
                 },
                 {
-                  url: 'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_0/f/vr/0.jpg',
                   colCount: 1,
                   tags: 'mobilevr',
                   class: 'TiledImageResourceLevel',
@@ -761,7 +761,7 @@
               ]
             },
             thumbnailUrl:
-              'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_t.jpg'
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_t.jpg'
           }
         ],
         partial: true,
@@ -772,7 +772,7 @@
           'this.popup_07EDBAA1_096A_F94C_4199_918870DA56D4'
         ],
         thumbnailUrl:
-          'media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_109B9AD5_0FDA_3A86_41B2_5738C21F16AF_t.jpg',
         pitch: 0,
         hfovMax: 30,
         data: {
@@ -812,7 +812,7 @@
               class: 'ImageResource',
               levels: [
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -821,7 +821,7 @@
                   height: 23040
                 },
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -830,7 +830,7 @@
                   height: 11776
                 },
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -839,7 +839,7 @@
                   height: 6144
                 },
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -848,7 +848,7 @@
                   height: 3072
                 },
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -857,7 +857,7 @@
                   height: 1536
                 },
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -866,7 +866,7 @@
                   height: 1024
                 },
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   tags: ['ondemand', 'preload'],
                   class: 'TiledImageResourceLevel',
@@ -875,7 +875,7 @@
                   height: 512
                 },
                 {
-                  url: 'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/vr/0.jpg',
                   colCount: 1,
                   tags: 'mobilevr',
                   class: 'TiledImageResourceLevel',
@@ -886,7 +886,7 @@
               ]
             },
             thumbnailUrl:
-              'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg'
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg'
           }
         ],
         partial: true,
@@ -899,7 +899,7 @@
           'this.popup_EE936120_F9F7_AE6D_41EA_0915385E24FF'
         ],
         thumbnailUrl:
-          'media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg',
         pitch: 0,
         hfovMax: 30,
         data: {
@@ -988,13 +988,13 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EEFBF7C1_F9D4_522F_41EB_76B14D467392_0.jpg',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EEFBF7C1_F9D4_522F_41EB_76B14D467392_0.jpg',
             width: 767,
             height: 463
           },
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EEFBF7C1_F9D4_522F_41EB_76B14D467392_1.jpg',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EEFBF7C1_F9D4_522F_41EB_76B14D467392_1.jpg',
             width: 512,
             height: 309
           }
@@ -1013,7 +1013,7 @@
               class: 'ImageResource',
               levels: [
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1022,7 +1022,7 @@
                   height: 23040
                 },
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1031,7 +1031,7 @@
                   height: 11776
                 },
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1040,7 +1040,7 @@
                   height: 6144
                 },
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1049,7 +1049,7 @@
                   height: 3072
                 },
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1058,7 +1058,7 @@
                   height: 1536
                 },
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1067,7 +1067,7 @@
                   height: 1024
                 },
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   tags: ['ondemand', 'preload'],
                   class: 'TiledImageResourceLevel',
@@ -1076,7 +1076,7 @@
                   height: 512
                 },
                 {
-                  url: 'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_0/f/vr/0.jpg',
                   colCount: 1,
                   tags: 'mobilevr',
                   class: 'TiledImageResourceLevel',
@@ -1087,7 +1087,7 @@
               ]
             },
             thumbnailUrl:
-              'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_t.jpg'
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_t.jpg'
           }
         ],
         partial: true,
@@ -1098,7 +1098,7 @@
           'this.popup_EEA48373_F9F4_72D3_41E0_334EC953F861'
         ],
         thumbnailUrl:
-          'media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1057AD40_0FDE_5FFE_41B0_340B097A6B10_t.jpg',
         pitch: 0,
         hfovMax: 30,
         data: {
@@ -1137,7 +1137,7 @@
               class: 'ImageResource',
               levels: [
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1146,7 +1146,7 @@
                   height: 23040
                 },
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1155,7 +1155,7 @@
                   height: 11776
                 },
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1164,7 +1164,7 @@
                   height: 6144
                 },
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1173,7 +1173,7 @@
                   height: 3072
                 },
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1182,7 +1182,7 @@
                   height: 1536
                 },
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1191,7 +1191,7 @@
                   height: 1024
                 },
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   tags: ['ondemand', 'preload'],
                   class: 'TiledImageResourceLevel',
@@ -1200,7 +1200,7 @@
                   height: 512
                 },
                 {
-                  url: 'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_0/f/vr/0.jpg',
                   colCount: 1,
                   tags: 'mobilevr',
                   class: 'TiledImageResourceLevel',
@@ -1211,7 +1211,7 @@
               ]
             },
             thumbnailUrl:
-              'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_t.jpg'
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_t.jpg'
           }
         ],
         partial: true,
@@ -1222,7 +1222,7 @@
           'this.popup_EEB46521_F9F4_F66F_41A9_5BB85AB3C191'
         ],
         thumbnailUrl:
-          'media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_13733C9E_0FDA_FE85_41B5_E92925C0FEFB_t.jpg',
         pitch: 0,
         hfovMax: 30,
         data: {
@@ -1327,7 +1327,7 @@
               class: 'ImageResource',
               levels: [
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1336,7 +1336,7 @@
                   height: 23040
                 },
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1345,7 +1345,7 @@
                   height: 11776
                 },
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1354,7 +1354,7 @@
                   height: 6144
                 },
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1363,7 +1363,7 @@
                   height: 3072
                 },
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1372,7 +1372,7 @@
                   height: 1536
                 },
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1381,7 +1381,7 @@
                   height: 1024
                 },
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   tags: ['ondemand', 'preload'],
                   class: 'TiledImageResourceLevel',
@@ -1390,7 +1390,7 @@
                   height: 512
                 },
                 {
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_0/f/vr/0.jpg',
                   colCount: 1,
                   tags: 'mobilevr',
                   class: 'TiledImageResourceLevel',
@@ -1401,7 +1401,7 @@
               ]
             },
             thumbnailUrl:
-              'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_t.jpg'
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_t.jpg'
           }
         ],
         partial: true,
@@ -1412,7 +1412,7 @@
           'this.popup_0422D9E5_0976_9AD4_4165_ABC72AD5FB44'
         ],
         thumbnailUrl:
-          'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_t.jpg',
         pitch: 0,
         hfovMax: 30,
         data: {
@@ -1498,7 +1498,7 @@
               class: 'ImageResource',
               levels: [
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1507,7 +1507,7 @@
                   height: 23040
                 },
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1516,7 +1516,7 @@
                   height: 11776
                 },
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1525,7 +1525,7 @@
                   height: 6144
                 },
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1534,7 +1534,7 @@
                   height: 3072
                 },
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1543,7 +1543,7 @@
                   height: 1536
                 },
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   tags: 'ondemand',
                   class: 'TiledImageResourceLevel',
@@ -1552,7 +1552,7 @@
                   height: 1024
                 },
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   tags: ['ondemand', 'preload'],
                   class: 'TiledImageResourceLevel',
@@ -1561,7 +1561,7 @@
                   height: 512
                 },
                 {
-                  url: 'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_0/f/vr/0.jpg',
                   colCount: 1,
                   tags: 'mobilevr',
                   class: 'TiledImageResourceLevel',
@@ -1572,7 +1572,7 @@
               ]
             },
             thumbnailUrl:
-              'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_t.jpg'
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_t.jpg'
           }
         ],
         partial: true,
@@ -1584,7 +1584,7 @@
           'this.popup_EE52B58E_F9F4_B635_41E3_EDACFB231B4D'
         ],
         thumbnailUrl:
-          'media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1362F78B_0FDA_4A83_41B0_CDB883631F87_t.jpg',
         pitch: 0,
         hfovMax: 30,
         data: {
@@ -2325,7 +2325,7 @@
               levels: [
                 {
                   class: 'ImageResourceLevel',
-                  url: 'media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_HS_7q2h6s41.png',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1399C7A9_0FC9_CA8F_41B6_CAD597C749D8_HS_7q2h6s41.png',
                   width: 304,
                   height: 184
                 }
@@ -2605,7 +2605,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E3AD561B_FAD4_5253_4185_FF579D8E530C_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E3AD561B_FAD4_5253_4185_FF579D8E530C_0.png',
             width: 680,
             height: 1020
           }
@@ -2628,7 +2628,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2651,7 +2651,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2674,7 +2674,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2697,7 +2697,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2720,7 +2720,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
             width: 1839,
             height: 1520
           }
@@ -2742,7 +2742,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
             width: 1233,
             height: 1020
           }
@@ -2765,7 +2765,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2788,7 +2788,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2811,7 +2811,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
             width: 1839,
             height: 1520
           }
@@ -2834,7 +2834,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
             width: 1233,
             height: 1020
           }
@@ -2857,7 +2857,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2880,7 +2880,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
             width: 1839,
             height: 1520
           }
@@ -2903,7 +2903,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
             width: 1233,
             height: 1020
           }
@@ -2926,7 +2926,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -2949,7 +2949,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
             width: 1839,
             height: 1520
           }
@@ -2971,7 +2971,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
             width: 1233,
             height: 1020
           }
@@ -3002,7 +3002,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -3025,7 +3025,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -3048,7 +3048,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
@@ -3071,7 +3071,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EF35A_FAD3_F2DD_41E8_AEC5EA811EEA_0.png',
             width: 1839,
             height: 1520
           }
@@ -3094,7 +3094,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_E28EC35A_FAD3_F2DD_41EA_54EDBF13DACB_0.png',
             width: 1233,
             height: 1020
           }
@@ -3117,7 +3117,7 @@
         levels: [
           {
             class: 'ImageResourceLevel',
-            url: 'media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_EC639796_F9B4_5255_41B5_FE18C5050134_0.png',
             width: 860,
             height: 1204
           }
