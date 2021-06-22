@@ -24,14 +24,14 @@ export const ColorPickerDesktop = () => {
         <Button
           key={color}
           onClick={() => pickColor(color)}
-          className="group w-8 h-8 mx-2 block focus:outline-none active:outline-none"
+          className="group mx-2 block focus:outline-none active:outline-none"
         >
           <span
             className={`${
               currentColor === color
                 ? 'border-3 border-solid border-primary'
                 : 'border border-solid border-gray-light'
-            } rounded-full w-8 h-8 block`}
+            } rounded-full w-10 h-10 block`}
             style={{ backgroundColor: color }}
           ></span>
         </Button>

@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { Texture } from '../Navigation';
+import { ColorPicker, Texture } from '../Navigation';
 import { useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { useEffect, useState } from 'react';
@@ -55,7 +55,10 @@ export const TextBoxDesktop = ({ onTextChanged }: props) => {
         </strong>
       </div>
       <div className="m-auto px-24 font-Samuel">
-        <div className="mb-8">
+        <div className="mb-6">
+          <ColorPicker />
+        </div>
+        <div className="mb-6">
           <Texture />
         </div>
         {renderCharacters(uppercase)}
