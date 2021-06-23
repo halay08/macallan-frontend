@@ -51,9 +51,6 @@ module.exports = {
       6: '6px',
       8: '8px'
     },
-    minHeight: {
-      content: 'calc(100vh - 162px)'
-    },
     fontFamily: {
       primary: [
         'AGaramondPro-Regular',

@@ -86,11 +86,17 @@ const onNodeAction = (node: Konva.Shape) => {
     transformer.nodes([]);
   });
 
+  document.addEventListener('click', ev => {
+    const target = ev.target as HTMLElement;
+    if (target.tagName === 'CANVAS') return;
+    transformer.nodes([]);
+  });
+
   node.on('mouseover', function () {
     document.body.style.cursor = 'move';
   });
   node.on('mouseout', function () {
-    document.body.style.cursor = 'move';
+    document.body.style.cursor = 'auto';
   });
 };
 
