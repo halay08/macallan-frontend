@@ -13,7 +13,7 @@ export const BottleBoxDesktop = ({ drawBottle }: props) => {
     <div className="flex flex-col items-stretch justify-between w-full h-full">
       <div className="text-center">
         <strong className="font-AGaramondPro-bold text-2xl">
-          STEP 5: ADD CONCEPT NO. 1,2 & 3 BOTTLE(S)
+          STEP 5: ADD CONCEPT NO. 1, 2 & 3 BOTTLE(S)
         </strong>
       </div>
       <div className="flex flex-nowrap flex-row items-center justify-around my-auto px-36">

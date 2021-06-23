@@ -3,7 +3,6 @@ import { BottleBoxMobile } from './BottleBoxMobile';
 import { useResponsive } from 'utils/responsive';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import Konva from 'konva';
 import {
   createImageNode,
@@ -21,12 +20,12 @@ export const BottleBox = () => {
   const format = useSelector<AppState, AppState['format']>(
     ({ format }) => format
   );
-  const [width] = useState(55);
-  const [height] = useState(206);
+  const size = { width: 55, height: 206 };
+  const imageSize = { width: 200, height: 750 };
   const dispatch = useDispatch();
 
   const drawBottle = (bottle: string) => {
-    const canvas = getCanvas(stage, { width, height });
+    const canvas = getCanvas(stage, imageSize);
     const ctx = canvas.getContext('2d');
     const [layer] = stage.getLayers().slice(-1);
 
@@ -37,12 +36,13 @@ export const BottleBox = () => {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(bottleImage, 0, 0, width, height);
+        ctx.drawImage(bottleImage, 0, 0, bottleImage.width, bottleImage.height);
 
         const [x, y] = getImageObjectPos(format);
 
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'bottle');
+        node.size(size);
         layer.add(node);
 
         // Select current node by default
