@@ -21,6 +21,8 @@ export const SignOff = () => {
   const [stageHeight, setStageHeight] = useState(0);
   const [layer] = useState<Layer>(new Konva.Layer());
   const [numLine, setNumLine] = useState(0);
+  const logoSize = { width: 225, height: 30 };
+  const logoImageSize = { width: 300, height: 40 };
 
   useEffect(() => {
     setStageHeight(stage.height());
@@ -43,7 +45,7 @@ export const SignOff = () => {
   }, [stageHeight]);
 
   const addLogo = ({ x, y }) => {
-    const canvas = getCanvas(stage);
+    const canvas = getCanvas(stage, logoImageSize);
     const ctx = canvas.getContext('2d');
     const iconImage = new window.Image();
     iconImage.onload = () => {
@@ -52,10 +54,12 @@ export const SignOff = () => {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(iconImage, 0, 0, 225, 30);
+        ctx.drawImage(iconImage, 0, 0, 300, 40);
 
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'icon');
+        node.size(logoSize);
+
         layer?.add(node);
       }
       dispatch(fetchSuccess());

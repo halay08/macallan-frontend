@@ -3,7 +3,6 @@ import { IconBoxMobile } from './IconBoxMobile';
 import { useResponsive } from 'utils/responsive';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import Konva from 'konva';
 import {
   createImageNode,
@@ -21,12 +20,12 @@ export const IconBox = () => {
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
-  const [width] = useState(60);
-  const [height] = useState(60);
+  const size = { width: 60, height: 60 };
+  const imageSize = { width: 150, height: 150 };
   const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
-    const canvas = getCanvas(stage, { width, height });
+    const canvas = getCanvas(stage, imageSize);
     const ctx = canvas.getContext('2d');
     const [layer] = stage.getLayers().slice(-1);
 
@@ -37,12 +36,13 @@ export const IconBox = () => {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(iconImage, 0, 0, width, height);
+        ctx.drawImage(iconImage, 0, 0, iconImage.width, iconImage.height);
 
         const [x, y] = getImageObjectPos(format);
 
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'icon');
+        node.size(size);
         layer.add(node);
 
         // Select current node by default
