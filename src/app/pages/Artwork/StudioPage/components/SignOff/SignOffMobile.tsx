@@ -8,14 +8,16 @@ type props = {
 export const SignOffMobile = ({ onTextChanged }: props) => {
   return (
     <div className="bg-white">
-      <BoxWrapper className="m-auto p-12 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid text-sm">
-        <textarea
-          className="w-full opacity-0"
-          onKeyUp={evt => onTextChanged(evt)}
-        />
-        <p className="font-alternate font-bold text-lg mb-4">
-          Keyboard area to sign off artwork
-        </p>
+      <BoxWrapper className="pt-0 p-12 relative border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid text-sm">
+        <div className="flex flex-nowrap gap-4 h-28 relative">
+          <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0 font-alternate">
+            Tap to type a character here
+          </div>
+          <textarea
+            className="w-full opacity-0"
+            onKeyUp={evt => onTextChanged(evt)}
+          />
+        </div>
         <p>Font for sign off: Adobe Garamond Pro Regular</p>
         <p>Font Size: 15pt</p>
       </BoxWrapper>
