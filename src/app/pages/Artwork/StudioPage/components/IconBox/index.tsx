@@ -28,7 +28,7 @@ export const IconBox = () => {
   const drawIcon = (icon: string) => {
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
-    const [layer] = stage.getLayers();
+    const [layer] = stage.getLayers().slice(-1);
 
     const iconImage = new window.Image();
     iconImage.onload = () => {

@@ -29,7 +29,7 @@ export const TextBox = () => {
   const dispatch = useDispatch();
 
   const drawTexture = async (texture: string, text: string) => {
-    const [layer] = stage.getLayers();
+    const [layer] = stage.getLayers().slice(-1);
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
     const textureImage = await addImage(`/assets/textures/img/${texture}`);
@@ -74,7 +74,7 @@ export const TextBox = () => {
   };
 
   const drawText = (text: string) => {
-    const [layer] = stage.getLayers();
+    const [layer] = stage.getLayers().slice(-1);
     const [x, y] = getImageObjectPos(format);
 
     const node = new Konva.Text({
