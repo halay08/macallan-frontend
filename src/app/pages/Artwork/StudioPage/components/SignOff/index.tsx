@@ -7,7 +7,6 @@ import Konva from 'konva';
 import { getCanvas, createImageNode } from 'app/helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
-import { Layer } from 'konva/lib/Layer';
 import { setMessage } from 'redux/actions';
 
 export const SignOff = () => {
@@ -19,17 +18,14 @@ export const SignOff = () => {
   const [font, setFont] = useState('AGaramondPro-Regular');
   const [fontSize, setFontSize] = useState(15);
   const [stageHeight, setStageHeight] = useState(0);
-  const [layer] = useState<Layer>(new Konva.Layer());
-  const [numLine, setNumLine] = useState(0);
   const logoSize = { width: 225, height: 30 };
   const logoImageSize = { width: 300, height: 40 };
 
   useEffect(() => {
-    setStageHeight(stage.height());
-
-    stage.add(layer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (stage.name !== undefined) {
+      setStageHeight(stage.height());
+    }
+  }, [stage]);
 
   useEffect(() => {
     if (!stageHeight) return;
@@ -40,11 +36,11 @@ export const SignOff = () => {
 
     addBackground({ height: addedHeight, width });
     addLogo({ x: width - 250, y: addedHeight - 35 });
-    setNumLine(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stageHeight]);
 
   const addLogo = ({ x, y }) => {
+    const [, layer] = stage.getLayers();
     const canvas = getCanvas(stage, logoImageSize);
     const ctx = canvas.getContext('2d');
     const iconImage = new window.Image();
@@ -60,7 +56,7 @@ export const SignOff = () => {
         node.setAttr('name', 'icon');
         node.size(logoSize);
 
-        layer?.add(node);
+        layer.add(node);
       }
       dispatch(fetchSuccess());
     };
@@ -71,6 +67,8 @@ export const SignOff = () => {
   };
 
   const addBackground = ({ height, width }) => {
+    const [, layer] = stage.getLayers();
+
     const container = new Konva.Rect({
       x: 0,
       y: stageHeight,
@@ -79,10 +77,12 @@ export const SignOff = () => {
       fill: '#fff',
       draggable: false
     });
-    layer?.add(container);
+    layer.add(container);
   };
 
   const drawText = (text: string) => {
+    const [, layer] = stage.getLayers();
+
     const oldNode = stage.find('#signOff');
     if (oldNode.length) {
       oldNode[0].destroy();
@@ -91,6 +91,7 @@ export const SignOff = () => {
     const node = new Konva.Text({
       id: 'signOff',
       width: stage.width() - 300,
+      height: fontSize * 1.5,
       x: 20,
       y: stageHeight + fontSize,
       text,
@@ -102,14 +103,7 @@ export const SignOff = () => {
       draggable: false
     });
 
-    const curNumLine = node.height() / (fontSize * 1.5);
-    if (curNumLine > numLine) {
-      setNumLine(curNumLine);
-      const addedHeight = stageHeight + node.height() + 22.5;
-      stage.height(addedHeight);
-    }
-
-    layer?.add(node);
+    layer.add(node);
   };
 
   const onTextChanged = evt => {

@@ -14,7 +14,7 @@ export const StageFrameDesktop = ({ format }: StageFrameProps): JSX.Element => {
 
   useEffect(() => {
     const maxWidth = window.innerWidth * 0.45;
-    const maxHeight = window.innerHeight - 140;
+    const maxHeight = window.innerHeight - 200;
     const squareWidth = Math.min(maxWidth, maxHeight);
 
     // Default is square type.
@@ -58,7 +58,7 @@ export const StageFrameDesktop = ({ format }: StageFrameProps): JSX.Element => {
   }, [format]);
 
   return (
-    <Wrapper className="flex flex-row items-center justify-center relative ">
+    <Wrapper className="flex flex-row items-center justify-center relative">
       <StageContainer
         id="stageContainer"
         className="flex flex-row items-center justify-center border-2 border-solid border-gray-light"

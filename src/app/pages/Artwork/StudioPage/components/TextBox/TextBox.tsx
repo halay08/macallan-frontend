@@ -21,6 +21,7 @@ export const TextBox = ({ onTextChanged }: props) => {
           <strong className="font-medium text-tiny">
             STEP 3: PERSONALISE WITH ALPHANUMERIC
           </strong>
+          <p className="text-sm">English and default numbers only.</p>
         </div>
         <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll relative">
           <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0 font-alternate">
