@@ -1,4 +1,9 @@
-import { ArtworkActionTypes, SET_CONTRACT, SET_MESSAGE } from 'types/actions';
+import {
+  ArtworkActionTypes,
+  SET_CONTRACT,
+  SET_IMAGE_ID,
+  SET_MESSAGE
+} from 'types/actions';
 import { Artwork } from 'types/reducers';
 
 const initialState = {};
@@ -12,6 +17,8 @@ const ArtworkReducer = (
       return { ...state, message: action.payload };
     case SET_CONTRACT:
       return { ...state, contract: action.payload };
+    case SET_IMAGE_ID:
+      return { ...state, id: action.payload };
     default:
       return state;
   }

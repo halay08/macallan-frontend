@@ -24,12 +24,23 @@ import {
 import { Loader } from 'app/components/Loader';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useAlert } from 'react-alert';
 
 export function App() {
   const { i18n } = useTranslation();
-  const { loading } = useSelector<AppState, AppState['common']>(
+  const { loading, error } = useSelector<AppState, AppState['common']>(
     ({ common }) => common
   );
+  const alert = useAlert();
+
+  useEffect(() => {
+    if (loading || !error) return;
+
+    alert.error(error);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, error]);
+
   return (
     <BrowserRouter>
       <Helmet
