@@ -88,7 +88,7 @@ const onNodeAction = (node: Konva.Shape) => {
 
   document.addEventListener('click', ev => {
     const target = ev.target as HTMLElement;
-    if (target.tagName === 'CANVAS') return;
+    if (target.tagName === 'CANVAS' || target.tagName === 'BUTTON') return;
     transformer.nodes([]);
   });
 

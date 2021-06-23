@@ -40,7 +40,7 @@ export const SignOff = () => {
   }, [stageHeight]);
 
   const addLogo = ({ x, y }) => {
-    const [, layer] = stage.getLayers();
+    const [layer] = stage.getLayers().slice(-1);
     const canvas = getCanvas(stage, logoImageSize);
     const ctx = canvas.getContext('2d');
     const iconImage = new window.Image();
@@ -67,7 +67,7 @@ export const SignOff = () => {
   };
 
   const addBackground = ({ height, width }) => {
-    const [, layer] = stage.getLayers();
+    const [layer] = stage.getLayers().slice(-1);
 
     const container = new Konva.Rect({
       x: 0,
@@ -81,7 +81,7 @@ export const SignOff = () => {
   };
 
   const drawText = (text: string) => {
-    const [, layer] = stage.getLayers();
+    const [layer] = stage.getLayers().slice(-1);
 
     const oldNode = stage.find('#signOff');
     if (oldNode.length) {
