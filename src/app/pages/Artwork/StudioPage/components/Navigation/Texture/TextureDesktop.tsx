@@ -39,7 +39,7 @@ export const TextureDesktop = () => {
               currentTexture === name
                 ? 'border-2 border-solid border-primary'
                 : 'border border-solid border-gray-light'
-            } rounded-full w-12 h-12 inline-block`}
+            } rounded-full w-10 h-10 inline-block`}
           />
         </Button>
       ))}
