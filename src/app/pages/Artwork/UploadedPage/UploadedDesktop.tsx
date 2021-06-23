@@ -19,7 +19,7 @@ export const UploadedDesktop = ({ handleClick }: props) => {
       </div>
       <div className="my-auto p-16">
         <p className="mb-16 text-center text-3xl">
-          Thank you foe being part of
+          Thank you for being part of
           <br />
           The Macallan Create Your Own
         </p>

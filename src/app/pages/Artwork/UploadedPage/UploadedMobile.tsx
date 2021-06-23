@@ -14,7 +14,7 @@ export const UploadedMobile = ({ handleClick }: props) => {
     <div className="bg-white">
       <BoxWrapper className="m-auto">
         <p className="mt-16 mb-6 text-center text-lg">
-          Thank you foe being part of
+          Thank you for being part of
           <br />
           The Macallan Create Your Own
         </p>

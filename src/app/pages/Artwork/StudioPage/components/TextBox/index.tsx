@@ -24,8 +24,8 @@ export const TextBox = () => {
   const { stage, color, texture } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
-  const [width] = useState(80);
-  const [height] = useState(150);
+  const [width] = useState(120);
+  const [height] = useState(180);
   const dispatch = useDispatch();
 
   const drawTexture = async (texture: string, text: string) => {
@@ -45,6 +45,7 @@ export const TextBox = () => {
       // put text on canvas
       ctx.font = '180px HhSamuel-E80W';
       ctx.textAlign = 'center';
+      ctx.textBaseline = 'ideographic';
       ctx.fillText(text, width / 2, height);
       ctx.fill();
 
