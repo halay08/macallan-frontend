@@ -7,9 +7,13 @@ import { useDispatch } from 'react-redux';
 
 type StageFrameProps = {
   format: StageFormat;
+  hide?: Boolean;
 };
 
-export const StageFrameDesktop = ({ format }: StageFrameProps): JSX.Element => {
+export const StageFrameDesktop = ({
+  format,
+  hide
+}: StageFrameProps): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -58,7 +62,12 @@ export const StageFrameDesktop = ({ format }: StageFrameProps): JSX.Element => {
   }, [format]);
 
   return (
-    <Wrapper className="flex flex-row items-center justify-center relative">
+    <Wrapper
+      className={
+        'flex flex-row items-center justify-center relative' +
+        (hide ? ' hidden' : '')
+      }
+    >
       <StageContainer
         id="stageContainer"
         className="flex flex-row items-center justify-center border-2 border-solid border-gray-light"
