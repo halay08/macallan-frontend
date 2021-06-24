@@ -8,7 +8,8 @@ import {
   createImageNode,
   addImage,
   getImageObjectPos,
-  onNodeAction
+  onNodeAction,
+  addNodeTransformer
 } from 'app/helpers';
 import { fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -62,10 +63,8 @@ export const TextBox = () => {
       node.setAttr('name', 'text');
       layer.add(node);
 
-      // Select current node by default
-      const [transformer] = stage.find('Transformer') as Konva.Transformer[];
-      transformer.setAttr('rotateEnabled', false);
-      transformer.nodes([node]);
+      // add node to transformer
+      addNodeTransformer(stage, layer, node);
 
       // Set events
       onNodeAction(node);
@@ -93,10 +92,8 @@ export const TextBox = () => {
 
     layer.add(node);
 
-    // Select current node by default
-    const [transformer] = stage.find('Transformer') as Konva.Transformer[];
-    transformer.setAttr('rotateEnabled', false);
-    transformer.nodes([node]);
+    // add node to transformer
+    addNodeTransformer(stage, layer, node);
 
     // Set events
     onNodeAction(node);

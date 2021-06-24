@@ -3,12 +3,12 @@ import { IconBoxMobile } from './IconBoxMobile';
 import { useResponsive } from 'utils/responsive';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import Konva from 'konva';
 import {
   createImageNode,
   getCanvas,
   getImageObjectPos,
-  onNodeAction
+  onNodeAction,
+  addNodeTransformer
 } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -21,7 +21,7 @@ export const IconBox = () => {
     ({ studio }) => studio
   );
   const size = { width: 60, height: 60 };
-  const imageSize = { width: 150, height: 150 };
+  const imageSize = { width: 210, height: 210 };
   const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
@@ -45,10 +45,8 @@ export const IconBox = () => {
         node.size(size);
         layer.add(node);
 
-        // Select current node by default
-        const [transformer] = stage.find('Transformer') as Konva.Transformer[];
-        transformer.setAttr('rotateEnabled', false);
-        transformer.nodes([node]);
+        // add node to transformer
+        addNodeTransformer(stage, layer, node);
 
         // Set events
         onNodeAction(node);
@@ -58,7 +56,7 @@ export const IconBox = () => {
     iconImage.onerror = error => {
       dispatch(fetchError(error as string));
     };
-    iconImage.src = `/assets/icons/svg/${icon}`;
+    iconImage.src = `/assets/icons/img/${icon}`;
   };
 
   const { isMobile } = useResponsive();

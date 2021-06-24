@@ -3,12 +3,12 @@ import { BottleBoxMobile } from './BottleBoxMobile';
 import { useResponsive } from 'utils/responsive';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import Konva from 'konva';
 import {
   createImageNode,
   getCanvas,
   getImageObjectPos,
-  onNodeAction
+  onNodeAction,
+  addNodeTransformer
 } from 'app/helpers';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -45,10 +45,8 @@ export const BottleBox = () => {
         node.size(size);
         layer.add(node);
 
-        // Select current node by default
-        const [transformer] = stage.find('Transformer') as Konva.Transformer[];
-        transformer.setAttr('rotateEnabled', false);
-        transformer.nodes([node]);
+        // add node to transformer
+        addNodeTransformer(stage, layer, node);
 
         // Set events
         onNodeAction(node);
