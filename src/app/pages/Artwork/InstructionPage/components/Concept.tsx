@@ -6,5 +6,5 @@ export const Concept = () => {
 };
 
 const ConceptWrapper = styled.img`
-  width: 255px;
+  width: 100%;
 `;
