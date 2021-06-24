@@ -1,5 +1,4 @@
 import { ReactComponent as StartBtnSvg } from '../assets/start-btn.svg';
-import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 
 export const StartButton = () => {
@@ -10,14 +9,11 @@ export const StartButton = () => {
   };
 
   return (
-    <Button onClick={() => gotoFormatPage()}>
-      <StartButtonStyled className="mb-10" />
-    </Button>
+    <button
+      className="w-full focus:outline-none"
+      onClick={() => gotoFormatPage()}
+    >
+      <StartBtnSvg className="w-full" />
+    </button>
   );
 };
-
-const Button = styled.button``;
-
-const StartButtonStyled = styled(StartBtnSvg)`
-  width: 129px;
-`;

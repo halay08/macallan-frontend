@@ -15,7 +15,7 @@ export const MacallanLogo: React.FC<MacallanLogoProps> = ({
   `;
 
   return (
-    <a href="/" className="logo m-auto">
+    <a href="/" className="logo mx-auto">
       <LogoStyled className={className} />
     </a>
   );
