@@ -6,7 +6,8 @@ import {
   TextBox,
   IconBox,
   BottleBox,
-  SignOff
+  SignOff,
+  UploadedPage
 } from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useEffect, useState } from 'react';
@@ -17,6 +18,7 @@ import { setColor, setTexture } from 'redux/actions/studio';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useResponsive } from 'utils/responsive';
+import { FinalImage } from './components/UploadedPage/FinalImage';
 
 export const StudioPage = () => {
   const format = useSelector<AppState, AppState['format']>(
@@ -65,7 +67,7 @@ export const StudioPage = () => {
         setScene(SceneType.SIGN_OFF);
         break;
       case SceneType.SIGN_OFF:
-        history.push('/artwork/uploaded');
+        setScene(SceneType.UPLOAD);
         break;
     }
   };
@@ -90,6 +92,9 @@ export const StudioPage = () => {
       case SceneType.SIGN_OFF:
         setScene(SceneType.BOTTLE);
         break;
+      case SceneType.UPLOAD:
+        setScene(SceneType.SIGN_OFF);
+        break;
     }
   };
 
@@ -109,6 +114,9 @@ export const StudioPage = () => {
         break;
       case SceneType.SIGN_OFF:
         setContent(<SignOff />);
+        break;
+      case SceneType.UPLOAD:
+        setContent(<UploadedPage />);
         break;
     }
   }, [scene]);
@@ -140,10 +148,14 @@ export const StudioPage = () => {
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
           StageFrame={
-            <StageFrameMobile
-              format={format}
-              shouldShowTools={shouldShowTools}
-            />
+            <>
+              {scene === SceneType.UPLOAD && <FinalImage />}
+              <StageFrameMobile
+                format={format}
+                shouldShowTools={shouldShowTools}
+                hide={scene === SceneType.UPLOAD}
+              />
+            </>
           }
         >
           {Content}
@@ -152,7 +164,15 @@ export const StudioPage = () => {
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
-          StageFrame={<StageFrameDesktop format={format} />}
+          StageFrame={
+            <>
+              {scene === SceneType.UPLOAD && <FinalImage />}
+              <StageFrameDesktop
+                format={format}
+                hide={scene === SceneType.UPLOAD}
+              />
+            </>
+          }
         >
           <div className="flex pt-28 h-full">{Content}</div>
         </PageWrapper>

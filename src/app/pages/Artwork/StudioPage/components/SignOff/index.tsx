@@ -30,6 +30,9 @@ export const SignOff = () => {
   useEffect(() => {
     if (!stageHeight) return;
 
+    const isExisted = stage.find('#signOffLogo');
+    if (isExisted.length) return;
+
     const addedHeight = stage.height() + fontSize * 3;
     stage.height(addedHeight);
     const width = stage.width();
@@ -70,6 +73,7 @@ export const SignOff = () => {
     const [layer] = stage.getLayers().slice(-1);
 
     const container = new Konva.Rect({
+      id: 'signOffLogo',
       x: 0,
       y: stageHeight,
       height,
@@ -93,7 +97,7 @@ export const SignOff = () => {
       width: stage.width() - 300,
       height: fontSize * 1.5,
       x: 20,
-      y: stageHeight + fontSize,
+      y: stage.height() - fontSize * 2,
       text,
       align: 'left',
       fontSize: fontSize * 1.5,

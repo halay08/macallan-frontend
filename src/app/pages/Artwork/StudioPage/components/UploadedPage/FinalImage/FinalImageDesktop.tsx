@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import bg from '../../InstructionPage/assets/instruction-bg.png';
+import bg from 'app/pages/Artwork/InstructionPage/assets/instruction-bg.png';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppState } from 'redux/store';

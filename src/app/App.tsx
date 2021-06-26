@@ -14,13 +14,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
-import {
-  FormatPage,
-  InstructionPage,
-  StudioPage,
-  VirtualPage,
-  UploadedPage
-} from './pages';
+import { FormatPage, InstructionPage, StudioPage, VirtualPage } from './pages';
 import { Loader } from 'app/components/Loader';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
@@ -72,11 +66,6 @@ export function App() {
             exact
             path={process.env.PUBLIC_URL + '/artwork/studio'}
             component={StudioPage}
-          />
-          <Route
-            exact
-            path={process.env.PUBLIC_URL + '/artwork/uploaded'}
-            component={UploadedPage}
           />
           <Route component={NotFoundPage} />
         </Switch>

@@ -10,11 +10,13 @@ import { useResponsive } from 'utils/responsive';
 type StageFrameProps = {
   format: StageFormat;
   shouldShowTools: Boolean;
+  hide?: Boolean;
 };
 
 export const StageFrameMobile = ({
   format,
-  shouldShowTools
+  shouldShowTools,
+  hide
 }: StageFrameProps): JSX.Element => {
   const { isMobile } = useResponsive();
   const dispatch = useDispatch();
@@ -44,7 +46,12 @@ export const StageFrameMobile = ({
   }, []);
 
   return (
-    <Wrapper className="flex flex-row items-center justify-center relative">
+    <Wrapper
+      className={
+        'flex flex-row items-center justify-center relative' +
+        (hide ? ' hidden' : '')
+      }
+    >
       {!!(shouldShowTools && isMobile) && (
         <>
           <ColorPicker />

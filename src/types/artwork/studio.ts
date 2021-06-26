@@ -3,7 +3,8 @@ enum SceneType {
   TEXT = 'text',
   ICON = 'icon',
   BOTTLE = 'bottle',
-  SIGN_OFF = 'signOff'
+  SIGN_OFF = 'signOff',
+  UPLOAD = 'upload'
 }
 
 enum ShapeType {
