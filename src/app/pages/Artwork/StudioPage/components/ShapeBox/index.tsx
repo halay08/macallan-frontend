@@ -12,7 +12,8 @@ import {
   onStageTap,
   addImage,
   getImageObjectPos,
-  onNodeAction
+  onNodeAction,
+  addNodeTransformer
 } from 'app/helpers';
 import { fetchStart, fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
@@ -98,10 +99,8 @@ export const ShapeBox = () => {
       // Set double click/tab event
       onNodeAction(node);
 
-      // Select current node by default
-      const [transformer] = stage.find('Transformer') as Konva.Transformer[];
-      transformer.setAttr('rotateEnabled', true);
-      transformer.nodes([node]);
+      // add node to transformer
+      addNodeTransformer(stage, layer, node);
 
       dispatch(fetchSuccess());
     }

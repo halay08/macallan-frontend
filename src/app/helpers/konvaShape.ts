@@ -1,5 +1,6 @@
 import Konva from 'konva';
 import { ISvgShapeAttribute } from 'types';
+import { defaultTransformerConfig } from 'config';
 
 const createSquare = ({ fill = '#ccc' } = {}) =>
   new Konva.Rect({
@@ -65,14 +66,31 @@ const onStageTap = (stage: Konva.Stage) => {
   });
 };
 
+const addNodeTransformer = (
+  stage: Konva.Stage,
+  layer: Konva.Layer,
+  node: Konva.Node
+) => {
+  const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+  if (transformer) transformer.destroy();
+
+  const newTransformer = new Konva.Transformer(defaultTransformerConfig);
+  layer.add(newTransformer);
+  newTransformer.setAttr('rotateEnabled', true);
+  newTransformer.nodes([node]);
+};
+
+const clearTransformer = (stage: Konva.Stage) => {
+  const [transformer] = stage.find('Transformer') as Konva.Transformer[];
+  transformer.nodes([]);
+};
+
 const onNodeAction = (node: Konva.Shape) => {
   const stage = node.getStage();
 
   if (!stage) {
     return;
   }
-
-  const [transformer] = stage.find('Transformer') as Konva.Transformer[];
 
   /*
    * dblclick to remove box for desktop app
@@ -82,14 +100,15 @@ const onNodeAction = (node: Konva.Shape) => {
     // Destroy object
     this.destroy();
 
-    // Delete all transformer nodes
-    transformer.nodes([]);
+    // Destroy all transformer nodes
+    clearTransformer(stage);
   });
 
   document.addEventListener('click', ev => {
     const target = ev.target as HTMLElement;
     if (target.tagName === 'CANVAS' || target.tagName === 'BUTTON') return;
-    transformer.nodes([]);
+    // Destroy all transformer nodes
+    clearTransformer(stage);
   });
 
   node.on('mouseover', function () {
@@ -100,4 +119,4 @@ const onNodeAction = (node: Konva.Shape) => {
   });
 };
 
-export { onStageTap, drawSvg, createSquare, onNodeAction };
+export { onStageTap, drawSvg, createSquare, onNodeAction, addNodeTransformer };
