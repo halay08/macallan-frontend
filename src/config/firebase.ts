@@ -11,7 +11,8 @@ const {
   REACT_APP_FIREBASE_API_KEY,
   REACT_APP_FIREBASE_AUTH_DOMAIN,
   REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  REACT_APP_USE_FIREBASE_EMULATOR = ''
+  REACT_APP_USE_FIREBASE_EMULATOR = '',
+  FIREBASE_FUNCTIONS_REGION
 } = process.env;
 
 const config = {
@@ -33,7 +34,9 @@ if (parseFloat(REACT_APP_USE_FIREBASE_EMULATOR) > 0) {
 }
 
 const auth = firebase.auth();
-const functions = firebase.functions();
+const functions = FIREBASE_FUNCTIONS_REGION
+  ? firebase.app().functions(FIREBASE_FUNCTIONS_REGION)
+  : firebase.functions();
 const storage = firebase.app().storage();
 
 export { auth, functions, firebase, storage };
