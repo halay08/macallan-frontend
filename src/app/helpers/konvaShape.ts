@@ -76,7 +76,11 @@ const addNodeTransformer = (
 
   const newTransformer = new Konva.Transformer(defaultTransformerConfig);
   layer.add(newTransformer);
-  newTransformer.setAttr('rotateEnabled', true);
+  if (node.getAttr('name') === 'shape') {
+    newTransformer.setAttr('rotateEnabled', true);
+  } else {
+    newTransformer.setAttr('rotateEnabled', false);
+  }
   newTransformer.nodes([node]);
 };
 
