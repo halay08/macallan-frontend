@@ -7,8 +7,9 @@ module.exports = {
   theme: {
     colors: {
       white: colors.white,
+      dark: '#A4A4A3',
       primary: {
-        light: '##F9DC06',
+        light: '#F9DC06',
         DEFAULT: '#ECC200',
         dark: '#CC8A1C'
       },
@@ -26,7 +27,7 @@ module.exports = {
     },
     fill: {
       primary: {
-        light: '##F9DC06',
+        light: '#F9DC06',
         DEFAULT: '#ECC200',
         dark: '#CC8A1C'
       },

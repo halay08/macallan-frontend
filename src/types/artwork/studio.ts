@@ -109,7 +109,21 @@ type IObjectPos = {
   height: number;
 };
 
-export type { ISvgShapeAttribute, ISvgComponent, IObjectPos };
+type TArtwork = {
+  contact: string | null;
+  createdAt: { _seconds: number };
+  id: string;
+  imgUrl: string;
+  message: string;
+  status: string;
+  thumbnails: {
+    url: string;
+    width: number;
+    height: number;
+  };
+};
+
+export type { ISvgShapeAttribute, ISvgComponent, IObjectPos, TArtwork };
 
 export {
   SceneType,
