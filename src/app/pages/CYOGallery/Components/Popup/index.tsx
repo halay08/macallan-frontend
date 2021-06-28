@@ -30,7 +30,7 @@ export const Popup = ({ isOpen, title, artwork, onClose }: Props) => {
             <div className="relative p-6 flex justify-center">
               {artwork && (
                 <div className="sm:max-w-md w-full">
-                  <ArtworkItem artwork={artwork} noShadow />
+                  <ArtworkItem artwork={artwork} />
                   <div className="w-full flex flex-col">
                     <ArtworkAction artwork={artwork} onClose={onClose} />
                   </div>

@@ -6,31 +6,25 @@ import { TArtwork } from 'types';
 type Props = {
   artwork: TArtwork;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  noShadow?: boolean;
 };
 
-export const ArtworkItem = ({
-  noShadow = false,
-  artwork,
-  onClick = () => ''
-}: Props) => {
+export const ArtworkItem = ({ artwork, onClick = () => '' }: Props) => {
   const { imgUrl, id } = artwork;
 
   return (
-    <button key={id} className="w-full focus:outline-none" onClick={onClick}>
-      <Img
-        noShadow={noShadow}
+    <Button key={id} className="w-full focus:outline-none" onClick={onClick}>
+      <img
+        className="w-full"
         id={id}
         src={getFirebaseImageLink(imgUrl)}
         alt="artwork"
       />
-    </button>
+    </Button>
   );
 };
 
-const Img = styled.img<{ noShadow: boolean }>`
-  width: 100%;
+const Button = styled.button`
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
-  box-shadow: ${({ noShadow }) =>
-    !noShadow && 'rgba(0, 0, 0, 0.3) 0px 1px 4px'};
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
 `;
