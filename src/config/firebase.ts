@@ -28,15 +28,17 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-if (parseFloat(REACT_APP_USE_FIREBASE_EMULATOR) > 0) {
+const storage = firebase.app().storage();
+
+if (REACT_APP_USE_FIREBASE_EMULATOR === 'true') {
   const emulator = new FirebaseEmulator(firebase);
   emulator.useAuth().useFunctions();
+  storage.useEmulator('localhost', 5003);
 }
 
 const auth = firebase.auth();
 const functions = FIREBASE_FUNCTIONS_REGION
   ? firebase.app().functions(FIREBASE_FUNCTIONS_REGION)
   : firebase.functions();
-const storage = firebase.app().storage();
 
 export { auth, functions, firebase, storage };

@@ -21,4 +21,15 @@ const base64toBlob = (base64Data, fileName = '', contentType = 'image/png') => {
   return new File(byteArrays, fileName, { type: contentType });
 };
 
-export { base64toBlob };
+const toDataURL = async (url: string): Promise<string> => {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return URL.createObjectURL(blob);
+  } catch (error) {
+    console.error(error);
+    return '';
+  }
+};
+
+export { base64toBlob, toDataURL };
