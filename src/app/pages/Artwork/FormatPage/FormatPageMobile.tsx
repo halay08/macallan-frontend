@@ -23,8 +23,8 @@ export const FormatPageMobile = () => {
   };
 
   useEffect(() => {
-    const maxWidth = window.innerWidth * 0.8;
-    const maxHeight = window.innerHeight - 500;
+    const maxWidth = window.innerWidth * 0.6;
+    const maxHeight = Math.max(window.innerHeight - 500, 100);
     const squareWidth = Math.min(maxWidth, maxHeight);
 
     // Default is square type.
