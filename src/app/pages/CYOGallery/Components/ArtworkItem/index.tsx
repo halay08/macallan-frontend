@@ -17,11 +17,7 @@ export const ArtworkItem = ({
   const { imgUrl, id } = artwork;
 
   return (
-    <button
-      key={imgUrl}
-      className="w-full focus:outline-none"
-      onClick={onClick}
-    >
+    <button key={id} className="w-full focus:outline-none" onClick={onClick}>
       <Img
         noShadow={noShadow}
         id={id}
