@@ -18,7 +18,10 @@ export const SlidePopup = ({
 }: Props) => {
   return (
     <Wrapper className={className} show={show}>
-      <button className="focus:outline-none" onClick={() => closeHandler()}>
+      <button
+        className="p-2 -ml-2 focus:outline-none"
+        onClick={() => closeHandler()}
+      >
         <CloseSvg className="w-4 h-4" />
       </button>
 

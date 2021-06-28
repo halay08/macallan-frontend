@@ -22,8 +22,6 @@ export const GalleryItemPage = () => {
     getArtwork();
   }, [id]);
 
-  if (!artwork) return <></>;
-
   return (
     <>
       {isMobile ? (

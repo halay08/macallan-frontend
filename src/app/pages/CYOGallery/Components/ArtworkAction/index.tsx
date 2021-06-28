@@ -47,7 +47,7 @@ export const ArtworkAction = ({ artwork, onClose }: Props) => {
 
   return (
     <>
-      <div className="mt-3 sm:mt-0 h-full flex justify-center items-center font-sans font-semibold text-sm sm:text-xl tracking-widest uppercase">
+      <div className="mt-3 sm:mt-0 h-full flex justify-center items-center font-sans font-semibold text-sm sm:text-xl tracking-widest uppercase text-center">
         {message}
       </div>
       <div className="flex justify-center mt-3 sm:mt-0">
@@ -59,7 +59,7 @@ export const ArtworkAction = ({ artwork, onClose }: Props) => {
         </button>
         <button
           onClick={() => copyToClipboard()}
-          className="w-8 sm:w-12 focus:outline-none mx-2 sm:mx-4 rounded bg-dark rounded-full flex justify-center items-center"
+          className="w-8 sm:w-12 focus:outline-none mx-2 sm:mx-4 rounded bg-dark rounded-full flex justify-center items-center max-w-full"
         >
           <img className="w-4 sm:w-5" src={ShareIcon} alt="share" />
         </button>
