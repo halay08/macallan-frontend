@@ -41,7 +41,7 @@ jobs:
       - name: Build
         run: |
           yarn --pure-lockfile
-          yarn build:development
+          yarn build:develop
 
       - name: Activate Develop Project
         uses: w9jds/firebase-action@master
