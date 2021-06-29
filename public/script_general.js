@@ -3267,5 +3267,3 @@
   d['scripts']['createQuizConfig'] = createQuizConfig;
   TDV['PlayerAPI']['defineScript'](d);
 })();
-//# sourceMappingURL=http://localhost:9000/script_device_v2021.0.9.js.map
-//Generated with v2021.0.9, Fri Jun 18 2021
