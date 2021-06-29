@@ -45,27 +45,30 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
     </div>
   ) : (
     <div className="box-border">
-      <div className="flex flex-row h-auto min-h-screen	">
+      <Header />
+      <StageContainer className="flex flex-row h-auto">
         <div className="flex flex-col w-3/6 border-r-1 border-solid border-gray-light pb-8">
-          <Header />
           {StageFrame}
         </div>
         <ContentWrapper className="flex flex-col w-3/6">
           <section className="h-full">{children}</section>
-          <Footer
-            className="px-4 mb-4"
-            nextButtonHandler={nextButtonHandler}
-            prevButtonHandler={prevButtonHandler}
-            showNextButton={showNextButton}
-            showPrevButton={showPrevButton}
-          />
         </ContentWrapper>
-      </div>
+      </StageContainer>
+      <Footer
+        nextButtonHandler={nextButtonHandler}
+        prevButtonHandler={prevButtonHandler}
+        showNextButton={showNextButton}
+        showPrevButton={showPrevButton}
+      />
     </div>
   );
 };
 
 const ContentWrapper = styled.div`
-  box-shadow: inset 15px 0px 15px -10px #ccc;
+  box-shadow: inset 15px 0px 15px -15px #ccc;
   border-left: 1px solid #bbb;
+`;
+
+const StageContainer = styled.div`
+  min-height: calc(100vh - 9rem - 120px);
 `;

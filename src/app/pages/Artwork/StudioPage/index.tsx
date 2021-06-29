@@ -162,6 +162,7 @@ export const StudioPage = () => {
         </PageWrapper>
       ) : (
         <PageWrapper
+          showNextButton={scene !== SceneType.UPLOAD}
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
           StageFrame={
@@ -174,7 +175,7 @@ export const StudioPage = () => {
             </>
           }
         >
-          <div className="flex pt-28 h-full">{Content}</div>
+          <div className="flex h-full">{Content}</div>
         </PageWrapper>
       )}
     </>
