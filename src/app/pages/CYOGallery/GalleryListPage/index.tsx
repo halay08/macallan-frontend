@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ArrowDownIcon } from '../assets';
 import {
   Header,
@@ -11,22 +11,33 @@ import {
 } from '../Components';
 import styled from 'styled-components/macro';
 import { ArtworkService } from 'app/services';
-import Masonry from 'react-masonry-css';
 
 import { useHistory } from 'react-router-dom';
 import { useResponsive } from 'utils/responsive';
 import { TArtwork } from 'types';
 import isEmpty from 'ramda.isempty';
-
-const breakpointColumnsObj = {
-  default: 4,
-  1024: 3,
-  640: 2
-};
+import { Masonry } from 'masonic';
+import { fetchStart, fetchError, fetchSuccess } from 'redux/actions/common';
+import { useDispatch } from 'react-redux';
 
 const PAGE_LIMIT = 8;
 
 type Props = { artworkParam?: TArtwork | null };
+
+const masonryOptions = {
+  desktop: {
+    columnGutter: 16,
+    columnCount: 4
+  },
+  tablet: {
+    columnGutter: 16,
+    columnCount: 3
+  },
+  mobile: {
+    columnGutter: 12,
+    columnCount: 2
+  }
+};
 
 export const GalleryListPage = ({ artworkParam }: Props) => {
   const [artworks, setArtworks] = useState<TArtwork[]>([]);
@@ -39,7 +50,8 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
   const [showFilter, setShowFilter] = useState(false);
   const [filter, setFilter] = useState({ month: {} });
   const history = useHistory();
-  const { isMobile } = useResponsive();
+  const { isDesktop, isTablet, isMobile } = useResponsive();
+  const dispatch = useDispatch();
 
   const getFilterOption = value => {
     const months = Object.keys(value)
@@ -59,22 +71,36 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
     if (pagination.lastRef) options['startAfter'] = pagination.lastRef;
     if (!isEmpty(filter.month))
       options['filterByTime'] = getFilterOption(filter.month);
-    const artworkService = new ArtworkService();
-    const result = await artworkService.getArtworks(options);
 
-    setArtworks(prevArtworks => [...prevArtworks, ...result.items]);
-    setPagination(result.pagination);
+    try {
+      dispatch(fetchStart());
+      const artworkService = new ArtworkService();
+      const result = await artworkService.getArtworks(options);
+
+      setArtworks(prevArtworks => [...prevArtworks, ...result.items]);
+      setPagination(result.pagination);
+      dispatch(fetchSuccess());
+    } catch (error) {
+      dispatch(fetchError(error));
+    }
   };
 
   const getArtworks = async () => {
     let options = { limit: PAGE_LIMIT };
     if (!isEmpty(filter.month))
       options['filterByTime'] = getFilterOption(filter.month);
-    const artworkService = new ArtworkService();
-    const result = await artworkService.getArtworks(options);
 
-    setArtworks(result.items);
-    setPagination(result.pagination);
+    try {
+      dispatch(fetchStart());
+      const artworkService = new ArtworkService();
+      const result = await artworkService.getArtworks(options);
+
+      setArtworks(result.items);
+      setPagination(result.pagination);
+      dispatch(fetchSuccess());
+    } catch (error) {
+      dispatch(fetchError(error));
+    }
   };
 
   useEffect(() => {
@@ -89,6 +115,21 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
     }
   }, [artworkParam]);
 
+  const renderArtworkItem = useCallback(
+    ({ data: artwork }) => (
+      <div className="flex flex-col">
+        <ArtworkItem
+          artwork={artwork}
+          onClick={() => onArtworkClick(artwork)}
+        />
+        <p className="truncate mt-1 sm:mt-2 text-sm text-center font-sans uppercase font-bold">
+          {artwork.message}
+        </p>
+      </div>
+    ),
+    []
+  );
+
   const onArtworkClick = (artwork: TArtwork) => {
     if (isMobile) {
       setSelectedArtwork(artwork);
@@ -100,6 +141,12 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
 
   const onFilterChange = (value: { [key: number]: boolean }) => {
     setFilter({ month: value });
+  };
+
+  const masonryOption = {
+    ...(isMobile && masonryOptions.mobile),
+    ...(isTablet && masonryOptions.tablet),
+    ...(isDesktop && masonryOptions.desktop)
   };
 
   return (
@@ -114,23 +161,14 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
             </p>
           }
         />
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="masonry-grid"
-          columnClassName="masonry-grid_column"
-        >
-          {artworks.map(artwork => (
-            <div className="flex flex-col" key={artwork.id}>
-              <ArtworkItem
-                onClick={() => onArtworkClick(artwork)}
-                artwork={artwork}
-              />
-              <p className="truncate my-1 sm:my-4 text-sm text-center font-sans uppercase font-bold">
-                {artwork.message}
-              </p>
-            </div>
-          ))}
-        </Masonry>
+        <div className="mt-4 sm:mt-10">
+          <Masonry
+            className="focus:outline-none"
+            items={artworks}
+            render={renderArtworkItem}
+            {...masonryOption}
+          />
+        </div>
         {pagination.totalItemOfPage === PAGE_LIMIT && (
           <button
             className="w-full flex justify-center py-4 focus:outline-none"
