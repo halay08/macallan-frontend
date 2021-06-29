@@ -5,21 +5,31 @@ import { useResponsive } from 'utils/responsive';
 import { GalleryItemDesktop } from './GalleryItemDesktop';
 import { GalleryListPage } from '../GalleryListPage';
 import { TArtwork } from 'types';
+import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
+import { useDispatch } from 'react-redux';
 
 export const GalleryItemPage = () => {
   const [artwork, setArtwork] = useState<TArtwork | null>(null);
   const { id } = useParams<{ id: string }>();
   const { isMobile } = useResponsive();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getArtwork = async () => {
-      const artworkService = new ArtworkService();
-      const allArtworks = await artworkService.getArtworkById(id);
+      try {
+        dispatch(fetchStart());
+        const artworkService = new ArtworkService();
+        const allArtworks = await artworkService.getArtworkById(id);
 
-      setArtwork(allArtworks);
+        setArtwork(allArtworks);
+        dispatch(fetchSuccess());
+      } catch (error) {
+        dispatch(fetchError(error));
+      }
     };
 
     getArtwork();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
