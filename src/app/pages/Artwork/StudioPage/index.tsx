@@ -129,7 +129,7 @@ export const StudioPage = () => {
     }
 
     if (location.pathname.includes('uploaded')) {
-      return 'Are you sure? You will not able to edit your work anymore!';
+      return 'Are you sure? You will not be able to edit your work anymore!';
     }
 
     return true;

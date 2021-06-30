@@ -8,18 +8,37 @@ import { getCanvas, createImageNode } from 'app/helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { setMessage } from 'redux/actions';
+import { StageFormat } from 'types';
+
+const PADDING = { x: 10, y: 5 };
+const TEXT_X = 15;
 
 export const SignOff = () => {
   const { isMobile } = useResponsive();
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
+  const format = useSelector<AppState, AppState['format']>(
+    ({ format }) => format
+  );
   const dispatch = useDispatch();
   const [font, setFont] = useState('AGaramondPro-Regular');
   const [fontSize, setFontSize] = useState(15);
   const [stageHeight, setStageHeight] = useState(0);
-  const logoSize = { width: 225, height: 30 };
   const logoImageSize = { width: 300, height: 40 };
+  const logoSize =
+    !isMobile && format === StageFormat.MOBILE
+      ? { width: 150, height: 20 }
+      : { width: 225, height: 30 };
+
+  const calcLogoPosition = (
+    stageWidth: number,
+    stageHeight: number,
+    size: { width: number; height: number }
+  ) => ({
+    x: stageWidth - size.width - PADDING.x,
+    y: stageHeight - size.height - PADDING.y
+  });
 
   useEffect(() => {
     if (stage.name !== undefined) {
@@ -38,7 +57,7 @@ export const SignOff = () => {
     const width = stage.width();
 
     addBackground({ height: addedHeight, width });
-    addLogo({ x: width - 250, y: addedHeight - 35 });
+    addLogo(calcLogoPosition(width, addedHeight, logoSize));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stageHeight]);
 
@@ -94,9 +113,9 @@ export const SignOff = () => {
 
     const node = new Konva.Text({
       id: 'signOff',
-      width: stage.width() - 300,
+      width: stage.width() - logoSize.width - PADDING.x - TEXT_X,
       height: fontSize * 1.5,
-      x: 20,
+      x: TEXT_X,
       y: stage.height() - fontSize * 2,
       text,
       align: 'left',

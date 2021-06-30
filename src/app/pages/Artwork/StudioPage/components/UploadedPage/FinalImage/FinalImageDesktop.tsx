@@ -13,8 +13,8 @@ export const FinalImageDesktop = () => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    const maxWidth = window.innerWidth * 0.35;
-    const maxHeight = window.innerHeight - 350;
+    const maxWidth = window.innerWidth * 0.4;
+    const maxHeight = window.innerHeight - 200;
     const squareWidth = Math.min(maxWidth, maxHeight);
 
     // Default is square type.
