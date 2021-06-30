@@ -24,13 +24,13 @@ export const SizeBoxDesktop = () => {
   };
 
   return (
-    <div className="flex flex-col h-full items-center">
+    <div className="flex flex-col h-full items-center justify-between pb-20">
       <div className="text-center">
         <strong className="font-AGaramondPro-bold text-2xl">
           STEP 1: CHOOSE FORMAT
         </strong>
       </div>
-      <div className="mt-32 px-24">
+      <div className="px-24">
         <div className="grid grid-cols-3 items-end text-center font-Alternate-bold">
           <div className="group">
             <Square

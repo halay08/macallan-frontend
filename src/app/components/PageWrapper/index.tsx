@@ -47,7 +47,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
     <div className="box-border">
       <Header />
       <StageContainer className="flex flex-row h-auto">
-        <div className="flex flex-col w-3/6 border-r-1 border-solid border-gray-light pb-8">
+        <div className="flex flex-col w-3/6 border-r-1 border-solid border-gray-light justify-center">
           {StageFrame}
         </div>
         <ContentWrapper className="flex flex-col w-3/6">

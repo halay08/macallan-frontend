@@ -10,7 +10,7 @@ type props = {
 export const ShapeBoxDesktop = ({ drawTexture }: props) => {
   return (
     <div className="w-full">
-      <div className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
+      <div className="m-auto pb-20 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-AGaramondPro-bold text-2xl">
             STEP 2: CHOOSE SHAPE

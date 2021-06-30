@@ -10,13 +10,13 @@ export const IconBoxDesktop = ({ drawIcon }: props) => {
   const iconKeys = Object.keys(icons);
 
   return (
-    <div className="flex flex-col items-stretch justify-between w-full h-full">
+    <div className="flex flex-col items-stretch justify-between w-full h-full pb-20">
       <div className="text-center">
         <strong className="font-AGaramondPro-bold text-2xl">
           STEP 4: ADD ICONS
         </strong>
       </div>
-      <div className="m-auto">
+      <div className="m-auto mt-6">
         <div className="grid grid-cols-7 gap 5">
           {iconKeys.map(icon => (
             <Button
