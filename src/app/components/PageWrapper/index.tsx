@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import styled from 'styled-components/macro';
@@ -26,9 +26,17 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
   prevButtonHandler
 }) => {
   const { isMobile } = useResponsive();
+  const ref = useRef<HTMLInputElement>(null);
+  const [mainSectionHeight, setMainSectionHeight] = useState<number>(
+    window.innerHeight
+  );
+
+  useEffect(() => {
+    setMainSectionHeight(ref?.current?.clientHeight || 0);
+  }, [ref]);
 
   return isMobile ? (
-    <div className="box-border">
+    <div className="box-border" ref={ref}>
       <div className="flex flex-col">
         {hasHeader && <Header />}
         {StageFrame}
@@ -55,6 +63,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
         </ContentWrapper>
       </StageContainer>
       <Footer
+        mainSectionHeight={mainSectionHeight}
         nextButtonHandler={nextButtonHandler}
         prevButtonHandler={prevButtonHandler}
         showNextButton={showNextButton}
