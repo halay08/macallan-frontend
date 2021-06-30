@@ -43,6 +43,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
         <section>{children}</section>
         {hasFooter && (
           <Footer
+            mainSectionHeight={mainSectionHeight}
             nextButtonHandler={nextButtonHandler}
             prevButtonHandler={prevButtonHandler}
             showNextButton={showNextButton}
@@ -63,7 +64,6 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
         </ContentWrapper>
       </StageContainer>
       <Footer
-        mainSectionHeight={mainSectionHeight}
         nextButtonHandler={nextButtonHandler}
         prevButtonHandler={prevButtonHandler}
         showNextButton={showNextButton}
