@@ -50,7 +50,7 @@ export const ColorPickerMobile = () => {
             <span
               className={`${
                 currentColor === color
-                  ? 'border-3 border-solid border-primary'
+                  ? 'border-3 border-solid border-primary-dark'
                   : 'border border-solid border-gray-light'
               } rounded-full w-5 h-5 block`}
               style={{ backgroundColor: color }}

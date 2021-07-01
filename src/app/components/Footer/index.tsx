@@ -16,7 +16,6 @@ export const Footer = (props: Partial<FooterProps>) => {
   const { isMobile } = useResponsive();
   const height = props.mainSectionHeight || 0;
   let FixedMobile = FooterMobile;
-  console.log(height, height + 85, window.innerHeight);
   if (height < window.innerHeight) {
     FixedMobile = styled(FooterMobile)`
       position: fixed;

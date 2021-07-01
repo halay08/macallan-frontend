@@ -29,7 +29,7 @@ export const ColorPickerDesktop = () => {
           <span
             className={`${
               currentColor === color
-                ? 'border-3 border-solid border-primary'
+                ? 'border-4 border-solid border-primary-dark'
                 : 'border border-solid border-gray-light'
             } rounded-full w-10 h-10 block`}
             style={{ backgroundColor: color }}

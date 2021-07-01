@@ -37,7 +37,7 @@ export const TextureDesktop = () => {
           <Component
             className={`${
               currentTexture === name
-                ? 'border-2 border-solid border-primary'
+                ? 'border-4 border-solid border-primary-dark'
                 : 'border border-solid border-gray-light'
             } rounded-full w-10 h-10 inline-block`}
           />

@@ -2,10 +2,9 @@ import styled from 'styled-components/macro';
 
 type props = {
   onTextChanged: Function;
-  setFont?: Function;
-  setFontSize?: Function;
+  maxLength: number;
 };
-export const SignOffMobile = ({ onTextChanged }: props) => {
+export const SignOffMobile = ({ onTextChanged, maxLength }: props) => {
   return (
     <div className="bg-white">
       <BoxWrapper className="pt-0 p-12 relative border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid text-sm">
@@ -14,6 +13,7 @@ export const SignOffMobile = ({ onTextChanged }: props) => {
             Tap to type a character here
           </div>
           <textarea
+            maxLength={maxLength}
             className="w-full opacity-0"
             onKeyUp={evt => onTextChanged(evt)}
           />
