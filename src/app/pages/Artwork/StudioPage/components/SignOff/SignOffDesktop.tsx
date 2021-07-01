@@ -2,14 +2,9 @@ import styled, { css } from 'styled-components/macro';
 
 type props = {
   onTextChanged: Function;
-  setFont: Function;
-  setFontSize: Function;
+  maxLength: number;
 };
-export const SignOffDesktop = ({
-  onTextChanged,
-  setFont,
-  setFontSize
-}: props) => {
+export const SignOffDesktop = ({ onTextChanged, maxLength }: props) => {
   return (
     <div className="flex flex-col items-stretch justify-between w-full h-full">
       <div className="text-center">
@@ -19,6 +14,7 @@ export const SignOffDesktop = ({
       </div>
       <div className="my-auto p-24 text-lg">
         <Editor
+          maxLength={maxLength}
           className="h-48 w-full font-AGaramondPro-bold border border-solid mb-4 p-4"
           onChange={e => onTextChanged(e)}
         />

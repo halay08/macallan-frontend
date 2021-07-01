@@ -22,14 +22,15 @@ export const SignOff = () => {
     ({ format }) => format
   );
   const dispatch = useDispatch();
-  const [font, setFont] = useState('AGaramondPro-Regular');
-  const [fontSize, setFontSize] = useState(15);
+  const [font] = useState('AGaramondPro-Regular');
+  const [fontSize] = useState(15);
   const [stageHeight, setStageHeight] = useState(0);
   const logoImageSize = { width: 300, height: 40 };
   const logoSize =
     !isMobile && format === StageFormat.MOBILE
       ? { width: 150, height: 20 }
       : { width: 225, height: 30 };
+  const [maxLength, setMaxLength] = useState(0);
 
   const calcLogoPosition = (
     stageWidth: number,
@@ -39,6 +40,11 @@ export const SignOff = () => {
     x: stageWidth - size.width - PADDING.x,
     y: stageHeight - size.height - PADDING.y
   });
+
+  useEffect(() => {
+    const maxCharacter = Math.round((stage.width() - logoSize.width) / 10);
+    setMaxLength(maxCharacter);
+  }, [logoSize.width, stage]);
 
   useEffect(() => {
     if (stage.name !== undefined) {
@@ -138,12 +144,8 @@ export const SignOff = () => {
   };
 
   return isMobile ? (
-    <SignOffMobile onTextChanged={onTextChanged} />
+    <SignOffMobile onTextChanged={onTextChanged} maxLength={maxLength - 3} />
   ) : (
-    <SignOffDesktop
-      onTextChanged={onTextChanged}
-      setFont={setFont}
-      setFontSize={setFontSize}
-    />
+    <SignOffDesktop onTextChanged={onTextChanged} maxLength={maxLength} />
   );
 };
