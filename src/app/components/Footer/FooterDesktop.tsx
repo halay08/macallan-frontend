@@ -9,6 +9,7 @@ interface FooterProps {
   className: string;
   showPrevButton: boolean;
   showNextButton: boolean;
+  isNextButtonDisable: boolean;
   nextButtonHandler: Function;
   prevButtonHandler: Function;
 }
@@ -17,6 +18,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
   className = '',
   showPrevButton = true,
   showNextButton = true,
+  isNextButtonDisable = false,
   nextButtonHandler,
   prevButtonHandler
 }) => {
@@ -36,21 +38,23 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
             <span className="block text-secondary mt-1">BACK</span>
           </PrevButton>
         )}
-        <NextButton
-          onClick={() =>
-            showNextButton
-              ? nextButtonHandler
-                ? nextButtonHandler()
-                : history.goForward()
-              : {}
-          }
-          className={`rounded-full focus:outline-none focus:outline-none mx-12 ${
-            showNextButton ? '' : 'opacity-50 cursor-not-allowed'
-          }`}
-        >
-          <NextButtonSvg className="w-10 m-auto" />
-          <span className="block text-secondary mt-1">NEXT</span>
-        </NextButton>
+        {showNextButton && (
+          <NextButton
+            onClick={() =>
+              !isNextButtonDisable
+                ? nextButtonHandler
+                  ? nextButtonHandler()
+                  : history.goForward()
+                : {}
+            }
+            className={`rounded-full focus:outline-none focus:outline-none mx-12 ${
+              !isNextButtonDisable ? '' : 'opacity-50 cursor-not-allowed'
+            }`}
+          >
+            <NextButtonSvg className="w-10 m-auto" />
+            <span className="block text-secondary mt-1">NEXT</span>
+          </NextButton>
+        )}
       </ButtonWrapper>
       <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
         <MacallanLogo className="ml-14" width="360px" />

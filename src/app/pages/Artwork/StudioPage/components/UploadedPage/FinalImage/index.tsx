@@ -7,7 +7,6 @@ import Konva from 'konva';
 import { useEffect } from 'react';
 import { storage } from 'config';
 import { v4 as uuidv4 } from 'uuid';
-import { ArtworkService } from 'app/services';
 import { base64toBlob } from 'app/helpers';
 import {
   fetchError,
@@ -21,9 +20,6 @@ export const FinalImage = () => {
   const { isMobile } = useResponsive();
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
-  );
-  const { message } = useSelector<AppState, AppState['artwork']>(
-    ({ artwork }) => artwork
   );
   const dispatch = useDispatch();
 
@@ -45,16 +41,7 @@ export const FinalImage = () => {
     (async () => {
       try {
         dispatch(fetchStart());
-
         const id = uuidv4();
-        const data = {
-          imgUrl: `images/${id}.png`,
-          message,
-          status: 'in_review'
-        };
-
-        const artworkService = new ArtworkService();
-        await artworkService.createArtwork(data);
         await uploadToStorage(id);
         dispatch(setImageId(id));
         dispatch(fetchSuccess());

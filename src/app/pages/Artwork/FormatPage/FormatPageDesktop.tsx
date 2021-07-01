@@ -25,7 +25,7 @@ export const FormatPageDesktop = () => {
       </Helmet>
       <PageWrapper
         StageFrame={<StageFrame format={selectedFormat} />}
-        showNextButton={!!selectedFormat}
+        isNextButtonDisable={!selectedFormat}
         nextButtonHandler={nextButtonHandler}
         prevButtonHandler={() => history.push('/artwork/instruction')}
       >

@@ -65,7 +65,7 @@ export const FormatPageMobile = () => {
         <Footer
           className="absolute w-full"
           nextButtonHandler={nextButtonHandler}
-          showNextButton={!!selectedFormat}
+          isNextButtonDisable={!selectedFormat}
           prevButtonHandler={() => history.push('/artwork/instruction')}
         />
       </PageWrapper>
