@@ -20,7 +20,8 @@ import {
   StudioPage,
   VirtualPage,
   GalleryListPage,
-  GalleryItemPage
+  GalleryItemPage,
+  FinalPage
 } from './pages';
 import { Loader } from 'app/components/Loader';
 import { AppState } from 'redux/store';
@@ -73,6 +74,11 @@ export function App() {
             exact
             path={process.env.PUBLIC_URL + '/artwork/studio'}
             component={StudioPage}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/artwork/final'}
+            component={FinalPage}
           />
           <Route
             exact

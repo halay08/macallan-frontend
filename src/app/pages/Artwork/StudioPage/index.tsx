@@ -69,6 +69,9 @@ export const StudioPage = () => {
       case SceneType.SIGN_OFF:
         setScene(SceneType.UPLOAD);
         break;
+      case SceneType.UPLOAD:
+        history.push('/artwork/final');
+        break;
     }
   };
 
@@ -128,7 +131,7 @@ export const StudioPage = () => {
       return 'Are you sure? Your work will be lost!';
     }
 
-    if (location.pathname.includes('uploaded')) {
+    if (location.pathname.includes('final')) {
       return 'Are you sure? You will not be able to edit your work anymore!';
     }
 
@@ -162,7 +165,6 @@ export const StudioPage = () => {
         </PageWrapper>
       ) : (
         <PageWrapper
-          showNextButton={scene !== SceneType.UPLOAD}
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
           StageFrame={

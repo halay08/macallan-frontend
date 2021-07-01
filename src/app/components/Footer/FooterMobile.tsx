@@ -8,6 +8,7 @@ interface FooterProps {
   className: string;
   showPrevButton: boolean;
   showNextButton: boolean;
+  isNextButtonDisable: boolean;
   nextButtonHandler: Function;
   prevButtonHandler: Function;
 }
@@ -16,6 +17,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
   className = '',
   showPrevButton = true,
   showNextButton = true,
+  isNextButtonDisable = false,
   nextButtonHandler,
   prevButtonHandler
 }) => {
@@ -38,23 +40,25 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
           </PrevButton>
         )}
         <MacallanLogo className="mx-auto" width="180px" />
-        <NextButton
-          onClick={() =>
-            showNextButton
-              ? nextButtonHandler
-                ? nextButtonHandler()
-                : history.goForward()
-              : {}
-          }
-          className={`rounded-full focus:outline-none focus:outline-none mr-5 ${
-            showNextButton ? '' : 'opacity-50 cursor-not-allowed'
-          }`}
-        >
-          <NextButtonSvg className="w-8 md:w-12 m-auto" />
-          <span className="block text-xs md:text-lg text-secondary mt-1">
-            NEXT
-          </span>
-        </NextButton>
+        {showNextButton && (
+          <NextButton
+            onClick={() =>
+              !isNextButtonDisable
+                ? nextButtonHandler
+                  ? nextButtonHandler()
+                  : history.goForward()
+                : {}
+            }
+            className={`rounded-full focus:outline-none focus:outline-none mr-5 ${
+              !isNextButtonDisable ? '' : 'opacity-50 cursor-not-allowed'
+            }`}
+          >
+            <NextButtonSvg className="w-8 md:w-12 m-auto" />
+            <span className="block text-xs md:text-lg text-secondary mt-1">
+              NEXT
+            </span>
+          </NextButton>
+        )}
       </FooterInner>
     </FooterWrapper>
   );
