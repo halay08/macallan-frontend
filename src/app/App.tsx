@@ -28,6 +28,7 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useAlert } from 'react-alert';
+import { SideMenu } from 'app/components/SideMenu';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -52,7 +53,7 @@ export function App() {
       >
         <meta name="description" content="A React SPA application" />
       </Helmet>
-
+      <SideMenu />
       <Loader isLoading={loading}>
         <Switch>
           <Route
