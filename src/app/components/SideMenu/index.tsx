@@ -28,13 +28,13 @@ export const SideMenu = () => {
 
   return (
     <Wrapper className="flex flex-row fixed z-20 left-0">
-      <button className={buttonClasses} type="button" onClick={toggleSlideMenu}>
+      <Button className={buttonClasses} type="button" onClick={toggleSlideMenu}>
         <MenuIcon className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer" />
-      </button>
+      </Button>
       <div className={backgroundClasses} onClick={toggleSlideMenu}></div>
       <Menu
         show={show}
-        className="flex flex-col bg-white px-12 py-20 justify-center z-30 opacity-90"
+        className="absolute w-64 left-6 text-center flex flex-col bg-white sm:px-12 px-10 py-20 justify-center z-30 opacity-90"
       >
         {items.map(item => (
           <MenuItem key={item.text} item={item} />
@@ -46,11 +46,15 @@ export const SideMenu = () => {
 
 const Wrapper = styled.div`
   min-height: 40%;
-  top: 30%;
+  top: 50%;
+`;
+
+const Button = styled.button`
+  height: fit-content;
 `;
 
 const Menu = styled.div<{ show: boolean }>`
-  margin-left: -10px;
+  top: -145px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;

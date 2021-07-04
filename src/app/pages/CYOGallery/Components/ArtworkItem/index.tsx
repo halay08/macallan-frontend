@@ -27,4 +27,13 @@ const Button = styled.button`
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+  overflow: hidden;
+
+  & img {
+    transition: all 500ms ease;
+  }
+
+  & img:hover {
+    transform: scale(1.3);
+  }
 `;
