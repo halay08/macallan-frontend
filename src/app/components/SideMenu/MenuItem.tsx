@@ -8,8 +8,6 @@ export const MenuItem = ({ item }: Props) => {
     <a
       className="text-xl font-bold mb-1 hover:underline focus:underline"
       href={url}
-      target="_blank"
-      rel="noreferrer"
     >
       {text}
     </a>
