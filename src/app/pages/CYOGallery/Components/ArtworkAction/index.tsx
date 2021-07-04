@@ -69,7 +69,7 @@ export const ArtworkAction = ({ artwork, onClose }: Props) => {
         type="button"
         className="mt-3 sm:mt-6 bg-dark py-1 sm:py-2 font-semibold focus:outline-none"
       >
-        CYO
+        Create Your Own
       </button>
     </>
   );
