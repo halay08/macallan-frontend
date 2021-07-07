@@ -36,7 +36,7 @@ export const ShapeBoxMobile = ({ drawTexture }: props) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  bottom: 85px;
+  bottom: 90px;
 `;
 const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;

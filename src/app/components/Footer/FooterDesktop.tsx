@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
-import { MacallanLogo } from './MacallanLogo';
 import background from './assets/footer-desktop.png';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
@@ -57,7 +56,9 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
         )}
       </ButtonWrapper>
       <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
-        <MacallanLogo className="ml-14" width="360px" />
+        <Message className="font-primary">
+          Crafted without compromise. Please savour The Macallan in moderation
+        </Message>
         <img
           alt="footer"
           className="absolute right-0 h-full"
@@ -80,4 +81,7 @@ const NextButton = styled.button`
 `;
 const ButtonWrapper = styled.div`
   bottom: 120px;
+`;
+const Message = styled.div`
+  margin-left: 8%;
 `;

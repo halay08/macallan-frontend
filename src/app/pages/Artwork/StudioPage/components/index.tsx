@@ -8,3 +8,4 @@ export * from './Icon';
 export * from './Bottle';
 export * from './SignOff';
 export * from './UploadedPage';
+export * from './Thankyou';

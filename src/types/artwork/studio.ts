@@ -4,6 +4,7 @@ enum SceneType {
   ICON = 'icon',
   BOTTLE = 'bottle',
   SIGN_OFF = 'signOff',
+  THANK_YOU = 'thankyou',
   UPLOAD = 'upload'
 }
 
