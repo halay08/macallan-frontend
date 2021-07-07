@@ -11,7 +11,7 @@ export const BottleBoxMobile = ({ drawBottle }: props) => {
 
   return (
     <Wrapper className="bg-white">
-      <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid">
+      <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">STEP 4: ADD BOTTLE</strong>
         </div>
@@ -33,7 +33,7 @@ export const BottleBoxMobile = ({ drawBottle }: props) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  bottom: 85px;
+  bottom: 90px;
 `;
 const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;

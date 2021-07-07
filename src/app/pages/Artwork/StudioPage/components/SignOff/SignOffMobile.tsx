@@ -7,7 +7,7 @@ type props = {
 export const SignOffMobile = ({ onTextChanged, maxLength }: props) => {
   return (
     <div className="bg-white">
-      <BoxWrapper className="pt-0 p-12 relative border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid text-sm">
+      <BoxWrapper className="pt-0 p-12 relative border-t-1 border-solid border-gray-light text-sm">
         <div className="flex flex-nowrap gap-4 h-28 relative">
           <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0 font-alternate">
             Tap to type a character here

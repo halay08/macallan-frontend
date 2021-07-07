@@ -24,7 +24,7 @@ export const SizeBox = () => {
   };
 
   return (
-    <Wrapper className="p-7 border-t-1 border-solid border-gray-light border-b-4 border-gray-light border-solid">
+    <Wrapper className="p-7 border-t-1 border-solid border-gray-light">
       <BoxWrapper className="m-auto">
         <div className="grid text-center mb-8 font-serif">
           <strong className="font-medium text-tiny">
@@ -67,7 +67,7 @@ const Wrapper = styled.div`
   border-top: 1px solid #bbb;
   width: 100%;
   position: absolute;
-  bottom: 85px;
+  bottom: 90px;
 `;
 const BoxWrapper = styled.div`
   max-width: 325px;

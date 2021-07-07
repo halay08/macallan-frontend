@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
-import { MacallanLogo } from './MacallanLogo';
+import ConceptLogo from './assets/concept.png';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
 
@@ -23,15 +23,17 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
 }) => {
   const history = useHistory();
 
+  console.log({ showPrevButton });
+
   return (
     <FooterWrapper className={`bottom-0 ${className}`}>
-      <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
+      <FooterInner className="bg-white flex flex-col items-center justify-between h-full font-Alternate-bold relative border-t-2 border-gray-light border-solid">
         {showPrevButton && (
           <PrevButton
             onClick={() =>
               prevButtonHandler ? prevButtonHandler() : history.goBack()
             }
-            className="rounded-full focus:outline-none active:outline-none ml-5"
+            className="absolute left-5 top-4 rounded-full focus:outline-none active:outline-none"
           >
             <PrevButtonSvg className="w-8 md:w-12 m-auto" />
             <span className="block text-xs md:text-lg text-secondary mt-1">
@@ -39,7 +41,11 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
             </span>
           </PrevButton>
         )}
-        <MacallanLogo className="mx-auto" width="180px" />
+
+        <div className="w-6/12">
+          <img src={ConceptLogo} className="w-full" alt="concept" />
+        </div>
+
         {showNextButton && (
           <NextButton
             onClick={() =>
@@ -49,7 +55,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
                   : history.goForward()
                 : {}
             }
-            className={`rounded-full focus:outline-none focus:outline-none mr-5 ${
+            className={`absolute right-5 top-4 rounded-full focus:outline-none focus:outline-none ${
               !isNextButtonDisable ? '' : 'opacity-50 cursor-not-allowed'
             }`}
           >
@@ -59,13 +65,16 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
             </span>
           </NextButton>
         )}
+        <div className="text-center font-primary text-sm">
+          Please savour The Macallan in moderation
+        </div>
       </FooterInner>
     </FooterWrapper>
   );
 };
 
 const FooterWrapper = styled.footer`
-  height: 85px;
+  height: 90px;
 `;
 const FooterInner = styled.div``;
 const PrevButton = styled.button`

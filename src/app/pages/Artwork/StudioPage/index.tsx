@@ -7,7 +7,8 @@ import {
   IconBox,
   BottleBox,
   SignOff,
-  UploadedPage
+  UploadedPage,
+  Thankyou
 } from './components';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { useEffect, useState } from 'react';
@@ -67,7 +68,7 @@ export const StudioPage = () => {
         setScene(SceneType.SIGN_OFF);
         break;
       case SceneType.SIGN_OFF:
-        setScene(SceneType.UPLOAD);
+        setScene(SceneType.THANK_YOU);
         break;
       case SceneType.UPLOAD:
         history.push('/artwork/final');
@@ -95,8 +96,11 @@ export const StudioPage = () => {
       case SceneType.SIGN_OFF:
         setScene(SceneType.BOTTLE);
         break;
-      case SceneType.UPLOAD:
+      case SceneType.THANK_YOU:
         setScene(SceneType.SIGN_OFF);
+        break;
+      case SceneType.UPLOAD:
+        setScene(SceneType.THANK_YOU);
         break;
     }
   };
@@ -118,6 +122,9 @@ export const StudioPage = () => {
       case SceneType.SIGN_OFF:
         setContent(<SignOff />);
         break;
+      case SceneType.THANK_YOU:
+        setContent(<Thankyou updateScene={setScene} />);
+        break;
       case SceneType.UPLOAD:
         setContent(<UploadedPage />);
         break;
@@ -138,6 +145,7 @@ export const StudioPage = () => {
     return true;
   };
 
+  const isFramed = [SceneType.THANK_YOU, SceneType.UPLOAD].includes(scene);
   const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
   return (
     <>
@@ -150,6 +158,7 @@ export const StudioPage = () => {
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
+          showNextButton={scene !== SceneType.THANK_YOU}
           StageFrame={
             <>
               {scene === SceneType.UPLOAD && <FinalImage />}
@@ -157,6 +166,7 @@ export const StudioPage = () => {
                 format={format}
                 shouldShowTools={shouldShowTools}
                 hide={scene === SceneType.UPLOAD}
+                isFramed={isFramed}
               />
             </>
           }
@@ -167,6 +177,7 @@ export const StudioPage = () => {
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
+          showNextButton={scene !== SceneType.THANK_YOU}
           StageFrame={
             <>
               {scene === SceneType.UPLOAD && <FinalImage />}
