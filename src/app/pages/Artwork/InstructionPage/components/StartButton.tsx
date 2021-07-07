@@ -1,5 +1,6 @@
-import { ReactComponent as StartBtnSvg } from '../assets/start-btn.svg';
+import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
+import bgStart from '../assets/CYO_start.png';
 
 export const StartButton = () => {
   const history = useHistory();
@@ -9,11 +10,16 @@ export const StartButton = () => {
   };
 
   return (
-    <button
-      className="w-full focus:outline-none"
-      onClick={() => gotoFormatPage()}
-    >
-      <StartBtnSvg className="w-full" />
-    </button>
+    <WrapperStartButton className="relative" onClick={() => gotoFormatPage()}>
+      <Background alt="start" className="h-14 md:h-24" src={bgStart} />
+    </WrapperStartButton>
   );
 };
+
+const Background = styled.img`
+  z-index: -1;
+`;
+
+const WrapperStartButton = styled.button`
+  width: max-content;
+`;
