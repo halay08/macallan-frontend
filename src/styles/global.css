@@ -42,6 +42,12 @@
     url(styles/fonts/MyriadPro-Regular.otf) format('otf');
 }
 
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url(styles/fonts/Gotham-Book.ttf),
+    url(styles/fonts/Gotham-Book.ttf) format('ttf');
+}
+
 .font-AGaramondPro-bold {
   font-family: 'AGaramondPro-Bold';
 }
