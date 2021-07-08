@@ -1,35 +1,16 @@
 import styled from 'styled-components/macro';
 import { ColorPicker, Texture } from '../Navigation';
-import { useSelector } from 'react-redux';
-import { AppState } from 'redux/store';
-import { useEffect, useState } from 'react';
 
 type props = {
   onTextChanged: Function;
+  textureBg: string;
 };
 
 const lowercase = 'abcdefghijklmnopqrstuvwxyz'.split('');
 const uppercase = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 const numbers = '0123456789'.split('');
 
-export const TextBoxDesktop = ({ onTextChanged }: props) => {
-  const { texture } = useSelector<AppState, AppState['studio']>(
-    ({ studio }) => studio
-  );
-
-  const [textureBg, setTextureBg] = useState();
-
-  useEffect(() => {
-    (async () => {
-      const textureName = texture || 'texture_01_bg.png';
-      const imported = (
-        await import(`../../assets/textures/img/${textureName}`)
-      ).default;
-
-      setTextureBg(imported);
-    })();
-  }, [texture]);
-
+export const TextBoxDesktop = ({ onTextChanged, textureBg }: props) => {
   const renderCharacters = characters => {
     return (
       <Wrapper textureBg={textureBg} className="mb-6 text-5xl leading-tight">

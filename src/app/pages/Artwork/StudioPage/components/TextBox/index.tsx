@@ -1,6 +1,6 @@
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Konva from 'konva';
 import { DEFAULT_COLOR } from 'config';
 import {
@@ -28,6 +28,18 @@ export const TextBox = () => {
   const [width] = useState(120);
   const [height] = useState(180);
   const dispatch = useDispatch();
+  const [textureBg, setTextureBg] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const textureName = texture || 'texture_01_bg.png';
+      const imported = (
+        await import(`../../assets/textures/img/${textureName}`)
+      ).default;
+
+      setTextureBg(imported);
+    })();
+  }, [texture]);
 
   const drawTexture = async (texture: string, text: string) => {
     const [layer] = stage.getLayers().slice(-1);
@@ -108,7 +120,7 @@ export const TextBox = () => {
   };
 
   if (isMobile) {
-    return <Mobile onTextChanged={onTextChanged} />;
+    return <Mobile onTextChanged={onTextChanged} textureBg={textureBg} />;
   }
-  return <Desktop onTextChanged={onTextChanged} />;
+  return <Desktop onTextChanged={onTextChanged} textureBg={textureBg} />;
 };
