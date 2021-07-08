@@ -2,16 +2,29 @@ import styled from 'styled-components/macro';
 
 type props = {
   onTextChanged: Function;
+  textureBg: string;
 };
 
-export const TextBox = ({ onTextChanged }: props) => {
-  const onKeyUp = evt => {
-    const text = evt.target.value;
+const lowercase = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const uppercase = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
+const numbers = '0123456789'.split('');
 
-    onTextChanged(text);
-
-    evt.target.value = '';
-    evt.target.focus();
+export const TextBox = ({ onTextChanged, textureBg }: props) => {
+  const renderCharacters = characters => {
+    return (
+      <RowWrapper textureBg={textureBg} className="mb-4 text-xl">
+        {characters.map(c => (
+          <Button
+            key={c}
+            className="px-2 focus:outline-none focus:shadow-md active:shadow-md"
+            value={c}
+            onClick={() => onTextChanged(c)}
+          >
+            {c}
+          </Button>
+        ))}
+      </RowWrapper>
+    );
   };
 
   return (
@@ -21,17 +34,11 @@ export const TextBox = ({ onTextChanged }: props) => {
           <strong className="font-medium text-tiny">
             STEP 3: PERSONALISE WITH ALPHANUMERIC
           </strong>
-          <p className="text-sm">English and default numbers only.</p>
         </div>
-        <div className="flex flex-nowrap gap-4 scrollbar-thin scrollbar-thumb-gray-dark scrollbar-track-gray-light h-28 overflow-y-scroll relative">
-          <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0 font-alternate">
-            Tap to type a character here
-          </div>
-          <TextField
-            className="w-screen opacity-0"
-            maxLength={1}
-            onKeyUp={onKeyUp}
-          />
+        <div className="flex flex-col relative px-8 mb-24">
+          {renderCharacters(uppercase)}
+          {renderCharacters(lowercase)}
+          {renderCharacters(numbers)}
         </div>
       </BoxWrapper>
     </Wrapper>
@@ -46,4 +53,14 @@ const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;
   border-top: 1px solid #bbb;
 `;
-const TextField = styled.textarea``;
+
+const Button = styled.button`
+  height: fit-content;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+`;
+
+const RowWrapper = styled.div<{ textureBg: any }>`
+  background: url(${({ textureBg }) => textureBg}) repeat center/25%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+`;
