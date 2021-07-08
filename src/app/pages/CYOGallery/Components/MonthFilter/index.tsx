@@ -1,120 +1,73 @@
 import styled from 'styled-components/macro';
+import Picker from 'react-month-picker';
+import { useRef } from 'react';
+import isEmpty from 'ramda.isempty';
 
 const MONTHS = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
+  'JAN',
+  'FEB',
+  'MAR',
+  'APR',
+  'MAY',
+  'JUN',
+  'JUL',
+  'AUG',
+  'SEP',
+  'OCT',
+  'NOV',
+  'DEC'
 ];
 
 type Props = {
   onFilterChange: Function;
-  value: { [key: number]: boolean };
+  value: { month?: number; year?: number };
 };
 
 export const MonthFilter = ({ value, onFilterChange }: Props) => {
-  const onChange = (index: number) => {
-    onFilterChange({
-      ...value,
-      [index]: !value[index]
-    });
+  const ref = useRef();
+
+  const onChange = value => {
+    if (!value || isEmpty(value)) return;
+
+    onFilterChange(value);
   };
 
-  const onReset = () => {
-    onFilterChange({});
+  const formatValue = () => {
+    const { month, year } = value;
+    if (!month || !year) return '';
+
+    return `${MONTHS[month - 1]}. ${year}`;
+  };
+
+  const handleOpen = () => {
+    if (!ref || !ref.current) return;
+    (ref.current as any).show();
   };
 
   return (
     <>
-      {MONTHS.map((m, index) => (
-        <Label key={m} className="font-secondary flex items-center">
-          {m}
-          <Input
-            name={m}
-            type="checkbox"
-            checked={!!value[index]}
-            onChange={() => onChange(index)}
-          />
-          <CheckMark></CheckMark>
-        </Label>
-      ))}
-      <ResetButton
-        onClick={onReset}
-        className="font-secondary focus:outline-none hover:underline"
+      <Picker
+        ref={ref}
+        years={{ min: { year: 2015 }, max: { year: 2025 } }}
+        value={isEmpty(value) ? { year: new Date().getFullYear() } : value}
+        lang={MONTHS}
+        onDismiss={onChange}
       >
-        Reset
-      </ResetButton>
+        <div onClick={handleOpen}>
+          <Input
+            className="font-MyriadPro border border-solid border-gray-light py-1 px-2 w-full"
+            readOnly
+            placeholder="Search Month"
+            value={formatValue()}
+          />
+        </div>
+      </Picker>
     </>
   );
 };
 
 const Input = styled.input`
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-`;
-
-const CheckMark = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1.25rem;
-  width: 1.25rem;
-  border: 1px solid #dddddd;
-
-  &:after {
-    content: '';
-    position: absolute;
-    display: none;
-  }
-`;
-
-const Label = styled.label`
-  display: block;
-  position: relative;
-  font-size: 12px;
-  letter-spacing: 1px;
-  padding-left: 1.75rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.25rem;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  & input:checked ~ ${CheckMark} {
-    background-color: #f9dc06;
-  }
-
-  & input:checked ~ ${CheckMark}:after {
-    display: block;
-  }
-
-  & ${CheckMark}:after {
-    left: 5px;
-    top: 1px;
-    width: 7px;
-    height: 12px;
-    border: solid #252525;
-    border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-`;
-
-const ResetButton = styled.button`
-  color: #1962ae;
-  font-size: 12px;
+  background-image: url(/assets/others/calendar.svg);
+  background-repeat: no-repeat;
+  background-position: right;
 `;

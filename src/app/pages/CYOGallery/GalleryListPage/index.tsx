@@ -39,6 +39,11 @@ const masonryOptions = {
   }
 };
 
+type filterType = {
+  month?: number;
+  year?: number;
+};
+
 export const GalleryListPage = ({ artworkParam }: Props) => {
   const [artworks, setArtworks] = useState<TArtwork[]>([]);
   const [pagination, setPagination] = useState({
@@ -48,30 +53,25 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
   const [selectedArtwork, setSelectedArtwork] = useState<TArtwork | null>(null);
   const [showPopup, setShowPopup] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
-  const [filter, setFilter] = useState({ month: {} });
+  const [filter, setFilter] = useState<filterType>({});
   const history = useHistory();
   const { isDesktop, isTablet, isMobile } = useResponsive();
   const dispatch = useDispatch();
   const [masonryKey, setMasonryKey] = useState('');
 
   const getFilterOption = value => {
-    const months = Object.keys(value)
-      .filter(month => value[month])
-      .map(m => +m);
-    const year = new Date().getFullYear();
-    return months.length
-      ? {
-          month: months,
-          year
-        }
-      : undefined;
+    if (isEmpty(value)) return;
+
+    return {
+      month: [value.month - 1],
+      year: value.year
+    };
   };
 
   const getMoreArtworks = async () => {
     let options = { limit: PAGE_LIMIT };
     if (pagination.lastRef) options['startAfter'] = pagination.lastRef;
-    if (!isEmpty(filter.month))
-      options['filterByTime'] = getFilterOption(filter.month);
+    options['filterByTime'] = getFilterOption(filter);
 
     try {
       dispatch(fetchStart());
@@ -88,8 +88,7 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
 
   const getArtworks = async () => {
     let options = { limit: PAGE_LIMIT };
-    if (!isEmpty(filter.month))
-      options['filterByTime'] = getFilterOption(filter.month);
+    options['filterByTime'] = getFilterOption(filter);
 
     try {
       dispatch(fetchStart());
@@ -105,9 +104,7 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
   };
 
   useEffect(() => {
-    const masonryKey = Object.keys(filter.month)
-      .filter(k => filter.month[k])
-      .join('');
+    const masonryKey = isEmpty(filter) ? '' : `${filter.month}-${filter.year}`;
 
     setArtworks([]);
     setMasonryKey(masonryKey);
@@ -145,10 +142,6 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
       return;
     }
     history.push(`/gallery/${artwork.id}`);
-  };
-
-  const onFilterChange = (value: { [key: number]: boolean }) => {
-    setFilter({ month: value });
   };
 
   const masonryOption = {
@@ -189,15 +182,15 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
         )}
       </Container>
       <SlidePopup
-        className="sm:w-1/2 md:w-1/3 w-full"
+        className="sm:w-1/2 md:w-1/4 w-full"
         show={showFilter}
         width="25%"
         closeHandler={() => setShowFilter(false)}
       >
-        <p className="text-sm font-primary-bold uppercase tracking-wider my-2">
-          Month
+        <p className="font-primary-bold uppercase tracking-wider my-2">
+          PUBLICATION DATE
         </p>
-        <MonthFilter value={filter.month} onFilterChange={onFilterChange} />
+        <MonthFilter value={filter} onFilterChange={setFilter} />
       </SlidePopup>
       <Popup
         isOpen={showPopup}
