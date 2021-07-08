@@ -7,6 +7,7 @@ interface FooterProps {
   className: string;
   showPrevButton: boolean;
   showNextButton: boolean;
+  showMoreButton: boolean;
   isNextButtonDisable: boolean;
   nextButtonHandler: Function;
   prevButtonHandler: Function;

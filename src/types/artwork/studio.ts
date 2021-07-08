@@ -77,13 +77,9 @@ enum ToolbarStatus {
 }
 
 enum UploadedTypes {
-  DouyinIcon = 'douyin.png',
   DownloadIcon = 'download.png',
-  ECardIcon = 'e-card.png',
   FacebookIcon = 'facebook.png',
   TwitterIcon = 'twitter.png',
-  WechatIcon = 'wechat.png',
-  WeiboIcon = 'weibo.png',
   WhatsappIcon = 'whatsapp.png'
 }
 

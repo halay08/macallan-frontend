@@ -134,7 +134,10 @@ export const StudioPage = () => {
   const confirmationHandler = (location, action) => {
     if (action !== 'PUSH') return true;
 
-    if (location.pathname.includes('format')) {
+    if (
+      location.pathname.includes('format') ||
+      location.pathname.includes('gallery')
+    ) {
       return 'Are you sure? Your work will be lost!';
     }
 
@@ -145,7 +148,7 @@ export const StudioPage = () => {
     return true;
   };
 
-  const isFramed = [SceneType.THANK_YOU, SceneType.UPLOAD].includes(scene);
+  const isFinal = [SceneType.THANK_YOU, SceneType.UPLOAD].includes(scene);
   const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
   return (
     <>
@@ -159,14 +162,14 @@ export const StudioPage = () => {
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
           showNextButton={scene !== SceneType.THANK_YOU}
+          showMoreButton={scene === SceneType.UPLOAD}
           StageFrame={
             <>
-              {scene === SceneType.UPLOAD && <FinalImage />}
+              {isFinal && <FinalImage />}
               <StageFrameMobile
                 format={format}
                 shouldShowTools={shouldShowTools}
-                hide={scene === SceneType.UPLOAD}
-                isFramed={isFramed}
+                hide={isFinal}
               />
             </>
           }
@@ -178,13 +181,11 @@ export const StudioPage = () => {
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
           showNextButton={scene !== SceneType.THANK_YOU}
+          showMoreButton={scene === SceneType.UPLOAD}
           StageFrame={
             <>
-              {scene === SceneType.UPLOAD && <FinalImage />}
-              <StageFrameDesktop
-                format={format}
-                hide={scene === SceneType.UPLOAD}
-              />
+              {isFinal && <FinalImage />}
+              <StageFrameDesktop format={format} hide={isFinal} />
             </>
           }
         >

@@ -1,3 +1,3 @@
 export const FinalImageMobile = () => {
-  return <div id="finalImageContainer" />;
+  return <div className="p-10" id="finalImageContainer" />;
 };

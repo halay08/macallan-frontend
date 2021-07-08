@@ -1,15 +1,21 @@
 import { UploadedDesktop } from './UploadedDesktop';
 import { UploadedMobile } from './UploadedMobile';
 import { useResponsive } from 'utils/responsive';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { useHistory } from 'react-router-dom';
-import { fetchError } from 'redux/actions';
 import { ERROR_MESSAGE, SHARER_MESSAGE } from 'app/helpers/constants';
 import { UploadedTypes } from 'types';
-import { useAlert } from 'react-alert';
-import { Modal } from 'app/components/Modal';
+import { storage } from 'config';
+import { v4 as uuidv4 } from 'uuid';
+import { base64toBlob } from 'app/helpers';
+import {
+  fetchError,
+  fetchStart,
+  fetchSuccess,
+  setImageId
+} from 'redux/actions';
 
 export const UploadedPage = () => {
   const { isMobile } = useResponsive();
@@ -19,11 +25,8 @@ export const UploadedPage = () => {
   const { id } = useSelector<AppState, AppState['artwork']>(
     ({ artwork }) => artwork
   );
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [email, setEmail] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   useEffect(() => {
     if (!stage.name) {
@@ -73,20 +76,6 @@ export const UploadedPage = () => {
     a.click();
   };
 
-  const handleSubmitEmail = () => {
-    if (!email) {
-      alert.error('Please provide email to share!');
-      return;
-    }
-
-    const imageLink = getImageLink();
-    const a = document.createElement('a');
-    a.href = `mailto:?subject=${SHARER_MESSAGE}&body=${imageLink}`;
-    a.target = '_blank';
-    a.title = 'Share by Email';
-    a.click();
-  };
-
   const handleClick = key => {
     switch (key) {
       case UploadedTypes.DownloadIcon:
@@ -102,50 +91,49 @@ export const UploadedPage = () => {
           `http://twitter.com/share?text=${SHARER_MESSAGE}&url=`
         );
         break;
-      case UploadedTypes.WeiboIcon:
-        handleShareSocial(
-          `http://service.weibo.com/share/share.php?title=${SHARER_MESSAGE}&url=`
-        );
-        break;
       case UploadedTypes.WhatsappIcon:
         handleShareWhatsapp();
-        break;
-      case UploadedTypes.DouyinIcon:
-        break;
-      case UploadedTypes.WechatIcon:
-        break;
-      case UploadedTypes.ECardIcon:
-        setIsOpenModal(true);
         break;
       default:
         break;
     }
   };
 
+  const uploadToStorage = async () => {
+    try {
+      dispatch(fetchStart());
+
+      const id = uuidv4();
+      const dataUrl = stage.toDataURL();
+      const fileName = `${id}.png`;
+      const blob = base64toBlob(dataUrl, fileName);
+      const ref = storage.ref('images').child(fileName);
+      await ref.put(blob);
+
+      dispatch(setImageId(id));
+      dispatch(fetchSuccess());
+    } catch (e) {
+      const { message = ERROR_MESSAGE } = e;
+      dispatch(fetchError(message));
+    }
+  };
+
+  const redirectToGallery = () => {
+    history.push('/gallery');
+  };
+
+  const openShareECardPopup = () => {};
+
+  const Component = isMobile ? UploadedMobile : UploadedDesktop;
+
   return (
     <>
-      <Modal
-        isOpen={isOpenModal}
-        setIsOpen={setIsOpenModal}
-        onSubmit={handleSubmitEmail}
-        title="Share by Email"
-      >
-        <label className="mr-2" htmlFor="sharer-email">
-          Email to share:
-        </label>
-        <input
-          id="sharer-email"
-          className="shadow appearance-none border rounded p-1 leading-tight focus:outline-none focus:shadow-outline"
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.currentTarget.value)}
-        />
-      </Modal>
-      {isMobile ? (
-        <UploadedMobile handleClick={handleClick} />
-      ) : (
-        <UploadedDesktop handleClick={handleClick} />
-      )}
+      <Component
+        handleClick={handleClick}
+        handlePostGallery={uploadToStorage}
+        handleViewGallery={redirectToGallery}
+        handleShareECard={openShareECardPopup}
+      />
     </>
   );
 };
