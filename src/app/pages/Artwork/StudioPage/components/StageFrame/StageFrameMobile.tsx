@@ -11,14 +11,12 @@ type StageFrameProps = {
   format: StageFormat;
   shouldShowTools: Boolean;
   hide?: Boolean;
-  isFramed?: Boolean;
 };
 
 export const StageFrameMobile = ({
   format,
   shouldShowTools,
-  hide,
-  isFramed
+  hide
 }: StageFrameProps): JSX.Element => {
   const { isMobile } = useResponsive();
   const dispatch = useDispatch();
@@ -62,7 +60,6 @@ export const StageFrameMobile = ({
       )}
       <StageContainer
         id="stageContainer"
-        isFramed={isFramed}
         className={`flex flex-row items-center justify-center ${
           format === StageFormat.DESKTOP
             ? 'border border-t-1 border-b-1 border-r-0 border-l-0 border-dashed border-gray-light'
@@ -76,16 +73,6 @@ export const StageFrameMobile = ({
 const Wrapper = styled.div`
   min-height: 300px;
 `;
-const StageContainer = styled.div<{ isFramed: Boolean | undefined }>`
+const StageContainer = styled.div`
   height: fit-content;
-
-  ${({ isFramed }) =>
-    isFramed &&
-    `& .konvajs-content{
-      transform: scale(0.8);
-      canvas {
-        border: 1px solid #d4d4d8 !important;
-      }
-    }
-  `}
 `;

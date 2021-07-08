@@ -1,16 +1,29 @@
 import styled from 'styled-components/macro';
 import { Icon } from '../Icon';
-import * as icons from './assets';
+import { socialIcons, buttonIcons } from './assets';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { UploadedTypes } from 'types';
 import { useEffect, useRef } from 'react';
 
 type props = {
   handleClick: Function;
+  handlePostGallery: Function;
+  handleViewGallery: Function;
+  handleShareECard: Function;
 };
-export const UploadedDesktop = ({ handleClick }: props) => {
+export const UploadedDesktop = ({
+  handleClick,
+  handlePostGallery,
+  handleViewGallery,
+  handleShareECard
+}: props) => {
   const ref = useRef<any>(null);
-  const iconKeys = Object.keys(icons);
+  const iconKeys = Object.keys(socialIcons);
+  const buttonClicks = {
+    PostGallery: handlePostGallery,
+    ViewGallery: handleViewGallery,
+    ShareECard: handleShareECard
+  };
 
   useEffect(() => {
     if (ref.current == null) return;
@@ -19,30 +32,36 @@ export const UploadedDesktop = ({ handleClick }: props) => {
 
   return (
     <div className="flex flex-col items-stretch justify-between w-full h-full">
-      <div className="text-center">
-        <strong className="font-AGaramondPro-bold text-2xl">
-          STEP 7: READY TO UPLOAD
-        </strong>
-      </div>
-      <div className="my-auto p-16">
-        <p className="mb-16 text-center text-3xl">
-          Thank you for being part of
-          <br />
-          The Macallan Create Your Own
+      <div className="my-auto pb-16 px-16">
+        <p className="text-center text-3xl">
+          Share your artwork and keep on exploring
         </p>
+        <div className="mb-6">
+          {Object.entries(buttonIcons).map(([name, icon]) => (
+            <button key={name} className="focus:outline-none">
+              <img
+                src={icon}
+                className="w-10/12 m-auto"
+                alt={name}
+                onClick={buttonClicks[name]}
+              />
+            </button>
+          ))}
+        </div>
+
         <PerfectScrollbar
           ref={ref}
           options={{ suppressScrollY: true }}
           style={{ height: 'auto' }}
         >
-          <div className="flex flex-nowrap pl-4 pr-4 h-28">
+          <div className="flex flex-nowrap justify-between pl-4 pr-4 h-28">
             {iconKeys.map(icon => (
               <Button
                 key={icon}
                 className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
                 onClick={() => handleClick(UploadedTypes[icon])}
               >
-                <Icon src={icons[icon]} width={70} />
+                <Icon src={socialIcons[icon]} width={70} />
               </Button>
             ))}
           </div>

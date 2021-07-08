@@ -2,18 +2,19 @@ import DownloadIcon from './download.png';
 import FacebookIcon from './facebook.png';
 import TwitterIcon from './twitter.png';
 import WhatsappIcon from './whatsapp.png';
-import ECardIcon from './e-card.png';
-import WechatIcon from './wechat.png';
-import WeiboIcon from './weibo.png';
-import DouyinIcon from './douyin.png';
+import PostGallery from './post-gallery.png';
+import ViewGallery from './view-gallery.png';
+import ShareECard from './share-e-card.png';
 
-export {
-  DouyinIcon,
+export const socialIcons = {
   DownloadIcon,
-  ECardIcon,
   FacebookIcon,
   TwitterIcon,
-  WechatIcon,
-  WeiboIcon,
   WhatsappIcon
+};
+
+export const buttonIcons = {
+  PostGallery,
+  ViewGallery,
+  ShareECard
 };

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import background from './assets/footer-desktop.png';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
+import { ReactComponent as MoreButtonSvg } from './assets/more.svg';
 
 interface FooterProps {
   className: string;
@@ -11,12 +12,14 @@ interface FooterProps {
   isNextButtonDisable: boolean;
   nextButtonHandler: Function;
   prevButtonHandler: Function;
+  showMoreButton: boolean;
 }
 
 export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
   className = '',
   showPrevButton = true,
   showNextButton = true,
+  showMoreButton = false,
   isNextButtonDisable = false,
   nextButtonHandler,
   prevButtonHandler
@@ -50,8 +53,16 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
               !isNextButtonDisable ? '' : 'opacity-50 cursor-not-allowed'
             }`}
           >
-            <NextButtonSvg className="w-10 m-auto" />
-            <span className="block text-secondary mt-1">NEXT</span>
+            {showMoreButton ? (
+              <MoreIcon className="w-10 h-10 m-auto flex">
+                <MoreButtonSvg className="w-7  m-auto" />
+              </MoreIcon>
+            ) : (
+              <NextButtonSvg className="w-10 m-auto" />
+            )}
+            <span className="block text-secondary mt-1">
+              {showMoreButton ? 'MORE' : 'NEXT'}
+            </span>
           </NextButton>
         )}
       </ButtonWrapper>
@@ -84,4 +95,8 @@ const ButtonWrapper = styled.div`
 `;
 const Message = styled.div`
   margin-left: 8%;
+`;
+const MoreIcon = styled.div`
+  border-radius: 50%;
+  background: #a4a4a3;
 `;

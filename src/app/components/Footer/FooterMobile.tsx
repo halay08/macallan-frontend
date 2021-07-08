@@ -3,11 +3,13 @@ import { useHistory } from 'react-router-dom';
 import ConceptLogo from './assets/concept.png';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
+import { ReactComponent as MoreButtonSvg } from './assets/more.svg';
 
 interface FooterProps {
   className: string;
   showPrevButton: boolean;
   showNextButton: boolean;
+  showMoreButton: boolean;
   isNextButtonDisable: boolean;
   nextButtonHandler: Function;
   prevButtonHandler: Function;
@@ -17,6 +19,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
   className = '',
   showPrevButton = true,
   showNextButton = true,
+  showMoreButton = false,
   isNextButtonDisable = false,
   nextButtonHandler,
   prevButtonHandler
@@ -59,9 +62,15 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
               !isNextButtonDisable ? '' : 'opacity-50 cursor-not-allowed'
             }`}
           >
-            <NextButtonSvg className="w-8 md:w-12 m-auto" />
+            {showMoreButton ? (
+              <MoreIcon className="w-8 h-8 md:w-12 md:w-12 m-auto flex">
+                <MoreButtonSvg className="w-6 md:w-10 m-auto" />
+              </MoreIcon>
+            ) : (
+              <NextButtonSvg className="w-8 md:w-12 m-auto" />
+            )}
             <span className="block text-xs md:text-lg text-secondary mt-1">
-              NEXT
+              {showMoreButton ? 'MORE' : 'NEXT'}
             </span>
           </NextButton>
         )}
@@ -82,4 +91,8 @@ const PrevButton = styled.button`
 `;
 const NextButton = styled.button`
   padding: 1px;
+`;
+const MoreIcon = styled.div`
+  border-radius: 50%;
+  background: #a4a4a3;
 `;

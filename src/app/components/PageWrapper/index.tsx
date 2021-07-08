@@ -11,6 +11,7 @@ interface PageWrapperProps {
   hasFooter?: boolean;
   showPrevButton?: boolean;
   showNextButton?: boolean;
+  showMoreButton?: boolean;
   isNextButtonDisable?: boolean;
   nextButtonHandler?: Function;
   prevButtonHandler?: Function;
@@ -23,6 +24,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
   hasFooter = true,
   showPrevButton = true,
   showNextButton = true,
+  showMoreButton = false,
   isNextButtonDisable = false,
   nextButtonHandler,
   prevButtonHandler
@@ -51,6 +53,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
             isNextButtonDisable={isNextButtonDisable}
             showNextButton={showNextButton}
             showPrevButton={showPrevButton}
+            showMoreButton={showMoreButton}
           />
         )}
       </div>
@@ -72,6 +75,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
         isNextButtonDisable={isNextButtonDisable}
         showNextButton={showNextButton}
         showPrevButton={showPrevButton}
+        showMoreButton={showMoreButton}
       />
     </div>
   );
