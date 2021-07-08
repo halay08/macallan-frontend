@@ -36,6 +36,12 @@
     url(styles/fonts/HhSamuel-E80W.ttf) format('ttf');
 }
 
+@font-face {
+  font-family: 'MyriadPro-Regular';
+  src: url(styles/fonts/MyriadPro-Regular.otf),
+    url(styles/fonts/MyriadPro-Regular.otf) format('otf');
+}
+
 .font-AGaramondPro-bold {
   font-family: 'AGaramondPro-Bold';
 }
@@ -47,6 +53,9 @@
 }
 .font-Samuel {
   font-family: 'HhSamuel-E80W';
+}
+.font-MyriadPro {
+  font-family: 'MyriadPro-Regular';
 }
 
 .scrollbar-container.ps--active-x > .ps__rail-x {
@@ -62,4 +71,47 @@
   height: 10px;
   bottom: -3px;
   border: white solid 3px;
+}
+
+.month-picker > .rmp-container {
+  font-family: 'MyriadPro-Regular';
+}
+.month-picker > .rmp-container,
+.month-picker > .rmp-container .rmp-popup,
+.month-picker > .rmp-container .rmp-pad {
+  width: 100% !important;
+}
+.month-picker > .rmp-container .rmp-popup.show {
+  padding: 0;
+  margin-top: 8px;
+}
+.month-picker > .rmp-container .rmp-popup.light .rmp-pad li {
+  line-height: 2.7rem;
+  border-radius: 12px;
+  margin-right: 1.5%;
+  margin-left: 1.5%;
+  width: 22%;
+}
+.month-picker > .rmp-container .rmp-popup.light .rmp-pad li.active,
+.month-picker > .rmp-container .rmp-popup.light .rmp-pad li.active:hover {
+  background-color: #f6d742 !important;
+  color: #000 !important;
+}
+.month-picker > .rmp-container .rmp-popup.light {
+  color: #000 !important;
+}
+.month-picker > .rmp-container .rmp-popup.light .rmp-pad > div {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0.4rem;
+}
+.month-picker > .rmp-container .rmp-popup.light .rmp-pad i.rmp-btn {
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 500;
+  font-size: 2rem;
+}
+.month-picker > .rmp-container .rmp-popup.light .rmp-pad .rmp-btn.next {
+  right: 22%;
+}
+.month-picker > .rmp-container .rmp-popup.light .rmp-pad .rmp-btn.prev {
+  left: 22%;
 }

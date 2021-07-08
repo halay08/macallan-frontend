@@ -11,6 +11,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from '../styles/global-styles';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import 'react-month-picker/css/month-picker.css';
 
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
