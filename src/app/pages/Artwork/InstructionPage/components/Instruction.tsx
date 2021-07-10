@@ -10,7 +10,7 @@ export const Instruction = () => {
   const { isMobile } = useResponsive();
   const subTitle = isMobile
     ? 'Please savour The Macallan in moderation'
-    : 'Crafted without compromise. Please savour The Macallan in moderation';
+    : 'Crafted without compromise. Please savour The Macallan in moderation.';
 
   return (
     <>

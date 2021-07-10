@@ -1,20 +1,22 @@
+import styled from 'styled-components/macro';
 import { ReactComponent as LoaderIcon } from './assets/loader.svg';
 
 export const Loader = ({ isLoading, children }) => {
-  const classNames = loading => {
-    const loadingClass = loading ? `opacity-60 z-10` : 'opacity-0';
-    return `bg-white fixed w-full h-full top-0 left-0 flex items-center justify-center transition-all duration-650 ease-in-out ${loadingClass}`;
-  };
-
   return (
     <div className="w-full h-full">
-      <div
-        style={!isLoading ? { zIndex: -1 } : undefined}
-        className={classNames(isLoading)}
+      <LoaderContainer
+        isLoading={isLoading}
+        className="bg-white fixed w-full h-full top-0 left-0 flex items-center justify-center transition-all duration-650 ease-in-out"
       >
         <LoaderIcon />
-      </div>
+      </LoaderContainer>
       {children}
     </div>
   );
 };
+
+const LoaderContainer = styled.div<{ isLoading: boolean }>`
+  transition: all 500ms ease;
+  ${({ isLoading }) =>
+    isLoading ? `opacity: 0.6;z-index: 60;` : `opacity: 0;z-index: -1`}
+`;

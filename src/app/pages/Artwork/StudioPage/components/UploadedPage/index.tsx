@@ -1,7 +1,7 @@
 import { UploadedDesktop } from './UploadedDesktop';
 import { UploadedMobile } from './UploadedMobile';
 import { useResponsive } from 'utils/responsive';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { useHistory } from 'react-router-dom';
@@ -16,15 +16,24 @@ import {
   fetchSuccess,
   setImageId
 } from 'redux/actions';
+import { ArtworkService } from 'app/services';
+import { useAlert } from 'react-alert';
+import { ShareECardPopup, ThankyouPopup } from './Popups';
+import isEmpty from 'ramda.isempty';
 
 export const UploadedPage = () => {
   const { isMobile } = useResponsive();
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
-  const { id } = useSelector<AppState, AppState['artwork']>(
+  const { id, message } = useSelector<AppState, AppState['artwork']>(
     ({ artwork }) => artwork
   );
+
+  const [openShare, setOpenShare] = useState(false);
+  const [openThankyou, setOpenThankyou] = useState(false);
+  const alert = useAlert();
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -99,7 +108,13 @@ export const UploadedPage = () => {
     }
   };
 
-  const uploadToStorage = async () => {
+  const uploadToStorage = async (contact = {}) => {
+    if (id) {
+      alert.error(
+        'This artwork is already uploaded, please wait for admin’s approval'
+      );
+      return;
+    }
     try {
       dispatch(fetchStart());
 
@@ -110,8 +125,26 @@ export const UploadedPage = () => {
       const ref = storage.ref('images').child(fileName);
       await ref.put(blob);
 
+      const data = {
+        imgUrl: `images/${fileName}`,
+        message,
+        status: 'in_review',
+        contact
+      };
+
+      const artworkService = new ArtworkService();
+      await artworkService.createArtwork(data);
+
       dispatch(setImageId(id));
       dispatch(fetchSuccess());
+      if (isEmpty(contact)) {
+        alert.success(
+          'Successfully submitted! Please wait for admin’s approval.'
+        );
+      } else {
+        setOpenShare(false);
+        setOpenThankyou(true);
+      }
     } catch (e) {
       const { message = ERROR_MESSAGE } = e;
       dispatch(fetchError(message));
@@ -122,17 +155,33 @@ export const UploadedPage = () => {
     history.push('/gallery');
   };
 
-  const openShareECardPopup = () => {};
+  const closeShareECardPopup = () => {
+    setOpenShare(false);
+  };
+
+  const closeThankyouPopup = () => {
+    setOpenThankyou(false);
+  };
+
+  useEffect(() => {
+    setOpenShare(true);
+  }, []);
 
   const Component = isMobile ? UploadedMobile : UploadedDesktop;
 
   return (
     <>
+      <ShareECardPopup
+        isOpen={openShare}
+        onClose={closeShareECardPopup}
+        submitHandler={uploadToStorage}
+      />
+      <ThankyouPopup isOpen={openThankyou} onClose={closeThankyouPopup} />
       <Component
         handleClick={handleClick}
         handlePostGallery={uploadToStorage}
         handleViewGallery={redirectToGallery}
-        handleShareECard={openShareECardPopup}
+        handleShareECard={handleDownload}
       />
     </>
   );

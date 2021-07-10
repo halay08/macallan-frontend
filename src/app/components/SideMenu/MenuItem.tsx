@@ -6,7 +6,7 @@ export const MenuItem = ({ item }: Props) => {
   const { url, text } = item;
   return (
     <a
-      className="text-xl font-bold mb-1 hover:underline focus:underline"
+      className="text-sm font-serif font-bold py-2 uppercase hover:underline focus:underline"
       href={url}
     >
       {text}
