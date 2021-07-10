@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import { Icon } from '../Icon';
 import { socialIcons, buttonIcons } from './assets';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { PerfectScrollbar } from 'app/components/ScrollBar';
 import { UploadedTypes } from 'types';
 
 type props = {
@@ -42,7 +42,7 @@ export const UploadedMobile = ({
             </button>
           ))}
         </div>
-        <PerfectScrollbar options={{ suppressScrollY: true }}>
+        <PerfectScrollbar>
           <div className="flex flex-nowrap flex-row justify-between px-8 h-24">
             {iconKeys.map(icon => (
               <Button

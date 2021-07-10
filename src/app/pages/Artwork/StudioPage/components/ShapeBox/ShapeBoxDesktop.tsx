@@ -1,7 +1,7 @@
 import { Shape } from '../Shape';
 import * as shapes from '../../assets/shapes';
 import { ShapeType } from 'types';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { PerfectScrollbar } from 'app/components/ScrollBar';
 import { ColorPicker, Texture } from '../Navigation';
 
 type props = {
@@ -16,7 +16,7 @@ export const ShapeBoxDesktop = ({ drawTexture }: props) => {
             STEP 2: CHOOSE SHAPE
           </strong>
         </div>
-        <PerfectScrollbar options={{ suppressScrollY: true }}>
+        <PerfectScrollbar>
           <div className="flex flex-wrap justify-center">
             {Object.keys(shapes).map(shape => (
               <button
