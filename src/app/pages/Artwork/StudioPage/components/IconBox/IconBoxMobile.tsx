@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { Icon } from '../Icon';
 import * as icons from '../../assets/icons';
 import { IconType } from 'types';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { PerfectScrollbar } from 'app/components/ScrollBar';
 
 type props = {
   drawIcon: Function;
@@ -19,7 +19,7 @@ export const IconBoxMobile = ({ drawIcon }: props) => {
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">STEP 4: ADD ICONS</strong>
         </div>
-        <PerfectScrollbar options={{ suppressScrollY: true }}>
+        <PerfectScrollbar>
           <div className="flex flex-nowrap flex-row justify-between pl-4 pr-4 h-28">
             {firstHalf.map((icon, index) => (
               <div key={icon}>

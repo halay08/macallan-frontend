@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { Shape } from '../Shape';
 import * as shapes from '../../assets/shapes';
 import { ShapeType } from 'types';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { PerfectScrollbar } from 'app/components/ScrollBar';
 
 type props = {
   drawTexture: Function;
@@ -16,8 +16,8 @@ export const ShapeBoxMobile = ({ drawTexture }: props) => {
             STEP 2: CHOOSE SHAPE
           </strong>
         </div>
-        <PerfectScrollbar options={{ suppressScrollY: true }}>
-          <div className="flex flex-nowrap h-28">
+        <PerfectScrollbar>
+          <div className="flex flex-nowrap h-28" style={{ width: '684px' }}>
             {Object.keys(shapes).map(shape => (
               <Button
                 className="p-2 focus:outline-none focus:shadow-md active:shadow-md"

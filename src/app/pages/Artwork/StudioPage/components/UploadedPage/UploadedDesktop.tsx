@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import { Icon } from '../Icon';
 import { socialIcons, buttonIcons } from './assets';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { PerfectScrollbar } from 'app/components/ScrollBar';
 import { UploadedTypes } from 'types';
 import { useEffect, useRef } from 'react';
 
@@ -49,11 +49,7 @@ export const UploadedDesktop = ({
           ))}
         </div>
 
-        <PerfectScrollbar
-          ref={ref}
-          options={{ suppressScrollY: true }}
-          style={{ height: 'auto' }}
-        >
+        <PerfectScrollbar ref={ref} style={{ height: 'auto' }}>
           <div className="flex flex-nowrap justify-between pl-4 pr-4 h-28">
             {iconKeys.map(icon => (
               <Button
