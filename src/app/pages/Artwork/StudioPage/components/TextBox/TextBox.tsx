@@ -35,7 +35,7 @@ export const TextBox = ({ onTextChanged, textureBg }: props) => {
             STEP 3: PERSONALISE WITH ALPHANUMERIC
           </strong>
         </div>
-        <div className="flex flex-col relative px-8 mb-24">
+        <div className="flex flex-col relative px-8">
           {renderCharacters(uppercase)}
           {renderCharacters(lowercase)}
           {renderCharacters(numbers)}

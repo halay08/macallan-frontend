@@ -25,5 +25,16 @@ export const Footer = (props: Partial<FooterProps>) => {
     `;
   }
 
-  return isMobile ? <FixedMobile {...props} /> : <FooterDesktop {...props} />;
+  return isMobile ? (
+    <>
+      <FixedMobile {...props} />
+      {height < window.innerHeight && <Spacing />}
+    </>
+  ) : (
+    <FooterDesktop {...props} />
+  );
 };
+
+const Spacing = styled.div`
+  height: 90px;
+`;

@@ -9,7 +9,7 @@ type Props = {
 export const ThankyouMobile = ({ onContinue, onStartAgain }: Props) => {
   return (
     <div className="items-stretch justify-between w-full h-full">
-      <div className="my-auto pb-10 px-4 text-lg flex flex-col items-center">
+      <div className="my-auto px-4 text-lg flex flex-col items-center">
         <div className="text-center text-xl">
           Thank you for your participation
         </div>

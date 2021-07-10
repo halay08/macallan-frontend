@@ -91,7 +91,7 @@ export const SignOff = () => {
     iconImage.onerror = error => {
       dispatch(fetchError(error as string));
     };
-    iconImage.src = `/assets/logo/The Macallan_logo_signoff.svg`;
+    iconImage.src = `/assets/logo/The_Macallan_logo_signoff.png`;
   };
 
   const addBackground = ({ height, width }) => {
