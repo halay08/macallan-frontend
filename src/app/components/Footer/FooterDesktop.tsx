@@ -68,7 +68,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
       </ButtonWrapper>
       <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
         <Message className="font-primary">
-          Crafted without compromise. Please savour The Macallan in moderation
+          Crafted without compromise. Please savour The Macallan in moderation.
         </Message>
         <img
           alt="footer"

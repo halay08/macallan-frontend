@@ -43,7 +43,7 @@ export const UploadedDesktop = ({
                 src={icon}
                 className="w-10/12 m-auto"
                 alt={name}
-                onClick={buttonClicks[name]}
+                onClick={() => buttonClicks[name]()}
               />
             </button>
           ))}

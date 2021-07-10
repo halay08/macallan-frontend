@@ -29,7 +29,7 @@ export const SideMenu = () => {
   return (
     <Wrapper className="flex flex-row fixed z-20 left-0">
       <Button className={buttonClasses} type="button" onClick={toggleSlideMenu}>
-        <MenuIcon className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer" />
+        <MenuIcon className="w-6 h-6 cursor-pointer" />
       </Button>
       <div className={backgroundClasses} onClick={toggleSlideMenu}></div>
       <Menu
@@ -54,7 +54,7 @@ const Button = styled.button`
 `;
 
 const Menu = styled.div<{ show: boolean }>`
-  top: -145px;
+  top: -160px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;

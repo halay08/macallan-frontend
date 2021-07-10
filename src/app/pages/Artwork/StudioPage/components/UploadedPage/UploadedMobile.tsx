@@ -35,7 +35,7 @@ export const UploadedMobile = ({
             <button key={name} className="focus:outline-none -mb-3">
               <img
                 src={icon}
-                className="w-11/12 m-auto -mb-2"
+                className="w-10/12 m-auto"
                 alt={name}
                 onClick={buttonClicks[name]}
               />
