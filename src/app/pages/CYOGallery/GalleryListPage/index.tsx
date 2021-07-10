@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ArrowDownIcon } from '../assets';
 import {
   Header,
   Container,
@@ -19,6 +18,7 @@ import isEmpty from 'ramda.isempty';
 import { Masonry } from 'masonic';
 import { fetchStart, fetchError, fetchSuccess } from 'redux/actions/common';
 import { useDispatch } from 'react-redux';
+import { useLoadMore } from 'utils/useLoadMore';
 
 const PAGE_LIMIT = 8;
 
@@ -46,10 +46,6 @@ type filterType = {
 
 export const GalleryListPage = ({ artworkParam }: Props) => {
   const [artworks, setArtworks] = useState<TArtwork[]>([]);
-  const [pagination, setPagination] = useState({
-    lastRef: undefined,
-    totalItemOfPage: 0
-  });
   const [selectedArtwork, setSelectedArtwork] = useState<TArtwork | null>(null);
   const [showPopup, setShowPopup] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
@@ -68,38 +64,15 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
     };
   };
 
-  const getMoreArtworks = async () => {
-    let options = { limit: PAGE_LIMIT };
-    if (pagination.lastRef) options['startAfter'] = pagination.lastRef;
-    options['filterByTime'] = getFilterOption(filter);
-
+  const getArtworks = async (option?) => {
     try {
       dispatch(fetchStart());
-      const artworkService = new ArtworkService();
-      const result = await artworkService.getArtworks(options);
-
-      setArtworks(prevArtworks => [...result.items, ...prevArtworks]);
-      setPagination(result.pagination);
+      const service = new ArtworkService();
+      const newGalleries = await service.getArtworks(option);
       dispatch(fetchSuccess());
-    } catch (error) {
-      dispatch(fetchError(error));
-    }
-  };
-
-  const getArtworks = async () => {
-    let options = { limit: PAGE_LIMIT };
-    options['filterByTime'] = getFilterOption(filter);
-
-    try {
-      dispatch(fetchStart());
-      const artworkService = new ArtworkService();
-      const result = await artworkService.getArtworks(options);
-
-      setArtworks(result.items);
-      setPagination(result.pagination);
-      dispatch(fetchSuccess());
-    } catch (error) {
-      dispatch(fetchError(error));
+      return newGalleries;
+    } catch ({ message = DEFAULT_ERROR }) {
+      dispatch(fetchError(message));
     }
   };
 
@@ -108,9 +81,20 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
 
     setArtworks([]);
     setMasonryKey(masonryKey);
-    getArtworks();
+    handleLoadMore();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
+
+  const handleLoadMore = async (lastDocumentId = '') => {
+    const newGalleries = await getArtworks({
+      filterByTime: getFilterOption(filter),
+      status: 'approved',
+      limit: PAGE_LIMIT,
+      startAfter: lastDocumentId
+    });
+    handleAfterGet(newGalleries);
+  };
+  const [handleAfterGet] = useLoadMore(handleLoadMore, setArtworks);
 
   useEffect(() => {
     if (artworkParam) {
@@ -172,14 +156,6 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
             {...masonryOption}
           />
         </div>
-        {artworks.length > 0 && pagination.totalItemOfPage === PAGE_LIMIT && (
-          <button
-            className="w-full flex justify-center py-4 focus:outline-none"
-            onClick={() => getMoreArtworks()}
-          >
-            <img className="w-4" src={ArrowDownIcon} alt="load more" />
-          </button>
-        )}
       </Container>
       <SlidePopup
         className="sm:w-1/2 md:w-1/4 w-full"
