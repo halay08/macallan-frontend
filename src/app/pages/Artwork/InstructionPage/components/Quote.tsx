@@ -7,12 +7,12 @@ export const Quote = () => {
     <>
       <QuoteIcon
         alt="quote-start"
-        className="absolute -top-4 left-0 md:-left-20 h-3/4 md:h-full"
+        className="absolute -top-4 left-0 md:-left-20 h-20 md:h-full"
         src={quoteStart}
       />
       <QuoteIcon
         alt="quote-end"
-        className="absolute -bottom-4 right-0 md:-right-20 h-3/4 md:h-full"
+        className="absolute -bottom-4 right-0 md:-right-20 h-20 md:h-full"
         src={quoteEnd}
       />
       <i>
