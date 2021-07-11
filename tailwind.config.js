@@ -99,7 +99,8 @@ module.exports = {
         'Times, serif'
       ],
       samuel: ['HhSamuel-E80W'],
-      alternate: ['DIN-Alternate']
+      alternate: ['DIN-Alternate'],
+      gotham: ['Gotham-Book']
     },
     fontSize: {
       xs: '.75rem',
