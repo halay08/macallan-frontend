@@ -10,8 +10,8 @@ export const Header = () => {
       <img alt="header" className="" src={bgHeaderMobile} />
     </div>
   ) : (
-    <div className="w-3/4">
-      <img alt="header" className="" src={bgHeader} />
+    <div className="w-7/12">
+      <img alt="header" className="w-full" src={bgHeader} />
     </div>
   );
 };

@@ -84,7 +84,12 @@ export const ShareECardPopup = ({ isOpen, onClose, submitHandler }: Props) => {
                 <p className="text-center mb-3">And agree to the following:</p>
                 <Label className="flex items-center" htmlFor="tAndCs">
                   I agree with The Macallan Create Your Own{' '}
-                  <a href="/" target="_blank" className="underline text-red">
+                  <a
+                    className="underline text-red"
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     T&Cs
                   </a>
                   <Input
