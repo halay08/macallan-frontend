@@ -73,7 +73,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
           </NextButton>
         )}
         <div className="text-center font-primary text-sm">
-          Please savour The Macallan in moderation
+          Please savour The Macallan in moderation.
         </div>
       </FooterInner>
     </FooterWrapper>
