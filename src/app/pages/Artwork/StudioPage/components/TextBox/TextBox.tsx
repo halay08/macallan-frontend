@@ -12,12 +12,12 @@ const numbers = '0123456789'.split('');
 export const TextBox = ({ onTextChanged, textureBg }: props) => {
   const renderCharacters = characters => {
     return (
-      <RowWrapper textureBg={textureBg} className="mb-4 text-xl">
+      <RowWrapper className="mb-4 text-xl">
         {characters.map(c => (
           <Button
             key={c}
+            textureBg={textureBg}
             className="px-2 focus:outline-none focus:shadow-md active:shadow-md"
-            value={c}
             onClick={() => onTextChanged(c)}
           >
             {c}
@@ -54,13 +54,14 @@ const BoxWrapper = styled.div`
   border-top: 1px solid #bbb;
 `;
 
-const Button = styled.button`
+const Button = styled.span<{ textureBg: any }>`
   height: fit-content;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-`;
-
-const RowWrapper = styled.div<{ textureBg: any }>`
-  background: url(${({ textureBg }) => textureBg}) repeat center/25%;
+  cursor: pointer;
+  display: inline-block;
+  background: url(${({ textureBg }) => textureBg}) repeat center/cover;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 `;
+
+const RowWrapper = styled.div``;

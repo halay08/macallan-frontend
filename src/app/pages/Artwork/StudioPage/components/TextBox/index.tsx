@@ -31,14 +31,10 @@ export const TextBox = () => {
   const [textureBg, setTextureBg] = useState('');
 
   useEffect(() => {
-    (async () => {
-      const textureName = texture || 'texture_01_bg.png';
-      const imported = (
-        await import(`../../assets/textures/img/${textureName}`)
-      ).default;
+    const textureName = texture || 'texture_01.png';
+    const imported = `/assets/textures/img/${textureName}`;
 
-      setTextureBg(imported);
-    })();
+    setTextureBg(imported);
   }, [texture]);
 
   const drawTexture = async (texture: string, text: string) => {
