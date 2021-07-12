@@ -18,10 +18,10 @@ export const ThankyouPopup = ({ isOpen, onClose }: Props) => {
               onClose={onClose}
             />
             <div className="relative flex flex-col justify-center w-full mb-4 text-lg">
-              <p className="text-center">Thank you,</p>
+              <p className="text-center">Thank you!</p>
               <p className="text-center mb-3">
                 Our team will now review your artwork and you will be notified
-                once it has been posted on our Virtual Gallery Wall
+                once it has been posted on our Virtual Gallery Wall.
               </p>
             </div>
             <Button

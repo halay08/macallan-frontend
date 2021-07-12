@@ -18,7 +18,7 @@ export const SideMenu = () => {
     setShow(prevShow => !prevShow);
   };
 
-  const buttonClasses = `focus:outline-none opacity-40 hover:opacity-100 z-30 ${
+  const buttonClasses = `focus:outline-none opacity-70 hover:opacity-100 z-30 ${
     show && 'opacity-100'
   }`;
 
@@ -29,7 +29,7 @@ export const SideMenu = () => {
   return (
     <Wrapper className="flex flex-row fixed z-20 left-0">
       <Button className={buttonClasses} type="button" onClick={toggleSlideMenu}>
-        <MenuIcon className="w-6 h-6 cursor-pointer" />
+        <MenuIcon className="w-8 h-8 cursor-pointer" />
       </Button>
       <div className={backgroundClasses} onClick={toggleSlideMenu}></div>
       <Menu

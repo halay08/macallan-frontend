@@ -161,6 +161,7 @@ export const StudioPage = () => {
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
+          showPrevButton={scene !== SceneType.UPLOAD}
           showNextButton={scene !== SceneType.THANK_YOU}
           showMoreButton={scene === SceneType.UPLOAD}
           StageFrame={
@@ -180,6 +181,7 @@ export const StudioPage = () => {
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
           prevButtonHandler={prevButtonHandler}
+          showPrevButton={scene !== SceneType.UPLOAD}
           showNextButton={scene !== SceneType.THANK_YOU}
           showMoreButton={scene === SceneType.UPLOAD}
           StageFrame={
