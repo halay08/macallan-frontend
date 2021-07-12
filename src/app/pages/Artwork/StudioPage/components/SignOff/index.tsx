@@ -25,7 +25,7 @@ export const SignOff = () => {
   const [font] = useState('AGaramondPro-Regular');
   const [fontSize] = useState(15);
   const [stageHeight, setStageHeight] = useState(0);
-  const logoImageSize = { width: 300, height: 40 };
+  const logoImageSize = { width: 487.5, height: 65 };
   const logoSize =
     !isMobile && format === StageFormat.MOBILE
       ? { width: 150, height: 20 }
@@ -78,7 +78,13 @@ export const SignOff = () => {
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(iconImage, 0, 0, 300, 40);
+        ctx.drawImage(
+          iconImage,
+          0,
+          0,
+          logoImageSize.width,
+          logoImageSize.height
+        );
 
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'icon');
@@ -91,7 +97,7 @@ export const SignOff = () => {
     iconImage.onerror = error => {
       dispatch(fetchError(error as string));
     };
-    iconImage.src = `/assets/logo/The_Macallan_logo_signoff.png`;
+    iconImage.src = `/assets/logo/The_Macallan_logo_signoff.svg`;
   };
 
   const addBackground = ({ height, width }) => {

@@ -9,9 +9,15 @@ import Subscribe from './assets/subscribe.png';
 import { useResponsive } from 'utils/responsive';
 
 const icons = [
-  { href: '/', icon: ConceptVirtual },
-  { href: '#', icon: ConceptNo3 },
-  { href: '#', icon: Subscribe }
+  {
+    href: 'https://www.themacallan.com/en/concept-no3-virtual-experience-direct',
+    icon: ConceptVirtual
+  },
+  {
+    href: 'https://www.themacallan.com/en/whisky/single-malts/travel-retail-exclusives/the-macallan-concept-series/concept-no-3',
+    icon: ConceptNo3
+  },
+  { href: 'https://www.themacallan.com/newsletter', icon: Subscribe }
 ];
 
 export const FinalPage = () => {

@@ -51,7 +51,7 @@ export const UploadedPage = () => {
       )?.firstElementChild;
       const a = document.createElement('a');
       a.href = image?.getAttribute('src') || '';
-      a.download = 'Macallan_CYO_artwork.png';
+      a.download = 'Macallan_CYO_artwork.jpeg';
       a.click();
     } catch ({ message = ERROR_MESSAGE }) {
       dispatch(fetchError(message));
@@ -82,6 +82,15 @@ export const UploadedPage = () => {
     a.href = totalUrl;
     a.target = '_blank';
     a.setAttribute('data-action', 'share/whatsapp/share');
+    a.click();
+  };
+
+  const handleSubmitEmail = () => {
+    const imageLink = getImageLink();
+    const a = document.createElement('a');
+    a.href = `mailto:?subject=${SHARER_MESSAGE}&body=${imageLink}`;
+    a.target = '_blank';
+    a.title = 'Share by Email';
     a.click();
   };
 
@@ -181,7 +190,7 @@ export const UploadedPage = () => {
         handleClick={handleClick}
         handlePostGallery={uploadToStorage}
         handleViewGallery={redirectToGallery}
-        handleShareECard={handleDownload}
+        handleShareECard={handleSubmitEmail}
       />
     </>
   );
