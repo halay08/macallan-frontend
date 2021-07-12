@@ -1,37 +1,22 @@
-import { useEffect, useState } from 'react';
-
-const isBottomOfPage = () => {
-  const windowHeight =
-    'innerHeight' in window
-      ? window.innerHeight
-      : document.documentElement.offsetHeight;
-  const body = document.body;
-  const html = document.documentElement;
-  const docHeight = Math.max(
-    body.scrollHeight,
-    body.offsetHeight,
-    html.clientHeight,
-    html.scrollHeight,
-    html.offsetHeight
-  );
-  const windowBottom = Math.round(windowHeight + window.pageYOffset);
-
-  return windowBottom >= docHeight;
-};
+import { useState } from 'react';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 
 const useLoadMore = (handleLoadMore: Function, setData: Function) => {
   const [lastDocumentId, setLastDocumentId] = useState<string>('');
   const [isStop, setIsStop] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!isStop) window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lastDocumentId, isStop]);
-
-  const handleScroll = async () => {
-    if (isBottomOfPage()) await handleLoadMore(lastDocumentId);
-  };
+  useBottomScrollListener(
+    () => {
+      if (isStop) return;
+      setIsStop(true);
+      handleLoadMore(lastDocumentId);
+    },
+    {
+      offset: 100,
+      debounce: 200,
+      debounceOptions: { leading: false }
+    }
+  );
 
   const handleAfterGet = data => {
     const { items = [], pagination = {}, option = {} } = data;
