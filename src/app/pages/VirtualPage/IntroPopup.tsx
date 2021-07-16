@@ -18,8 +18,8 @@ type Props = {
 export const IntroPopup = ({ isOpen, onEnter }: Props) => {
   return isOpen ? (
     <>
-      <div className="justify-center top-10 w-screen fixed z-50 flex outline-none focus:outline-none">
-        <Wrapper className="w-10/12 bg-white relative max-w-screen-lg m-auto">
+      <Wrapper className="justify-center w-screen fixed z-50 flex outline-none focus:outline-none">
+        <Background className="w-10/12 bg-white relative max-w-screen-lg m-auto">
           <Header />
           <Container className="items-center w-11/12 pb-20 sm:pt-0 py-8 sm:w-full mx-auto  flex flex-col text-secondary-light overflow-auto max-h-full">
             <h3 className="sm:text-2xl text-3xl font-bold tracking-wider">
@@ -74,8 +74,8 @@ export const IntroPopup = ({ isOpen, onEnter }: Props) => {
             </button>
           </Container>
           <Footer className="absolute bottom-0 right-0" />
-        </Wrapper>
-      </div>
+        </Background>
+      </Wrapper>
       <div className="opacity-80 fixed inset-0 z-40 bg-gray-dark"></div>
     </>
   ) : (
@@ -84,6 +84,12 @@ export const IntroPopup = ({ isOpen, onEnter }: Props) => {
 };
 
 const Wrapper = styled.div`
+  bottom: 5%;
+  top: 5%;
+  max-height: 90%;
+`;
+
+const Background = styled.div`
   background: #dcdadc;
 `;
 
