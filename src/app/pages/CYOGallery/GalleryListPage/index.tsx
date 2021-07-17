@@ -64,9 +64,15 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
     };
   };
 
-  const getArtworks = async (option?) => {
+  const getArtworks = async (lastDocumentId?) => {
     try {
       dispatch(fetchStart());
+      const option = {
+        filterByTime: getFilterOption(filter),
+        status: 'approved',
+        limit: PAGE_LIMIT,
+        startAfter: lastDocumentId
+      };
       const service = new ArtworkService();
       const newGalleries = await service.getArtworks(option);
       dispatch(fetchSuccess());
@@ -81,20 +87,11 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
 
     setArtworks([]);
     setMasonryKey(masonryKey);
-    handleLoadMore();
+    handleGetData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
-  const handleLoadMore = async (lastDocumentId = '') => {
-    const newGalleries = await getArtworks({
-      filterByTime: getFilterOption(filter),
-      status: 'approved',
-      limit: PAGE_LIMIT,
-      startAfter: lastDocumentId
-    });
-    handleAfterGet(newGalleries);
-  };
-  const [handleAfterGet] = useLoadMore(handleLoadMore, setArtworks);
+  const [handleGetData] = useLoadMore(getArtworks, setArtworks);
 
   useEffect(() => {
     if (artworkParam) {

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { toDataURL } from 'app/helpers';
 import { useAlert } from 'react-alert';
 import { TArtwork } from 'types';
+import { useHistory } from 'react-router-dom';
 
 type Props = {
   artwork: TArtwork;
@@ -14,6 +15,7 @@ export const ArtworkAction = ({ artwork, onClose }: Props) => {
   const { message, id } = artwork;
   const dispatch = useDispatch();
   const alert = useAlert();
+  const history = useHistory();
 
   const handleDownload = async () => {
     try {
@@ -65,7 +67,7 @@ export const ArtworkAction = ({ artwork, onClose }: Props) => {
         </button>
       </div>
       <button
-        onClick={() => onClose()}
+        onClick={() => history.push('/artwork/instruction')}
         type="button"
         className="mt-3 sm:mt-6 bg-dark py-1 sm:py-2 font-semibold focus:outline-none"
       >

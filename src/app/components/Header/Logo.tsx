@@ -1,11 +1,14 @@
 import { ReactComponent as LogoSvg } from './assets/logo.svg';
 import styled from 'styled-components/macro';
+import { useHistory } from 'react-router-dom';
 
 export const Logo = () => {
+  const history = useHistory();
+
   return (
-    <a href="/" className="logo m-auto">
+    <div onClick={() => history.push('/')} className="logo m-auto">
       <LogoStyled />
-    </a>
+    </div>
   );
 };
 

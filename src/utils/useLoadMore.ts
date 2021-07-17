@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 
-const useLoadMore = (handleLoadMore: Function, setData: Function) => {
+const useLoadMore = (getMoreData: Function, setData: Function) => {
   const [lastDocumentId, setLastDocumentId] = useState<string>('');
   const [isStop, setIsStop] = useState<boolean>(false);
 
-  useBottomScrollListener(
-    () => {
-      if (isStop) return;
-      setIsStop(true);
-      handleLoadMore(lastDocumentId);
-    },
-    {
-      offset: 100,
-      debounce: 200,
-      debounceOptions: { leading: false }
-    }
-  );
+  useBottomScrollListener(() => handleGetData(), {
+    offset: 100,
+    debounce: 200,
+    debounceOptions: { leading: false }
+  });
+
+  const handleGetData = async () => {
+    if (isStop) return;
+    setIsStop(true);
+    const newData = await getMoreData(lastDocumentId);
+    handleAfterGet(newData);
+  };
 
   const handleAfterGet = data => {
     const { items = [], pagination = {}, option = {} } = data;
@@ -29,7 +29,7 @@ const useLoadMore = (handleLoadMore: Function, setData: Function) => {
     setIsStop(pagination.totalItemOfPage < option.limit);
   };
 
-  return [handleAfterGet];
+  return [handleGetData];
 };
 
 export { useLoadMore };
