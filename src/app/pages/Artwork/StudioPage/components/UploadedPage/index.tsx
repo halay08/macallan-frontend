@@ -20,6 +20,8 @@ import { ArtworkService } from 'app/services';
 import { useAlert } from 'react-alert';
 import { ShareECardPopup, ThankyouPopup } from './Popups';
 
+const isChromeOnIOS = () => navigator.userAgent.match('CriOS');
+
 export const UploadedPage = () => {
   const { isMobile } = useResponsive();
   const { stage } = useSelector<AppState, AppState['studio']>(
@@ -43,29 +45,55 @@ export const UploadedPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleDownload = () => {
+  const uploadImage = async (fileName: string) => {
+    const dataUrl = stage.toDataURL({ pixelRatio: 3 });
+    const blob = base64toBlob(dataUrl, fileName);
+    const ref = storage.ref('images').child(fileName);
+    await ref.put(blob);
+  };
+
+  const getImageLink = (name?: string) => {
+    const firebaseStorage = 'https://firebasestorage.googleapis.com/v0/b/';
+    const bucket = `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}/o/images%2F`;
+    const imageName = name || `${id}.png`;
+    return encodeURIComponent(
+      firebaseStorage + bucket + imageName + '?alt=media'
+    );
+  };
+
+  const normalDownload = () => {
+    const a = document.createElement('a');
+    const dataURL = stage.toDataURL({ pixelRatio: 3 });
+    a.href = dataURL;
+    a.download = 'Macallan_CYO_artwork.png';
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  const chromeOnIOSDownload = async () => {
+    const temp = 'temp.png';
+    await uploadImage(temp);
+    const imageUrl =
+      decodeURIComponent(getImageLink(temp)) + '&t=' + Date.now();
+    window.open(imageUrl, '_blank');
+  };
+
+  const handleDownload = async () => {
     try {
-      const a = document.createElement('a');
-      const dataURL = stage.toDataURL({ pixelRatio: 3 });
-      a.href = dataURL;
-      a.download = 'Macallan_CYO_artwork.png';
-      a.target = '_blank';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      dispatch(fetchStart());
+      if (isChromeOnIOS()) {
+        await chromeOnIOSDownload();
+      } else {
+        normalDownload();
+      }
+      dispatch(fetchSuccess());
     } catch ({ message = ERROR_MESSAGE }) {
       dispatch(fetchError(message));
     }
   };
 
-  const getImageLink = () => {
-    const firebaseStorage = 'https://firebasestorage.googleapis.com/v0/b/';
-    const bucket = `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}/o/images%2F`;
-    const imageName = `${id}.png`;
-    return encodeURIComponent(
-      firebaseStorage + bucket + imageName + '?alt=media'
-    );
-  };
   const handleShareSocial = mediaUrl => {
     const totalUrl = mediaUrl + getImageLink();
 
