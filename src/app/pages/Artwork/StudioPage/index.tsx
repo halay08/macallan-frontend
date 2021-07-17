@@ -135,6 +135,7 @@ export const StudioPage = () => {
     if (action !== 'PUSH') return true;
 
     if (
+      location.pathname === '/' ||
       location.pathname.includes('format') ||
       location.pathname.includes('gallery')
     ) {

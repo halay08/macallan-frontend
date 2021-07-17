@@ -1,22 +1,25 @@
 import { FormatPageDesktop } from './FormatPageDesktop';
 import { FormatPageMobile } from './FormatPageMobile';
 import { useResponsive } from 'utils/responsive';
-import { useEffect } from 'react';
+import { Prompt } from 'react-router-dom';
 
 export const FormatPage = () => {
   const { isMobile } = useResponsive();
 
-  useEffect(() => {
-    const confirmation = ev => {
-      ev.returnValue = 'Are you sure? Your work will be lost!';
-    };
-    window.addEventListener('beforeunload', confirmation);
+  const confirmationHandler = (location, action) => {
+    if (action !== 'PUSH') return true;
 
-    return () => {
-      window.removeEventListener('beforeunload', confirmation);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (location.pathname === '/') {
+      return 'Are you sure? Your work will be lost!';
+    }
 
-  return isMobile ? <FormatPageMobile /> : <FormatPageDesktop />;
+    return true;
+  };
+
+  return (
+    <>
+      <Prompt message={confirmationHandler} />
+      {isMobile ? <FormatPageMobile /> : <FormatPageDesktop />}
+    </>
+  );
 };
