@@ -19,7 +19,6 @@ import {
 import { ArtworkService } from 'app/services';
 import { useAlert } from 'react-alert';
 import { ShareECardPopup, ThankyouPopup } from './Popups';
-import isEmpty from 'ramda.isempty';
 
 export const UploadedPage = () => {
   const { isMobile } = useResponsive();
@@ -46,13 +45,14 @@ export const UploadedPage = () => {
 
   const handleDownload = () => {
     try {
-      const image = document.getElementById(
-        'finalImageContainer'
-      )?.firstElementChild;
       const a = document.createElement('a');
-      a.href = image?.getAttribute('src') || '';
-      a.download = 'Macallan_CYO_artwork.jpeg';
+      const dataURL = stage.toDataURL({ pixelRatio: 3 });
+      a.href = dataURL;
+      a.download = 'Macallan_CYO_artwork.png';
+      a.target = '_blank';
+      document.body.appendChild(a);
       a.click();
+      document.body.removeChild(a);
     } catch ({ message = ERROR_MESSAGE }) {
       dispatch(fetchError(message));
     }
@@ -128,7 +128,7 @@ export const UploadedPage = () => {
       dispatch(fetchStart());
 
       const id = uuidv4();
-      const dataUrl = stage.toDataURL();
+      const dataUrl = stage.toDataURL({ pixelRatio: 3 });
       const fileName = `${id}.png`;
       const blob = base64toBlob(dataUrl, fileName);
       const ref = storage.ref('images').child(fileName);
@@ -146,14 +146,9 @@ export const UploadedPage = () => {
 
       dispatch(setImageId(id));
       dispatch(fetchSuccess());
-      if (isEmpty(contact)) {
-        alert.success(
-          'Successfully submitted! Please wait for admin’s approval.'
-        );
-      } else {
-        setOpenShare(false);
-        setOpenThankyou(true);
-      }
+
+      setOpenShare(false);
+      setOpenThankyou(true);
     } catch (e) {
       const { message = ERROR_MESSAGE } = e;
       dispatch(fetchError(message));
@@ -162,6 +157,16 @@ export const UploadedPage = () => {
 
   const redirectToGallery = () => {
     history.push('/gallery');
+  };
+
+  const openShareECardPopup = () => {
+    if (id) {
+      alert.error(
+        'This artwork is already uploaded, please wait for admin’s approval'
+      );
+      return;
+    }
+    setOpenShare(true);
   };
 
   const closeShareECardPopup = () => {
@@ -188,7 +193,7 @@ export const UploadedPage = () => {
       <ThankyouPopup isOpen={openThankyou} onClose={closeThankyouPopup} />
       <Component
         handleClick={handleClick}
-        handlePostGallery={uploadToStorage}
+        handlePostGallery={openShareECardPopup}
         handleViewGallery={redirectToGallery}
         handleShareECard={handleSubmitEmail}
       />
