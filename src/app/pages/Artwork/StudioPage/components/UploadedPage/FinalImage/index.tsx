@@ -19,8 +19,7 @@ export const FinalImage = () => {
     transformer.nodes([]);
 
     stage.toImage({
-      mimeType: 'image/jpeg',
-      quality: 1,
+      pixelRatio: 3,
       callback(image) {
         image.className = 'w-full border-2 border-gray-light';
         document.getElementById('finalImageContainer')?.append(image);
