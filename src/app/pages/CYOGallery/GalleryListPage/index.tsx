@@ -10,8 +10,6 @@ import {
 } from '../Components';
 import styled from 'styled-components/macro';
 import { ArtworkService } from 'app/services';
-
-import { useHistory } from 'react-router-dom';
 import { useResponsive } from 'utils/responsive';
 import { TArtwork } from 'types';
 import isEmpty from 'ramda.isempty';
@@ -50,7 +48,6 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [filter, setFilter] = useState<filterType>({});
-  const history = useHistory();
   const { isDesktop, isTablet, isMobile } = useResponsive();
   const dispatch = useDispatch();
   const [masonryKey, setMasonryKey] = useState('');
@@ -117,12 +114,8 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
   );
 
   const onArtworkClick = (artwork: TArtwork) => {
-    if (isMobile) {
-      setSelectedArtwork(artwork);
-      setShowPopup(true);
-      return;
-    }
-    history.push(`/gallery/${artwork.id}`);
+    setSelectedArtwork(artwork);
+    setShowPopup(true);
   };
 
   const masonryOption = {
@@ -167,7 +160,7 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
       </SlidePopup>
       <Popup
         isOpen={showPopup}
-        title="Gallery Wall"
+        title={isMobile ? 'Gallery Wall' : ''}
         artwork={selectedArtwork}
         onClose={() => setShowPopup(false)}
       />

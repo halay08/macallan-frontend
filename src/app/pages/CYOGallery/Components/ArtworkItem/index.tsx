@@ -12,9 +12,13 @@ export const ArtworkItem = ({ artwork, onClick = () => '' }: Props) => {
   const { imgUrl, id } = artwork;
 
   return (
-    <Button key={id} className="w-full focus:outline-none" onClick={onClick}>
+    <Button
+      key={id}
+      className="max-w-full focus:outline-none"
+      onClick={onClick}
+    >
       <img
-        className="w-full"
+        className="max-w-full max-h-full"
         id={id}
         src={getFirebaseImageLink(imgUrl)}
         alt="artwork"
