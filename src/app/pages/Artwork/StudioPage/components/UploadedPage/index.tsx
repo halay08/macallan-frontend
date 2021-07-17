@@ -19,8 +19,7 @@ import {
 import { ArtworkService } from 'app/services';
 import { useAlert } from 'react-alert';
 import { ShareECardPopup, ThankyouPopup } from './Popups';
-
-const isChromeOnIOS = () => navigator.userAgent.match('CriOS');
+import { isChromeOnIOS } from '../../helpers';
 
 export const UploadedPage = () => {
   const { isMobile } = useResponsive();
@@ -156,11 +155,8 @@ export const UploadedPage = () => {
       dispatch(fetchStart());
 
       const id = uuidv4();
-      const dataUrl = stage.toDataURL({ pixelRatio: 3 });
       const fileName = `${id}.png`;
-      const blob = base64toBlob(dataUrl, fileName);
-      const ref = storage.ref('images').child(fileName);
-      await ref.put(blob);
+      await uploadImage(fileName);
 
       const data = {
         imgUrl: `images/${fileName}`,

@@ -22,3 +22,5 @@ export const calcStageResolution = (
   }
   return { stageWidth, stageHeight };
 };
+
+export const isChromeOnIOS = () => navigator.userAgent.match('CriOS');
