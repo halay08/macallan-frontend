@@ -52,7 +52,7 @@ export const ArtworkAction = ({ artwork, onClose }: Props) => {
       <div className="mt-3 sm:mt-0 h-full flex justify-center items-center font-sans font-semibold text-sm sm:text-xl tracking-widest uppercase text-center">
         {message}
       </div>
-      <div className="flex justify-center mt-3 sm:mt-0">
+      <div className="flex justify-center mt-3 md:hidden">
         <button
           onClick={() => handleDownload()}
           className="w-8 sm:w-12 focus:outline-none mx-2 sm:mx-4"

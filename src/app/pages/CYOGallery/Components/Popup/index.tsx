@@ -14,10 +14,10 @@ export const Popup = ({ isOpen, title, artwork, onClose }: Props) => {
   return isOpen ? (
     <>
       <div className="justify-center top-1/12 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-        <Container className="relative w-auto my-6 mx-auto max-w-screen-lg">
+        <Container className="relative w-auto my-auto mx-auto max-w-screen-lg">
           <div className="shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-            <div className="flex items-center justify-center pt-1 sm:p-3 border-b border-solid border-gray-light">
-              <div className="text-base sm:text-2xl font-semibold font-primary m-auto uppercase tracking-wider sm:tracking-widest sm:leading-6">
+            <div className="flex items-center justify-center pt-1 sm:p-3 border-b border-solid border-gray-light h-8">
+              <div className="text-base sm:text-2xl font-semibold font-primary m-auto uppercase tracking-wider sm:tracking-widest sm:leading-6 min-h-4">
                 {title}
               </div>
               <button
@@ -29,7 +29,7 @@ export const Popup = ({ isOpen, title, artwork, onClose }: Props) => {
             </div>
             <div className="relative p-6 flex justify-center">
               {artwork && (
-                <div className="sm:max-w-md w-full">
+                <div className="sm:max-w-lg w-full text-center">
                   <ArtworkItem artwork={artwork} />
                   <div className="w-full flex flex-col">
                     <ArtworkAction artwork={artwork} onClose={onClose} />
@@ -50,4 +50,5 @@ export const Popup = ({ isOpen, title, artwork, onClose }: Props) => {
 const Container = styled.div`
   width: 80%;
   max-width: 1024px;
+  height: fit-content;
 `;
