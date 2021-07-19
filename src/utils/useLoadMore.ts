@@ -11,10 +11,10 @@ const useLoadMore = (getMoreData: Function, setData: Function) => {
     debounceOptions: { leading: false }
   });
 
-  const handleGetData = async () => {
-    if (isStop) return;
+  const handleGetData = async (reset = false) => {
+    if (isStop && !reset) return;
     setIsStop(true);
-    const newData = await getMoreData(lastDocumentId);
+    const newData = await getMoreData(reset ? '' : lastDocumentId);
     handleAfterGet(newData);
   };
 

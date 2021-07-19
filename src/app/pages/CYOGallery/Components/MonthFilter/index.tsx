@@ -26,10 +26,13 @@ type Props = {
 export const MonthFilter = ({ value, onFilterChange }: Props) => {
   const ref = useRef();
 
-  const onChange = value => {
+  const onChange = (year, month) => {
+    const value = { month, year };
     if (!value || isEmpty(value)) return;
 
     onFilterChange(value);
+    if (!ref || !ref.current) return;
+    (ref.current as any).dismiss();
   };
 
   const formatValue = () => {
@@ -45,24 +48,22 @@ export const MonthFilter = ({ value, onFilterChange }: Props) => {
   };
 
   return (
-    <>
-      <Picker
-        ref={ref}
-        years={{ min: { year: 2015 }, max: { year: 2025 } }}
-        value={isEmpty(value) ? { year: new Date().getFullYear() } : value}
-        lang={MONTHS}
-        onDismiss={onChange}
-      >
-        <div onClick={handleOpen}>
-          <Input
-            className="font-MyriadPro border border-solid border-gray-light py-1 px-2 w-full"
-            readOnly
-            placeholder="Search Month"
-            value={formatValue()}
-          />
-        </div>
-      </Picker>
-    </>
+    <Picker
+      ref={ref}
+      years={{ min: { year: 2015 }, max: { year: 2025 } }}
+      value={isEmpty(value) ? { year: new Date().getFullYear() } : value}
+      lang={MONTHS}
+      onChange={onChange}
+    >
+      <div onClick={handleOpen}>
+        <Input
+          className="font-MyriadPro border border-solid border-gray-light py-1 px-2 w-full"
+          readOnly
+          placeholder="Search Month"
+          value={formatValue()}
+        />
+      </div>
+    </Picker>
   );
 };
 
