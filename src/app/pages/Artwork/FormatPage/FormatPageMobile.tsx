@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { Footer } from 'app/components/Footer';
 import { StageFormat } from 'types';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const FormatPageMobile = () => {
   const history = useHistory();
@@ -16,6 +16,7 @@ export const FormatPageMobile = () => {
   );
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
+  const ref = useRef(null);
 
   const nextButtonHandler = () => {
     if (!selectedFormat) return;
@@ -23,8 +24,12 @@ export const FormatPageMobile = () => {
   };
 
   useEffect(() => {
-    const maxWidth = window.innerWidth * 0.6;
-    const maxHeight = Math.max(window.innerHeight - 500, 100);
+    const elm = ref.current;
+    if (!elm) return;
+    const { height, width } = (elm as HTMLElement).getBoundingClientRect();
+    const maxHeight = height - 16;
+    const maxWidth = width * 0.5;
+
     const squareWidth = Math.min(maxWidth, maxHeight);
 
     // Default is square type.
@@ -51,17 +56,17 @@ export const FormatPageMobile = () => {
         <title>Create Your Own - Select Format</title>
         <meta name="description" content="Create Your Own - Select Format" />
       </Helmet>
-      <PageWrapper
-        StageFrame={
-          <FormatPreview
-            className="border border-solid border-gray-light m-auto mt-12"
-            height={height}
-            width={width}
-          />
-        }
-        hasFooter={false}
-      >
-        <SizeBox />
+      <PageWrapper hasFooter={false}>
+        <PreviewWrapper className="flex flex-col justify-between">
+          <div ref={ref} className="flex h-full">
+            <FormatPreview
+              className="border border-dashed border-gray-light m-auto"
+              height={height}
+              width={width}
+            />
+          </div>
+          <SizeBox />
+        </PreviewWrapper>
         <Footer
           className="absolute w-full"
           nextButtonHandler={nextButtonHandler}
@@ -76,4 +81,8 @@ export const FormatPageMobile = () => {
 const FormatPreview = styled.div<{ height: number; width: number }>`
   height: ${({ height }) => `${height}px`};
   width: ${({ width }) => `${width}px`};
+`;
+
+const PreviewWrapper = styled.div`
+  height: calc(100vh - 90px - 9.5rem);
 `;
