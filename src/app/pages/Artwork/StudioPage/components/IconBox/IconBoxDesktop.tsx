@@ -16,7 +16,7 @@ export const IconBoxDesktop = ({ drawIcon }: props) => {
           STEP 4: ADD ICONS
         </strong>
       </div>
-      <div className="m-auto mt-6">
+      <div className="m-auto">
         <div className="grid grid-cols-7 gap 5">
           {iconKeys.map(icon => (
             <Button
