@@ -28,6 +28,7 @@ export const FormatPageDesktop = () => {
         isNextButtonDisable={!selectedFormat}
         nextButtonHandler={nextButtonHandler}
         prevButtonHandler={() => history.push('/artwork/instruction')}
+        isFixedHeight
       >
         <SizeBoxDesktop />
       </PageWrapper>

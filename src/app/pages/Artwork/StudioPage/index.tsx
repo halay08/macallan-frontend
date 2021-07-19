@@ -151,6 +151,10 @@ export const StudioPage = () => {
 
   const isFinal = [SceneType.THANK_YOU, SceneType.UPLOAD].includes(scene);
   const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
+  const shouldOverflowHeight = [SceneType.TEXT, SceneType.UPLOAD].includes(
+    scene
+  );
+
   return (
     <>
       <Helmet>
@@ -185,6 +189,7 @@ export const StudioPage = () => {
           showPrevButton={scene !== SceneType.UPLOAD}
           showNextButton={scene !== SceneType.THANK_YOU}
           showMoreButton={scene === SceneType.UPLOAD}
+          isFixedHeight={!shouldOverflowHeight}
           StageFrame={
             <>
               {isFinal && <FinalImage />}

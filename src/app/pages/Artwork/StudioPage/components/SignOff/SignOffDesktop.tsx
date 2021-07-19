@@ -6,13 +6,13 @@ type props = {
 };
 export const SignOffDesktop = ({ onTextChanged, maxLength }: props) => {
   return (
-    <div className="flex flex-col items-stretch justify-between w-full h-full">
+    <div className="flex flex-col items-stretch justify-between w-full h-full pb-20">
       <div className="text-center">
         <strong className="font-AGaramondPro-bold text-2xl">
           STEP 6: SIGN OFF ARTWORK
         </strong>
       </div>
-      <div className="my-auto p-24 text-lg">
+      <div className="my-auto px-24 text-lg">
         <Editor
           maxLength={maxLength}
           className="h-48 w-full font-AGaramondPro-bold border border-solid mb-4 p-4"

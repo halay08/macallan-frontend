@@ -4,7 +4,7 @@ export const calcStageResolution = (
   format: string
 ): { stageWidth: number; stageHeight: number } => {
   const maxWidth = window.innerWidth * 0.4;
-  const maxHeight = window.innerHeight - 200;
+  const maxHeight = window.innerHeight - 264;
   const squareWidth = Math.min(maxWidth, maxHeight);
 
   // Default is square type.
