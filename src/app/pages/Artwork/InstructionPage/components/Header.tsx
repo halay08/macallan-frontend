@@ -7,7 +7,7 @@ export const Header = () => {
 
   return isMobile ? (
     <div className="">
-      <img alt="header" className="" src={bgHeaderMobile} />
+      <img alt="header" className="w-full" src={bgHeaderMobile} />
     </div>
   ) : (
     <div className="w-7/12">

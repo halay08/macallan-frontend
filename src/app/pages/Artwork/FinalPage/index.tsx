@@ -51,7 +51,7 @@ export const FinalPage = () => {
           <span className="absolute mx-auto bottom-28 sm:ml-12 sm:bottom-8 md:text-lg w-full sm:w-auto text-center">
             {subTitle}
           </span>
-          <Footer className="absolute bottom-0 right-0" />
+          <Footer className="absolute bottom-0 right-0 w-full" />
         </ContentWrapper>
       </div>
     </>

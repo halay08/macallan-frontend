@@ -160,7 +160,6 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
       </SlidePopup>
       <Popup
         isOpen={showPopup}
-        title={isMobile ? 'Gallery Wall' : ''}
         artwork={selectedArtwork}
         onClose={() => setShowPopup(false)}
       />
