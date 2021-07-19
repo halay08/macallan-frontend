@@ -5,12 +5,18 @@ import { TArtwork } from 'types';
 
 type Props = {
   isOpen: boolean;
-  title: string;
   artwork: TArtwork | null;
   onClose: Function;
 };
 
-export const Popup = ({ isOpen, title, artwork, onClose }: Props) => {
+export const Popup = ({ isOpen, artwork, onClose }: Props) => {
+  const title = artwork
+    ? new Date(artwork.createdAt._seconds * 1000).toLocaleDateString('en-US', {
+        month: 'long',
+        year: 'numeric'
+      })
+    : 'Gallery Wall';
+
   return isOpen ? (
     <>
       <div className="justify-center top-1/12 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">

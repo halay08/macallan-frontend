@@ -7,7 +7,7 @@ export const Footer = ({ className }: { className?: string }) => {
 
   return isMobile ? (
     <div className={className}>
-      <img alt="footer" className="" src={bgFooterMobile} />
+      <img alt="footer" className="w-full" src={bgFooterMobile} />
     </div>
   ) : (
     <div className={`w-7/12 absolute bottom-0 right-0 ${className}`}>
