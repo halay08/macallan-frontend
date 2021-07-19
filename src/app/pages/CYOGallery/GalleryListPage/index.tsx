@@ -84,7 +84,7 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
 
     setArtworks([]);
     setMasonryKey(masonryKey);
-    handleGetData();
+    handleGetData(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
