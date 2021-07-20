@@ -49,8 +49,8 @@ export const IntroPopup = ({ isOpen, onEnter }: Props) => {
                   Click on the buttons to explore more throughout the Gallery
                 </p>
                 <div className="flex mt-3">
-                  <img src={PlayIcon} className="w-14 mx-2" alt="play" />
-                  <img src={InfoIcon} className="w-14 mx-2" alt="info" />
+                  <img src={PlayIcon} className="w-14 h-14 mx-2" alt="play" />
+                  <img src={InfoIcon} className="w-14 h-14 mx-2" alt="info" />
                 </div>
               </div>
               <div className="flex items-center justify-between flex-col sm:px-5 sm:py-2 py-4 flex-1 border-t sm:border-0 border-gray-dark">

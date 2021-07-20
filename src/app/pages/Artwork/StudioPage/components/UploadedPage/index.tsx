@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { useHistory } from 'react-router-dom';
 import { ERROR_MESSAGE, SHARER_MESSAGE } from 'app/helpers/constants';
-import { UploadedTypes } from 'types';
+import { ArtworkContact, UploadedTypes } from 'types';
 import { storage } from 'config';
 import { v4 as uuidv4 } from 'uuid';
 import { base64toBlob } from 'app/helpers';
@@ -14,11 +14,13 @@ import {
   fetchError,
   fetchStart,
   fetchSuccess,
+  setContact,
   setImageId
 } from 'redux/actions';
 import { ArtworkService } from 'app/services';
 import { useAlert } from 'react-alert';
 import { ShareECardPopup, ThankyouPopup } from './Popups';
+import Konva from 'konva';
 
 const isChromeOnIOS = () => navigator.userAgent.match('CriOS');
 
@@ -27,7 +29,7 @@ export const UploadedPage = () => {
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
-  const { id, message } = useSelector<AppState, AppState['artwork']>(
+  const { id, message, contact } = useSelector<AppState, AppState['artwork']>(
     ({ artwork }) => artwork
   );
 
@@ -94,8 +96,27 @@ export const UploadedPage = () => {
     }
   };
 
-  const handleShareSocial = mediaUrl => {
-    const totalUrl = mediaUrl + getImageLink();
+  const uploadToStorage = async (): Promise<string> => {
+    try {
+      dispatch(fetchStart());
+      const newId = uuidv4();
+      const fileName = `${newId}.png`;
+      dispatch(setImageId(newId));
+      await uploadImage(fileName);
+
+      dispatch(fetchSuccess());
+      return fileName;
+    } catch (e) {
+      const { message = ERROR_MESSAGE } = e;
+      dispatch(fetchError(message));
+      return '';
+    }
+  };
+
+  const handleShareSocial = async (mediaUrl: string) => {
+    let fileName = `${id}.png`;
+    if (!id) fileName = await uploadToStorage();
+    const totalUrl = mediaUrl + getImageLink(fileName);
 
     window.open(
       totalUrl,
@@ -104,17 +125,21 @@ export const UploadedPage = () => {
     );
   };
 
-  const handleShareWhatsapp = () => {
+  const handleShareWhatsapp = async () => {
+    let fileName = `${id}.png`;
+    if (!id) fileName = await uploadToStorage();
+    const totalUrl = 'whatsapp://send?text=' + getImageLink(fileName);
     const a = document.createElement('a');
-    const totalUrl = 'whatsapp://send?text=' + getImageLink();
     a.href = totalUrl;
     a.target = '_blank';
     a.setAttribute('data-action', 'share/whatsapp/share');
     a.click();
   };
 
-  const handleSubmitEmail = () => {
-    const imageLink = getImageLink();
+  const handleSubmitEmail = async () => {
+    let fileName = `${id}.png`;
+    if (!id) fileName = await uploadToStorage();
+    const imageLink = getImageLink(fileName);
     const a = document.createElement('a');
     a.href = `mailto:?subject=${SHARER_MESSAGE}&body=${imageLink}`;
     a.target = '_blank';
@@ -145,8 +170,8 @@ export const UploadedPage = () => {
     }
   };
 
-  const uploadToStorage = async (contact = {}) => {
-    if (id) {
+  const postToGallery = async (contactInfo: ArtworkContact) => {
+    if (contact) {
       alert.error(
         'This artwork is already uploaded, please wait for admin’s approval'
       );
@@ -166,13 +191,14 @@ export const UploadedPage = () => {
         imgUrl: `images/${fileName}`,
         message,
         status: 'in_review',
-        contact
+        contact: contactInfo
       };
 
       const artworkService = new ArtworkService();
       await artworkService.createArtwork(data);
 
       dispatch(setImageId(id));
+      dispatch(setContact(contactInfo));
       dispatch(fetchSuccess());
 
       setOpenShare(false);
@@ -188,7 +214,7 @@ export const UploadedPage = () => {
   };
 
   const openShareECardPopup = () => {
-    if (id) {
+    if (contact) {
       alert.error(
         'This artwork is already uploaded, please wait for admin’s approval'
       );
@@ -212,7 +238,7 @@ export const UploadedPage = () => {
       <ShareECardPopup
         isOpen={openShare}
         onClose={closeShareECardPopup}
-        submitHandler={uploadToStorage}
+        submitHandler={postToGallery}
       />
       <ThankyouPopup isOpen={openThankyou} onClose={closeThankyouPopup} />
       <Component

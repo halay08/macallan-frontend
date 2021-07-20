@@ -1,7 +1,7 @@
 import { ArtworkContact } from 'types/artwork';
 
 export const SET_MESSAGE = 'SET_MESSAGE';
-export const SET_CONTRACT = 'SET_CONTRACT';
+export const SET_CONTACT = 'SET_CONTACT';
 export const SET_IMAGE_ID = 'SET_IMAGE_ID';
 
 export interface SetMessageAction {
@@ -9,8 +9,8 @@ export interface SetMessageAction {
   payload: string;
 }
 
-export interface SetContractAction {
-  type: typeof SET_CONTRACT;
+export interface SetContactAction {
+  type: typeof SET_CONTACT;
   payload: ArtworkContact;
 }
 
@@ -21,5 +21,5 @@ export interface SetImageIdAction {
 
 export type ArtworkActionTypes =
   | SetMessageAction
-  | SetContractAction
+  | SetContactAction
   | SetImageIdAction;

@@ -37,7 +37,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
             className="absolute left-5 top-4 rounded-full focus:outline-none active:outline-none"
           >
             <PrevButtonSvg className="w-8 md:w-12 m-auto" />
-            <span className="block text-xs md:text-lg text-secondary mt-1">
+            <span className="text-xs md:text-lg text-secondary mt-1 leading-4">
               BACK
             </span>
           </PrevButton>
@@ -67,7 +67,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
             ) : (
               <NextButtonSvg className="w-8 md:w-12 m-auto" />
             )}
-            <span className="block text-xs md:text-lg text-secondary mt-1">
+            <span className="text-xs md:text-lg text-secondary mt-1">
               {showMoreButton ? 'MORE' : 'NEXT'}
             </span>
           </NextButton>

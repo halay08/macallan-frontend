@@ -37,7 +37,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
             className="rounded-full focus:outline-none active:outline-none mx-12"
           >
             <PrevButtonSvg className="w-10 m-auto" />
-            <span className="block text-secondary mt-1">BACK</span>
+            <span className="text-secondary mt-1">BACK</span>
           </PrevButton>
         )}
         {showNextButton && (
@@ -60,7 +60,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
             ) : (
               <NextButtonSvg className="w-10 m-auto" />
             )}
-            <span className="block text-secondary mt-1">
+            <span className="text-secondary mt-1">
               {showMoreButton ? 'MORE' : 'NEXT'}
             </span>
           </NextButton>
