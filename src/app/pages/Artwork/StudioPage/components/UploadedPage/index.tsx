@@ -20,7 +20,6 @@ import {
 import { ArtworkService } from 'app/services';
 import { useAlert } from 'react-alert';
 import { ShareECardPopup, ThankyouPopup } from './Popups';
-import Konva from 'konva';
 
 const isChromeOnIOS = () => navigator.userAgent.match('CriOS');
 
@@ -54,10 +53,10 @@ export const UploadedPage = () => {
     await ref.put(blob);
   };
 
-  const getImageLink = (name?: string) => {
+  const getImageLink = (name: string) => {
     const firebaseStorage = 'https://firebasestorage.googleapis.com/v0/b/';
     const bucket = `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}/o/images%2F`;
-    const imageName = name || `${id}.png`;
+    const imageName = name;
     return encodeURIComponent(
       firebaseStorage + bucket + imageName + '?alt=media'
     );
