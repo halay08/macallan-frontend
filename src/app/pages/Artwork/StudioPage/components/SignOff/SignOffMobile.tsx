@@ -7,7 +7,12 @@ type props = {
 export const SignOffMobile = ({ onTextChanged, maxLength }: props) => {
   return (
     <div className="bg-white">
-      <BoxWrapper className="pt-0 pb-4 p-12 relative border-t-1 border-solid border-gray-light text-sm">
+      <BoxWrapper className="pt-7 p-0 border-t-1 border-solid border-gray-light text-sm">
+        <div className="grid text-center mb-2 font-serif">
+          <strong className="font-medium text-tiny">
+            STEP 5: SIGN OFF ARTWORK
+          </strong>
+        </div>
         <div className="flex flex-nowrap gap-4 h-28 relative">
           <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0 font-alternate">
             Tap to type a character here
@@ -18,8 +23,6 @@ export const SignOffMobile = ({ onTextChanged, maxLength }: props) => {
             onKeyUp={evt => onTextChanged(evt)}
           />
         </div>
-        <p>Font for sign off: Adobe Garamond Pro Regular</p>
-        <p>Font Size: 15pt</p>
       </BoxWrapper>
     </div>
   );

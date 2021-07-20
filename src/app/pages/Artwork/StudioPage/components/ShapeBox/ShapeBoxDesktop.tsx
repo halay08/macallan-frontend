@@ -13,7 +13,7 @@ export const ShapeBoxDesktop = ({ drawTexture }: props) => {
       <div className="m-auto pb-20 border-t-1 border-solid border-gray-light h-full pb-20 flex flex-col">
         <div className="grid text-center font-serif">
           <strong className="font-AGaramondPro-bold text-2xl">
-            STEP 2: CHOOSE SHAPE
+            STEP 2: ADD SHAPE(S)
           </strong>
         </div>
         <PerfectScrollbar className="flex flex-col justify-center">

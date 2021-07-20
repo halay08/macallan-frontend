@@ -205,10 +205,6 @@ export const UploadedPage = () => {
     setOpenThankyou(false);
   };
 
-  useEffect(() => {
-    setOpenShare(true);
-  }, []);
-
   const Component = isMobile ? UploadedMobile : UploadedDesktop;
 
   return (

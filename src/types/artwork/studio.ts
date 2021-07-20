@@ -1,7 +1,6 @@
 enum SceneType {
   SHAPE = 'shape',
   TEXT = 'text',
-  ICON = 'icon',
   BOTTLE = 'bottle',
   SIGN_OFF = 'signOff',
   THANK_YOU = 'thankyou',

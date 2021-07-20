@@ -38,7 +38,7 @@ export const UploadedDesktop = ({
         </p>
         <div className="mb-6">
           {Object.entries(buttonIcons).map(([name, icon]) => (
-            <button key={name} className="focus:outline-none">
+            <button key={name} className="focus:outline-none select-none">
               <img
                 src={icon}
                 className="w-10/12 m-auto"
@@ -54,7 +54,7 @@ export const UploadedDesktop = ({
             {iconKeys.map(icon => (
               <Button
                 key={icon}
-                className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
+                className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md select-none"
                 onClick={() => handleClick(UploadedTypes[icon])}
               >
                 <Icon src={socialIcons[icon]} width={70} />
