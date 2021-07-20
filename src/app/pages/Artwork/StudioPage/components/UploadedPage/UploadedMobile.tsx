@@ -27,9 +27,7 @@ export const UploadedMobile = ({
   return (
     <div className="bg-white">
       <BoxWrapper className="m-auto">
-        <p className="mb-2 text-center text-xl">
-          Share your artwork and keep on exploring
-        </p>
+        <p className="mb-2 text-center text-xl">Share your artwork</p>
         <div className="mb-6">
           {Object.entries(buttonIcons).map(([name, icon]) => (
             <button key={name} className="focus:outline-none -mb-3">

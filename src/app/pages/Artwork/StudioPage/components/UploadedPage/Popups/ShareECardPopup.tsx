@@ -61,7 +61,7 @@ export const ShareECardPopup = ({ isOpen, onClose, submitHandler }: Props) => {
               />
               <div className="relative flex flex-col justify-center w-full">
                 <p className="text-center mb-3">
-                  Before we publish your artwork, could you tell us:
+                  Before we publish your artwork, please input:
                 </p>
                 <input
                   className="px-4 py-1 focus:outline-none rounded-3xl border border-gray-light mb-3"
@@ -86,7 +86,7 @@ export const ShareECardPopup = ({ isOpen, onClose, submitHandler }: Props) => {
                   I agree with The Macallan Create Your Own{' '}
                   <a
                     className="underline text-red"
-                    href="/"
+                    href="https://www.themacallan.com/create-your-own/terms-and-conditions"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -103,7 +103,12 @@ export const ShareECardPopup = ({ isOpen, onClose, submitHandler }: Props) => {
                 </Label>
                 <Label className="flex items-center" htmlFor="policy">
                   I agree with Edrington's data collection and{' '}
-                  <a href="/" target="_blank" className="underline text-red">
+                  <a
+                    href="https://www.themacallan.com/privacy-policy"
+                    target="_blank"
+                    className="underline text-red"
+                    rel="noreferrer"
+                  >
                     privacy policy
                   </a>
                   <Input
