@@ -17,7 +17,7 @@ export const IconBoxMobile = ({ drawIcon }: props) => {
     <Wrapper className="bg-white">
       <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-5 font-serif">
-          <strong className="font-medium text-tiny">STEP 4: ADD ICONS</strong>
+          <strong className="font-medium text-tiny">STEP 3: ADD ICON(S)</strong>
         </div>
         <PerfectScrollbar>
           <div className="flex flex-nowrap flex-row justify-between pl-4 pr-4 h-28">
