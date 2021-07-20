@@ -13,7 +13,7 @@ export const IconBoxDesktop = ({ drawIcon }: props) => {
     <div className="flex flex-col items-stretch justify-between w-full h-full pb-20">
       <div className="text-center">
         <strong className="font-AGaramondPro-bold text-2xl">
-          STEP 4: ADD ICONS
+          STEP 3: ADD ICON(S)
         </strong>
       </div>
       <div className="m-auto">

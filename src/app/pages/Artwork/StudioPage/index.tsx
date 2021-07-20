@@ -3,7 +3,7 @@ import {
   ShapeBox,
   StageFrameDesktop,
   StageFrameMobile,
-  TextBox,
+  IconBox,
   BottleBox,
   SignOff,
   UploadedPage,
@@ -56,9 +56,9 @@ export const StudioPage = () => {
 
     switch (scene) {
       case SceneType.SHAPE:
-        setScene(SceneType.TEXT);
+        setScene(SceneType.ICON);
         break;
-      case SceneType.TEXT:
+      case SceneType.ICON:
         setScene(SceneType.BOTTLE);
         break;
       case SceneType.BOTTLE:
@@ -81,11 +81,11 @@ export const StudioPage = () => {
       case SceneType.SHAPE:
         history.push('/artwork/format');
         break;
-      case SceneType.TEXT:
+      case SceneType.ICON:
         setScene(SceneType.SHAPE);
         break;
       case SceneType.BOTTLE:
-        setScene(SceneType.TEXT);
+        setScene(SceneType.ICON);
         break;
       case SceneType.SIGN_OFF:
         setScene(SceneType.BOTTLE);
@@ -104,8 +104,8 @@ export const StudioPage = () => {
       case SceneType.SHAPE:
         setContent(<ShapeBox />);
         break;
-      case SceneType.TEXT:
-        setContent(<TextBox />);
+      case SceneType.ICON:
+        setContent(<IconBox />);
         break;
       case SceneType.BOTTLE:
         setContent(<BottleBox />);
@@ -141,10 +141,8 @@ export const StudioPage = () => {
   };
 
   const isFinal = [SceneType.THANK_YOU, SceneType.UPLOAD].includes(scene);
-  const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
-  const shouldOverflowHeight = [SceneType.TEXT, SceneType.UPLOAD].includes(
-    scene
-  );
+  const shouldShowTools = scene === SceneType.SHAPE;
+  const shouldOverflowHeight = [SceneType.UPLOAD].includes(scene);
 
   return (
     <>
