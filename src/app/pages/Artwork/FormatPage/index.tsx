@@ -2,6 +2,7 @@ import { FormatPageDesktop } from './FormatPageDesktop';
 import { FormatPageMobile } from './FormatPageMobile';
 import { useResponsive } from 'utils/responsive';
 import { Prompt } from 'react-router-dom';
+import { RELOAD_WARNING } from 'app/helpers/constants';
 
 export const FormatPage = () => {
   const { isMobile } = useResponsive();
@@ -10,7 +11,7 @@ export const FormatPage = () => {
     if (action !== 'PUSH') return true;
 
     if (location.pathname === '/') {
-      return 'Are you sure? Your work will be lost!';
+      return RELOAD_WARNING;
     }
 
     return true;

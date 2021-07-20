@@ -35,7 +35,7 @@ export const TextBoxDesktop = ({ onTextChanged, textureBg }: props) => {
           STEP 3: PERSONALISE WITH ALPHANUMERIC
         </strong>
       </div>
-      <div className="m-auto mt-6 px-12 pb-20 font-Samuel">
+      <div className="m-auto mb-14 mt-6 px-12 font-Samuel">
         <div className="mb-6">
           <ColorPicker />
         </div>
