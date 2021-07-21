@@ -73,6 +73,15 @@ module.exports = {
         'Times',
         'serif'
       ],
+      'primary-italic': [
+        'AGaramondPro-Italic',
+        'ui-serif',
+        'Georgia',
+        'Cambria',
+        'Times New Roman',
+        'Times',
+        'serif'
+      ],
       secondary: ['Helvetica', 'Arial', 'sans-serif'],
       sans: [
         'ui-sans-serif',
@@ -100,6 +109,7 @@ module.exports = {
       ],
       samuel: ['HhSamuel-E80W'],
       alternate: ['DIN-Alternate'],
+      'alternate-bold': ['DIN-Alternate-Bold'],
       gotham: ['Gotham-Book']
     },
     fontSize: {

@@ -55,7 +55,7 @@ export const StageFrameDesktop = ({
     >
       <StageContainer
         id="stageContainer"
-        className="flex flex-row items-center justify-center border-2 border-solid border-gray-light"
+        className="flex flex-row items-center justify-center border-2 border-solid border-gray-light z-10"
       />
     </Wrapper>
   );

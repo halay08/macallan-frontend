@@ -67,12 +67,12 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
         )}
       </ButtonWrapper>
       <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
-        <Message className="font-primary">
+        <Message className="font-primary z-10">
           Crafted without compromise. Please savour The Macallan in moderation.
         </Message>
         <img
           alt="footer"
-          className="absolute right-0 h-full"
+          className="absolute right-0 bottom-0"
           src={background}
         />
       </FooterInner>

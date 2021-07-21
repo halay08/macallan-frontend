@@ -23,7 +23,7 @@ export const FinalImageDesktop = () => {
       id="finalImageContainer"
       height={height}
       width={width}
-      className="p-2 flex flex-row items-center justify-center mx-auto"
+      className="p-2 flex flex-row items-center justify-center mx-auto z-10"
     />
   );
 };

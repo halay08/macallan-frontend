@@ -15,7 +15,7 @@ export const Footer = ({ className }: { className?: string }) => {
       />
     </Wrapper>
   ) : (
-    <div className={`w-7/12 absolute bottom-0 right-0 ${className}`}>
+    <div className={`w-8/12 absolute bottom-0 right-0 ${className}`}>
       <img alt="footer" className="" src={bgFooter} />
     </div>
   );

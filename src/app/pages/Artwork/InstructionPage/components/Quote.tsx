@@ -15,10 +15,10 @@ export const Quote = () => {
         className="absolute -bottom-4 right-0 md:-right-20 h-20 md:h-full"
         src={quoteEnd}
       />
-      <i>
+      <p className="font-primary-italic">
         The best work comes from trusting your intuition and your gut, and what
         your heart is telling you
-      </i>
+      </p>
     </>
   );
 };

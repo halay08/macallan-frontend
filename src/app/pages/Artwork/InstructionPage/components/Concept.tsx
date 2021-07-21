@@ -2,7 +2,7 @@ import conceptPng from '../assets/concept.png';
 import styled from 'styled-components/macro';
 
 export const Concept = ({
-  className = 'h-20 md:h-28 mx-auto'
+  className = 'h-16 md:h-20 mx-auto'
 }: {
   className?: string;
 }) => {

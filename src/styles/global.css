@@ -19,6 +19,12 @@
 }
 
 @font-face {
+  font-family: 'AGaramondPro-Italic';
+  src: url(styles/fonts/AGaramondPro-Italic.otf),
+    url(styles/fonts/AGaramondPro-Italic.otf) format('otf');
+}
+
+@font-face {
   font-family: 'AGaramondPro-Regular';
   src: url(styles/fonts/AGaramondPro-Regular.otf),
     url(styles/fonts/AGaramondPro-Regular.otf) format('otf');
