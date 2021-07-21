@@ -92,6 +92,6 @@ const ContentWrapper = styled.div`
 `;
 
 const StageContainer = styled.div<{ isFixedHeight: Boolean }>`
-  min-height: calc(100vh - 264px);
-  ${({ isFixedHeight }) => isFixedHeight && `height: calc(100vh - 264px);`}
+  min-height: calc(100vh - 216px);
+  ${({ isFixedHeight }) => isFixedHeight && `height: calc(100vh - 216px);`}
 `;

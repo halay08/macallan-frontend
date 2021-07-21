@@ -10,8 +10,11 @@ export const StartButton = () => {
   };
 
   return (
-    <WrapperStartButton className="relative" onClick={() => gotoFormatPage()}>
-      <Background alt="start" className="h-14 md:h-24" src={bgStart} />
+    <WrapperStartButton
+      className="relative focus:outline-none"
+      onClick={() => gotoFormatPage()}
+    >
+      <Background alt="start" className="h-14 md:h-16" src={bgStart} />
     </WrapperStartButton>
   );
 };

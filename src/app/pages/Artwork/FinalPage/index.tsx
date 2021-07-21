@@ -49,7 +49,7 @@ export const FinalPage = () => {
                 <Concept className="w-full" />
               </div>
             )}
-            <div className="sm:w-5/12 w-11/12 mx-auto sm:text-3xl max-w-screen-sm text-xl sm:pt-6 pb-4 sm:pb-20 pt-4 text-center">
+            <div className="sm:w-4/12 w-11/12 mx-auto sm:text-3xl max-w-screen-sm text-xl sm:pt-6 pb-4 sm:pb-20 pt-4 text-center">
               <p>Discover more about</p>
               <p className="mb-4">The Macallan and Concept No.3</p>
               {icons.map(({ icon, href }, index) => (
@@ -58,12 +58,12 @@ export const FinalPage = () => {
                 </a>
               ))}
             </div>
-            <p className="text-center sm:absolute mx-auto sm:ml-12 sm:bottom-8 md:text-lg w-full sm:w-auto text-center">
+            <p className="text-center sm:absolute mx-auto sm:ml-12 sm:bottom-8 md:text-lg w-full sm:w-auto z-10">
               {subTitle}
             </p>
           </div>
 
-          <Footer className="sm:absolute bottom-0 right-0 w-full sm:w-5/12" />
+          <Footer className="sm:absolute bottom-0 right-0 w-full sm:w-8/12" />
         </ContentWrapper>
       </div>
     </>

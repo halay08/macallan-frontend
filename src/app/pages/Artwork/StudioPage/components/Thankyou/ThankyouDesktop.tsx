@@ -20,7 +20,7 @@ export const ThankyouDesktop = ({ onContinue, onStartAgain }: Props) => {
           <img src={ContinueToShare} alt="continue to share" />
         </button>
         <button
-          className="w-9/12 -mt-6 focus:outline-none select-none"
+          className="w-9/12 focus:outline-none select-none"
           onClick={() => onStartAgain()}
         >
           <img src={StartAgain} alt="start again" />
