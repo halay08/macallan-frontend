@@ -8,7 +8,6 @@ import { getCanvas, createImageNode } from 'app/helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, fetchSuccess, fetchError } from 'redux/actions/common';
 import { setMessage } from 'redux/actions';
-import { StageFormat } from 'types';
 
 const PADDING = { x: 10, y: 5 };
 const TEXT_X = 15;
@@ -18,18 +17,12 @@ export const SignOff = () => {
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
-  const format = useSelector<AppState, AppState['format']>(
-    ({ format }) => format
-  );
   const dispatch = useDispatch();
   const [font] = useState('AGaramondPro-Regular');
-  const [fontSize] = useState(15);
+  const [fontSize, setFontSize] = useState(15);
   const [stageHeight, setStageHeight] = useState(0);
   const logoImageSize = { width: 487.5, height: 65 };
-  const logoSize =
-    !isMobile && format === StageFormat.MOBILE
-      ? { width: 150, height: 20 }
-      : { width: 225, height: 30 };
+  const [logoSize, setLogoSize] = useState({ width: 225, height: 30 });
   const [maxLength, setMaxLength] = useState(0);
 
   const calcLogoPosition = (
@@ -42,8 +35,16 @@ export const SignOff = () => {
   });
 
   useEffect(() => {
-    const maxCharacter = Math.round((stage.width() - logoSize.width) / 10);
+    const stageWidth = stage.width();
+    const maxLogoLength = Math.min(stageWidth / 2.25, logoSize.width);
+    const maxLogoHeight = Math.round(maxLogoLength / 7.5);
+    const maxFontSize = maxLogoHeight / 2;
+    const maxCharacter =
+      Math.round((stageWidth - maxLogoLength) / (maxFontSize / 1.5)) - 11;
+
     setMaxLength(maxCharacter);
+    setLogoSize({ width: maxLogoLength, height: maxLogoHeight });
+    setFontSize(maxFontSize);
   }, [logoSize.width, stage]);
 
   useEffect(() => {
@@ -64,6 +65,7 @@ export const SignOff = () => {
 
     addBackground({ height: addedHeight, width });
     addLogo(calcLogoPosition(width, addedHeight, logoSize));
+    drawText('');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stageHeight]);
 
@@ -116,6 +118,7 @@ export const SignOff = () => {
   };
 
   const drawText = (text: string) => {
+    text = 'Created by ' + text;
     const [layer] = stage.getLayers().slice(-1);
 
     const oldNode = stage.find('#signOff');

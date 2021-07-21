@@ -13,6 +13,7 @@ export const SignOffDesktop = ({ onTextChanged, maxLength }: props) => {
         </strong>
       </div>
       <div className="my-auto px-24 text-lg">
+        <label>Created by</label>
         <Editor
           maxLength={maxLength}
           className="h-48 w-full font-AGaramondPro-bold border border-solid mb-4 p-4"
