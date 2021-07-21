@@ -20,29 +20,29 @@ export const IconBox = () => {
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
-  const size = { width: 60, height: 60 };
-  const imageSize = { width: 210, height: 210 };
   const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
-    const canvas = getCanvas(stage, imageSize);
-    const ctx = canvas.getContext('2d');
     const [layer] = stage.getLayers().slice(-1);
 
     const iconImage = new window.Image();
     iconImage.onload = () => {
+      const { width, height } = iconImage;
+      const canvas = getCanvas(stage, { width, height });
+      const ctx = canvas.getContext('2d');
+
       if (ctx) {
         dispatch(fetchStart());
         ctx.save();
         ctx.beginPath();
         // put image on canvas
-        ctx.drawImage(iconImage, 0, 0, iconImage.width, iconImage.height);
+        ctx.drawImage(iconImage, 0, 0, width, height);
 
         const [x, y] = getImageObjectPos(format);
 
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'icon');
-        node.size(size);
+        node.size({ width: width / 2, height: height / 2 });
         layer.add(node);
 
         // add node to transformer
