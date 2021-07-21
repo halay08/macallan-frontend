@@ -30,6 +30,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import { SideMenu } from 'app/components/SideMenu';
+import { ArtworkSharing } from './pages/Sharing';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -91,6 +92,11 @@ export function App() {
             exact
             path={process.env.PUBLIC_URL + '/gallery/:id'}
             component={GalleryItemPage}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/artwork/sharing/:id'}
+            component={ArtworkSharing}
           />
           <Route component={NotFoundPage} />
         </Switch>
