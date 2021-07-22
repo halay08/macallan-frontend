@@ -1,6 +1,6 @@
 import { ReactComponent as CloseSvg } from '../../assets/close.svg';
 import styled from 'styled-components';
-import { ArtworkItem, ArtworkAction } from '../';
+import { ArtworkItem } from '../';
 import { TArtwork } from 'types';
 
 type Props = {
@@ -10,12 +10,12 @@ type Props = {
 };
 
 export const Popup = ({ isOpen, artwork, onClose }: Props) => {
-  const title = artwork
+  const publishDate = artwork
     ? new Date(artwork.createdAt._seconds * 1000).toLocaleDateString('en-US', {
         month: 'long',
         year: 'numeric'
       })
-    : 'Gallery Wall';
+    : '';
 
   return isOpen ? (
     <>
@@ -24,7 +24,7 @@ export const Popup = ({ isOpen, artwork, onClose }: Props) => {
           <div className="shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="flex items-center justify-center pt-1 sm:p-3 border-b border-solid border-gray-light h-10">
               <div className="text-base sm:text-2xl font-semibold font-primary m-auto uppercase tracking-wider sm:tracking-widest sm:leading-6 min-h-4">
-                {title}
+                Gallery Wall
               </div>
               <button
                 className="absolute top-1 right-1 p-2 ml-auto bg-transparent border-0 text-black float-right leading-none outline-none focus:outline-none"
@@ -33,13 +33,12 @@ export const Popup = ({ isOpen, artwork, onClose }: Props) => {
                 <CloseSvg className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
-            <div className="relative p-6 flex justify-center">
+            <div className="relative p-6 md:p-16 flex justify-center">
               {artwork && (
-                <div className="sm:max-w-lg w-full text-center">
+                <div className="sm:max-w-lg w-full font-Alternate-bold uppercase text-sm sm:text-xl text-center">
                   <ArtworkItem artwork={artwork} />
-                  <div className="w-full flex flex-col">
-                    <ArtworkAction artwork={artwork} onClose={onClose} />
-                  </div>
+                  <p className="mt-2">{artwork.message}</p>
+                  <p className="text-gray-dark">{publishDate}</p>
                 </div>
               )}
             </div>
