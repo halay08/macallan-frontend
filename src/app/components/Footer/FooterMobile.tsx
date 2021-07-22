@@ -4,6 +4,7 @@ import ConceptLogo from './assets/concept.png';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
 import { ReactComponent as MoreButtonSvg } from './assets/more.svg';
+import { FOOTER_TEXT } from 'app/helpers/constants';
 
 interface FooterProps {
   className: string;
@@ -73,7 +74,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
           </NextButton>
         )}
         <div className="text-center font-primary text-sm">
-          Please savour The Macallan in moderation.
+          {FOOTER_TEXT.MOBILE}
         </div>
       </FooterInner>
     </FooterWrapper>

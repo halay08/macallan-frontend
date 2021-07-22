@@ -6,7 +6,8 @@ import {
   MonthFilter,
   TitleBar,
   Popup,
-  SlidePopup
+  SlidePopup,
+  Footer
 } from '../Components';
 import styled from 'styled-components/macro';
 import { ArtworkService } from 'app/services';
@@ -163,6 +164,7 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
         artwork={selectedArtwork}
         onClose={() => setShowPopup(false)}
       />
+      <Footer />
     </Wrapper>
   );
 };

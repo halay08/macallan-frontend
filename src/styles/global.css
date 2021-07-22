@@ -96,6 +96,7 @@
 .month-picker > .rmp-container .rmp-popup.show {
   padding: 0;
   margin-top: 8px;
+  margin-bottom: 1rem;
 }
 .month-picker > .rmp-container .rmp-popup.light .rmp-pad li {
   line-height: 2.7rem;

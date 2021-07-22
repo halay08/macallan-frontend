@@ -5,12 +5,11 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { StartButton } from './StartButton';
 import { Quote } from './Quote';
+import { FOOTER_TEXT } from 'app/helpers/constants';
 
 export const Instruction = () => {
   const { isMobile } = useResponsive();
-  const subTitle = isMobile
-    ? 'Please savour The Macallan in moderation.'
-    : 'Crafted without compromise. Please savour The Macallan in moderation.';
+  const subTitle = isMobile ? FOOTER_TEXT.MOBILE : FOOTER_TEXT.DESKTOP;
 
   return (
     <>

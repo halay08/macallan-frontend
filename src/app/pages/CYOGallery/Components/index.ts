@@ -6,3 +6,4 @@ export { TitleBar } from './TitleBar';
 export { ArtworkAction } from './ArtworkAction';
 export { Popup } from './Popup';
 export { SlidePopup } from './SlidePopup';
+export { Footer } from './Footer';
