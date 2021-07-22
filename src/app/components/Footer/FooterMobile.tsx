@@ -43,7 +43,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
           </PrevButton>
         )}
 
-        <div className="w-6/12">
+        <div className="w-5/12 mt-2">
           <img src={ConceptLogo} className="w-full" alt="concept" />
         </div>
 
