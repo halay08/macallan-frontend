@@ -8,6 +8,7 @@ import ConceptVirtual from './assets/concept-virtual.png';
 import Subscribe from './assets/subscribe.png';
 import { useResponsive } from 'utils/responsive';
 import { useEffect } from 'react';
+import { FOOTER_TEXT } from 'app/helpers/constants';
 
 const icons = [
   {
@@ -23,9 +24,7 @@ const icons = [
 
 export const FinalPage = () => {
   const { isMobile } = useResponsive();
-  const subTitle = isMobile
-    ? 'Please savour The Macallan in moderation.'
-    : 'Crafted without compromise. Please savour The Macallan in moderation.';
+  const subTitle = isMobile ? FOOTER_TEXT.MOBILE : FOOTER_TEXT.DESKTOP;
 
   useEffect(() => {
     if (isMobile) {
