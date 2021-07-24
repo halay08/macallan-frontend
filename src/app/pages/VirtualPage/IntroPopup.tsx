@@ -90,7 +90,7 @@ const Wrapper = styled.div`
 `;
 
 const Background = styled.div`
-  background: #dcdadc;
+  background: #e3e1e4;
 `;
 
 const Container = styled.div`
