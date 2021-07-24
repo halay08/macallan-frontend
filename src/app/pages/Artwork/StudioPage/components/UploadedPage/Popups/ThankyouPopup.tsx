@@ -9,8 +9,8 @@ type Props = {
 export const ThankyouPopup = ({ isOpen, onClose }: Props) => {
   return isOpen ? (
     <>
-      <div className="justify-center top-1/4 w-screen left-0 right-0 flex overflow-x-hidden overflow-y-auto fixed z-50 outline-none focus:outline-none">
-        <Container className="relative sm:w-7/12 w-10/12 max-w-screen-md">
+      <Wrapper className="justify-center w-screen fixed z-50 flex outline-none focus:outline-none left-0">
+        <Container className="relative sm:w-7/12 w-10/12 max-w-screen-lg m-auto">
           <div className="sm:w-1/2 w-9/12  m-auto py-20 flex flex-col items-center">
             <CloseButton
               className="absolute top-2 right-2 float-right p-1"
@@ -35,7 +35,7 @@ export const ThankyouPopup = ({ isOpen, onClose }: Props) => {
             </Button>
           </div>
         </Container>
-      </div>
+      </Wrapper>
       <div className="opacity-70 fixed inset-0 z-40 bg-gray-dark"></div>
     </>
   ) : (
@@ -52,4 +52,10 @@ const Button = styled.button`
 
 const Container = styled.div`
   background: #e3e1e4;
+`;
+
+const Wrapper = styled.div`
+  bottom: 5%;
+  top: 5%;
+  max-height: 90%;
 `;

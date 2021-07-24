@@ -29,7 +29,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
 
   return (
     <FooterWrapper className={`bottom-0 ${className}`}>
-      <FooterInner className="bg-white flex flex-col items-center justify-between h-full font-Alternate-bold relative border-t border-gray-light border-solid">
+      <FooterInner className="bg-white flex flex-col items-center justify-between h-full font-Alternate-bold relative border-t-2 border-gray-light border-solid">
         {showPrevButton && (
           <PrevButton
             onClick={() =>

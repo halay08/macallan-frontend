@@ -110,7 +110,8 @@ module.exports = {
       samuel: ['HhSamuel-E80W'],
       alternate: ['DIN-Alternate'],
       'alternate-bold': ['DIN-Alternate-Bold'],
-      gotham: ['Gotham-Book']
+      gotham: ['Gotham-Book'],
+      'gotham-medium': ['Gotham-Medium']
     },
     fontSize: {
       xs: '.75rem',

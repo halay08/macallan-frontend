@@ -1,12 +1,9 @@
-import { Logo } from 'app/components/Header/Logo';
 import styled from 'styled-components/macro';
 
 export const Header = () => {
   return (
     <HeaderWrapper className="sticky z-10 top-0">
-      <div className="flex flex-row items-center justify-between border-b border-gray-light border-solid bg-white">
-        <Logo />
-      </div>
+      <div className="flex flex-row items-center justify-between border-b border-gray-light border-solid bg-white h-16"></div>
     </HeaderWrapper>
   );
 };

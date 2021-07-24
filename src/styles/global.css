@@ -54,6 +54,12 @@
     url(styles/fonts/Gotham-Book.ttf) format('ttf');
 }
 
+@font-face {
+  font-family: 'Gotham-Medium';
+  src: url(styles/fonts/gotham-medium.otf),
+    url(styles/fonts/gotham-medium.otf) format('otf');
+}
+
 .font-AGaramondPro-bold {
   font-family: 'AGaramondPro-Bold';
 }

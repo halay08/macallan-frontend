@@ -31,7 +31,7 @@ export const SizeBox = () => {
             STEP 1: CHOOSE FORMAT
           </strong>
         </div>
-        <div className="grid grid-cols-3 items-end text-center">
+        <div className="grid grid-cols-3 items-end text-center font-Alternate-bold">
           <div className="group">
             <Square
               ref={e => (refs[StageFormat.SQUARE] = e)}

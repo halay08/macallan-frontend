@@ -51,8 +51,8 @@ export const ShareECardPopup = ({ isOpen, onClose, submitHandler }: Props) => {
   return isOpen ? (
     <>
       <form onSubmit={onSubmit}>
-        <div className="justify-center sm:top-20 top-24 w-screen left-0 right-0 flex overflow-x-hidden overflow-y-auto fixed z-50 outline-none focus:outline-none">
-          <Container className="relative sm:w-6/12 w-10/12 max-w-screen-md sm:text-base text-lg">
+        <Wrapper className="justify-center w-screen fixed z-50 flex outline-none focus:outline-none left-0">
+          <Container className="relative sm:w-6/12 w-10/12 max-w-screen-md sm:text-base text-lg m-auto">
             <div className="sm:w-1/2 w-10/12  m-auto sm:py-16 py-12 flex flex-col items-center">
               <CloseButton
                 className="absolute top-2 right-2 float-right p-1"
@@ -130,7 +130,7 @@ export const ShareECardPopup = ({ isOpen, onClose, submitHandler }: Props) => {
               </Button>
             </div>
           </Container>
-        </div>
+        </Wrapper>
       </form>
       <div className="opacity-70 fixed inset-0 z-40 bg-gray-dark"></div>
     </>
@@ -201,4 +201,10 @@ const Label = styled.label`
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+`;
+
+const Wrapper = styled.div`
+  top: 5%;
+  bottom: 5%;
+  max-height: 90%;
 `;
