@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { MouseEventHandler } from 'react';
-import { getFirebaseImageLink } from '../../utils';
+import { getFirebaseImageLink } from 'app/helpers';
 import { TArtwork } from 'types';
 
 type Props = {
