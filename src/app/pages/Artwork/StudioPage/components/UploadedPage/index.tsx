@@ -9,7 +9,7 @@ import { ERROR_MESSAGE, SHARER_MESSAGE } from 'app/helpers/constants';
 import { ArtworkContact, UploadedTypes } from 'types';
 import { storage } from 'config';
 import { v4 as uuidv4 } from 'uuid';
-import { base64toBlob } from 'app/helpers';
+import { base64toBlob, getFirebaseImageLink } from 'app/helpers';
 import {
   fetchError,
   fetchStart,
@@ -53,15 +53,6 @@ export const UploadedPage = () => {
     await ref.put(blob);
   };
 
-  const getImageLink = (name: string) => {
-    const firebaseStorage = 'https://firebasestorage.googleapis.com/v0/b/';
-    const bucket = `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}/o/images%2F`;
-    const imageName = name;
-    return encodeURIComponent(
-      firebaseStorage + bucket + imageName + '?alt=media'
-    );
-  };
-
   const normalDownload = () => {
     const a = document.createElement('a');
     const dataURL = stage.toDataURL({ pixelRatio: 3 });
@@ -77,7 +68,7 @@ export const UploadedPage = () => {
     const temp = 'temp.png';
     await uploadImage(temp);
     const imageUrl =
-      decodeURIComponent(getImageLink(temp)) + '&t=' + Date.now();
+      decodeURIComponent(getFirebaseImageLink(temp)) + '&t=' + Date.now();
     window.open(imageUrl, '_blank');
   };
 
@@ -115,7 +106,7 @@ export const UploadedPage = () => {
   const handleShareSocial = async (mediaUrl: string) => {
     let fileName = `${id}.png`;
     if (!id) fileName = await uploadToStorage();
-    const totalUrl = mediaUrl + getImageLink(fileName);
+    const totalUrl = mediaUrl + getFirebaseImageLink(fileName);
 
     window.open(
       totalUrl,
@@ -127,7 +118,7 @@ export const UploadedPage = () => {
   const handleShareWhatsapp = async () => {
     let fileName = `${id}.png`;
     if (!id) fileName = await uploadToStorage();
-    const totalUrl = 'whatsapp://send?text=' + getImageLink(fileName);
+    const totalUrl = 'whatsapp://send?text=' + getFirebaseImageLink(fileName);
     const a = document.createElement('a');
     a.href = totalUrl;
     a.target = '_blank';
@@ -138,7 +129,7 @@ export const UploadedPage = () => {
   const handleSubmitEmail = async () => {
     let fileName = `${id}.png`;
     if (!id) fileName = await uploadToStorage();
-    const imageLink = getImageLink(fileName);
+    const imageLink = getFirebaseImageLink(fileName);
     const a = document.createElement('a');
     a.href = `mailto:?subject=${SHARER_MESSAGE}&body=${imageLink}`;
     a.target = '_blank';
