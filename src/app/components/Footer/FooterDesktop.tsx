@@ -29,7 +29,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
 
   return (
     <FooterWrapper className={`bottom-0 relative ${className}`}>
-      <ButtonWrapper className="flex justify-center w-3/6 absolute right-0 font-Alternate-bold">
+      <ButtonWrapper className="flex justify-center w-3/6 absolute right-0 z-10 font-Alternate-bold">
         {showPrevButton && (
           <PrevButton
             onClick={() =>
