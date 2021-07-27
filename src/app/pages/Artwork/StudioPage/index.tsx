@@ -20,6 +20,8 @@ import { useSelector } from 'react-redux';
 import { useResponsive } from 'utils/responsive';
 import { FinalImage } from './components/UploadedPage/FinalImage';
 import { FINAL_WARNING, RELOAD_WARNING } from 'app/helpers/constants';
+import { useLandscape } from 'hooks';
+import { WarningPopup } from '../Popup';
 
 export const StudioPage = () => {
   const format = useSelector<AppState, AppState['format']>(
@@ -30,6 +32,7 @@ export const StudioPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { isMobile } = useResponsive();
+  const { isOrientation } = useLandscape();
 
   const resetSelectedStyles = () => {
     dispatch(setColor({ color: '' }));
@@ -151,6 +154,10 @@ export const StudioPage = () => {
         <meta name="description" content="Create Your Own - Studio" />
       </Helmet>
       <Prompt message={confirmationHandler} />
+      <WarningPopup
+        message="We don't support the landscape view."
+        isOpen={isOrientation}
+      />
       {isMobile ? (
         <PageWrapper
           nextButtonHandler={nextButtonHandler}
