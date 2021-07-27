@@ -14,13 +14,11 @@ export const SignOffMobile = ({ onTextChanged, maxLength }: props) => {
           </strong>
         </div>
         <div className="flex flex-nowrap gap-4 h-28 relative">
-          <div className="flex flex-row items-center justify-center text-gray-light absolute w-full h-full left-0 top 0 font-alternate">
-            Tap to type a character here
-          </div>
-          <textarea
+          <Editor
             maxLength={maxLength}
-            className="w-full opacity-0"
+            className="w-3/4 mx-auto p-6 border border-solid"
             onKeyUp={evt => onTextChanged(evt)}
+            placeholder="Tap to type a character here"
           />
         </div>
       </BoxWrapper>
@@ -31,4 +29,9 @@ export const SignOffMobile = ({ onTextChanged, maxLength }: props) => {
 const BoxWrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;
   border-top: 1px solid #bbb;
+`;
+
+const Editor = styled.textarea`
+  --tw-border-opacity: 1;
+  border-color: #8e8e8d;
 `;

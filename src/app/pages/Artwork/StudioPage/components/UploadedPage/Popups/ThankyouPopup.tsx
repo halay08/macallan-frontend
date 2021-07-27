@@ -1,5 +1,6 @@
 import { CloseButton } from 'app/components/CloseButton';
 import styled from 'styled-components';
+import { useResponsive } from 'utils/responsive';
 
 type Props = {
   isOpen: boolean;
@@ -7,6 +8,8 @@ type Props = {
 };
 
 export const ThankyouPopup = ({ isOpen, onClose }: Props) => {
+  const { isMobile } = useResponsive();
+
   return isOpen ? (
     <>
       <Wrapper className="justify-center w-screen fixed z-50 flex outline-none focus:outline-none left-0">
@@ -20,10 +23,11 @@ export const ThankyouPopup = ({ isOpen, onClose }: Props) => {
             <div className="relative flex flex-col justify-center w-full mb-4 text-lg">
               <p className="text-center">Thank you!</p>
               <p className="text-center mb-3">
-                Our team will now review your artwork and you will be notified
-                once it has been posted on our
-                <br />
-                Virtual Gallery Wall.
+                Our team will now review your artwork and
+                {isMobile ? ' ' : <br />}
+                you will be notified once it has been posted on
+                {isMobile ? ' ' : <br />}
+                the Virtual Gallery Wall.
               </p>
             </div>
             <Button
