@@ -23,7 +23,7 @@ export const FormatPage = () => {
   return (
     <>
       <WarningPopup
-        message="We don't support the landscape view."
+        message="Oops! We don't support the landscape view."
         isOpen={isOrientation}
       />
       <Prompt message={confirmationHandler} />
