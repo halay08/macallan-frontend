@@ -16,6 +16,10 @@ export class TourHelper {
     process.env.NODE_ENV === 'development'
       ? '/script_general_dev.js?v=1623410382216'
       : '/script_general.js?v=1623410382216';
+  static MOBILE_SCRIPT: string =
+    process.env.NODE_ENV === 'development'
+      ? '/script_mobile_dev.js?v=1623410382216'
+      : '/script_mobile.js?v=1623410382216';
 
   tour: any;
   viewer: HTMLDivElement;
@@ -29,6 +33,16 @@ export class TourHelper {
   loadTour() {
     if (this.tour) return;
 
+    if (
+      /AppleWebKit/.test(navigator.userAgent) &&
+      /Mobile\/\w+/.test(navigator.userAgent)
+    ) {
+      var preloadContainer = document.getElementById('preloadContainer');
+      if (preloadContainer)
+        document.body.style.backgroundColor =
+          window.getComputedStyle(preloadContainer).backgroundColor;
+    }
+
     const settings = new window.TDV.PlayerSettings();
     const settingsObj = window.TDV.PlayerSettings;
     settings.set(settingsObj.CONTAINER, this.viewer);
@@ -40,7 +54,8 @@ export class TourHelper {
     );
 
     this.tour = new window.TDV.Tour(settings, {
-      general: TourHelper.GENERAL_SCRIPT
+      general: TourHelper.GENERAL_SCRIPT,
+      mobile: TourHelper.MOBILE_SCRIPT
     });
 
     this.tour.bind(
@@ -82,45 +97,26 @@ export class TourHelper {
       /AppleWebKit/.test(navigator.userAgent) &&
       /Mobile\/\w+/.test(navigator.userAgent)
     ) {
-      let inIFrame = false;
-      try {
-        inIFrame = window.self !== window.top;
-      } catch (e) {
-        inIFrame = true;
-      }
-
-      if (!inIFrame) {
-        const onResize = () => {
-          [0, 250, 1000, 2000].forEach(delay => {
-            setTimeout(() => {
-              if (!this.viewer) return;
-              const scale =
-                window.innerWidth / document.documentElement.clientWidth;
-              const width = document.documentElement.clientWidth;
-              const height = Math.round(window.innerHeight / scale);
-              this.viewer.style.width = width + 'px';
-              this.viewer.style.height = height + 'px';
-              this.viewer.style.left =
-                Math.round((window.innerWidth - width) * 0.5) + 'px';
-              this.viewer.style.top =
-                Math.round((window.innerHeight - height) * 0.5) + 'px';
-              this.viewer.style.transform =
-                'scale(' + scale + ', ' + scale + ')';
-              window.scrollTo(0, 0);
-            }, delay);
-          });
-        };
-        const onTouchEnd = () => {
-          document.body.removeEventListener('touchend', onTouchEnd);
-          clearInterval(resizeIntervalId);
-          onResize();
-          if (/CriOS/.test(navigator.userAgent)) setInterval(onResize, 4000);
-        };
-        document.body.addEventListener('touchend', onTouchEnd);
-        const resizeIntervalId = setInterval(onResize, 300);
-        window.addEventListener('resize', onResize);
-        onResize();
-      }
+      var onOrientationChange = function () {
+        document.documentElement.style.height = 'initial';
+        Array.from(document.querySelectorAll('.fill-viewport')).forEach(
+          function (element) {
+            element.classList.toggle(
+              'landscape-right',
+              window.orientation === -90
+            );
+            element.classList.toggle(
+              'landscape-left',
+              window.orientation === 90
+            );
+          }
+        );
+        setTimeout(function () {
+          document.documentElement.style.height = '100%';
+        }, 500);
+      };
+      window.addEventListener('orientationchange', onOrientationChange);
+      onOrientationChange();
     }
 
     const params = getParams(window.location.search.substr(1));
@@ -144,6 +140,9 @@ export class TourHelper {
     if (!this.preloadContainer) return;
 
     const hide = () => {
+      document.body.style.backgroundColor = window.getComputedStyle(
+        this.preloadContainer
+      ).backgroundColor;
       this.preloadContainer.style.visibility = 'hidden';
       this.preloadContainer.style.display = 'none';
       const videoList = this.preloadContainer.getElementsByTagName('video');

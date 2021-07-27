@@ -283,8 +283,8 @@
     start: 'this.init()',
     paddingLeft: 0,
     children: [
-      'this.MainViewer',
-      'this.Container_60ECDF15_758A_89F0_41DB_134ED0FB717A',
+      'this.MainViewer_mobile',
+      'this.Container_60ECDF15_758A_89F0_41DB_134ED0FB717A_mobile',
       'this.veilPopupPanorama',
       'this.zoomImagePopupPanorama',
       'this.closeButtonPopupPanorama'
@@ -292,7 +292,7 @@
     definitions: [
       {
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B2A74607_BC90_652F_41C8_59850453622F_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B2A74607_BC90_652F_41C8_59850453622F_t.jpg',
         class: 'Video',
         height: 1080,
         label: trans('video_B2A74607_BC90_652F_41C8_59850453622F.label'),
@@ -308,12 +308,12 @@
           levels: [
             {
               width: 1920,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B2A74607_BC90_652F_41C8_59850453622F.mp4',
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B2A74607_BC90_652F_41C8_59850453622F.mp4',
               class: 'VideoResourceLevel',
               bitrate: 3888,
               type: 'video/mp4',
               posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B2A74607_BC90_652F_41C8_59850453622F_poster.jpg',
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B2A74607_BC90_652F_41C8_59850453622F_poster.jpg',
               framerate: 25,
               height: 1080
             }
@@ -327,10 +327,10 @@
         closeButtonPressedBorderColor: '#000000',
         closeButtonRollOverIconLineWidth: 2,
         closeButtonRollOverBorderSize: 0,
-        id: 'window_A9F85B91_BC91_E320_41E7_1EB25170BEDA',
+        id: 'window_AE3D1499_BC90_A523_41E2_BAE5A149DD00',
         titleFontFamily: 'Arial',
         gap: 10,
-        data: { name: 'Window31258' },
+        data: { name: 'Window32268' },
         closeButtonIconColor: '#B2B2B2',
         closeButtonPressedBackgroundColor: [],
         bodyPaddingBottom: 0,
@@ -400,130 +400,7 @@
         paddingBottom: 0,
         titlePaddingTop: 5,
         titlePaddingBottom: 5,
-        children: ['this.WebFrame_AD7D7C6C_BF73_A5E1_4167_4EFC92280EC7'],
-        verticalAlign: 'middle',
-        shadowColor: '#000000',
-        paddingLeft: 0,
-        bodyBackgroundColor: ['#FFFFFF', '#DDDDDD', '#FFFFFF'],
-        footerBackgroundColor: ['#FFFFFF', '#EEEEEE', '#DDDDDD'],
-        closeButtonRollOverBorderColor: '#000000',
-        titlePaddingRight: 5,
-        bodyBackgroundOpacity: 0,
-        paddingRight: 0,
-        headerPaddingBottom: 5,
-        closeButtonBorderSize: 0,
-        closeButtonIconLineWidth: 2,
-        scrollBarVisible: 'rollOver',
-        veilShowEffect: {
-          duration: 500,
-          class: 'FadeInEffect',
-          easing: 'cubic_in_out'
-        },
-        headerBackgroundColorRatios: [0, 0.1, 1],
-        shadowOpacity: 0.5,
-        footerBackgroundColorDirection: 'vertical',
-        layout: 'vertical',
-        headerPaddingLeft: 10,
-        backgroundOpacity: 1,
-        closeButtonBackgroundOpacity: 0,
-        shadowSpread: 1,
-        closeButtonIconHeight: 20,
-        closeButtonRollOverBackgroundColorRatios: [],
-        footerHeight: 5,
-        minWidth: 20,
-        closeButtonBorderRadius: 11,
-        minHeight: 20,
-        closeButtonPressedIconColor: '#FFFFFF',
-        scrollBarWidth: 10,
-        veilColor: ['#000000', '#000000'],
-        closeButtonRollOverBackgroundOpacity: 0,
-        headerPaddingTop: 10,
-        closeButtonIconWidth: 20,
-        bodyBackgroundColorDirection: 'vertical',
-        borderRadius: 5,
-        closeButtonPressedBackgroundOpacity: 0,
-        shadowBlurRadius: 6
-      },
-      {
-        shadowHorizontalLength: 3,
-        bodyPaddingTop: 0,
-        closeButtonPressedBorderColor: '#000000',
-        closeButtonRollOverIconLineWidth: 2,
-        closeButtonRollOverBorderSize: 0,
-        id: 'window_AE2016B7_BC90_A560_41E0_E0C1B15006BA',
-        titleFontFamily: 'Arial',
-        gap: 10,
-        data: { name: 'Window27089' },
-        closeButtonIconColor: '#B2B2B2',
-        closeButtonPressedBackgroundColor: [],
-        bodyPaddingBottom: 0,
-        footerBackgroundColorRatios: [0, 0.9, 1],
-        headerVerticalAlign: 'middle',
-        width: '90%',
-        closeButtonPaddingLeft: 0,
-        closeButtonPaddingRight: 0,
-        modal: true,
-        toolTipHorizontalAlign: 'center',
-        overflow: 'scroll',
-        closeButtonPressedBackgroundColorRatios: [],
-        closeButtonPaddingBottom: 0,
-        headerBackgroundOpacity: 0,
-        borderSize: 0,
-        horizontalAlign: 'center',
-        closeButtonPressedBorderSize: 0,
-        veilHideEffect: {
-          duration: 500,
-          class: 'FadeOutEffect',
-          easing: 'cubic_in_out'
-        },
-        backgroundColor: [],
-        closeButtonBorderColor: '#000000',
-        bodyPaddingRight: 0,
-        class: 'Window',
-        height: '90%',
-        backgroundColorRatios: [],
-        closeButtonBackgroundColorRatios: [],
-        closeButtonRollOverBackgroundColor: [],
-        titleFontColor: '#000000',
-        closeButtonRollOverIconColor: '#FFFFFF',
-        veilColorRatios: [0, 1],
-        headerBackgroundColorDirection: 'vertical',
-        propagateClick: false,
-        bodyPaddingLeft: 0,
-        veilOpacity: 0.4,
-        closeButtonPressedIconLineWidth: 3,
-        contentOpaque: false,
-        footerBackgroundOpacity: 0,
-        hideEffect: {
-          duration: 500,
-          class: 'FadeOutEffect',
-          easing: 'cubic_in_out'
-        },
-        closeButtonBackgroundColor: [],
-        closeButtonPaddingTop: 0,
-        shadow: true,
-        scrollBarColor: '#000000',
-        titleFontSize: '1.29vmin',
-        scrollBarOpacity: 0.5,
-        showEffect: {
-          duration: 500,
-          class: 'FadeInEffect',
-          easing: 'cubic_in_out'
-        },
-        titlePaddingLeft: 5,
-        headerPaddingRight: 0,
-        titleHorizontalAlign: 'left',
-        bodyBackgroundColorRatios: [0, 0.5, 1],
-        scrollBarMargin: 2,
-        shadowVerticalLength: 0,
-        veilColorDirection: 'horizontal',
-        backgroundColorDirection: 'vertical',
-        headerBackgroundColor: ['#DDDDDD', '#EEEEEE', '#FFFFFF'],
-        paddingTop: 0,
-        paddingBottom: 0,
-        titlePaddingTop: 5,
-        titlePaddingBottom: 5,
-        children: ['this.WebFrame_AD7A3C6B_BF73_A5E7_41E6_89B9211D8F03'],
+        children: ['this.WebFrame_ADAA8DCB_BF73_A720_41CC_8DFDF1C04066'],
         verticalAlign: 'middle',
         shadowColor: '#000000',
         paddingLeft: 0,
@@ -646,7 +523,7 @@
         paddingBottom: 0,
         titlePaddingTop: 5,
         titlePaddingBottom: 5,
-        children: ['this.WebFrame_AD7FAC6C_BF73_A5E1_41DE_D215CED963D6'],
+        children: ['this.WebFrame_ADAAEDCB_BF73_A720_41E1_6E3BE1F99B64'],
         verticalAlign: 'middle',
         shadowColor: '#000000',
         paddingLeft: 0,
@@ -700,7 +577,7 @@
       {
         hfov: 30,
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_t.jpg',
         class: 'Panorama',
         overlays: [
           'this.overlay_938DE4E5_9E86_FCF1_41B3_1E4EFFD66032',
@@ -714,11 +591,11 @@
         frames: [
           {
             thumbnailUrl:
-              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_t.jpg',
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_t.jpg',
             front: {
               levels: [
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -727,7 +604,7 @@
                   height: 23040
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -736,7 +613,7 @@
                   height: 11776
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -745,7 +622,7 @@
                   height: 6144
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -754,7 +631,7 @@
                   height: 3072
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -763,7 +640,7 @@
                   height: 1536
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -772,7 +649,7 @@
                   height: 1024
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: ['ondemand', 'preload'],
@@ -781,7 +658,7 @@
                   height: 512
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_0/f/vr/0.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: 'mobilevr',
@@ -835,13 +712,13 @@
       {
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_64E3D4AF_7599_B8D0_41D5_5C7C360396A1_0.jpg',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_64E3D4AF_7599_B8D0_41D5_5C7C360396A1_0.jpg',
             width: 767,
             class: 'ImageResourceLevel',
             height: 463
           },
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_64E3D4AF_7599_B8D0_41D5_5C7C360396A1_1.jpg',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_64E3D4AF_7599_B8D0_41D5_5C7C360396A1_1.jpg',
             width: 512,
             class: 'ImageResourceLevel',
             height: 309
@@ -854,7 +731,7 @@
       {
         hfov: 30,
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_t.jpg',
         class: 'Panorama',
         overlays: [
           'this.overlay_79A2AC10_7597_8FF0_4199_2A6D3D6EDC32',
@@ -870,11 +747,11 @@
         frames: [
           {
             thumbnailUrl:
-              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_t.jpg',
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_t.jpg',
             front: {
               levels: [
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -883,7 +760,7 @@
                   height: 23040
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -892,7 +769,7 @@
                   height: 11776
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -901,7 +778,7 @@
                   height: 6144
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -910,7 +787,7 @@
                   height: 3072
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -919,7 +796,7 @@
                   height: 1536
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -928,7 +805,7 @@
                   height: 1024
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: ['ondemand', 'preload'],
@@ -937,7 +814,7 @@
                   height: 512
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_0/f/vr/0.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: 'mobilevr',
@@ -972,7 +849,7 @@
       },
       {
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA_t.jpg',
         class: 'Video',
         height: 1080,
         label: trans('video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA.label'),
@@ -988,12 +865,12 @@
           levels: [
             {
               width: 1920,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA.mp4',
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA.mp4',
               class: 'VideoResourceLevel',
               bitrate: 3888,
               type: 'video/mp4',
               posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA_poster.jpg',
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA_poster.jpg',
               framerate: 25,
               height: 1080
             }
@@ -1009,15 +886,353 @@
         hoverFactor: 0
       },
       {
+        hfov: 30,
+        thumbnailUrl:
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_t.jpg',
+        class: 'Panorama',
+        overlays: [
+          'this.overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F',
+          'this.overlay_919916D7_9E99_1CD0_4162_7929D7917281',
+          'this.overlay_919906D7_9E99_1CD0_41D1_23E181C4F979',
+          'this.overlay_919936D7_9E99_1CD0_41C2_7C0FA5B9C076'
+        ],
+        vfov: 16.88,
+        label: trans('panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3.label'),
+        id: 'panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3',
+        frames: [
+          {
+            thumbnailUrl:
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_t.jpg',
+            front: {
+              levels: [
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/0/{row}_{column}.jpg',
+                  colCount: 45,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 23040,
+                  rowCount: 45,
+                  height: 23040
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/1/{row}_{column}.jpg',
+                  colCount: 23,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 11776,
+                  rowCount: 23,
+                  height: 11776
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/2/{row}_{column}.jpg',
+                  colCount: 12,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 6144,
+                  rowCount: 12,
+                  height: 6144
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/3/{row}_{column}.jpg',
+                  colCount: 6,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 3072,
+                  rowCount: 6,
+                  height: 3072
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/4/{row}_{column}.jpg',
+                  colCount: 3,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 1536,
+                  rowCount: 3,
+                  height: 1536
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/5/{row}_{column}.jpg',
+                  colCount: 2,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 1024,
+                  rowCount: 2,
+                  height: 1024
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/6/{row}_{column}.jpg',
+                  colCount: 1,
+                  class: 'TiledImageResourceLevel',
+                  tags: ['ondemand', 'preload'],
+                  width: 512,
+                  rowCount: 1,
+                  height: 512
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/vr/0.jpg',
+                  colCount: 1,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'mobilevr',
+                  width: 1536,
+                  rowCount: 1,
+                  height: 1536
+                }
+              ],
+              class: 'ImageResource'
+            },
+            class: 'CubicPanoramaFrame'
+          }
+        ],
+        pitch: 0,
+        hfovMax: 30,
+        data: { label: 'image (6)' },
+        adjacentPanoramas: [
+          {
+            class: 'AdjacentPanorama',
+            distance: 100,
+            select:
+              "this.overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F.get('areas').forEach(function(a){ a.trigger('click') })",
+            yaw: 12.78,
+            data: { overlayID: 'overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F' },
+            panorama: 'this.panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C'
+          }
+        ],
+        partial: true,
+        hfovMin: '150%'
+      },
+      {
+        displayPlaybackBar: true,
+        displayPlayOverlay: true,
+        class: 'VideoPlayer',
+        clickAction: 'play_pause',
+        id: 'MainViewer_mobileVideoPlayer',
+        viewerArea: 'this.MainViewer_mobile'
+      },
+      {
+        hfov: 30,
+        thumbnailUrl:
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg',
+        class: 'Panorama',
+        overlays: [
+          'this.overlay_642933B6_759E_B830_41D7_7713382A2651',
+          'this.overlay_6534AD39_759E_8830_41C2_E2B42592D517',
+          'this.overlay_924A2168_9E89_15F0_41C8_BA99530D9803',
+          'this.popup_656D3D17_759F_89FF_41D5_B2AFEBA255EC',
+          'this.overlay_92A66BE7_9E8B_74F1_41C4_FFA7D5122C0A'
+        ],
+        vfov: 16.88,
+        label: trans('panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E.label'),
+        id: 'panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E',
+        frames: [
+          {
+            thumbnailUrl:
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg',
+            front: {
+              levels: [
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/0/{row}_{column}.jpg',
+                  colCount: 45,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 23040,
+                  rowCount: 45,
+                  height: 23040
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/1/{row}_{column}.jpg',
+                  colCount: 23,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 11776,
+                  rowCount: 23,
+                  height: 11776
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/2/{row}_{column}.jpg',
+                  colCount: 12,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 6144,
+                  rowCount: 12,
+                  height: 6144
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/3/{row}_{column}.jpg',
+                  colCount: 6,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 3072,
+                  rowCount: 6,
+                  height: 3072
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/4/{row}_{column}.jpg',
+                  colCount: 3,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 1536,
+                  rowCount: 3,
+                  height: 1536
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/5/{row}_{column}.jpg',
+                  colCount: 2,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'ondemand',
+                  width: 1024,
+                  rowCount: 2,
+                  height: 1024
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/6/{row}_{column}.jpg',
+                  colCount: 1,
+                  class: 'TiledImageResourceLevel',
+                  tags: ['ondemand', 'preload'],
+                  width: 512,
+                  rowCount: 1,
+                  height: 512
+                },
+                {
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/vr/0.jpg',
+                  colCount: 1,
+                  class: 'TiledImageResourceLevel',
+                  tags: 'mobilevr',
+                  width: 1536,
+                  rowCount: 1,
+                  height: 1536
+                }
+              ],
+              class: 'ImageResource'
+            },
+            class: 'CubicPanoramaFrame'
+          }
+        ],
+        pitch: 0,
+        hfovMax: 30,
+        data: { label: 'V11_02_CC_Gallery ' },
+        adjacentPanoramas: [
+          {
+            class: 'AdjacentPanorama',
+            distance: 17.48,
+            select:
+              "this.overlay_642933B6_759E_B830_41D7_7713382A2651.get('areas').forEach(function(a){ a.trigger('click') })",
+            yaw: 0.4,
+            data: { overlayID: 'overlay_642933B6_759E_B830_41D7_7713382A2651' },
+            panorama: 'this.panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40'
+          },
+          {
+            class: 'AdjacentPanorama',
+            distance: 14.43,
+            select:
+              "this.overlay_6534AD39_759E_8830_41C2_E2B42592D517.get('areas').forEach(function(a){ a.trigger('click') })",
+            backwardYaw: 0.4,
+            yaw: 0.41,
+            data: { overlayID: 'overlay_6534AD39_759E_8830_41C2_E2B42592D517' },
+            panorama: 'this.panorama_935E2477_9E89_73D1_41DF_11480B88250D'
+          }
+        ],
+        partial: true,
+        hfovMin: '150%'
+      },
+      {
+        thumbnailUrl:
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93_t.jpg',
+        class: 'Video',
+        height: 720,
+        label: trans('video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93.label'),
+        id: 'video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93',
+        width: 1280,
+        loop: false,
+        scaleMode: 'fit_inside',
+        data: { label: '04_3_Taste_Cinnamon' },
+        autoplay: true,
+        video: {
+          width: 1280,
+          class: 'VideoResource',
+          levels: [
+            {
+              width: 1280,
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93.mp4',
+              class: 'VideoResourceLevel',
+              bitrate: 1728,
+              type: 'video/mp4',
+              posterURL:
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93_poster.jpg',
+              framerate: 25,
+              height: 720
+            }
+          ],
+          height: 720
+        }
+      },
+      {
+        class: 'PanoramaCamera',
+        automaticZoomSpeed: 10,
+        id: 'panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_camera',
+        initialPosition: { yaw: 0, class: 'PanoramaCameraPosition', pitch: 0 },
+        hoverFactor: 0
+      },
+      {
+        class: 'PanoramaCamera',
+        automaticZoomSpeed: 10,
+        id: 'panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_camera',
+        initialPosition: { yaw: 0, class: 'PanoramaCameraPosition', pitch: 0 },
+        hoverFactor: 0
+      },
+      {
+        thumbnailUrl:
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF_t.jpg',
+        class: 'Video',
+        height: 720,
+        label: trans('video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF.label'),
+        id: 'video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF',
+        width: 1280,
+        loop: false,
+        scaleMode: 'fit_inside',
+        data: { label: '04_4_Taste_Pear' },
+        autoplay: true,
+        video: {
+          width: 1280,
+          class: 'VideoResource',
+          levels: [
+            {
+              width: 1280,
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF.mp4',
+              class: 'VideoResourceLevel',
+              bitrate: 1728,
+              type: 'video/mp4',
+              posterURL:
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF_poster.jpg',
+              framerate: 25,
+              height: 720
+            }
+          ],
+          height: 720
+        }
+      },
+      {
+        touchControlMode: 'drag_rotation',
+        gyroscopeVerticalDraggingEnabled: true,
+        class: 'PanoramaPlayer',
+        viewerArea: 'this.MainViewer_mobile',
+        displayPlaybackBar: true,
+        arrowKeysAction: 'translate',
+        aaEnabled: true,
+        zoomEnabled: true,
+        mouseControlMode: 'drag_rotation',
+        id: 'MainViewer_mobilePanoramaPlayer',
+        surfaceSelectionEnabled: false
+      },
+      {
         shadowHorizontalLength: 3,
         bodyPaddingTop: 0,
         closeButtonPressedBorderColor: '#000000',
         closeButtonRollOverIconLineWidth: 2,
         closeButtonRollOverBorderSize: 0,
-        id: 'window_AE3D1499_BC90_A523_41E2_BAE5A149DD00',
+        id: 'window_A9F85B91_BC91_E320_41E7_1EB25170BEDA',
         titleFontFamily: 'Arial',
         gap: 10,
-        data: { name: 'Window32268' },
+        data: { name: 'Window31258' },
         closeButtonIconColor: '#B2B2B2',
         closeButtonPressedBackgroundColor: [],
         bodyPaddingBottom: 0,
@@ -1087,7 +1302,7 @@
         paddingBottom: 0,
         titlePaddingTop: 5,
         titlePaddingBottom: 5,
-        children: ['this.WebFrame_AD7C4C6C_BF73_A5E1_41E5_B83C581DD1F6'],
+        children: ['this.WebFrame_ADAABDCB_BF73_A720_41E1_2884B994B2CD'],
         verticalAlign: 'middle',
         shadowColor: '#000000',
         paddingLeft: 0,
@@ -1130,528 +1345,6 @@
         borderRadius: 5,
         closeButtonPressedBackgroundOpacity: 0,
         shadowBlurRadius: 6
-      },
-      {
-        toolTipShadowOpacity: 1,
-        data: { name: 'Main Viewer' },
-        subtitlesPaddingRight: 5,
-        id: 'MainViewer',
-        progressBarBorderRadius: 0,
-        subtitlesPaddingLeft: 5,
-        surfaceReticleSelectionOpacity: 1,
-        width: '100%',
-        playbackBarProgressBackgroundColorDirection: 'vertical',
-        playbackBarProgressBorderColor: '#000000',
-        subtitlesFontSize: '3vmin',
-        progressBarBorderSize: 0,
-        subtitlesPaddingBottom: 5,
-        progressBarBackgroundColor: ['#3399FF'],
-        progressBackgroundColorRatios: [0],
-        playbackBarBackgroundColor: ['#FFFFFF'],
-        playbackBarLeft: 0,
-        playbackBarHeadBackgroundColorDirection: 'vertical',
-        playbackBarHeight: 10,
-        doubleClickAction: 'toggle_fullscreen',
-        toolTipHorizontalAlign: 'center',
-        progressBorderColor: '#000000',
-        subtitlesBackgroundOpacity: 0.2,
-        playbackBarHeadWidth: 6,
-        progressLeft: 0,
-        toolTipShadowHorizontalLength: 0,
-        playbackBarHeadHeight: 15,
-        toolTipPaddingLeft: 6,
-        borderSize: 0,
-        playbackBarHeadBorderRadius: 0,
-        toolTipPaddingBottom: 4,
-        playbackBarHeadShadowBlurRadius: 3,
-        displayTooltipInSurfaceSelection: true,
-        class: 'ViewerArea',
-        toolTipPaddingRight: 6,
-        progressRight: 0,
-        playbackBarBackgroundColorDirection: 'vertical',
-        playbackBarHeadShadowColor: '#000000',
-        transitionMode: 'blending',
-        progressOpacity: 1,
-        subtitlesBorderColor: '#FFFFFF',
-        playbackBarHeadBorderSize: 0,
-        subtitlesTextDecoration: 'none',
-        playbackBarHeadBackgroundColorRatios: [0, 1],
-        playbackBarProgressBorderSize: 0,
-        propagateClick: false,
-        progressBarBackgroundColorDirection: 'vertical',
-        height: '100%',
-        playbackBarHeadShadow: true,
-        playbackBarRight: 0,
-        shadow: false,
-        playbackBarHeadOpacity: 1,
-        subtitlesFontFamily: 'Arial',
-        progressBackgroundColor: ['#FFFFFF'],
-        toolTipTextShadowOpacity: 0,
-        progressBarOpacity: 1,
-        toolTipFontColor: '#606060',
-        playbackBarProgressOpacity: 1,
-        subtitlesShadow: false,
-        paddingTop: 0,
-        progressBarBorderColor: '#000000',
-        playbackBarHeadBorderColor: '#000000',
-        playbackBarProgressBorderRadius: 0,
-        subtitlesOpacity: 1,
-        toolTipBackgroundColor: '#F6F6F6',
-        toolTipDisplayTime: 600,
-        playbackBarProgressBackgroundColor: ['#3399FF'],
-        playbackBarBorderSize: 0,
-        progressBarBackgroundColorRatios: [0],
-        paddingBottom: 0,
-        subtitlesPaddingTop: 5,
-        subtitlesGap: 0,
-        playbackBarOpacity: 1,
-        toolTipShadowColor: '#333333',
-        vrPointerColor: '#FFFFFF',
-        subtitlesBackgroundColor: '#000000',
-        paddingLeft: 0,
-        toolTipFontFamily: 'Arial',
-        playbackBarHeadShadowHorizontalLength: 0,
-        progressBackgroundColorDirection: 'vertical',
-        toolTipBorderColor: '#767676',
-        transitionDuration: 500,
-        subtitlesHorizontalAlign: 'center',
-        playbackBarHeadShadowOpacity: 0.7,
-        toolTipBorderRadius: 3,
-        subtitlesVerticalAlign: 'bottom',
-        paddingRight: 0,
-        translationTransitionDuration: 1000,
-        firstTransitionDuration: 0,
-        playbackBarBackgroundOpacity: 1,
-        progressBottom: 0,
-        subtitlesTop: 0,
-        surfaceReticleColor: '#FFFFFF',
-        subtitlesTextShadowOpacity: 1,
-        toolTipTextShadowBlurRadius: 3,
-        toolTipOpacity: 1,
-        playbackBarHeadBackgroundColor: ['#111111', '#666666'],
-        surfaceReticleOpacity: 0.6,
-        subtitlesTextShadowBlurRadius: 0,
-        toolTipTextShadowColor: '#000000',
-        toolTipShadowBlurRadius: 3,
-        surfaceReticleSelectionColor: '#FFFFFF',
-        toolTipFontWeight: 'normal',
-        vrPointerSelectionTime: 2000,
-        displayTooltipInTouchScreens: true,
-        playbackBarHeadShadowVerticalLength: 0,
-        subtitlesTextShadowColor: '#000000',
-        subtitlesBorderSize: 0,
-        subtitlesFontColor: '#FFFFFF',
-        toolTipShadowVerticalLength: 0,
-        progressHeight: 10,
-        minHeight: 50,
-        subtitlesEnabled: true,
-        subtitlesTextShadowHorizontalLength: 1,
-        progressBorderSize: 0,
-        minWidth: 100,
-        playbackBarProgressBackgroundColorRatios: [0],
-        toolTipBorderSize: 1,
-        playbackBarBottom: 5,
-        subtitlesTextShadowVerticalLength: 1,
-        playbackBarBorderColor: '#FFFFFF',
-        subtitlesFontWeight: 'normal',
-        toolTipFontStyle: 'normal',
-        playbackBarBorderRadius: 0,
-        borderRadius: 0,
-        toolTipPaddingTop: 4,
-        progressBorderRadius: 0,
-        progressBackgroundOpacity: 1,
-        vrPointerSelectionColor: '#FF6600',
-        toolTipShadowSpread: 0,
-        toolTipFontSize: '1.11vmin',
-        subtitlesBottom: 50
-      },
-      {
-        hfov: 30,
-        thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg',
-        class: 'Panorama',
-        overlays: [
-          'this.overlay_642933B6_759E_B830_41D7_7713382A2651',
-          'this.overlay_6534AD39_759E_8830_41C2_E2B42592D517',
-          'this.overlay_924A2168_9E89_15F0_41C8_BA99530D9803',
-          'this.popup_656D3D17_759F_89FF_41D5_B2AFEBA255EC',
-          'this.overlay_92A66BE7_9E8B_74F1_41C4_FFA7D5122C0A'
-        ],
-        vfov: 16.88,
-        label: trans('panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E.label'),
-        id: 'panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E',
-        frames: [
-          {
-            thumbnailUrl:
-              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_t.jpg',
-            front: {
-              levels: [
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/0/{row}_{column}.jpg',
-                  colCount: 45,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 23040,
-                  rowCount: 45,
-                  height: 23040
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/1/{row}_{column}.jpg',
-                  colCount: 23,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 11776,
-                  rowCount: 23,
-                  height: 11776
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/2/{row}_{column}.jpg',
-                  colCount: 12,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 6144,
-                  rowCount: 12,
-                  height: 6144
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/3/{row}_{column}.jpg',
-                  colCount: 6,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 3072,
-                  rowCount: 6,
-                  height: 3072
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/4/{row}_{column}.jpg',
-                  colCount: 3,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 1536,
-                  rowCount: 3,
-                  height: 1536
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/5/{row}_{column}.jpg',
-                  colCount: 2,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 1024,
-                  rowCount: 2,
-                  height: 1024
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/6/{row}_{column}.jpg',
-                  colCount: 1,
-                  class: 'TiledImageResourceLevel',
-                  tags: ['ondemand', 'preload'],
-                  width: 512,
-                  rowCount: 1,
-                  height: 512
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_0/f/vr/0.jpg',
-                  colCount: 1,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'mobilevr',
-                  width: 1536,
-                  rowCount: 1,
-                  height: 1536
-                }
-              ],
-              class: 'ImageResource'
-            },
-            class: 'CubicPanoramaFrame'
-          }
-        ],
-        pitch: 0,
-        hfovMax: 30,
-        data: { label: 'V11_02_CC_Gallery ' },
-        adjacentPanoramas: [
-          {
-            class: 'AdjacentPanorama',
-            distance: 17.48,
-            select:
-              "this.overlay_642933B6_759E_B830_41D7_7713382A2651.get('areas').forEach(function(a){ a.trigger('click') })",
-            yaw: 0.4,
-            data: { overlayID: 'overlay_642933B6_759E_B830_41D7_7713382A2651' },
-            panorama: 'this.panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40'
-          },
-          {
-            class: 'AdjacentPanorama',
-            distance: 14.43,
-            select:
-              "this.overlay_6534AD39_759E_8830_41C2_E2B42592D517.get('areas').forEach(function(a){ a.trigger('click') })",
-            backwardYaw: 0.4,
-            yaw: 0.41,
-            data: { overlayID: 'overlay_6534AD39_759E_8830_41C2_E2B42592D517' },
-            panorama: 'this.panorama_935E2477_9E89_73D1_41DF_11480B88250D'
-          }
-        ],
-        partial: true,
-        hfovMin: '150%'
-      },
-      {
-        thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93_t.jpg',
-        class: 'Video',
-        height: 720,
-        label: trans('video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93.label'),
-        id: 'video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93',
-        width: 1280,
-        loop: false,
-        scaleMode: 'fit_inside',
-        data: { label: '04_3_Taste_Cinnamon' },
-        autoplay: true,
-        video: {
-          width: 1280,
-          class: 'VideoResource',
-          levels: [
-            {
-              width: 1280,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93.mp4',
-              class: 'VideoResourceLevel',
-              bitrate: 1728,
-              type: 'video/mp4',
-              posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93_poster.jpg',
-              framerate: 25,
-              height: 720
-            }
-          ],
-          height: 720
-        }
-      },
-      {
-        class: 'PanoramaCamera',
-        automaticZoomSpeed: 10,
-        id: 'panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_camera',
-        initialPosition: { yaw: 0, class: 'PanoramaCameraPosition', pitch: 0 },
-        hoverFactor: 0
-      },
-      {
-        class: 'PanoramaCamera',
-        automaticZoomSpeed: 10,
-        id: 'panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_camera',
-        initialPosition: { yaw: 0, class: 'PanoramaCameraPosition', pitch: 0 },
-        hoverFactor: 0
-      },
-      {
-        thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF_t.jpg',
-        class: 'Video',
-        height: 720,
-        label: trans('video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF.label'),
-        id: 'video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF',
-        width: 1280,
-        loop: false,
-        scaleMode: 'fit_inside',
-        data: { label: '04_4_Taste_Pear' },
-        autoplay: true,
-        video: {
-          width: 1280,
-          class: 'VideoResource',
-          levels: [
-            {
-              width: 1280,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF.mp4',
-              class: 'VideoResourceLevel',
-              bitrate: 1728,
-              type: 'video/mp4',
-              posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF_poster.jpg',
-              framerate: 25,
-              height: 720
-            }
-          ],
-          height: 720
-        }
-      },
-      {
-        hfov: 30,
-        thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_t.jpg',
-        class: 'Panorama',
-        overlays: [
-          'this.overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F',
-          'this.overlay_919916D7_9E99_1CD0_4162_7929D7917281',
-          'this.overlay_919906D7_9E99_1CD0_41D1_23E181C4F979',
-          'this.overlay_919936D7_9E99_1CD0_41C2_7C0FA5B9C076'
-        ],
-        vfov: 16.88,
-        label: trans('panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3.label'),
-        id: 'panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3',
-        frames: [
-          {
-            thumbnailUrl:
-              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_t.jpg',
-            front: {
-              levels: [
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/0/{row}_{column}.jpg',
-                  colCount: 45,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 23040,
-                  rowCount: 45,
-                  height: 23040
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/1/{row}_{column}.jpg',
-                  colCount: 23,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 11776,
-                  rowCount: 23,
-                  height: 11776
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/2/{row}_{column}.jpg',
-                  colCount: 12,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 6144,
-                  rowCount: 12,
-                  height: 6144
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/3/{row}_{column}.jpg',
-                  colCount: 6,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 3072,
-                  rowCount: 6,
-                  height: 3072
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/4/{row}_{column}.jpg',
-                  colCount: 3,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 1536,
-                  rowCount: 3,
-                  height: 1536
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/5/{row}_{column}.jpg',
-                  colCount: 2,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'ondemand',
-                  width: 1024,
-                  rowCount: 2,
-                  height: 1024
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/6/{row}_{column}.jpg',
-                  colCount: 1,
-                  class: 'TiledImageResourceLevel',
-                  tags: ['ondemand', 'preload'],
-                  width: 512,
-                  rowCount: 1,
-                  height: 512
-                },
-                {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_0/f/vr/0.jpg',
-                  colCount: 1,
-                  class: 'TiledImageResourceLevel',
-                  tags: 'mobilevr',
-                  width: 1536,
-                  rowCount: 1,
-                  height: 1536
-                }
-              ],
-              class: 'ImageResource'
-            },
-            class: 'CubicPanoramaFrame'
-          }
-        ],
-        pitch: 0,
-        hfovMax: 30,
-        data: { label: 'image (6)' },
-        adjacentPanoramas: [
-          {
-            class: 'AdjacentPanorama',
-            distance: 100,
-            select:
-              "this.overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F.get('areas').forEach(function(a){ a.trigger('click') })",
-            yaw: 12.78,
-            data: { overlayID: 'overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F' },
-            panorama: 'this.panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C'
-          }
-        ],
-        partial: true,
-        hfovMin: '150%'
-      },
-      {
-        thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B227002A_BCF0_5D60_41D1_547326ECEEFB_t.jpg',
-        class: 'Video',
-        height: 1080,
-        label: trans('video_B227002A_BCF0_5D60_41D1_547326ECEEFB.label'),
-        id: 'video_B227002A_BCF0_5D60_41D1_547326ECEEFB',
-        width: 1920,
-        loop: false,
-        scaleMode: 'fit_inside',
-        data: { label: '02_Place V2' },
-        autoplay: true,
-        video: {
-          width: 1920,
-          class: 'VideoResource',
-          levels: [
-            {
-              width: 1920,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B227002A_BCF0_5D60_41D1_547326ECEEFB.mp4',
-              class: 'VideoResourceLevel',
-              bitrate: 3888,
-              type: 'video/mp4',
-              posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B227002A_BCF0_5D60_41D1_547326ECEEFB_poster.jpg',
-              framerate: 25,
-              height: 1080
-            }
-          ],
-          height: 1080
-        }
-      },
-      {
-        backgroundColorDirection: 'vertical',
-        scrollBarMargin: 2,
-        id: 'Container_60ECDF15_758A_89F0_41DB_134ED0FB717A',
-        left: '0%',
-        borderRadius: 0,
-        children: [
-          'this.Label_662EA410_758E_9FF0_41D5_F1CC7070BF20',
-          'this.Image_63EB4FB2_75BF_8830_41D6_A559529C25EC'
-        ],
-        gap: 10,
-        verticalAlign: 'top',
-        paddingLeft: 0,
-        data: { name: 'Container26832' },
-        width: '100%',
-        paddingRight: 0,
-        toolTipHorizontalAlign: 'center',
-        overflow: 'scroll',
-        horizontalAlign: 'left',
-        bottom: '0%',
-        borderSize: 0,
-        backgroundColor: ['#FFFFFF', '#FFFFFF'],
-        class: 'Container',
-        backgroundColorRatios: [0, 1],
-        layout: 'absolute',
-        backgroundOpacity: 0.7,
-        scrollBarVisible: 'rollOver',
-        minHeight: 1,
-        height: '5%',
-        minWidth: 1,
-        propagateClick: false,
-        scrollBarWidth: 10,
-        scrollBarOpacity: 0.5,
-        shadow: false,
-        scrollBarColor: '#000000',
-        paddingTop: 0,
-        contentOpaque: false,
-        interactionEnabled: false,
-        paddingBottom: 0
       },
       {
         shadowHorizontalLength: 3,
@@ -1732,7 +1425,7 @@
         paddingBottom: 0,
         titlePaddingTop: 5,
         titlePaddingBottom: 5,
-        children: ['this.WebFrame_AD7DDC6B_BF73_A5E7_41D8_204AE0287090'],
+        children: ['this.WebFrame_ADAC5DCA_BF73_A720_41D5_5EE5B89BA935'],
         verticalAlign: 'middle',
         shadowColor: '#000000',
         paddingLeft: 0,
@@ -1779,7 +1472,7 @@
       {
         hfov: 30,
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_t.jpg',
         class: 'Panorama',
         overlays: [
           'this.overlay_9345117B_9E87_15D1_41DF_88ED8BC27934',
@@ -1792,11 +1485,11 @@
         frames: [
           {
             thumbnailUrl:
-              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_t.jpg',
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_t.jpg',
             front: {
               levels: [
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1805,7 +1498,7 @@
                   height: 23040
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1814,7 +1507,7 @@
                   height: 11776
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1823,7 +1516,7 @@
                   height: 6144
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1832,7 +1525,7 @@
                   height: 3072
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1841,7 +1534,7 @@
                   height: 1536
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1850,7 +1543,7 @@
                   height: 1024
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: ['ondemand', 'preload'],
@@ -1859,7 +1552,7 @@
                   height: 512
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_9345617B_9E87_15D1_41B7_729AF050AB26_0/f/vr/0.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: 'mobilevr',
@@ -1902,12 +1595,35 @@
         hfovMin: '150%'
       },
       {
-        displayPlaybackBar: true,
-        displayPlayOverlay: true,
-        class: 'VideoPlayer',
-        clickAction: 'play_pause',
-        id: 'MainViewerVideoPlayer',
-        viewerArea: 'this.MainViewer'
+        thumbnailUrl:
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B227002A_BCF0_5D60_41D1_547326ECEEFB_t.jpg',
+        class: 'Video',
+        height: 1080,
+        label: trans('video_B227002A_BCF0_5D60_41D1_547326ECEEFB.label'),
+        id: 'video_B227002A_BCF0_5D60_41D1_547326ECEEFB',
+        width: 1920,
+        loop: false,
+        scaleMode: 'fit_inside',
+        data: { label: '02_Place V2' },
+        autoplay: true,
+        video: {
+          width: 1920,
+          class: 'VideoResource',
+          levels: [
+            {
+              width: 1920,
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B227002A_BCF0_5D60_41D1_547326ECEEFB.mp4',
+              class: 'VideoResourceLevel',
+              bitrate: 3888,
+              type: 'video/mp4',
+              posterURL:
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B227002A_BCF0_5D60_41D1_547326ECEEFB_poster.jpg',
+              framerate: 25,
+              height: 1080
+            }
+          ],
+          height: 1080
+        }
       },
       {
         class: 'PanoramaCamera',
@@ -1917,39 +1633,9 @@
         hoverFactor: 0
       },
       {
-        fontFamily: 'Adobe Garamond Pro',
-        paddingTop: 0,
-        fontWeight: 'normal',
-        id: 'Label_662EA410_758E_9FF0_41D5_F1CC7070BF20',
-        left: '10%',
-        width: 536,
-        verticalAlign: 'middle',
-        paddingLeft: 0,
-        data: { name: 'Label27062' },
-        fontColor: '#000000',
-        paddingRight: 0,
-        text: trans('Label_662EA410_758E_9FF0_41D5_F1CC7070BF20.text'),
-        toolTipHorizontalAlign: 'center',
-        horizontalAlign: 'center',
-        borderSize: 0,
-        bottom: '34.57%',
-        height: 14,
-        class: 'Label',
-        backgroundOpacity: 0,
-        fontSize: '1.5vmin',
-        minHeight: 1,
-        minWidth: 1,
-        propagateClick: false,
-        shadow: false,
-        textDecoration: 'none',
-        borderRadius: 0,
-        fontStyle: 'normal',
-        paddingBottom: 0
-      },
-      {
         hfov: 30,
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_t.jpg',
         class: 'Panorama',
         overlays: [
           'this.overlay_935E3477_9E89_73D1_41E0_DD2C7DDFD0C8',
@@ -1962,11 +1648,11 @@
         frames: [
           {
             thumbnailUrl:
-              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_t.jpg',
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_t.jpg',
             front: {
               levels: [
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1975,7 +1661,7 @@
                   height: 23040
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1984,7 +1670,7 @@
                   height: 11776
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -1993,7 +1679,7 @@
                   height: 6144
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2002,7 +1688,7 @@
                   height: 3072
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2011,7 +1697,7 @@
                   height: 1536
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2020,7 +1706,7 @@
                   height: 1024
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: ['ondemand', 'preload'],
@@ -2029,7 +1715,7 @@
                   height: 512
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_935E2477_9E89_73D1_41DF_11480B88250D_0/f/vr/0.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: 'mobilevr',
@@ -2072,8 +1758,142 @@
         hfovMin: '150%'
       },
       {
+        toolTipShadowOpacity: 1,
+        data: { name: 'Main Viewer' },
+        subtitlesPaddingRight: 5,
+        id: 'MainViewer_mobile',
+        progressBarBorderRadius: 0,
+        subtitlesPaddingLeft: 5,
+        surfaceReticleSelectionOpacity: 1,
+        width: '100%',
+        playbackBarProgressBackgroundColorDirection: 'vertical',
+        playbackBarProgressBorderColor: '#000000',
+        subtitlesFontSize: '3vmin',
+        progressBarBorderSize: 0,
+        subtitlesPaddingBottom: 5,
+        progressBarBackgroundColor: ['#3399FF'],
+        progressBackgroundColorRatios: [0],
+        playbackBarBackgroundColor: ['#FFFFFF'],
+        playbackBarLeft: 0,
+        playbackBarHeadBackgroundColorDirection: 'vertical',
+        playbackBarHeight: 10,
+        doubleClickAction: 'toggle_fullscreen',
+        toolTipHorizontalAlign: 'center',
+        progressBorderColor: '#000000',
+        subtitlesBackgroundOpacity: 0.2,
+        playbackBarHeadWidth: 6,
+        progressLeft: 0,
+        toolTipShadowHorizontalLength: 0,
+        playbackBarHeadHeight: 15,
+        toolTipPaddingLeft: 3,
+        borderSize: 0,
+        playbackBarHeadBorderRadius: 0,
+        toolTipPaddingBottom: 2,
+        playbackBarHeadShadowBlurRadius: 1.5,
+        displayTooltipInSurfaceSelection: true,
+        class: 'ViewerArea',
+        toolTipPaddingRight: 3,
+        progressRight: 0,
+        playbackBarBackgroundColorDirection: 'vertical',
+        playbackBarHeadShadowColor: '#000000',
+        transitionMode: 'blending',
+        progressOpacity: 1,
+        subtitlesBorderColor: '#FFFFFF',
+        playbackBarHeadBorderSize: 0,
+        subtitlesTextDecoration: 'none',
+        playbackBarHeadBackgroundColorRatios: [0, 1],
+        playbackBarProgressBorderSize: 0,
+        propagateClick: false,
+        progressBarBackgroundColorDirection: 'vertical',
+        height: '100%',
+        playbackBarHeadShadow: true,
+        playbackBarRight: 0,
+        shadow: false,
+        playbackBarHeadOpacity: 1,
+        subtitlesFontFamily: 'Arial',
+        progressBackgroundColor: ['#FFFFFF'],
+        toolTipTextShadowOpacity: 0,
+        progressBarOpacity: 1,
+        toolTipFontColor: '#606060',
+        playbackBarProgressOpacity: 1,
+        subtitlesShadow: false,
+        paddingTop: 0,
+        progressBarBorderColor: '#000000',
+        playbackBarHeadBorderColor: '#000000',
+        playbackBarProgressBorderRadius: 0,
+        subtitlesOpacity: 1,
+        toolTipBackgroundColor: '#F6F6F6',
+        toolTipDisplayTime: 600,
+        playbackBarProgressBackgroundColor: ['#3399FF'],
+        playbackBarBorderSize: 0,
+        progressBarBackgroundColorRatios: [0],
+        paddingBottom: 0,
+        subtitlesPaddingTop: 5,
+        subtitlesGap: 0,
+        playbackBarOpacity: 1,
+        toolTipShadowColor: '#333333',
+        vrPointerColor: '#FFFFFF',
+        subtitlesBackgroundColor: '#000000',
+        paddingLeft: 0,
+        toolTipFontFamily: 'Arial',
+        playbackBarHeadShadowHorizontalLength: 0,
+        progressBackgroundColorDirection: 'vertical',
+        toolTipBorderColor: '#767676',
+        transitionDuration: 500,
+        subtitlesHorizontalAlign: 'center',
+        playbackBarHeadShadowOpacity: 0.7,
+        toolTipBorderRadius: 1,
+        subtitlesVerticalAlign: 'bottom',
+        paddingRight: 0,
+        translationTransitionDuration: 1000,
+        firstTransitionDuration: 0,
+        playbackBarBackgroundOpacity: 1,
+        progressBottom: 0,
+        subtitlesTop: 0,
+        surfaceReticleColor: '#FFFFFF',
+        subtitlesTextShadowOpacity: 1,
+        toolTipTextShadowBlurRadius: 1,
+        toolTipOpacity: 1,
+        playbackBarHeadBackgroundColor: ['#111111', '#666666'],
+        surfaceReticleOpacity: 0.6,
+        subtitlesTextShadowBlurRadius: 0,
+        toolTipTextShadowColor: '#000000',
+        toolTipShadowBlurRadius: 1,
+        surfaceReticleSelectionColor: '#FFFFFF',
+        toolTipFontWeight: 'normal',
+        vrPointerSelectionTime: 2000,
+        displayTooltipInTouchScreens: true,
+        playbackBarHeadShadowVerticalLength: 0,
+        subtitlesTextShadowColor: '#000000',
+        subtitlesBorderSize: 0,
+        subtitlesFontColor: '#FFFFFF',
+        toolTipShadowVerticalLength: 0,
+        progressHeight: 10,
+        minHeight: 25,
+        subtitlesEnabled: true,
+        subtitlesTextShadowHorizontalLength: 1,
+        progressBorderSize: 0,
+        minWidth: 50,
+        playbackBarProgressBackgroundColorRatios: [0],
+        toolTipBorderSize: 1,
+        playbackBarBottom: 5,
+        subtitlesTextShadowVerticalLength: 1,
+        playbackBarBorderColor: '#FFFFFF',
+        subtitlesFontWeight: 'normal',
+        toolTipFontStyle: 'normal',
+        playbackBarBorderRadius: 0,
+        borderRadius: 0,
+        toolTipPaddingTop: 2,
+        progressBorderRadius: 0,
+        progressBackgroundOpacity: 1,
+        vrPointerSelectionColor: '#FF6600',
+        toolTipShadowSpread: 0,
+        toolTipFontSize: '1.11vmin',
+        subtitlesBottom: 50
+      },
+      {
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3334B36_BCF0_A360_41E5_B87B380CFBC6_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3334B36_BCF0_A360_41E5_B87B380CFBC6_t.jpg',
         class: 'Video',
         height: 720,
         label: trans('video_B3334B36_BCF0_A360_41E5_B87B380CFBC6.label'),
@@ -2089,12 +1909,12 @@
           levels: [
             {
               width: 1280,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3334B36_BCF0_A360_41E5_B87B380CFBC6.mp4',
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3334B36_BCF0_A360_41E5_B87B380CFBC6.mp4',
               class: 'VideoResourceLevel',
               bitrate: 1728,
               type: 'video/mp4',
               posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3334B36_BCF0_A360_41E5_B87B380CFBC6_poster.jpg',
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3334B36_BCF0_A360_41E5_B87B380CFBC6_poster.jpg',
               framerate: 25,
               height: 720
             }
@@ -2110,8 +1930,45 @@
         hoverFactor: 0
       },
       {
+        backgroundColorDirection: 'vertical',
+        scrollBarMargin: 1,
+        id: 'Container_60ECDF15_758A_89F0_41DB_134ED0FB717A_mobile',
+        left: '0%',
+        borderRadius: 0,
+        children: ['this.Label_662EA410_758E_9FF0_41D5_F1CC7070BF20_mobile'],
+        gap: 5,
+        verticalAlign: 'top',
+        paddingLeft: 0,
+        data: { name: 'Container26832' },
+        width: '100%',
+        paddingRight: 0,
+        toolTipHorizontalAlign: 'center',
+        overflow: 'scroll',
+        horizontalAlign: 'left',
+        bottom: '0%',
+        borderSize: 0,
+        backgroundColor: ['#FFFFFF', '#FFFFFF'],
+        class: 'Container',
+        backgroundColorRatios: [0, 1],
+        layout: 'absolute',
+        backgroundOpacity: 0.3,
+        scrollBarVisible: 'rollOver',
+        minHeight: 1,
+        height: '5%',
+        minWidth: 1,
+        propagateClick: false,
+        scrollBarWidth: 5,
+        scrollBarOpacity: 0.5,
+        shadow: false,
+        scrollBarColor: '#000000',
+        paddingTop: 0,
+        contentOpaque: false,
+        interactionEnabled: false,
+        paddingBottom: 0
+      },
+      {
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3E45329_BCF1_E363_41E3_08243E6CFD7E_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3E45329_BCF1_E363_41E3_08243E6CFD7E_t.jpg',
         class: 'Video',
         height: 720,
         label: trans('video_B3E45329_BCF1_E363_41E3_08243E6CFD7E.label'),
@@ -2127,12 +1984,12 @@
           levels: [
             {
               width: 1280,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3E45329_BCF1_E363_41E3_08243E6CFD7E.mp4',
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3E45329_BCF1_E363_41E3_08243E6CFD7E.mp4',
               class: 'VideoResourceLevel',
               bitrate: 1728,
               type: 'video/mp4',
               posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3E45329_BCF1_E363_41E3_08243E6CFD7E_poster.jpg',
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3E45329_BCF1_E363_41E3_08243E6CFD7E_poster.jpg',
               framerate: 25,
               height: 720
             }
@@ -2143,7 +2000,7 @@
       {
         hfov: 30,
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_t.jpg',
         class: 'Panorama',
         overlays: [
           'this.overlay_90788B51_9E87_15D1_41E2_12203B44E946',
@@ -2156,11 +2013,11 @@
         frames: [
           {
             thumbnailUrl:
-              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_t.jpg',
+              'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_t.jpg',
             front: {
               levels: [
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/0/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/0/{row}_{column}.jpg',
                   colCount: 45,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2169,7 +2026,7 @@
                   height: 23040
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/1/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/1/{row}_{column}.jpg',
                   colCount: 23,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2178,7 +2035,7 @@
                   height: 11776
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/2/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/2/{row}_{column}.jpg',
                   colCount: 12,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2187,7 +2044,7 @@
                   height: 6144
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/3/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/3/{row}_{column}.jpg',
                   colCount: 6,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2196,7 +2053,7 @@
                   height: 3072
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/4/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/4/{row}_{column}.jpg',
                   colCount: 3,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2205,7 +2062,7 @@
                   height: 1536
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/5/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/5/{row}_{column}.jpg',
                   colCount: 2,
                   class: 'TiledImageResourceLevel',
                   tags: 'ondemand',
@@ -2214,7 +2071,7 @@
                   height: 1024
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/6/{row}_{column}.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/6/{row}_{column}.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: ['ondemand', 'preload'],
@@ -2223,7 +2080,7 @@
                   height: 512
                 },
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/vr/0.jpg',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_0/f/vr/0.jpg',
                   colCount: 1,
                   class: 'TiledImageResourceLevel',
                   tags: 'mobilevr',
@@ -2267,7 +2124,7 @@
       },
       {
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA_t.jpg',
         class: 'Video',
         height: 720,
         label: trans('video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA.label'),
@@ -2283,12 +2140,12 @@
           levels: [
             {
               width: 1280,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA.mp4',
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA.mp4',
               class: 'VideoResourceLevel',
               bitrate: 1728,
               type: 'video/mp4',
               posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA_poster.jpg',
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA_poster.jpg',
               framerate: 25,
               height: 720
             }
@@ -2375,7 +2232,7 @@
         paddingBottom: 0,
         titlePaddingTop: 5,
         titlePaddingBottom: 5,
-        children: ['this.WebFrame_AD7AFC6A_BF73_A5E1_41DA_5F24A5D92EA6'],
+        children: ['this.WebFrame_ADA8CDC8_BF73_A720_41D2_5878BE933411'],
         verticalAlign: 'middle',
         shadowColor: '#000000',
         paddingLeft: 0,
@@ -2421,124 +2278,124 @@
       },
       {
         items: [
-          'this.PanoramaPlayListItem_AD7FCC6D_BF73_A5E3_41E2_1377803D1443',
+          'this.PanoramaPlayListItem_ADAA7DCB_BF73_A720_418A_0C8D5438DABC',
           {
             media: 'this.panorama_90789B51_9E87_15D1_41D9_77CCA65046D6',
             class: 'PanoramaPlayListItem',
             begin: 'this.setEndToItemIndex(this.mainPlayList, 1, 2)',
-            player: 'this.MainViewerPanoramaPlayer',
+            player: 'this.MainViewer_mobilePanoramaPlayer',
             camera: 'this.panorama_90789B51_9E87_15D1_41D9_77CCA65046D6_camera'
           },
           {
             media: 'this.panorama_9345617B_9E87_15D1_41B7_729AF050AB26',
             class: 'PanoramaPlayListItem',
             begin: 'this.setEndToItemIndex(this.mainPlayList, 2, 3)',
-            player: 'this.MainViewerPanoramaPlayer',
+            player: 'this.MainViewer_mobilePanoramaPlayer',
             camera: 'this.panorama_9345617B_9E87_15D1_41B7_729AF050AB26_camera'
           },
-          'this.PanoramaPlayListItem_AD7A3C6C_BF73_A5E1_41E4_8E3DE2B564DE',
+          'this.PanoramaPlayListItem_ADA86DCA_BF73_A720_41B9_2F998C3D460E',
           {
             media: 'this.panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3',
             class: 'PanoramaPlayListItem',
             begin: 'this.setEndToItemIndex(this.mainPlayList, 4, 5)',
-            player: 'this.MainViewerPanoramaPlayer',
+            player: 'this.MainViewer_mobilePanoramaPlayer',
             camera: 'this.panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3_camera'
           },
           {
             media: 'this.panorama_935E2477_9E89_73D1_41DF_11480B88250D',
             class: 'PanoramaPlayListItem',
             begin: 'this.setEndToItemIndex(this.mainPlayList, 5, 6)',
-            player: 'this.MainViewerPanoramaPlayer',
+            player: 'this.MainViewer_mobilePanoramaPlayer',
             camera: 'this.panorama_935E2477_9E89_73D1_41DF_11480B88250D_camera'
           },
           {
             media: 'this.panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E',
             class: 'PanoramaPlayListItem',
             begin: 'this.setEndToItemIndex(this.mainPlayList, 6, 7)',
-            player: 'this.MainViewerPanoramaPlayer',
+            player: 'this.MainViewer_mobilePanoramaPlayer',
             camera: 'this.panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E_camera'
           },
           {
             media: 'this.video_B2A74607_BC90_652F_41C8_59850453622F',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 7, 8)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 7, 8)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 7, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 7)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 7, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 7)"
           },
           {
             media: 'this.video_B227002A_BCF0_5D60_41D1_547326ECEEFB',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 8, 9)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 8, 9)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 8, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 8)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 8, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 8)"
           },
           {
             media: 'this.video_B22AF5EF_BCF0_E6E0_41C2_1225ECE773EA',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 9, 10)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 9, 10)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 9, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 9)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 9, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 9)"
           },
           {
             media: 'this.video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 10, 11)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 10, 11)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 10, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 10)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 10, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 10)"
           },
           {
             media: 'this.video_B3E45329_BCF1_E363_41E3_08243E6CFD7E',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 11, 12)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 11, 12)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 11, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 11)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 11, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 11)"
           },
           {
             media: 'this.video_B37F980D_BCF1_AD20_41E1_0C0AD4238D93',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 12, 13)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 12, 13)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 12, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 12)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 12, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 12)"
           },
           {
             media: 'this.video_B3334B36_BCF0_A360_41E5_B87B380CFBC6',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 13, 14)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 13, 14)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 13, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 13)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 13, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 13)"
           },
           {
             media: 'this.video_B30AF79A_BCF0_A321_41D4_D3B6E5E1CFAF',
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 14, 15)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 14, 15)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 14, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 14)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 14, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 14)"
           },
           {
             media: 'this.video_ACD51FBD_BCF3_A360_41D7_54CAC75A7BFA',
             end: "this.trigger('tourEnded')",
             class: 'VideoPlayListItem',
             begin:
-              'this.fixTogglePlayPauseButton(this.MainViewerVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 15, 0)',
-            player: 'this.MainViewerVideoPlayer',
+              'this.fixTogglePlayPauseButton(this.MainViewer_mobileVideoPlayer); this.setEndToItemIndex(this.mainPlayList, 15, 0)',
+            player: 'this.MainViewer_mobileVideoPlayer',
             start:
-              "this.MainViewerVideoPlayer.set('displayPlaybackBar', true); this.MainViewerVideoPlayer.set('displayPlayOverlay', true); this.MainViewerVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 15, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 15)"
+              "this.MainViewer_mobileVideoPlayer.set('displayPlaybackBar', true); this.MainViewer_mobileVideoPlayer.set('displayPlayOverlay', true); this.MainViewer_mobileVideoPlayer.set('clickAction', 'play_pause'); this.changeBackgroundWhilePlay(this.mainPlayList, 15, '#000000'); this.pauseGlobalAudiosWhilePlayItem(this.mainPlayList, 15)"
           }
         ],
         id: 'mainPlayList',
@@ -2546,7 +2403,7 @@
       },
       {
         thumbnailUrl:
-          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E_t.jpg',
+          'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E_t.jpg',
         class: 'Video',
         height: 1080,
         label: trans('video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E.label'),
@@ -2562,31 +2419,18 @@
           levels: [
             {
               width: 1920,
-              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E.mp4',
+              url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E.mp4',
               class: 'VideoResourceLevel',
               bitrate: 3888,
               type: 'video/mp4',
               posterURL:
-                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E_poster.jpg',
+                'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/video_B3C2F6A2_BCF0_6560_41B1_2D5B0D78BB2E_poster.jpg',
               framerate: 25,
               height: 1080
             }
           ],
           height: 1080
         }
-      },
-      {
-        touchControlMode: 'drag_rotation',
-        gyroscopeVerticalDraggingEnabled: true,
-        class: 'PanoramaPlayer',
-        viewerArea: 'this.MainViewer',
-        displayPlaybackBar: true,
-        arrowKeysAction: 'translate',
-        aaEnabled: true,
-        zoomEnabled: true,
-        mouseControlMode: 'drag_rotation',
-        id: 'MainViewerPanoramaPlayer',
-        surfaceSelectionEnabled: false
       },
       {
         class: 'PanoramaCamera',
@@ -2596,28 +2440,127 @@
         hoverFactor: 0
       },
       {
-        borderRadius: 0,
-        paddingTop: 0,
-        data: { name: 'Image30077' },
-        id: 'Image_63EB4FB2_75BF_8830_41D6_A559529C25EC',
-        width: '8.926%',
-        verticalAlign: 'middle',
-        paddingLeft: 0,
-        right: '20%',
-        url: 'skin/Image_63EB4FB2_75BF_8830_41D6_A559529C25EC.png',
-        paddingRight: 0,
+        shadowHorizontalLength: 3,
+        bodyPaddingTop: 0,
+        closeButtonPressedBorderColor: '#000000',
+        closeButtonRollOverIconLineWidth: 2,
+        closeButtonRollOverBorderSize: 0,
+        id: 'window_AE2016B7_BC90_A560_41E0_E0C1B15006BA',
+        titleFontFamily: 'Arial',
+        gap: 10,
+        data: { name: 'Window27089' },
+        closeButtonIconColor: '#B2B2B2',
+        closeButtonPressedBackgroundColor: [],
+        bodyPaddingBottom: 0,
+        footerBackgroundColorRatios: [0, 0.9, 1],
+        headerVerticalAlign: 'middle',
+        width: '90%',
+        closeButtonPaddingLeft: 0,
+        closeButtonPaddingRight: 0,
+        modal: true,
         toolTipHorizontalAlign: 'center',
-        horizontalAlign: 'center',
+        overflow: 'scroll',
+        closeButtonPressedBackgroundColorRatios: [],
+        closeButtonPaddingBottom: 0,
+        headerBackgroundOpacity: 0,
         borderSize: 0,
-        top: '13.04%',
-        class: 'Image',
-        backgroundOpacity: 0,
-        minHeight: 1,
-        minWidth: 1,
+        horizontalAlign: 'center',
+        closeButtonPressedBorderSize: 0,
+        veilHideEffect: {
+          duration: 500,
+          class: 'FadeOutEffect',
+          easing: 'cubic_in_out'
+        },
+        backgroundColor: [],
+        closeButtonBorderColor: '#000000',
+        bodyPaddingRight: 0,
+        class: 'Window',
+        height: '90%',
+        backgroundColorRatios: [],
+        closeButtonBackgroundColorRatios: [],
+        closeButtonRollOverBackgroundColor: [],
+        titleFontColor: '#000000',
+        closeButtonRollOverIconColor: '#FFFFFF',
+        veilColorRatios: [0, 1],
+        headerBackgroundColorDirection: 'vertical',
         propagateClick: false,
-        shadow: false,
-        scaleMode: 'fit_inside',
-        paddingBottom: 0
+        bodyPaddingLeft: 0,
+        veilOpacity: 0.4,
+        closeButtonPressedIconLineWidth: 3,
+        contentOpaque: false,
+        footerBackgroundOpacity: 0,
+        hideEffect: {
+          duration: 500,
+          class: 'FadeOutEffect',
+          easing: 'cubic_in_out'
+        },
+        closeButtonBackgroundColor: [],
+        closeButtonPaddingTop: 0,
+        shadow: true,
+        scrollBarColor: '#000000',
+        titleFontSize: '1.29vmin',
+        scrollBarOpacity: 0.5,
+        showEffect: {
+          duration: 500,
+          class: 'FadeInEffect',
+          easing: 'cubic_in_out'
+        },
+        titlePaddingLeft: 5,
+        headerPaddingRight: 0,
+        titleHorizontalAlign: 'left',
+        bodyBackgroundColorRatios: [0, 0.5, 1],
+        scrollBarMargin: 2,
+        shadowVerticalLength: 0,
+        veilColorDirection: 'horizontal',
+        backgroundColorDirection: 'vertical',
+        headerBackgroundColor: ['#DDDDDD', '#EEEEEE', '#FFFFFF'],
+        paddingTop: 0,
+        paddingBottom: 0,
+        titlePaddingTop: 5,
+        titlePaddingBottom: 5,
+        children: ['this.WebFrame_ADAB6DC9_BF73_A720_41E5_1E7BEB64C29F'],
+        verticalAlign: 'middle',
+        shadowColor: '#000000',
+        paddingLeft: 0,
+        bodyBackgroundColor: ['#FFFFFF', '#DDDDDD', '#FFFFFF'],
+        footerBackgroundColor: ['#FFFFFF', '#EEEEEE', '#DDDDDD'],
+        closeButtonRollOverBorderColor: '#000000',
+        titlePaddingRight: 5,
+        bodyBackgroundOpacity: 0,
+        paddingRight: 0,
+        headerPaddingBottom: 5,
+        closeButtonBorderSize: 0,
+        closeButtonIconLineWidth: 2,
+        scrollBarVisible: 'rollOver',
+        veilShowEffect: {
+          duration: 500,
+          class: 'FadeInEffect',
+          easing: 'cubic_in_out'
+        },
+        headerBackgroundColorRatios: [0, 0.1, 1],
+        shadowOpacity: 0.5,
+        footerBackgroundColorDirection: 'vertical',
+        layout: 'vertical',
+        headerPaddingLeft: 10,
+        backgroundOpacity: 1,
+        closeButtonBackgroundOpacity: 0,
+        shadowSpread: 1,
+        closeButtonIconHeight: 20,
+        closeButtonRollOverBackgroundColorRatios: [],
+        footerHeight: 5,
+        minWidth: 20,
+        closeButtonBorderRadius: 11,
+        minHeight: 20,
+        closeButtonPressedIconColor: '#FFFFFF',
+        scrollBarWidth: 10,
+        veilColor: ['#000000', '#000000'],
+        closeButtonRollOverBackgroundOpacity: 0,
+        headerPaddingTop: 10,
+        closeButtonIconWidth: 20,
+        bodyBackgroundColorDirection: 'vertical',
+        borderRadius: 5,
+        closeButtonPressedBackgroundOpacity: 0,
+        shadowBlurRadius: 6
       },
       {
         hfov: 1.43,
@@ -2636,6 +2579,35 @@
         yaw: -6.89,
         image: 'this.res_64E3D4AF_7599_B8D0_41D5_5C7C360396A1',
         hideEasing: 'cubic_out'
+      },
+      {
+        fontFamily: 'Arial',
+        paddingTop: 0,
+        fontWeight: 'normal',
+        data: { name: 'Label27062' },
+        id: 'Label_662EA410_758E_9FF0_41D5_F1CC7070BF20_mobile',
+        left: '12.3%',
+        borderRadius: 0,
+        width: 208.5,
+        verticalAlign: 'middle',
+        paddingLeft: 0,
+        fontColor: '#000000',
+        paddingRight: 0,
+        text: trans('Label_662EA410_758E_9FF0_41D5_F1CC7070BF20_mobile.text'),
+        toolTipHorizontalAlign: 'center',
+        horizontalAlign: 'center',
+        borderSize: 0,
+        top: '32.39%',
+        class: 'Label',
+        backgroundOpacity: 0,
+        fontSize: '1.48vmin',
+        minHeight: 1,
+        minWidth: 1,
+        propagateClick: false,
+        shadow: false,
+        textDecoration: 'none',
+        fontStyle: 'normal',
+        paddingBottom: 0
       },
       {
         shadowHorizontalLength: 3,
@@ -2716,7 +2688,7 @@
         paddingBottom: 0,
         titlePaddingTop: 5,
         titlePaddingBottom: 5,
-        children: ['this.WebFrame_AD7A4C6B_BF73_A5E7_41DA_3BC76F0E9ED7'],
+        children: ['this.WebFrame_ADADFDC9_BF73_A720_41E6_82AECA642C2B'],
         verticalAlign: 'middle',
         shadowColor: '#000000',
         paddingLeft: 0,
@@ -2770,7 +2742,7 @@
         id: 'veilPopupPanorama',
         left: 0,
         borderRadius: 0,
-        data: { name: 'UIComponent33961' },
+        data: { name: 'UIComponent33971' },
         right: 0,
         paddingLeft: 0,
         paddingRight: 0,
@@ -2795,7 +2767,7 @@
         id: 'zoomImagePopupPanorama',
         left: 0,
         borderRadius: 0,
-        data: { name: 'ZoomImage33962' },
+        data: { name: 'ZoomImage33972' },
         right: 0,
         paddingLeft: 0,
         paddingRight: 0,
@@ -2838,7 +2810,7 @@
         fontColor: '#FFFFFF',
         paddingRight: 5,
         toolTipHorizontalAlign: 'center',
-        data: { name: 'CloseButton33963' },
+        data: { name: 'CloseButton33973' },
         iconWidth: '100%',
         borderColor: '#000000',
         horizontalAlign: 'center',
@@ -2868,8 +2840,8 @@
       },
       {
         backgroundColorDirection: 'vertical',
-        data: { name: 'WebFrame33958' },
-        id: 'WebFrame_AD7D7C6C_BF73_A5E1_4167_4EFC92280EC7',
+        data: { name: 'WebFrame33969' },
+        id: 'WebFrame_ADAA8DCB_BF73_A720_41CC_8DFDF1C04066',
         borderRadius: 0,
         width: '100%',
         paddingLeft: 0,
@@ -2892,32 +2864,8 @@
       },
       {
         backgroundColorDirection: 'vertical',
-        data: { name: 'WebFrame33955' },
-        id: 'WebFrame_AD7A3C6B_BF73_A5E7_41E6_89B9211D8F03',
-        borderRadius: 0,
-        width: '100%',
-        paddingLeft: 0,
-        paddingRight: 0,
-        toolTipHorizontalAlign: 'center',
-        insetBorder: false,
-        scrollEnabled: true,
-        borderSize: 0,
-        backgroundColor: [],
-        class: 'WebFrame',
-        backgroundColorRatios: [],
-        backgroundOpacity: 1,
-        minHeight: 0,
-        height: '100%',
-        minWidth: 0,
-        propagateClick: false,
-        shadow: false,
-        paddingTop: 0,
-        paddingBottom: 0
-      },
-      {
-        backgroundColorDirection: 'vertical',
-        data: { name: 'WebFrame33960' },
-        id: 'WebFrame_AD7FAC6C_BF73_A5E1_41DE_D215CED963D6',
+        data: { name: 'WebFrame33970' },
+        id: 'WebFrame_ADAAEDCB_BF73_A720_41E1_6E3BE1F99B64',
         borderRadius: 0,
         width: '100%',
         paddingLeft: 0,
@@ -3189,7 +3137,7 @@
             image: {
               levels: [
                 {
-                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_HS_8wqhkpwg.png',
+                  url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_HS_8wqhkpwg.png',
                   width: 975,
                   class: 'ImageResourceLevel',
                   height: 220
@@ -3209,28 +3157,105 @@
         id: 'overlay_7B92C76C_7589_B850_41D0_DAD4FC98ED44'
       },
       {
-        backgroundColorDirection: 'vertical',
-        data: { name: 'WebFrame33959' },
-        id: 'WebFrame_AD7C4C6C_BF73_A5E1_41E5_B83C581DD1F6',
-        borderRadius: 0,
-        width: '100%',
-        paddingLeft: 0,
-        paddingRight: 0,
-        toolTipHorizontalAlign: 'center',
-        insetBorder: false,
-        scrollEnabled: true,
-        borderSize: 0,
-        backgroundColor: [],
-        class: 'WebFrame',
-        backgroundColorRatios: [],
-        backgroundOpacity: 1,
-        minHeight: 0,
-        height: '100%',
-        minWidth: 0,
-        propagateClick: false,
-        shadow: false,
-        paddingTop: 0,
-        paddingBottom: 0
+        areas: [
+          'this.HotspotPanoramaOverlayArea_6409160C_759E_FBD0_41DA_6DE408E24971'
+        ],
+        maps: [],
+        class: 'HotspotPanoramaOverlay',
+        enabledInCardboard: true,
+        useHandCursor: true,
+        items: [
+          {
+            hfov: 2.07,
+            class: 'HotspotPanoramaOverlayImage',
+            scaleMode: 'fit_inside',
+            data: { label: 'Arrow 07' },
+            vfov: 3.93,
+            horizontalAlign: 'center',
+            verticalAlign: 'middle',
+            distance: 100,
+            image: 'this.res_64E3C4AF_7599_B8D0_41C1_9B35577BEB85',
+            pitch: -0.55,
+            yaw: 12.78
+          }
+        ],
+        id: 'overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F',
+        data: { label: 'Arrow 07', hasPanoramaAction: true }
+      },
+      {
+        areas: [
+          'this.HotspotPanoramaOverlayArea_923B1328_9E89_157F_41D3_5FC65ED1C22D'
+        ],
+        items: [
+          {
+            hfov: 1.5,
+            class: 'HotspotPanoramaOverlayImage',
+            scaleMode: 'fit_inside',
+            data: { label: 'btn-ingredients' },
+            vfov: 1.32,
+            horizontalAlign: 'center',
+            verticalAlign: 'middle',
+            distance: 50,
+            image: 'this.res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4',
+            pitch: -6.09,
+            yaw: -8.5
+          }
+        ],
+        class: 'HotspotPanoramaOverlay',
+        data: { label: 'btn-ingredients' },
+        useHandCursor: true,
+        maps: [],
+        id: 'overlay_919916D7_9E99_1CD0_4162_7929D7917281'
+      },
+      {
+        areas: [
+          'this.HotspotPanoramaOverlayArea_92EFF326_9E89_3573_41DD_2CEA914898A2'
+        ],
+        items: [
+          {
+            hfov: 1.5,
+            class: 'HotspotPanoramaOverlayImage',
+            scaleMode: 'fit_inside',
+            data: { label: 'btn-ingredients' },
+            vfov: 1.32,
+            horizontalAlign: 'center',
+            verticalAlign: 'middle',
+            distance: 50,
+            image: 'this.res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4',
+            pitch: -6.05,
+            yaw: 0.01
+          }
+        ],
+        class: 'HotspotPanoramaOverlay',
+        data: { label: 'btn-ingredients' },
+        useHandCursor: true,
+        maps: [],
+        id: 'overlay_919906D7_9E99_1CD0_41D1_23E181C4F979'
+      },
+      {
+        areas: [
+          'this.HotspotPanoramaOverlayArea_921821EC_9E89_14F7_41CB_8026DDECC1EC'
+        ],
+        items: [
+          {
+            hfov: 1.5,
+            class: 'HotspotPanoramaOverlayImage',
+            scaleMode: 'fit_inside',
+            data: { label: 'btn-ingredients' },
+            vfov: 1.32,
+            horizontalAlign: 'center',
+            verticalAlign: 'middle',
+            distance: 50,
+            image: 'this.res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4',
+            pitch: -6.05,
+            yaw: 8.47
+          }
+        ],
+        class: 'HotspotPanoramaOverlay',
+        data: { label: 'btn-ingredients' },
+        useHandCursor: true,
+        maps: [],
+        id: 'overlay_919936D7_9E99_1CD0_41C2_7C0FA5B9C076'
       },
       {
         areas: [
@@ -3337,110 +3362,33 @@
         id: 'overlay_92A66BE7_9E8B_74F1_41C4_FFA7D5122C0A'
       },
       {
-        areas: [
-          'this.HotspotPanoramaOverlayArea_6409160C_759E_FBD0_41DA_6DE408E24971'
-        ],
-        maps: [],
-        class: 'HotspotPanoramaOverlay',
-        enabledInCardboard: true,
-        useHandCursor: true,
-        items: [
-          {
-            hfov: 2.07,
-            class: 'HotspotPanoramaOverlayImage',
-            scaleMode: 'fit_inside',
-            data: { label: 'Arrow 07' },
-            vfov: 3.93,
-            horizontalAlign: 'center',
-            verticalAlign: 'middle',
-            distance: 100,
-            image: 'this.res_64E3C4AF_7599_B8D0_41C1_9B35577BEB85',
-            pitch: -0.55,
-            yaw: 12.78
-          }
-        ],
-        id: 'overlay_919966D7_9E99_1CD0_41E3_7F4848A8FA1F',
-        data: { label: 'Arrow 07', hasPanoramaAction: true }
-      },
-      {
-        areas: [
-          'this.HotspotPanoramaOverlayArea_923B1328_9E89_157F_41D3_5FC65ED1C22D'
-        ],
-        items: [
-          {
-            hfov: 1.5,
-            class: 'HotspotPanoramaOverlayImage',
-            scaleMode: 'fit_inside',
-            data: { label: 'btn-ingredients' },
-            vfov: 1.32,
-            horizontalAlign: 'center',
-            verticalAlign: 'middle',
-            distance: 50,
-            image: 'this.res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4',
-            pitch: -6.09,
-            yaw: -8.5
-          }
-        ],
-        class: 'HotspotPanoramaOverlay',
-        data: { label: 'btn-ingredients' },
-        useHandCursor: true,
-        maps: [],
-        id: 'overlay_919916D7_9E99_1CD0_4162_7929D7917281'
-      },
-      {
-        areas: [
-          'this.HotspotPanoramaOverlayArea_92EFF326_9E89_3573_41DD_2CEA914898A2'
-        ],
-        items: [
-          {
-            hfov: 1.5,
-            class: 'HotspotPanoramaOverlayImage',
-            scaleMode: 'fit_inside',
-            data: { label: 'btn-ingredients' },
-            vfov: 1.32,
-            horizontalAlign: 'center',
-            verticalAlign: 'middle',
-            distance: 50,
-            image: 'this.res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4',
-            pitch: -6.05,
-            yaw: 0.01
-          }
-        ],
-        class: 'HotspotPanoramaOverlay',
-        data: { label: 'btn-ingredients' },
-        useHandCursor: true,
-        maps: [],
-        id: 'overlay_919906D7_9E99_1CD0_41D1_23E181C4F979'
-      },
-      {
-        areas: [
-          'this.HotspotPanoramaOverlayArea_921821EC_9E89_14F7_41CB_8026DDECC1EC'
-        ],
-        items: [
-          {
-            hfov: 1.5,
-            class: 'HotspotPanoramaOverlayImage',
-            scaleMode: 'fit_inside',
-            data: { label: 'btn-ingredients' },
-            vfov: 1.32,
-            horizontalAlign: 'center',
-            verticalAlign: 'middle',
-            distance: 50,
-            image: 'this.res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4',
-            pitch: -6.05,
-            yaw: 8.47
-          }
-        ],
-        class: 'HotspotPanoramaOverlay',
-        data: { label: 'btn-ingredients' },
-        useHandCursor: true,
-        maps: [],
-        id: 'overlay_919936D7_9E99_1CD0_41C2_7C0FA5B9C076'
+        backgroundColorDirection: 'vertical',
+        data: { name: 'WebFrame33968' },
+        id: 'WebFrame_ADAABDCB_BF73_A720_41E1_2884B994B2CD',
+        borderRadius: 0,
+        width: '100%',
+        paddingLeft: 0,
+        paddingRight: 0,
+        toolTipHorizontalAlign: 'center',
+        insetBorder: false,
+        scrollEnabled: true,
+        borderSize: 0,
+        backgroundColor: [],
+        class: 'WebFrame',
+        backgroundColorRatios: [],
+        backgroundOpacity: 1,
+        minHeight: 0,
+        height: '100%',
+        minWidth: 0,
+        propagateClick: false,
+        shadow: false,
+        paddingTop: 0,
+        paddingBottom: 0
       },
       {
         backgroundColorDirection: 'vertical',
-        data: { name: 'WebFrame33957' },
-        id: 'WebFrame_AD7DDC6B_BF73_A5E7_41D8_204AE0287090',
+        data: { name: 'WebFrame33967' },
+        id: 'WebFrame_ADAC5DCA_BF73_A720_41D5_5EE5B89BA935',
         borderRadius: 0,
         width: '100%',
         paddingLeft: 0,
@@ -3695,8 +3643,8 @@
       },
       {
         backgroundColorDirection: 'vertical',
-        data: { name: 'WebFrame33954' },
-        id: 'WebFrame_AD7AFC6A_BF73_A5E1_41DA_5F24A5D92EA6',
+        data: { name: 'WebFrame33964' },
+        id: 'WebFrame_ADA8CDC8_BF73_A720_41D2_5878BE933411',
         borderRadius: 0,
         width: '100%',
         paddingLeft: 0,
@@ -3721,22 +3669,46 @@
         media: 'this.panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40',
         class: 'PanoramaPlayListItem',
         begin: 'this.setEndToItemIndex(this.mainPlayList, 0, 1)',
-        player: 'this.MainViewerPanoramaPlayer',
-        id: 'PanoramaPlayListItem_AD7FCC6D_BF73_A5E3_41E2_1377803D1443',
+        player: 'this.MainViewer_mobilePanoramaPlayer',
+        id: 'PanoramaPlayListItem_ADAA7DCB_BF73_A720_418A_0C8D5438DABC',
         camera: 'this.panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40_camera'
       },
       {
         media: 'this.panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C',
         class: 'PanoramaPlayListItem',
         begin: 'this.setEndToItemIndex(this.mainPlayList, 3, 4)',
-        player: 'this.MainViewerPanoramaPlayer',
-        id: 'PanoramaPlayListItem_AD7A3C6C_BF73_A5E1_41E4_8E3DE2B564DE',
+        player: 'this.MainViewer_mobilePanoramaPlayer',
+        id: 'PanoramaPlayListItem_ADA86DCA_BF73_A720_41B9_2F998C3D460E',
         camera: 'this.panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C_camera'
       },
       {
         backgroundColorDirection: 'vertical',
-        data: { name: 'WebFrame33956' },
-        id: 'WebFrame_AD7A4C6B_BF73_A5E7_41DA_3BC76F0E9ED7',
+        data: { name: 'WebFrame33965' },
+        id: 'WebFrame_ADAB6DC9_BF73_A720_41E5_1E7BEB64C29F',
+        borderRadius: 0,
+        width: '100%',
+        paddingLeft: 0,
+        paddingRight: 0,
+        toolTipHorizontalAlign: 'center',
+        insetBorder: false,
+        scrollEnabled: true,
+        borderSize: 0,
+        backgroundColor: [],
+        class: 'WebFrame',
+        backgroundColorRatios: [],
+        backgroundOpacity: 1,
+        minHeight: 0,
+        height: '100%',
+        minWidth: 0,
+        propagateClick: false,
+        shadow: false,
+        paddingTop: 0,
+        paddingBottom: 0
+      },
+      {
+        backgroundColorDirection: 'vertical',
+        data: { name: 'WebFrame33966' },
+        id: 'WebFrame_ADADFDC9_BF73_A720_41E6_82AECA642C2B',
         borderRadius: 0,
         width: '100%',
         paddingLeft: 0,
@@ -3767,7 +3739,7 @@
         id: 'res_64E344AF_7599_B8D0_41D6_4914B2DF62B1',
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_64E344AF_7599_B8D0_41D6_4914B2DF62B1_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_64E344AF_7599_B8D0_41D6_4914B2DF62B1_0.png',
             width: 383,
             class: 'ImageResourceLevel',
             height: 234
@@ -3785,7 +3757,7 @@
         id: 'res_64E2E4AF_7599_B8D0_41D5_1D585D0D2FFD',
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_64E2E4AF_7599_B8D0_41D5_1D585D0D2FFD_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_64E2E4AF_7599_B8D0_41D5_1D585D0D2FFD_0.png',
             width: 556,
             class: 'ImageResourceLevel',
             height: 340
@@ -3795,7 +3767,7 @@
       },
       {
         click:
-          "this.WebFrame_AD7DDC6B_BF73_A5E7_41D8_204AE0287090.set('url', this.translate('PopupWebFrameBehaviour_AE70C6D4_BC90_A520_41D1_73B0EB72D21E.url')); this.showWindow(this.window_AE7086D4_BC90_A520_41E3_C919D4D3D8B6, null, false)",
+          "this.WebFrame_ADAC5DCA_BF73_A720_41D5_5EE5B89BA935.set('url', this.translate('PopupWebFrameBehaviour_AE70C6D4_BC90_A520_41D1_73B0EB72D21E.url')); this.showWindow(this.window_AE7086D4_BC90_A520_41E3_C919D4D3D8B6, null, false)",
         id: 'HotspotPanoramaOverlayArea_7A2E6513_75BA_B9F7_41C8_AAD53BF814C3',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -3804,7 +3776,7 @@
         id: 'res_64E2F4AF_7599_B8D0_41DA_5D853AE48CAA',
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_64E2F4AF_7599_B8D0_41DA_5D853AE48CAA_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_64E2F4AF_7599_B8D0_41DA_5D853AE48CAA_0.png',
             width: 160,
             class: 'ImageResourceLevel',
             height: 160
@@ -3822,7 +3794,7 @@
         id: 'res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4',
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_924E9CFF_9E9B_0CD1_41C7_8F829E5637E4_0.png',
             width: 240,
             class: 'ImageResourceLevel',
             height: 240
@@ -3841,7 +3813,7 @@
         id: 'res_3336D051_3D70_1452_41CA_E7C48808924E',
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_3336D051_3D70_1452_41CA_E7C48808924E_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_3336D051_3D70_1452_41CA_E7C48808924E_0.png',
             width: 608,
             class: 'ImageResourceLevel',
             height: 104
@@ -3858,7 +3830,7 @@
         id: 'res_33370052_3D70_1456_41BF_00A11C6D80A4',
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_33370052_3D70_1456_41BF_00A11C6D80A4_0.png',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_33370052_3D70_1456_41BF_00A11C6D80A4_0.png',
             width: 684,
             class: 'ImageResourceLevel',
             height: 102
@@ -3874,7 +3846,7 @@
       },
       {
         click:
-          "this.WebFrame_AD7AFC6A_BF73_A5E1_41DA_5F24A5D92EA6.set('url', this.translate('PopupWebFrameBehaviour_AE4BDE59_BD70_E520_41D6_2CCAE4831CEC.url')); this.showWindow(this.window_AE4BBE59_BD70_E520_41DD_40A4A3C24EDE, null, false)",
+          "this.WebFrame_ADA8CDC8_BF73_A720_41D2_5878BE933411.set('url', this.translate('PopupWebFrameBehaviour_AE4BDE59_BD70_E520_41D6_2CCAE4831CEC.url')); this.showWindow(this.window_AE4BBE59_BD70_E520_41DD_40A4A3C24EDE, null, false)",
         id: 'HotspotPanoramaOverlayArea_7BC88519_75B9_B9F0_41CF_B9A7EDAA9316',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -3888,7 +3860,7 @@
         id: 'res_ADE05013_BC8F_DD27_41E4_8628349925D2',
         levels: [
           {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_ADE05013_BC8F_DD27_41E4_8628349925D2_0.jpg',
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_ADE05013_BC8F_DD27_41E4_8628349925D2_0.jpg',
             width: 1131,
             class: 'ImageResourceLevel',
             height: 675
@@ -3904,10 +3876,50 @@
         mapColor: 'image'
       },
       {
-        // click:
-        //   "this.setPanoramaCameraWithSpot(this.mainPlayList, this.PanoramaPlayListItem_AD7FCC6D_BF73_A5E3_41E2_1377803D1443, 0, 0, NaN || TDV.Player.DEFAULT_PANORAMA_HFOV); this.mainPlayList.set('selectedIndex', 0)",
         click:
-          "this.setPanoramaCameraWithSpot(this.mainPlayList, this.PanoramaPlayListItem_AD7FCC6D_BF73_A5E3_41E2_1377803D1443, 0, 0, NaN || TDV.Player.DEFAULT_PANORAMA_HFOV); window.location.href = '/artwork/instruction'",
+          "this.setPanoramaCameraWithSpot(this.mainPlayList, this.PanoramaPlayListItem_ADA86DCA_BF73_A720_41B9_2F998C3D460E, 0, 0, NaN || TDV.Player.DEFAULT_PANORAMA_HFOV); this.mainPlayList.set('selectedIndex', 3)",
+        id: 'HotspotPanoramaOverlayArea_6409160C_759E_FBD0_41DA_6DE408E24971',
+        class: 'HotspotPanoramaOverlayArea',
+        mapColor: 'any'
+      },
+      {
+        id: 'res_64E3C4AF_7599_B8D0_41C1_9B35577BEB85',
+        levels: [
+          {
+            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/skin/res_64E3C4AF_7599_B8D0_41C1_9B35577BEB85_0.png',
+            width: 160,
+            class: 'ImageResourceLevel',
+            height: 160
+          }
+        ],
+        class: 'ImageResource'
+      },
+      {
+        click:
+          "this.WebFrame_ADAABDCB_BF73_A720_41E1_2884B994B2CD.set('url', this.translate('PopupWebFrameBehaviour_A9F89B90_BC91_E320_41CC_DFE9F8BD5BB6.url')); this.showWindow(this.window_A9F85B91_BC91_E320_41E7_1EB25170BEDA, null, false)",
+        id: 'HotspotPanoramaOverlayArea_923B1328_9E89_157F_41D3_5FC65ED1C22D',
+        class: 'HotspotPanoramaOverlayArea',
+        mapColor: 'any'
+      },
+      {
+        click:
+          "this.WebFrame_ADAA8DCB_BF73_A720_41CC_8DFDF1C04066.set('url', this.translate('PopupWebFrameBehaviour_AE42D499_BC90_A523_41CF_163F8B1101BC.url')); this.showWindow(this.window_AE3D1499_BC90_A523_41E2_BAE5A149DD00, null, false)",
+        id: 'HotspotPanoramaOverlayArea_92EFF326_9E89_3573_41DD_2CEA914898A2',
+        class: 'HotspotPanoramaOverlayArea',
+        mapColor: 'any'
+      },
+      {
+        click:
+          "this.WebFrame_ADAAEDCB_BF73_A720_41E1_6E3BE1F99B64.set('url', this.translate('PopupWebFrameBehaviour_AE61A92B_BC90_AF67_41E5_2E14C557A7F0.url')); this.showWindow(this.window_AE60592B_BC90_AF67_41E2_92A871F7B288, null, false)",
+        id: 'HotspotPanoramaOverlayArea_921821EC_9E89_14F7_41CB_8026DDECC1EC',
+        class: 'HotspotPanoramaOverlayArea',
+        mapColor: 'any'
+      },
+      {
+        // click:
+        //   "this.setPanoramaCameraWithSpot(this.mainPlayList, this.PanoramaPlayListItem_ADAA7DCB_BF73_A720_418A_0C8D5438DABC, 0, 0, NaN || TDV.Player.DEFAULT_PANORAMA_HFOV); this.mainPlayList.set('selectedIndex', 0)",
+        click:
+          "this.setPanoramaCameraWithSpot(this.mainPlayList, this.PanoramaPlayListItem_ADAA7DCB_BF73_A720_418A_0C8D5438DABC, 0, 0, NaN || TDV.Player.DEFAULT_PANORAMA_HFOV); window.location.href = '/artwork/instruction'",
         id: 'HotspotPanoramaOverlayArea_642973B7_759E_B830_4164_9EB8A57678A8',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -3933,46 +3945,6 @@
         mapColor: 'any'
       },
       {
-        click:
-          "this.setPanoramaCameraWithSpot(this.mainPlayList, this.PanoramaPlayListItem_AD7A3C6C_BF73_A5E1_41E4_8E3DE2B564DE, 0, 0, NaN || TDV.Player.DEFAULT_PANORAMA_HFOV); this.mainPlayList.set('selectedIndex', 3)",
-        id: 'HotspotPanoramaOverlayArea_6409160C_759E_FBD0_41DA_6DE408E24971',
-        class: 'HotspotPanoramaOverlayArea',
-        mapColor: 'any'
-      },
-      {
-        id: 'res_64E3C4AF_7599_B8D0_41C1_9B35577BEB85',
-        levels: [
-          {
-            url: 'https://storage.googleapis.com/macallan-dev.appspot.com/mc3_virtual/media/res_64E3C4AF_7599_B8D0_41C1_9B35577BEB85_0.png',
-            width: 160,
-            class: 'ImageResourceLevel',
-            height: 160
-          }
-        ],
-        class: 'ImageResource'
-      },
-      {
-        click:
-          "this.WebFrame_AD7D7C6C_BF73_A5E1_4167_4EFC92280EC7.set('url', this.translate('PopupWebFrameBehaviour_A9F89B90_BC91_E320_41CC_DFE9F8BD5BB6.url')); this.showWindow(this.window_A9F85B91_BC91_E320_41E7_1EB25170BEDA, null, false)",
-        id: 'HotspotPanoramaOverlayArea_923B1328_9E89_157F_41D3_5FC65ED1C22D',
-        class: 'HotspotPanoramaOverlayArea',
-        mapColor: 'any'
-      },
-      {
-        click:
-          "this.WebFrame_AD7C4C6C_BF73_A5E1_41E5_B83C581DD1F6.set('url', this.translate('PopupWebFrameBehaviour_AE42D499_BC90_A523_41CF_163F8B1101BC.url')); this.showWindow(this.window_AE3D1499_BC90_A523_41E2_BAE5A149DD00, null, false)",
-        id: 'HotspotPanoramaOverlayArea_92EFF326_9E89_3573_41DD_2CEA914898A2',
-        class: 'HotspotPanoramaOverlayArea',
-        mapColor: 'any'
-      },
-      {
-        click:
-          "this.WebFrame_AD7FAC6C_BF73_A5E1_41DE_D215CED963D6.set('url', this.translate('PopupWebFrameBehaviour_AE61A92B_BC90_AF67_41E5_2E14C557A7F0.url')); this.showWindow(this.window_AE60592B_BC90_AF67_41E2_92A871F7B288, null, false)",
-        id: 'HotspotPanoramaOverlayArea_921821EC_9E89_14F7_41CB_8026DDECC1EC',
-        class: 'HotspotPanoramaOverlayArea',
-        mapColor: 'any'
-      },
-      {
         click: "this.mainPlayList.set('selectedIndex', 3)",
         id: 'HotspotPanoramaOverlayArea_65B0791F_75BE_89EF_41D0_8F9C8F1D38AB',
         class: 'HotspotPanoramaOverlayArea',
@@ -3980,7 +3952,7 @@
       },
       {
         click:
-          "this.WebFrame_AD7A4C6B_BF73_A5E7_41DA_3BC76F0E9ED7.set('url', this.translate('PopupWebFrameBehaviour_AE107AA3_BC97_AD60_41D5_0FCE4B08A06A.url')); this.showWindow(this.window_AE100AA3_BC97_AD60_41C8_EAF03D040492, null, false)",
+          "this.WebFrame_ADADFDC9_BF73_A720_41E6_82AECA642C2B.set('url', this.translate('PopupWebFrameBehaviour_AE107AA3_BC97_AD60_41D5_0FCE4B08A06A.url')); this.showWindow(this.window_AE100AA3_BC97_AD60_41C8_EAF03D040492, null, false)",
         id: 'HotspotPanoramaOverlayArea_7AF9C976_75BF_8830_41B9_8296DF821BD2',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -4012,7 +3984,7 @@
       },
       {
         click:
-          "this.WebFrame_AD7A3C6B_BF73_A5E7_41E6_89B9211D8F03.set('url', this.translate('PopupWebFrameBehaviour_AE2056B6_BC90_A560_41C9_02B5FF38E631.url')); this.showWindow(this.window_AE2016B7_BC90_A560_41E0_E0C1B15006BA, null, false)",
+          "this.WebFrame_ADAB6DC9_BF73_A720_41E5_1E7BEB64C29F.set('url', this.translate('PopupWebFrameBehaviour_AE2056B6_BC90_A560_41C9_02B5FF38E631.url')); this.showWindow(this.window_AE2016B7_BC90_A560_41E0_E0C1B15006BA, null, false)",
         id: 'HotspotPanoramaOverlayArea_7AACE1E4_75BB_9850_41DB_13DE57A7E88B',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'

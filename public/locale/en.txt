@@ -5,20 +5,34 @@
 ### Description
 
 ### Title
-tour.name = Untitled 5
+tour.name = mc3_virtual
+
+## Skin
+
+### Label
+Label_662EA410_758E_9FF0_41D5_F1CC7070BF20.text = Crafted without compromise. Please savour The Macallan in moderation.
+Label_662EA410_758E_9FF0_41D5_F1CC7070BF20_mobile.text = Crafted without compromise. Please savour the Macallan in moderation.
 
 ## Media
 
 ### Title
-panorama_E28F7057_FAD4_AED3_41EC_18C831070634.label = V11_01_Mastery
-panorama_E2B2863D_FAD3_D257_41D9_4E2B1D45FD4B.label = V11_02_CC_Gallery 
-panorama_E2BA6CA6_FAD4_5675_41C1_8A3EB5EB1CAD.label = V11_02_CYO
-panorama_E2BEA0A8_FAD4_6E7D_41E4_9694BBBA4EB0.label = V11_01_Mastery_taste 
-panorama_E3F014DB_FADC_57D3_41D6_94870C45955A.label = image (6)
-panorama_E3FE20FC_FAD4_6FD5_41D7_3B939BF6034C.label = V11_01_place
-panorama_EC45F6E6_F953_D3F5_41D7_0BFFA06DD2F7.label = Collaboration with MC3  copy
+panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E.label = V11_02_CC_Gallery 
+panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40.label = Collaboration with MC3  copy
+panorama_90789B51_9E87_15D1_41D9_77CCA65046D6.label = V12_gallery 1_edited
+panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3.label = image (6)
+panorama_9345617B_9E87_15D1_41B7_729AF050AB26.label = V11_01_Mastery
+panorama_935E2477_9E89_73D1_41DF_11480B88250D.label = V11_02_CYO
+panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C.label = V11_01_Mastery_taste 
 
-## Hotspot
+## Action
 
-### Tooltip
-HotspotPanoramaOverlayArea_EEC95318_F9B4_B25D_41C7_40764212D78B.toolTip = ENTER \
+### URL
+LinkBehaviour_AE26914D_BCB0_7F20_41CE_5003CB132CA1.source = /gallery
+LinkBehaviour_AEB209D9_BCB3_AF20_41E4_047170E281C0.source = https://www.themacallan.com/en/concept-no3-virtual-tasting
+PopupWebFrameBehaviour_A9F89B90_BC91_E320_41CC_DFE9F8BD5BB6.url = //player.vimeo.com/video/576568466?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
+PopupWebFrameBehaviour_AE107AA3_BC97_AD60_41D5_0FCE4B08A06A.url = //player.vimeo.com/video/576562940?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
+PopupWebFrameBehaviour_AE2056B6_BC90_A560_41C9_02B5FF38E631.url = //player.vimeo.com/video/576563206?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
+PopupWebFrameBehaviour_AE42D499_BC90_A523_41CF_163F8B1101BC.url = //player.vimeo.com/video/576568307?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
+PopupWebFrameBehaviour_AE4BDE59_BD70_E520_41D6_2CCAE4831CEC.url = //player.vimeo.com/video/576562813?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
+PopupWebFrameBehaviour_AE61A92B_BC90_AF67_41E5_2E14C557A7F0.url = //player.vimeo.com/video/576568369?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
+PopupWebFrameBehaviour_AE70C6D4_BC90_A520_41D1_73B0EB72D21E.url = //player.vimeo.com/video/576562992?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479

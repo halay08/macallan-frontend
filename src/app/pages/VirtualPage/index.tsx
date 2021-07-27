@@ -1,17 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import TourHelper from './helpers';
 import { loadScript } from 'app/helpers';
-import { IntroPopup } from './IntroPopup';
 
 export function VirtualPage() {
-  const [openPopup, setOpenPopup] = useState(false);
   const viewerRef = useRef<HTMLDivElement>(null);
   const preloadRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setOpenPopup(true);
-  }, []);
 
   const addFullScreenStyle = (element: HTMLElement) => {
     element.style.width = '100%';
@@ -47,14 +41,16 @@ export function VirtualPage() {
         <title>Virtual Experience</title>
         <meta name="description" content="Macallan - Virtual Experience" />
       </Helmet>
-      <IntroPopup isOpen={openPopup} onEnter={() => setOpenPopup(false)} />
       <div
         ref={preloadRef}
-        className="relative bg-white transition-opacity w-full h-screen text-gray-dark flex items-center justify-center"
+        className="relative bg-white transition-opacity w-full h-screen text-gray-dark flex items-center justify-center fill-viewport"
       >
         Loading virtual tour. Please wait...
       </div>
-      <div ref={viewerRef} className="absolute w-full h-full z-10 top-0"></div>
+      <div
+        ref={viewerRef}
+        className="absolute w-full h-full z-10 top-0 fill-viewport"
+      ></div>
     </>
   );
 }
