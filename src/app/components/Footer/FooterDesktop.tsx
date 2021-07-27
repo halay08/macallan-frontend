@@ -91,7 +91,7 @@ const NextButton = styled.button`
   padding: 1px;
 `;
 const ButtonWrapper = styled.div`
-  bottom: 120px;
+  bottom: 130px;
 `;
 const Message = styled.div`
   margin-left: 8%;

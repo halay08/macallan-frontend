@@ -12,7 +12,10 @@ export class TourHelper {
   static WEBVR_POLYFILL: string = '/lib/WebVRPolyfill.js?v=1623410382216';
   static HLS: string = '/lib/Hls.js?v=1623410382216';
   static QUERY_STRING_PARAMETERS: string = 'v=1623410382216';
-  static GENERAL_SCRIPT: string = '/script_general.js?v=1623410382216';
+  static GENERAL_SCRIPT: string =
+    process.env.NODE_ENV === 'development'
+      ? '/script_general_dev.js?v=1623410382216'
+      : '/script_general.js?v=1623410382216';
 
   tour: any;
   viewer: HTMLDivElement;
