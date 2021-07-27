@@ -30,37 +30,39 @@ export const SizeBoxDesktop = () => {
           STEP 1: CHOOSE FORMAT
         </strong>
       </div>
-      <div className="px-24">
-        <div className="grid grid-cols-3 items-end text-center font-Alternate-bold">
-          <div className="group">
-            <Square
-              ref={e => (refs[StageFormat.SQUARE] = e)}
-              onClick={() => storeStageFormat(StageFormat.SQUARE)}
-              className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
-            ></Square>
-            <span className="m-2 block group-hover:text-primary text-2xl">
-              Square
-            </span>
-          </div>
-          <div className="group">
-            <Mobile
-              ref={e => (refs[StageFormat.MOBILE] = e)}
-              onClick={() => storeStageFormat(StageFormat.MOBILE)}
-              className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
-            ></Mobile>
-            <span className="m-2 block group-hover:text-primary text-2xl">
-              9:16
-            </span>
-          </div>
-          <div className="group">
-            <Desktop
-              ref={e => (refs[StageFormat.DESKTOP] = e)}
-              onClick={() => storeStageFormat(StageFormat.DESKTOP)}
-              className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
-            ></Desktop>
-            <span className="m-2 block group-hover:text-primary text-2xl">
-              16:9
-            </span>
+      <div className="flex items-center flex-1">
+        <div className="px-24">
+          <div className="grid grid-cols-3 items-end text-center font-Alternate-bold">
+            <div className="group">
+              <Square
+                ref={e => (refs[StageFormat.SQUARE] = e)}
+                onClick={() => storeStageFormat(StageFormat.SQUARE)}
+                className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
+              ></Square>
+              <span className="m-2 block group-hover:text-primary text-2xl">
+                Square
+              </span>
+            </div>
+            <div className="group">
+              <Mobile
+                ref={e => (refs[StageFormat.MOBILE] = e)}
+                onClick={() => storeStageFormat(StageFormat.MOBILE)}
+                className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
+              ></Mobile>
+              <span className="m-2 block group-hover:text-primary text-2xl">
+                9:16
+              </span>
+            </div>
+            <div className="group">
+              <Desktop
+                ref={e => (refs[StageFormat.DESKTOP] = e)}
+                onClick={() => storeStageFormat(StageFormat.DESKTOP)}
+                className="border-secondary m-auto group-hover:border-primary focus:border-primary-dark active:border-primary-dark focus:outline-none"
+              ></Desktop>
+              <span className="m-2 block group-hover:text-primary text-2xl">
+                16:9
+              </span>
+            </div>
           </div>
         </div>
       </div>

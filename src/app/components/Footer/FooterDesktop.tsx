@@ -35,7 +35,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
             onClick={() =>
               prevButtonHandler ? prevButtonHandler() : history.goBack()
             }
-            className="rounded-full focus:outline-none active:outline-none mx-12"
+            className="focus:outline-none active:outline-none mx-12"
           >
             <PrevButtonSvg className="w-10 m-auto" />
             <span className="text-secondary mt-1">BACK</span>
@@ -50,7 +50,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
                   : history.goForward()
                 : {}
             }
-            className={`rounded-full focus:outline-none focus:outline-none mx-12 ${
+            className={`focus:outline-none focus:outline-none mx-12 ${
               !isNextButtonDisable ? '' : 'opacity-50 cursor-not-allowed'
             }`}
           >
