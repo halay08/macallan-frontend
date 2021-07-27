@@ -34,7 +34,6 @@
     "start": "craco start",
     "build": "craco build",
     "build:develop": "env-cmd -f .env.development craco build",
-    "build:staging": "env-cmd -f .env.staging craco build",
     "build:production": "env-cmd -f .env.production craco build",
     "test": "craco test",
     "checkTs": "tsc --noEmit",

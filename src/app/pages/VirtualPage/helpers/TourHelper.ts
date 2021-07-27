@@ -13,12 +13,12 @@ export class TourHelper {
   static HLS: string = '/lib/Hls.js?v=1623410382216';
   static QUERY_STRING_PARAMETERS: string = 'v=1623410382216';
   static GENERAL_SCRIPT: string =
-    process.env.NODE_ENV === 'development'
-      ? '/script_general_dev.js?v=1623410382216'
+    process.env.NODE_ENV === 'production'
+      ? '/script_general_production.js?v=1623410382216'
       : '/script_general.js?v=1623410382216';
   static MOBILE_SCRIPT: string =
-    process.env.NODE_ENV === 'development'
-      ? '/script_mobile_dev.js?v=1623410382216'
+    process.env.NODE_ENV === 'production'
+      ? '/script_mobile_production.js?v=1623410382216'
       : '/script_mobile.js?v=1623410382216';
 
   tour: any;
