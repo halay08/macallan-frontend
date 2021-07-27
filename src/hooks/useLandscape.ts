@@ -1,16 +1,32 @@
 import { useEffect, useState } from 'react';
 import path from 'ramda.path';
 
+const isIOS = () => {
+  return (
+    [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod'
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+  );
+};
+
 const useLandscape = () => {
   const [isOrientation, setIsOrientation] = useState(false);
 
   const isOrientationLandscape = ev => {
     const angle = path(['target', 'screen', 'orientation', 'angle'], ev) || 0;
-    return setIsOrientation(angle > 0);
+    setIsOrientation(angle > 0);
   };
 
   const isOrientationIOS = () => {
-    return setIsOrientation(window.innerWidth > window.innerHeight);
+    if (!isIOS()) return;
+    setIsOrientation(window.innerWidth > window.innerHeight);
   };
 
   useEffect(() => {

@@ -155,7 +155,7 @@ export const StudioPage = () => {
       </Helmet>
       <Prompt message={confirmationHandler} />
       <WarningPopup
-        message="We don't support the landscape view."
+        message="Oops! We don't support the landscape view."
         isOpen={isOrientation}
       />
       {isMobile ? (
