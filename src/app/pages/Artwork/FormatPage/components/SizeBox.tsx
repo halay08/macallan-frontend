@@ -24,14 +24,14 @@ export const SizeBox = () => {
   };
 
   return (
-    <Wrapper className="p-7 border-t-1 border-solid border-gray-light">
+    <Wrapper className="px-7 pt-6 pb-4 border-t-1 border-solid border-gray-light">
       <BoxWrapper className="m-auto">
         <div className="grid text-center mb-8 font-serif">
           <strong className="font-medium text-tiny">
             STEP 1: CHOOSE FORMAT
           </strong>
         </div>
-        <div className="grid grid-cols-3 items-end text-center">
+        <div className="grid grid-cols-3 items-end text-center font-Alternate-bold">
           <div className="group">
             <Square
               ref={e => (refs[StageFormat.SQUARE] = e)}
@@ -66,8 +66,6 @@ const Wrapper = styled.div`
   box-shadow: inset 0px 17px 16px -10px #ccc;
   border-top: 1px solid #bbb;
   width: 100%;
-  position: absolute;
-  bottom: 90px;
 `;
 const BoxWrapper = styled.div`
   max-width: 325px;

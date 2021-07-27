@@ -4,6 +4,7 @@ import ConceptLogo from './assets/concept.png';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
 import { ReactComponent as MoreButtonSvg } from './assets/more.svg';
+import { FOOTER_TEXT } from 'app/helpers/constants';
 
 interface FooterProps {
   className: string;
@@ -28,7 +29,7 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
 
   return (
     <FooterWrapper className={`bottom-0 ${className}`}>
-      <FooterInner className="bg-white flex flex-col items-center justify-between h-full font-Alternate-bold relative border-t border-gray-light border-solid">
+      <FooterInner className="bg-white flex flex-col items-center justify-between h-full font-Alternate-bold relative border-t-2 border-gray-light border-solid">
         {showPrevButton && (
           <PrevButton
             onClick={() =>
@@ -37,13 +38,13 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
             className="absolute left-5 top-4 rounded-full focus:outline-none active:outline-none"
           >
             <PrevButtonSvg className="w-8 md:w-12 m-auto" />
-            <span className="block text-xs md:text-lg text-secondary mt-1">
+            <span className="text-xs md:text-lg text-secondary mt-1 leading-4">
               BACK
             </span>
           </PrevButton>
         )}
 
-        <div className="w-6/12">
+        <div className="w-5/12 mt-2">
           <img src={ConceptLogo} className="w-full" alt="concept" />
         </div>
 
@@ -67,13 +68,13 @@ export const FooterMobile: React.FC<Partial<FooterProps>> = ({
             ) : (
               <NextButtonSvg className="w-8 md:w-12 m-auto" />
             )}
-            <span className="block text-xs md:text-lg text-secondary mt-1">
+            <span className="text-xs md:text-lg text-secondary mt-1">
               {showMoreButton ? 'MORE' : 'NEXT'}
             </span>
           </NextButton>
         )}
         <div className="text-center font-primary text-sm">
-          Please savour The Macallan in moderation.
+          {FOOTER_TEXT.MOBILE}
         </div>
       </FooterInner>
     </FooterWrapper>

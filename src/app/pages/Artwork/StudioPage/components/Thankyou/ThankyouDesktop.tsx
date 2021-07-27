@@ -14,13 +14,13 @@ export const ThankyouDesktop = ({ onContinue, onStartAgain }: Props) => {
           Thank you for your participation
         </div>
         <button
-          className="w-9/12 focus:outline-none"
+          className="w-9/12 focus:outline-none select-none"
           onClick={() => onContinue()}
         >
           <img src={ContinueToShare} alt="continue to share" />
         </button>
         <button
-          className="w-9/12 -mt-6 focus:outline-none"
+          className="w-9/12 focus:outline-none select-none"
           onClick={() => onStartAgain()}
         >
           <img src={StartAgain} alt="start again" />

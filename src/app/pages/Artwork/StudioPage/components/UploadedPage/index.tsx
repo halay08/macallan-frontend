@@ -6,27 +6,29 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from 'redux/store';
 import { useHistory } from 'react-router-dom';
 import { ERROR_MESSAGE, SHARER_MESSAGE } from 'app/helpers/constants';
-import { UploadedTypes } from 'types';
+import { ArtworkContact, UploadedTypes } from 'types';
 import { storage } from 'config';
 import { v4 as uuidv4 } from 'uuid';
-import { base64toBlob } from 'app/helpers';
+import { base64toBlob, getFirebaseImageLink } from 'app/helpers';
 import {
   fetchError,
   fetchStart,
   fetchSuccess,
+  setContact,
   setImageId
 } from 'redux/actions';
 import { ArtworkService } from 'app/services';
 import { useAlert } from 'react-alert';
 import { ShareECardPopup, ThankyouPopup } from './Popups';
-import isEmpty from 'ramda.isempty';
+
+const isChromeOnIOS = () => navigator.userAgent.match('CriOS');
 
 export const UploadedPage = () => {
   const { isMobile } = useResponsive();
   const { stage } = useSelector<AppState, AppState['studio']>(
     ({ studio }) => studio
   );
-  const { id, message } = useSelector<AppState, AppState['artwork']>(
+  const { id, message, contact } = useSelector<AppState, AppState['artwork']>(
     ({ artwork }) => artwork
   );
 
@@ -44,30 +46,67 @@ export const UploadedPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleDownload = () => {
+  const uploadImage = async (fileName: string) => {
+    const dataUrl = stage.toDataURL({ pixelRatio: 3 });
+    const blob = base64toBlob(dataUrl, fileName);
+    const ref = storage.ref('images').child(fileName);
+    await ref.put(blob);
+  };
+
+  const normalDownload = () => {
+    const a = document.createElement('a');
+    const dataURL = stage.toDataURL({ pixelRatio: 3 });
+    a.href = dataURL;
+    a.download = 'Macallan_CYO_artwork.png';
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  const chromeOnIOSDownload = async () => {
+    const temp = 'temp.png';
+    await uploadImage(temp);
+    const imageUrl =
+      decodeURIComponent(getFirebaseImageLink(temp)) + '&t=' + Date.now();
+    window.open(imageUrl, '_blank');
+  };
+
+  const handleDownload = async () => {
     try {
-      const image = document.getElementById(
-        'finalImageContainer'
-      )?.firstElementChild;
-      const a = document.createElement('a');
-      a.href = image?.getAttribute('src') || '';
-      a.download = 'Macallan_CYO_artwork.jpeg';
-      a.click();
+      dispatch(fetchStart());
+      if (isChromeOnIOS()) {
+        await chromeOnIOSDownload();
+      } else {
+        normalDownload();
+      }
+      dispatch(fetchSuccess());
     } catch ({ message = ERROR_MESSAGE }) {
       dispatch(fetchError(message));
     }
   };
 
-  const getImageLink = () => {
-    const firebaseStorage = 'https://firebasestorage.googleapis.com/v0/b/';
-    const bucket = `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}/o/images%2F`;
-    const imageName = `${id}.png`;
-    return encodeURIComponent(
-      firebaseStorage + bucket + imageName + '?alt=media'
-    );
+  const uploadToStorage = async (): Promise<string> => {
+    try {
+      dispatch(fetchStart());
+      const newId = uuidv4();
+      const fileName = `${newId}.png`;
+      dispatch(setImageId(newId));
+      await uploadImage(fileName);
+
+      dispatch(fetchSuccess());
+      return fileName;
+    } catch (e) {
+      const { message = ERROR_MESSAGE } = e;
+      dispatch(fetchError(message));
+      return '';
+    }
   };
-  const handleShareSocial = mediaUrl => {
-    const totalUrl = mediaUrl + getImageLink();
+
+  const handleShareSocial = async (mediaUrl: string) => {
+    let fileName = `${id}.png`;
+    if (!id) fileName = await uploadToStorage();
+    const totalUrl = mediaUrl + getFirebaseImageLink(fileName);
 
     window.open(
       totalUrl,
@@ -76,17 +115,21 @@ export const UploadedPage = () => {
     );
   };
 
-  const handleShareWhatsapp = () => {
+  const handleShareWhatsapp = async () => {
+    let fileName = `${id}.png`;
+    if (!id) fileName = await uploadToStorage();
+    const totalUrl = 'whatsapp://send?text=' + getFirebaseImageLink(fileName);
     const a = document.createElement('a');
-    const totalUrl = 'whatsapp://send?text=' + getImageLink();
     a.href = totalUrl;
     a.target = '_blank';
     a.setAttribute('data-action', 'share/whatsapp/share');
     a.click();
   };
 
-  const handleSubmitEmail = () => {
-    const imageLink = getImageLink();
+  const handleSubmitEmail = async () => {
+    let fileName = `${id}.png`;
+    if (!id) fileName = await uploadToStorage();
+    const imageLink = getFirebaseImageLink(fileName);
     const a = document.createElement('a');
     a.href = `mailto:?subject=${SHARER_MESSAGE}&body=${imageLink}`;
     a.target = '_blank';
@@ -117,8 +160,8 @@ export const UploadedPage = () => {
     }
   };
 
-  const uploadToStorage = async (contact = {}) => {
-    if (id) {
+  const postToGallery = async (contactInfo: ArtworkContact) => {
+    if (contact) {
       alert.error(
         'This artwork is already uploaded, please wait for admin’s approval'
       );
@@ -128,7 +171,7 @@ export const UploadedPage = () => {
       dispatch(fetchStart());
 
       const id = uuidv4();
-      const dataUrl = stage.toDataURL();
+      const dataUrl = stage.toDataURL({ pixelRatio: 3 });
       const fileName = `${id}.png`;
       const blob = base64toBlob(dataUrl, fileName);
       const ref = storage.ref('images').child(fileName);
@@ -138,22 +181,18 @@ export const UploadedPage = () => {
         imgUrl: `images/${fileName}`,
         message,
         status: 'in_review',
-        contact
+        contact: contactInfo
       };
 
       const artworkService = new ArtworkService();
       await artworkService.createArtwork(data);
 
       dispatch(setImageId(id));
+      dispatch(setContact(contactInfo));
       dispatch(fetchSuccess());
-      if (isEmpty(contact)) {
-        alert.success(
-          'Successfully submitted! Please wait for admin’s approval.'
-        );
-      } else {
-        setOpenShare(false);
-        setOpenThankyou(true);
-      }
+
+      setOpenShare(false);
+      setOpenThankyou(true);
     } catch (e) {
       const { message = ERROR_MESSAGE } = e;
       dispatch(fetchError(message));
@@ -164,6 +203,16 @@ export const UploadedPage = () => {
     history.push('/gallery');
   };
 
+  const openShareECardPopup = () => {
+    if (contact) {
+      alert.error(
+        'This artwork is already uploaded, please wait for admin’s approval'
+      );
+      return;
+    }
+    setOpenShare(true);
+  };
+
   const closeShareECardPopup = () => {
     setOpenShare(false);
   };
@@ -172,10 +221,6 @@ export const UploadedPage = () => {
     setOpenThankyou(false);
   };
 
-  useEffect(() => {
-    setOpenShare(true);
-  }, []);
-
   const Component = isMobile ? UploadedMobile : UploadedDesktop;
 
   return (
@@ -183,12 +228,12 @@ export const UploadedPage = () => {
       <ShareECardPopup
         isOpen={openShare}
         onClose={closeShareECardPopup}
-        submitHandler={uploadToStorage}
+        submitHandler={postToGallery}
       />
       <ThankyouPopup isOpen={openThankyou} onClose={closeThankyouPopup} />
       <Component
         handleClick={handleClick}
-        handlePostGallery={uploadToStorage}
+        handlePostGallery={openShareECardPopup}
         handleViewGallery={redirectToGallery}
         handleShareECard={handleSubmitEmail}
       />

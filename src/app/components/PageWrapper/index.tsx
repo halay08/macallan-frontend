@@ -15,6 +15,7 @@ interface PageWrapperProps {
   isNextButtonDisable?: boolean;
   nextButtonHandler?: Function;
   prevButtonHandler?: Function;
+  isFixedHeight?: Boolean;
 }
 
 export const PageWrapper: React.FC<PageWrapperProps> = ({
@@ -27,7 +28,8 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
   showMoreButton = false,
   isNextButtonDisable = false,
   nextButtonHandler,
-  prevButtonHandler
+  prevButtonHandler,
+  isFixedHeight = false
 }) => {
   const { isMobile } = useResponsive();
   const ref = useRef<HTMLInputElement>(null);
@@ -61,7 +63,10 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
   ) : (
     <div className="box-border">
       <Header />
-      <StageContainer className="flex flex-row h-auto">
+      <StageContainer
+        className="flex flex-row h-auto"
+        isFixedHeight={isFixedHeight}
+      >
         <div className="flex flex-col w-3/6 border-r-1 border-solid border-gray-light justify-center">
           {StageFrame}
         </div>
@@ -86,6 +91,7 @@ const ContentWrapper = styled.div`
   border-left: 1px solid #bbb;
 `;
 
-const StageContainer = styled.div`
-  min-height: calc(100vh - 9rem - 120px);
+const StageContainer = styled.div<{ isFixedHeight: Boolean }>`
+  min-height: calc(100vh - 216px);
+  ${({ isFixedHeight }) => isFixedHeight && `height: calc(100vh - 216px);`}
 `;

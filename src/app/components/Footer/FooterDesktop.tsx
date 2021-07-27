@@ -4,6 +4,7 @@ import background from './assets/footer-desktop.png';
 import { ReactComponent as PrevButtonSvg } from './assets/prev.svg';
 import { ReactComponent as NextButtonSvg } from './assets/next.svg';
 import { ReactComponent as MoreButtonSvg } from './assets/more.svg';
+import { FOOTER_TEXT } from 'app/helpers/constants';
 
 interface FooterProps {
   className: string;
@@ -37,7 +38,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
             className="rounded-full focus:outline-none active:outline-none mx-12"
           >
             <PrevButtonSvg className="w-10 m-auto" />
-            <span className="block text-secondary mt-1">BACK</span>
+            <span className="text-secondary mt-1">BACK</span>
           </PrevButton>
         )}
         {showNextButton && (
@@ -60,19 +61,17 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
             ) : (
               <NextButtonSvg className="w-10 m-auto" />
             )}
-            <span className="block text-secondary mt-1">
+            <span className="text-secondary mt-1">
               {showMoreButton ? 'MORE' : 'NEXT'}
             </span>
           </NextButton>
         )}
       </ButtonWrapper>
       <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
-        <Message className="font-primary">
-          Crafted without compromise. Please savour The Macallan in moderation.
-        </Message>
+        <Message className="font-primary z-10">{FOOTER_TEXT.DESKTOP}</Message>
         <img
           alt="footer"
-          className="absolute right-0 h-full"
+          className="absolute right-0 bottom-0"
           src={background}
         />
       </FooterInner>

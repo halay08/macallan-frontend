@@ -15,14 +15,22 @@ export const Quote = () => {
         className="absolute -bottom-4 right-0 md:-right-20 h-20 md:h-full"
         src={quoteEnd}
       />
-      <i>
+      <Content className="font-primary-italic tracking-wider">
         The best work comes from trusting your intuition and your gut, and what
         your heart is telling you
-      </i>
+      </Content>
     </>
   );
 };
 
 const QuoteIcon = styled.img`
   z-index: -1;
+`;
+
+const Content = styled.p`
+  font-size: 26px;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 `;

@@ -1,13 +1,17 @@
 import background from './assets/desktop-header.png';
-import { ReactComponent as LogoSvg } from './assets/desktop-logo.svg';
 import styled from 'styled-components/macro';
+import { useHistory } from 'react-router-dom';
 
 export const HeaderDesktop = () => {
+  const history = useHistory();
+
   return (
     <HeaderWrapper>
-      <div className="flex flex-row items-center justify-start h-36 relative">
+      <div
+        onClick={() => history.push('/')}
+        className="flex flex-row items-center justify-start h-24 relative cursor-pointer"
+      >
         <img alt="logo" className="absolute h-full" src={background} />
-        <LogoSvg className="z-10 h-full absolute bottom-2.5" />
       </div>
     </HeaderWrapper>
   );

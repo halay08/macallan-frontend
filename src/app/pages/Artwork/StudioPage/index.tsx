@@ -3,7 +3,6 @@ import {
   ShapeBox,
   StageFrameDesktop,
   StageFrameMobile,
-  TextBox,
   IconBox,
   BottleBox,
   SignOff,
@@ -20,6 +19,7 @@ import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { useResponsive } from 'utils/responsive';
 import { FinalImage } from './components/UploadedPage/FinalImage';
+import { FINAL_WARNING, RELOAD_WARNING } from 'app/helpers/constants';
 
 export const StudioPage = () => {
   const format = useSelector<AppState, AppState['format']>(
@@ -40,7 +40,7 @@ export const StudioPage = () => {
     if (!format) history.goBack();
 
     const confirmation = ev => {
-      ev.returnValue = 'Are you sure? Your work will be lost!';
+      ev.returnValue = RELOAD_WARNING;
     };
     window.addEventListener('beforeunload', confirmation);
 
@@ -56,9 +56,6 @@ export const StudioPage = () => {
 
     switch (scene) {
       case SceneType.SHAPE:
-        setScene(SceneType.TEXT);
-        break;
-      case SceneType.TEXT:
         setScene(SceneType.ICON);
         break;
       case SceneType.ICON:
@@ -84,11 +81,8 @@ export const StudioPage = () => {
       case SceneType.SHAPE:
         history.push('/artwork/format');
         break;
-      case SceneType.TEXT:
-        setScene(SceneType.SHAPE);
-        break;
       case SceneType.ICON:
-        setScene(SceneType.TEXT);
+        setScene(SceneType.SHAPE);
         break;
       case SceneType.BOTTLE:
         setScene(SceneType.ICON);
@@ -109,9 +103,6 @@ export const StudioPage = () => {
     switch (scene) {
       case SceneType.SHAPE:
         setContent(<ShapeBox />);
-        break;
-      case SceneType.TEXT:
-        setContent(<TextBox />);
         break;
       case SceneType.ICON:
         setContent(<IconBox />);
@@ -135,21 +126,24 @@ export const StudioPage = () => {
     if (action !== 'PUSH') return true;
 
     if (
+      location.pathname === '/' ||
       location.pathname.includes('format') ||
       location.pathname.includes('gallery')
     ) {
-      return 'Are you sure? Your work will be lost!';
+      return RELOAD_WARNING;
     }
 
     if (location.pathname.includes('final')) {
-      return 'Are you sure? You will not be able to edit your work anymore!';
+      return FINAL_WARNING;
     }
 
     return true;
   };
 
   const isFinal = [SceneType.THANK_YOU, SceneType.UPLOAD].includes(scene);
-  const shouldShowTools = scene === SceneType.SHAPE || scene === SceneType.TEXT;
+  const shouldShowTools = scene === SceneType.SHAPE;
+  const shouldOverflowHeight = [SceneType.UPLOAD].includes(scene);
+
   return (
     <>
       <Helmet>
@@ -184,6 +178,7 @@ export const StudioPage = () => {
           showPrevButton={scene !== SceneType.UPLOAD}
           showNextButton={scene !== SceneType.THANK_YOU}
           showMoreButton={scene === SceneType.UPLOAD}
+          isFixedHeight={!shouldOverflowHeight}
           StageFrame={
             <>
               {isFinal && <FinalImage />}

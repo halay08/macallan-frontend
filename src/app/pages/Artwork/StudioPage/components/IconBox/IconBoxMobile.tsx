@@ -11,20 +11,20 @@ export const IconBoxMobile = ({ drawIcon }: props) => {
   const iconKeys = Object.keys(icons);
   const half = Math.ceil(iconKeys.length / 2);
   const firstHalf = iconKeys.slice(0, half);
-  const secondHalf = iconKeys.slice(-half + 1);
+  const secondHalf = iconKeys.slice(-half);
 
   return (
     <Wrapper className="bg-white">
       <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-5 font-serif">
-          <strong className="font-medium text-tiny">STEP 4: ADD ICONS</strong>
+          <strong className="font-medium text-tiny">STEP 3: ADD ICON(S)</strong>
         </div>
         <PerfectScrollbar>
           <div className="flex flex-nowrap flex-row justify-between pl-4 pr-4 h-28">
             {firstHalf.map((icon, index) => (
-              <div key={icon}>
+              <div className="flex flex-col items-center" key={icon}>
                 <Button
-                  className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
+                  className="p-1 focus:outline-none focus:shadow-md active:shadow-md"
                   onClick={() => drawIcon(IconType[icon])}
                 >
                   <Icon src={icons[icon]} />

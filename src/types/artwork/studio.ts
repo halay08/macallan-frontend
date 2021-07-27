@@ -1,6 +1,5 @@
 enum SceneType {
   SHAPE = 'shape',
-  TEXT = 'text',
   ICON = 'icon',
   BOTTLE = 'bottle',
   SIGN_OFF = 'signOff',
@@ -27,41 +26,16 @@ enum BottleType {
 }
 
 enum IconType {
-  Generic01 = 'icon_generic_01.png',
-  Generic02 = 'icon_generic_02.png',
-  Generic03 = 'icon_generic_03.png',
-  Generic04 = 'icon_generic_04.png',
-  Generic05 = 'icon_generic_05.png',
-  Generic06 = 'icon_generic_06.png',
-  Generic07 = 'icon_generic_07.png',
-  HappyNewYear01 = 'icon_happy_new_year_01.png',
-  HappyNewYear02 = 'icon_happy_new_year_02.png',
-  HappyNewYear03 = 'icon_happy_new_year_03.png',
-  HappyNewYear04 = 'icon_happy_new_year_04.png',
-  HappyNewYear05 = 'icon_happy_new_year_05.png',
-  HappyNewYear06 = 'icon_happy_new_year_06.png',
-  HappyNewYear07 = 'icon_happy_new_year_07.png',
-  Occasion01 = 'icon_occasion_01.png',
-  Occasion02 = 'icon_occasion_02.png',
-  Occasion03 = 'icon_occasion_03.png',
-  Occasion04 = 'icon_occasion_04.png',
-  Occasion05 = 'icon_occasion_05.png',
-  Occasion06 = 'icon_occasion_06.png',
-  Occasion07 = 'icon_occasion_07.png',
-  Xmas01 = 'icon_xmas_01.png',
-  Xmas02 = 'icon_xmas_02.png',
-  Xmas03 = 'icon_xmas_03.png',
-  Xmas04 = 'icon_xmas_04.png',
-  Xmas05 = 'icon_xmas_05.png',
-  Xmas06 = 'icon_xmas_06.png',
-  Xmas07 = 'icon_xmas_07.png',
-  Xmas08 = 'icon_xmas_08.png',
-  Xmas09 = 'icon_xmas_09.png',
-  Xmas010 = 'icon_xmas_10.png',
-  Xmas011 = 'icon_xmas_11.png',
-  Xmas012 = 'icon_xmas_12.png',
-  Xmas013 = 'icon_xmas_13.png',
-  Xmas014 = 'icon_xmas_14.png'
+  Icon01 = 'icon_01.png',
+  Icon02 = 'icon_02.png',
+  Icon03 = 'icon_03.png',
+  Icon04 = 'icon_04.png',
+  Icon05 = 'icon_05.png',
+  Icon06 = 'icon_06.png',
+  Icon07 = 'icon_07.png',
+  Icon08 = 'icon_08.png',
+  Icon09 = 'icon_09.png',
+  Icon10 = 'icon_10.png'
 }
 
 enum StageFormat {

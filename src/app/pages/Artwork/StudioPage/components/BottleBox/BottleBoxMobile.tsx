@@ -13,7 +13,9 @@ export const BottleBoxMobile = ({ drawBottle }: props) => {
     <Wrapper className="bg-white">
       <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-2 font-serif">
-          <strong className="font-medium text-tiny">STEP 4: ADD BOTTLE</strong>
+          <strong className="font-medium text-tiny">
+            STEP 4: ADD BOTTLE(S)
+          </strong>
         </div>
         <div className="flex flex-nowrap flex-row items-center justify-center pl-4 pr-4 h-28 mb-2">
           {bottleKeys.map(bottle => (

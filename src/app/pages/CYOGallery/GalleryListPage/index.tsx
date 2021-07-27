@@ -6,12 +6,11 @@ import {
   MonthFilter,
   TitleBar,
   Popup,
-  SlidePopup
+  SlidePopup,
+  Footer
 } from '../Components';
 import styled from 'styled-components/macro';
 import { ArtworkService } from 'app/services';
-
-import { useHistory } from 'react-router-dom';
 import { useResponsive } from 'utils/responsive';
 import { TArtwork } from 'types';
 import isEmpty from 'ramda.isempty';
@@ -50,7 +49,6 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [filter, setFilter] = useState<filterType>({});
-  const history = useHistory();
   const { isDesktop, isTablet, isMobile } = useResponsive();
   const dispatch = useDispatch();
   const [masonryKey, setMasonryKey] = useState('');
@@ -64,9 +62,15 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
     };
   };
 
-  const getArtworks = async (option?) => {
+  const getArtworks = async (lastDocumentId?) => {
     try {
       dispatch(fetchStart());
+      const option = {
+        filterByTime: getFilterOption(filter),
+        status: 'approved',
+        limit: PAGE_LIMIT,
+        startAfter: lastDocumentId
+      };
       const service = new ArtworkService();
       const newGalleries = await service.getArtworks(option);
       dispatch(fetchSuccess());
@@ -81,20 +85,11 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
 
     setArtworks([]);
     setMasonryKey(masonryKey);
-    handleLoadMore();
+    handleGetData(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
-  const handleLoadMore = async (lastDocumentId = '') => {
-    const newGalleries = await getArtworks({
-      filterByTime: getFilterOption(filter),
-      status: 'approved',
-      limit: PAGE_LIMIT,
-      startAfter: lastDocumentId
-    });
-    handleAfterGet(newGalleries);
-  };
-  const [handleAfterGet] = useLoadMore(handleLoadMore, setArtworks);
+  const [handleGetData] = useLoadMore(getArtworks, setArtworks);
 
   useEffect(() => {
     if (artworkParam) {
@@ -120,12 +115,8 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
   );
 
   const onArtworkClick = (artwork: TArtwork) => {
-    if (isMobile) {
-      setSelectedArtwork(artwork);
-      setShowPopup(true);
-      return;
-    }
-    history.push(`/gallery/${artwork.id}`);
+    setSelectedArtwork(artwork);
+    setShowPopup(true);
   };
 
   const masonryOption = {
@@ -170,10 +161,10 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
       </SlidePopup>
       <Popup
         isOpen={showPopup}
-        title="Gallery Wall"
         artwork={selectedArtwork}
         onClose={() => setShowPopup(false)}
       />
+      <Footer />
     </Wrapper>
   );
 };

@@ -2,6 +2,6 @@ import { ArtworkContact } from 'types/artwork';
 
 export interface Artwork {
   message?: string;
-  contract?: ArtworkContact;
+  contact?: ArtworkContact;
   id?: string;
 }

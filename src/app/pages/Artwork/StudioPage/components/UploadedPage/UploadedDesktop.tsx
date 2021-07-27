@@ -33,15 +33,16 @@ export const UploadedDesktop = ({
   return (
     <div className="flex flex-col items-stretch justify-between w-full h-full">
       <div className="my-auto pb-16 px-16">
-        <p className="text-center text-3xl">
-          Share your artwork and keep on exploring
-        </p>
-        <div className="mb-6">
+        <p className="text-center text-3xl">Share your artwork</p>
+        <div className="mt-2">
           {Object.entries(buttonIcons).map(([name, icon]) => (
-            <button key={name} className="focus:outline-none">
+            <button
+              key={name}
+              className="w-full focus:outline-none select-none"
+            >
               <img
                 src={icon}
-                className="w-10/12 m-auto"
+                className="w-9/12 m-auto"
                 alt={name}
                 onClick={() => buttonClicks[name]()}
               />
@@ -54,7 +55,7 @@ export const UploadedDesktop = ({
             {iconKeys.map(icon => (
               <Button
                 key={icon}
-                className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md"
+                className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md select-none"
                 onClick={() => handleClick(UploadedTypes[icon])}
               >
                 <Icon src={socialIcons[icon]} width={70} />

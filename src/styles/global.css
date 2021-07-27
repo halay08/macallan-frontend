@@ -19,6 +19,12 @@
 }
 
 @font-face {
+  font-family: 'AGaramondPro-Italic';
+  src: url(styles/fonts/AGaramondPro-Italic.otf),
+    url(styles/fonts/AGaramondPro-Italic.otf) format('otf');
+}
+
+@font-face {
   font-family: 'AGaramondPro-Regular';
   src: url(styles/fonts/AGaramondPro-Regular.otf),
     url(styles/fonts/AGaramondPro-Regular.otf) format('otf');
@@ -46,6 +52,12 @@
   font-family: 'Gotham-Book';
   src: url(styles/fonts/Gotham-Book.ttf),
     url(styles/fonts/Gotham-Book.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Gotham-Medium';
+  src: url(styles/fonts/gotham-medium.otf),
+    url(styles/fonts/gotham-medium.otf) format('otf');
 }
 
 .font-AGaramondPro-bold {
@@ -90,6 +102,7 @@
 .month-picker > .rmp-container .rmp-popup.show {
   padding: 0;
   margin-top: 8px;
+  margin-bottom: 1rem;
 }
 .month-picker > .rmp-container .rmp-popup.light .rmp-pad li {
   line-height: 2.7rem;

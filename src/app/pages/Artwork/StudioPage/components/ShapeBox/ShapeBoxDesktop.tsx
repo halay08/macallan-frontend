@@ -10,13 +10,13 @@ type props = {
 export const ShapeBoxDesktop = ({ drawTexture }: props) => {
   return (
     <div className="w-full">
-      <div className="m-auto pb-20 border-t-1 border-solid border-gray-light">
-        <div className="grid text-center mb-5 font-serif">
+      <div className="m-auto pb-20 border-t-1 border-solid border-gray-light h-full pb-20 flex flex-col">
+        <div className="grid text-center font-serif">
           <strong className="font-AGaramondPro-bold text-2xl">
-            STEP 2: CHOOSE SHAPE
+            STEP 2: ADD SHAPE(S)
           </strong>
         </div>
-        <PerfectScrollbar>
+        <PerfectScrollbar className="flex flex-col justify-center">
           <div className="flex flex-wrap justify-center">
             {Object.keys(shapes).map(shape => (
               <button
@@ -31,7 +31,7 @@ export const ShapeBoxDesktop = ({ drawTexture }: props) => {
           <div className="mt-6">
             <ColorPicker />
           </div>
-          <div className="my-6">
+          <div className="mt-6">
             <Texture />
           </div>
         </PerfectScrollbar>

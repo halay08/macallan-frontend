@@ -5,17 +5,21 @@ type IconProps = {
   width?: number;
 };
 
-export const Icon: React.FC<IconProps> = ({ src, width = 35 }) => {
+export const Icon: React.FC<IconProps> = ({ src, width = 40 }) => {
   return (
-    <Wrapper className="flex flex-row items-center justify-between">
-      <Image
-        src={src}
-        className="cursor-pointer max-w-max"
-        style={{ width: `${width}px` }}
-      />
-    </Wrapper>
+    <Wrapper
+      src={src}
+      width={width}
+      className="flex flex-row items-center justify-between"
+    ></Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
-const Image = styled.img``;
+const Wrapper = styled.div<{ src: string; width: number }>`
+  background: url('${({ src }) => src}');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: ${({ width }) => width}px;
+  height: ${({ width }) => width}px;
+`;

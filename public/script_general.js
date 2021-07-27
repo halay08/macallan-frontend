@@ -462,7 +462,7 @@
         automaticZoomSpeed: 10
       },
       {
-        gyroscopeEnabled: true,
+        gyroscopeEnabled: false,
         surfaceSelectionEnabled: false,
         zoomEnabled: true,
         class: 'PanoramaPlayer',

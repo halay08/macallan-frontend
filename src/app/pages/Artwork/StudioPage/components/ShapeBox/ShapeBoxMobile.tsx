@@ -13,7 +13,7 @@ export const ShapeBoxMobile = ({ drawTexture }: props) => {
       <BoxWrapper className="m-auto p-0 pt-7 border-t-1 border-solid border-gray-light">
         <div className="grid text-center mb-5 font-serif">
           <strong className="font-medium text-tiny">
-            STEP 2: CHOOSE SHAPE
+            STEP 2: ADD SHAPE(S)
           </strong>
         </div>
         <PerfectScrollbar>
