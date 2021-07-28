@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { MouseEventHandler } from 'react';
-import { getFirebaseImageLink } from 'app/helpers';
+import { getStorageImageUrl } from 'app/helpers';
 import { TArtwork } from 'types';
 
 type Props = {
@@ -10,6 +10,8 @@ type Props = {
 
 export const ArtworkItem = ({ artwork, onClick = () => '' }: Props) => {
   const { imgUrl, id } = artwork;
+  // const src = getStorageImageUrl(thumbnails ? thumbnails.url : imgUrl);
+  const src = getStorageImageUrl(imgUrl);
 
   return (
     <Button
@@ -17,12 +19,7 @@ export const ArtworkItem = ({ artwork, onClick = () => '' }: Props) => {
       className="max-w-full focus:outline-none"
       onClick={onClick}
     >
-      <img
-        className="max-w-full max-h-full"
-        id={id}
-        src={getFirebaseImageLink(imgUrl)}
-        alt="artwork"
-      />
+      <img className="max-w-full max-h-full" id={id} src={src} alt="artwork" />
     </Button>
   );
 };
