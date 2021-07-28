@@ -17,6 +17,12 @@ export const ShapeBoxDesktop = ({ drawTexture }: props) => {
           </strong>
         </div>
         <PerfectScrollbar className="flex flex-col justify-center">
+          <div className="mb-6">
+            <ColorPicker />
+          </div>
+          <div className="mb-6">
+            <Texture />
+          </div>
           <div className="flex flex-wrap justify-center">
             {Object.keys(shapes).map(shape => (
               <button
@@ -27,12 +33,6 @@ export const ShapeBoxDesktop = ({ drawTexture }: props) => {
                 <Shape src={shapes[shape]} />
               </button>
             ))}
-          </div>
-          <div className="mt-6">
-            <ColorPicker />
-          </div>
-          <div className="mt-6">
-            <Texture />
           </div>
         </PerfectScrollbar>
       </div>
