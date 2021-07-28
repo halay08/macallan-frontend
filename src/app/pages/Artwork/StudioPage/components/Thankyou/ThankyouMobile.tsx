@@ -17,13 +17,17 @@ export const ThankyouMobile = ({ onContinue, onStartAgain }: Props) => {
           className="w-9/12 focus:outline-none select-none"
           onClick={() => onContinue()}
         >
-          <img src={ContinueToShare} alt="continue to share" />
+          <img
+            className="mx-auto"
+            src={ContinueToShare}
+            alt="continue to share"
+          />
         </button>
         <button
           className="w-9/12 focus:outline-none select-none"
           onClick={() => onStartAgain()}
         >
-          <img src={StartAgain} alt="start again" />
+          <img className="mx-auto" src={StartAgain} alt="start again" />
         </button>
       </div>
     </div>

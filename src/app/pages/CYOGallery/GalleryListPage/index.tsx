@@ -26,11 +26,11 @@ type Props = { artworkParam?: TArtwork | null };
 const masonryOptions = {
   desktop: {
     columnGutter: 16,
-    columnCount: 4
+    columnCount: 6
   },
   tablet: {
     columnGutter: 16,
-    columnCount: 3
+    columnCount: 4
   },
   mobile: {
     columnGutter: 12,
@@ -102,6 +102,7 @@ export const GalleryListPage = ({ artworkParam }: Props) => {
     ({ data: artwork }) => (
       <div className="flex flex-col">
         <ArtworkItem
+          thumbnail
           artwork={artwork}
           onClick={() => onArtworkClick(artwork)}
         />
