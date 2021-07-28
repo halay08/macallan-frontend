@@ -49,7 +49,7 @@ export const StageFrameDesktop = ({
   return (
     <Wrapper
       className={
-        'flex flex-row items-center justify-center relative' +
+        'flex flex-row items-start justify-center relative max-h-full' +
         (hide ? ' hidden' : '')
       }
     >

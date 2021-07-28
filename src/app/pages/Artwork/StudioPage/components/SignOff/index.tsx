@@ -91,6 +91,7 @@ export const SignOff = () => {
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'icon');
         node.size(logoSize);
+        node.off('click touch touchstart');
 
         layer.add(node);
       }
@@ -138,9 +139,11 @@ export const SignOff = () => {
       fontFamily: font,
       verticalAlign: 'middle',
       fill: '#000',
+      wrap: 'none',
       draggable: false
     });
 
+    node.off('click touch touchstart');
     layer.add(node);
   };
 
