@@ -3,6 +3,7 @@ import { Header } from '../Header';
 import { Footer } from '../Footer';
 import styled from 'styled-components/macro';
 import { useResponsive } from 'utils/responsive';
+import { ScrollbarWrapper } from './ScrollbarWrapper';
 
 interface PageWrapperProps {
   children: ReactNode;
@@ -16,6 +17,7 @@ interface PageWrapperProps {
   nextButtonHandler?: Function;
   prevButtonHandler?: Function;
   isFixedHeight?: Boolean;
+  showScrollbar?: boolean;
 }
 
 export const PageWrapper: React.FC<PageWrapperProps> = ({
@@ -29,7 +31,8 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
   isNextButtonDisable = false,
   nextButtonHandler,
   prevButtonHandler,
-  isFixedHeight = false
+  isFixedHeight = false,
+  showScrollbar = false
 }) => {
   const { isMobile } = useResponsive();
   const ref = useRef<HTMLInputElement>(null);
@@ -42,7 +45,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
   }, [ref]);
 
   return isMobile ? (
-    <div className="box-border" ref={ref}>
+    <ScrollbarWrapper ref={ref} showScrollbar={showScrollbar}>
       <div className="flex flex-col">
         {hasHeader && <Header />}
         {StageFrame}
@@ -59,7 +62,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({
           />
         )}
       </div>
-    </div>
+    </ScrollbarWrapper>
   ) : (
     <div className="box-border">
       <Header />

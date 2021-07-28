@@ -8,8 +8,8 @@ type Props = {
 
 export const ThankyouDesktop = ({ onContinue, onStartAgain }: Props) => {
   return (
-    <div className="items-stretch justify-between w-full h-full">
-      <div className="my-auto p-24 text-lg flex flex-col items-center">
+    <div className="flex items-center justify-center w-full h-full">
+      <div className="my-auto p-24 pt-4 text-lg flex flex-col items-center">
         <div className="text-center text-3xl mb-5">
           Thank you for your participation
         </div>
@@ -17,13 +17,17 @@ export const ThankyouDesktop = ({ onContinue, onStartAgain }: Props) => {
           className="w-9/12 focus:outline-none select-none"
           onClick={() => onContinue()}
         >
-          <img src={ContinueToShare} alt="continue to share" />
+          <img
+            className="mx-auto"
+            src={ContinueToShare}
+            alt="continue to share"
+          />
         </button>
         <button
           className="w-9/12 focus:outline-none select-none"
           onClick={() => onStartAgain()}
         >
-          <img src={StartAgain} alt="start again" />
+          <img className="mx-auto" src={StartAgain} alt="start again" />
         </button>
       </div>
     </div>

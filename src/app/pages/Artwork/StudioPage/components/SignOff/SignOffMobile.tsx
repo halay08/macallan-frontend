@@ -13,7 +13,7 @@ export const SignOffMobile = ({ onTextChanged, maxLength }: props) => {
             STEP 5: SIGN OFF ARTWORK
           </strong>
         </div>
-        <div className="flex flex-nowrap gap-4 h-28 relative">
+        <div className="flex flex-nowrap gap-4 h-28 relative mb-4">
           <Editor
             maxLength={maxLength}
             className="w-3/4 mx-auto p-6 border border-solid"
