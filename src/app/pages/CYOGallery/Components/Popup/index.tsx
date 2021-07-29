@@ -33,10 +33,13 @@ export const Popup = ({ isOpen, artwork, onClose }: Props) => {
                 <CloseSvg className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
-            <div className="relative p-6 md:p-16 flex justify-center">
+            <div className="relative p-6 md:p-12 flex justify-center">
               {artwork && (
                 <div className="sm:max-w-lg w-full font-Alternate-bold uppercase text-sm sm:text-xl text-center">
-                  <ArtworkItem artwork={artwork} />
+                  <ArtworkItem
+                    artwork={artwork}
+                    imgClass="max-w-full md:w-auto"
+                  />
                   <p className="mt-2">{artwork.message}</p>
                   <p className="text-gray-dark">{publishDate}</p>
                 </div>
