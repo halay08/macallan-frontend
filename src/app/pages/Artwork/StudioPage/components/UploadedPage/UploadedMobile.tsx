@@ -41,7 +41,7 @@ export const UploadedMobile = ({
           ))}
         </div>
         <PerfectScrollbar>
-          <div className="flex flex-nowrap flex-row justify-between px-8 h-24">
+          <div className="w-10/12 mx-auto flex flex-nowrap flex-row justify-around h-24">
             {iconKeys.map(icon => (
               <Button
                 key={icon}

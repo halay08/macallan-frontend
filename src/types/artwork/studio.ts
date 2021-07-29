@@ -35,7 +35,12 @@ enum IconType {
   Icon07 = 'icon_07.png',
   Icon08 = 'icon_08.png',
   Icon09 = 'icon_09.png',
-  Icon10 = 'icon_10.png'
+  Icon10 = 'icon_10.png',
+  Icon11 = 'icon_11.png',
+  Icon12 = 'icon_12.png',
+  Icon13 = 'icon_13.png',
+  Icon14 = 'icon_14.png',
+  Icon15 = 'icon_15.png'
 }
 
 enum StageFormat {
