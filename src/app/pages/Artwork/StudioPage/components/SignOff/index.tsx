@@ -90,6 +90,7 @@ export const SignOff = () => {
 
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'icon');
+        node.setAttr('id', 'signOffLogo');
         node.size(logoSize);
         node.off('click touch touchstart');
 
@@ -107,7 +108,7 @@ export const SignOff = () => {
     const [layer] = stage.getLayers().slice(-1);
 
     const container = new Konva.Rect({
-      id: 'signOffLogo',
+      id: 'signOffBackGround',
       x: 0,
       y: stageHeight,
       height,
@@ -115,6 +116,8 @@ export const SignOff = () => {
       fill: '#fff',
       draggable: false
     });
+
+    container.off('click touch touchstart');
     layer.add(container);
   };
 

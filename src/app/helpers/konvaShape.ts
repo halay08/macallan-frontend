@@ -40,6 +40,8 @@ const drawSvg = (
 };
 
 const onStageTap = (stage: Konva.Stage) => {
+  const disableNode = ['signOff', 'signOffLogo', 'signOffBackGround'];
+
   // clicks should select/deselect shapes
   stage.on('click tap', function (e) {
     const [transformer] = stage.find('Transformer') as Konva.Transformer[];
@@ -48,7 +50,7 @@ const onStageTap = (stage: Konva.Stage) => {
       return;
     }
 
-    if (e.target === stage) {
+    if (e.target === stage || disableNode.includes(e.target.getAttr('id'))) {
       // if click on empty area - remove all selections
       transformer.nodes([]);
       return;
@@ -56,11 +58,7 @@ const onStageTap = (stage: Konva.Stage) => {
 
     // Delete all transformer nodes, keep only current target
     if (e.target) {
-      if (e.target.getAttr('name') === 'shape') {
-        transformer.setAttr('rotateEnabled', true);
-      } else {
-        transformer.setAttr('rotateEnabled', false);
-      }
+      transformer.setAttr('rotateEnabled', true);
       transformer.nodes([e.target]);
     }
   });
