@@ -32,7 +32,7 @@ export const ColorPickerMobile = () => {
 
   return (
     <Wrapper
-      className={`absolute z-50 left-0 top-4 flex flex-row items-center justify-center${
+      className={`absolute z-50 left-0 top-16 flex flex-row items-center justify-center${
         toolbarStatus === ToolbarStatus.HIDE ? ' w-0' : ''
       }`}
     >

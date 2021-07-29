@@ -5,6 +5,7 @@ import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
 import { calcStageResolution } from '../../helpers';
+import { onStageDelete } from 'app/helpers';
 
 type StageFrameProps = {
   format: StageFormat;
@@ -42,6 +43,8 @@ export const StageFrameDesktop = ({
     });
     layer.add(background);
 
+    onStageDelete(stage);
+
     dispatch(setStage({ stage, color: '', texture: '' }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [format]);
@@ -53,10 +56,12 @@ export const StageFrameDesktop = ({
         (hide ? ' hidden' : '')
       }
     >
-      <StageContainer
-        id="stageContainer"
-        className="flex flex-row items-center justify-center border-2 border-solid border-gray-light z-10"
-      />
+      <div className="relative">
+        <StageContainer
+          id="stageContainer"
+          className="flex flex-row items-center justify-center border-2 border-solid border-gray-light z-10"
+        />
+      </div>
     </Wrapper>
   );
 };

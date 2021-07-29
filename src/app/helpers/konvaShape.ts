@@ -64,6 +64,49 @@ const onStageTap = (stage: Konva.Stage) => {
   });
 };
 
+const onStageDelete = (stage: Konva.Stage) => {
+  const layer = new Konva.Layer();
+  stage.add(layer);
+
+  // Add delete icon
+  let trashIcon: Konva.Image;
+  const imageObj = new Image();
+  imageObj.onload = function () {
+    trashIcon = new Konva.Image({
+      x: 0,
+      y: 5,
+      image: imageObj,
+      width: 39,
+      height: 52,
+      visible: false
+    });
+    layer.add(trashIcon);
+    trashIcon.setAttr('name', 'delete');
+  };
+  imageObj.src = '/assets/delete.png';
+
+  let previousShape;
+  stage.on('dragstart', function (e) {
+    trashIcon.show();
+    e.target.moveTo(layer);
+    previousShape = e.target;
+    trashIcon.moveToTop();
+  });
+
+  stage.on('dragend', function (e) {
+    if (!previousShape) return;
+    const pos = stage.getPointerPosition();
+    const shapes = layer.getAllIntersections(pos);
+
+    if (shapes.find(shape => shape.getAttr('name') === 'delete')) {
+      previousShape.destroy();
+      clearTransformer(stage);
+    }
+    trashIcon.hide();
+    previousShape = undefined;
+  });
+};
+
 const addNodeTransformer = (
   stage: Konva.Stage,
   layer: Konva.Layer,
@@ -117,4 +160,11 @@ const onNodeAction = (node: Konva.Shape) => {
   });
 };
 
-export { onStageTap, drawSvg, createSquare, onNodeAction, addNodeTransformer };
+export {
+  onStageTap,
+  drawSvg,
+  createSquare,
+  onNodeAction,
+  addNodeTransformer,
+  onStageDelete
+};

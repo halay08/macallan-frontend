@@ -6,6 +6,7 @@ import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
 import { useResponsive } from 'utils/responsive';
+import { onStageDelete } from 'app/helpers';
 
 type StageFrameProps = {
   format: StageFormat;
@@ -55,6 +56,8 @@ export const StageFrameMobile = ({
       listening: false
     });
     layer.add(background);
+
+    onStageDelete(stage);
 
     dispatch(setStage({ stage, color: '', texture: '' }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
