@@ -7,12 +7,16 @@ type Props = {
   thumbnail?: boolean;
   artwork: TArtwork;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  imgClass?: string;
+  btnClass?: string;
 };
 
 export const ArtworkItem = ({
   thumbnail = false,
   artwork,
-  onClick = () => ''
+  onClick = () => '',
+  imgClass = '',
+  btnClass = ''
 }: Props) => {
   const { imgUrl, id, thumbnails } = artwork;
   const src = getStorageImageUrl(thumbnail ? thumbnails.url : imgUrl);
@@ -21,10 +25,15 @@ export const ArtworkItem = ({
     <Button
       thumbnail={thumbnail}
       key={id}
-      className="max-w-full focus:outline-none"
+      className={`max-w-full focus:outline-none ${btnClass}`}
       onClick={onClick}
     >
-      <img className="m-auto w-full" id={id} src={src} alt="artwork" />
+      <Image
+        className={`m-auto w-full ${imgClass}`}
+        id={id}
+        src={src}
+        alt="artwork"
+      />
     </Button>
   );
 };
@@ -45,4 +54,8 @@ const Button = styled.button<{ thumbnail: boolean }>`
   & img {
     transition: all 500ms ease;
   }
+`;
+
+const Image = styled.img`
+  max-height: 60vh;
 `;
