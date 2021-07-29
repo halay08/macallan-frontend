@@ -51,11 +51,11 @@ export const UploadedDesktop = ({
         </div>
 
         <PerfectScrollbar ref={ref} style={{ height: 'auto' }}>
-          <div className="flex flex-nowrap justify-between pl-4 pr-4 h-28">
+          <div className="w-10/12 mx-auto flex flex-nowrap justify-around h-28">
             {iconKeys.map(icon => (
               <Button
                 key={icon}
-                className="p-1 mr-5 focus:outline-none focus:shadow-md active:shadow-md select-none"
+                className="p-1 focus:outline-none focus:shadow-md active:shadow-md select-none"
                 onClick={() => handleClick(UploadedTypes[icon])}
               >
                 <Icon src={socialIcons[icon]} width={70} />

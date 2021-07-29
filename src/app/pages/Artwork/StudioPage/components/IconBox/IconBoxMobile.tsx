@@ -20,9 +20,9 @@ export const IconBoxMobile = ({ drawIcon }: props) => {
           <strong className="font-medium text-tiny">STEP 3: ADD ICON(S)</strong>
         </div>
         <PerfectScrollbar>
-          <div className="flex flex-nowrap flex-row justify-between pl-4 pr-4 h-28">
+          <div className="flex flex-nowrap flex-row justify-between pl-2 pr-2 h-28">
             {firstHalf.map((icon, index) => (
-              <div className="flex flex-col items-center" key={icon}>
+              <div className="flex flex-col items-center px-1" key={icon}>
                 <Button
                   className="p-1 focus:outline-none focus:shadow-md active:shadow-md"
                   onClick={() => drawIcon(IconType[icon])}
