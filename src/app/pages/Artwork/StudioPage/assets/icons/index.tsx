@@ -8,6 +8,11 @@ import Icon07 from './icon_07.png';
 import Icon08 from './icon_08.png';
 import Icon09 from './icon_09.png';
 import Icon10 from './icon_10.png';
+import Icon11 from './icon_11.png';
+import Icon12 from './icon_12.png';
+import Icon13 from './icon_13.png';
+import Icon14 from './icon_14.png';
+import Icon15 from './icon_15.png';
 
 export {
   Icon01,
@@ -19,5 +24,10 @@ export {
   Icon07,
   Icon08,
   Icon09,
-  Icon10
+  Icon10,
+  Icon11,
+  Icon12,
+  Icon13,
+  Icon14,
+  Icon15
 };
