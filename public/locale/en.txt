@@ -28,6 +28,7 @@ panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C.label = V11_01_Mastery_taste
 
 ### URL
 LinkBehaviour_AE26914D_BCB0_7F20_41CE_5003CB132CA1.source = /gallery
+LinkBehaviour_9B1DEB4D_3B7D_4BAD_9BDD_2B0D7B3DCB6D.source = https://www.themacallan.com/en/concept-number-3/where-to-purchase
 LinkBehaviour_AEB209D9_BCB3_AF20_41E4_047170E281C0.source = https://www.themacallan.com/en/concept-no3-virtual-tasting
 PopupWebFrameBehaviour_A9F89B90_BC91_E320_41CC_DFE9F8BD5BB6.url = //player.vimeo.com/video/576568466?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
 PopupWebFrameBehaviour_AE107AA3_BC97_AD60_41D5_0FCE4B08A06A.url = //player.vimeo.com/video/576562940?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
