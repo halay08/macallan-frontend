@@ -1,4 +1,9 @@
-import { SET_STAGE, SET_COLOR, SET_TEXTURE } from 'types/actions/studio.action';
+import {
+  SET_STAGE,
+  SET_COLOR,
+  SET_TEXTURE,
+  RESET
+} from 'types/actions/studio.action';
 import { AppActions } from 'types/index';
 import { IStudioState } from 'types/reducers/studio';
 
@@ -17,4 +22,8 @@ export const setTexture = (
 ): AppActions => ({
   type: SET_TEXTURE,
   payload
+});
+
+export const resetStage = (): AppActions => ({
+  type: RESET
 });

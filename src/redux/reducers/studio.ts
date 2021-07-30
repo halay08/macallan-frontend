@@ -3,6 +3,7 @@ import {
   SET_STAGE,
   SET_COLOR,
   SET_TEXTURE,
+  RESET,
   StudioActionTypes
 } from 'types/actions';
 import Konva from 'konva';
@@ -40,6 +41,8 @@ const StudioReducer = (
         ...state,
         texture: action.payload.texture
       };
+    case RESET:
+      return initialState;
     default:
       return state;
   }

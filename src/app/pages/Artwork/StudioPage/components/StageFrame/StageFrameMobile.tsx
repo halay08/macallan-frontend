@@ -4,9 +4,11 @@ import { ColorPicker, Texture } from '../Navigation';
 import { useEffect } from 'react';
 import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useResponsive } from 'utils/responsive';
 import { onStageDelete } from 'app/helpers';
+import { AppState } from 'redux/store';
+import isEmpty from 'ramda.isempty';
 
 type StageFrameProps = {
   format: StageFormat;
@@ -21,8 +23,13 @@ export const StageFrameMobile = ({
 }: StageFrameProps): JSX.Element => {
   const { isMobile } = useResponsive();
   const dispatch = useDispatch();
+  const { stage: oldStage } = useSelector<AppState, AppState['studio']>(
+    ({ studio }) => studio
+  );
 
   useEffect(() => {
+    if (!isEmpty(oldStage)) return;
+
     const stageWidth = window.innerWidth;
     // Default is square type.
     let stageHeight: number = stageWidth;

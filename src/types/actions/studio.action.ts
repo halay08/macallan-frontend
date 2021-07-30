@@ -2,6 +2,7 @@ import { IStudioState } from '../reducers/studio';
 export const SET_STAGE = 'SET_STAGE';
 export const SET_COLOR = 'SET_COLOR';
 export const SET_TEXTURE = 'SET_TEXTURE';
+export const RESET = 'RESET';
 
 export interface SetStageAction {
   type: typeof SET_STAGE;
@@ -17,7 +18,12 @@ export interface SetTextureAction {
   payload: Pick<IStudioState, 'texture'>;
 }
 
+export interface ResetStateAction {
+  type: typeof RESET;
+}
+
 export type StudioActionTypes =
   | SetColorAction
   | SetTextureAction
-  | SetStageAction;
+  | SetStageAction
+  | ResetStateAction;

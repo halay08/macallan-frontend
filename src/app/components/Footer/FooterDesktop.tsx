@@ -69,7 +69,7 @@ export const FooterDesktop: React.FC<Partial<FooterProps>> = ({
       </ButtonWrapper>
       <FooterInner className="flex flex-row items-center justify-between h-full font-Alternate-bold">
         <Message className="font-primary z-10">{FOOTER_TEXT.DESKTOP}</Message>
-        <img
+        <ImageBg
           alt="footer"
           className="absolute right-0 bottom-0"
           src={background}
@@ -98,4 +98,7 @@ const Message = styled.div`
 const MoreIcon = styled.div`
   border-radius: 50%;
   background: #a4a4a3;
+`;
+const ImageBg = styled.img`
+  z-index: -1;
 `;
