@@ -91,6 +91,7 @@ export const SignOff = () => {
         const node = createImageNode(canvas, 1, { x, y });
         node.setAttr('name', 'icon');
         node.setAttr('id', 'signOffLogo');
+        node.draggable(false);
         node.size(logoSize);
         node.off('click touch touchstart');
 
