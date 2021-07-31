@@ -5,7 +5,7 @@ import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch } from 'react-redux';
 import { calcStageResolution } from '../../helpers';
-import { onStageDelete } from 'app/helpers';
+import { onStageDelete, onStageTap } from 'app/helpers';
 
 type StageFrameProps = {
   format: StageFormat;
@@ -43,6 +43,7 @@ export const StageFrameDesktop = ({
     });
     layer.add(background);
 
+    onStageTap(stage);
     onStageDelete(stage);
 
     dispatch(setStage({ stage, color: '', texture: '' }));
