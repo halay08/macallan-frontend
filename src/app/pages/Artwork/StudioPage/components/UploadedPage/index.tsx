@@ -118,7 +118,8 @@ export const UploadedPage = () => {
   const handleShareWhatsapp = async () => {
     let fileName = `${id}.png`;
     if (!id) fileName = await uploadToStorage();
-    const totalUrl = 'whatsapp://send?text=' + getFirebaseImageLink(fileName);
+    const totalUrl =
+      'https://api.whatsapp.com/send?text=' + getFirebaseImageLink(fileName);
     const a = document.createElement('a');
     a.href = totalUrl;
     a.target = '_blank';
