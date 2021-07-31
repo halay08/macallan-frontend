@@ -3,13 +3,11 @@ import { ShapeBoxMobile } from './ShapeBoxMobile';
 import { useResponsive } from 'utils/responsive';
 import { AppState } from 'redux/store';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import Konva from 'konva';
-import { DEFAULT_COLOR, defaultTransformerConfig } from 'config';
+import { useState } from 'react';
+import { DEFAULT_COLOR } from 'config';
 import {
   createImageNode,
   getCanvas,
-  onStageTap,
   addImage,
   getImageObjectPos,
   onNodeAction,
@@ -28,16 +26,10 @@ export const ShapeBox = () => {
   );
   const [width] = useState(150);
   const [height] = useState(150);
-  const [layer, setLayer] = useState(new Konva.Layer());
-  const [transformer] = useState(
-    new Konva.Transformer({
-      ...defaultTransformerConfig,
-      rotateEnabled: false
-    })
-  );
   const dispatch = useDispatch();
 
   const drawTexture = async (shape: string) => {
+    const [layer] = stage.getLayers().slice(-1);
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
 
@@ -105,22 +97,6 @@ export const ShapeBox = () => {
       dispatch(fetchSuccess());
     }
   };
-
-  useEffect(() => {
-    if (stage.name !== undefined) {
-      var initiatingLayer = new Konva.Layer();
-
-      // Add layer to stage
-      stage.add(initiatingLayer);
-      // Add transformer to layer
-      initiatingLayer.add(transformer);
-
-      setLayer(initiatingLayer);
-
-      // Set double click/tab event
-      onStageTap(stage);
-    }
-  }, [stage, transformer]);
 
   return isMobile ? (
     <ShapeBoxMobile drawTexture={drawTexture} />

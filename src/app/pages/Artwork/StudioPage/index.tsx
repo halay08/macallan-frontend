@@ -165,7 +165,7 @@ export const StudioPage = () => {
           showPrevButton={scene !== SceneType.UPLOAD}
           showNextButton={scene !== SceneType.THANK_YOU}
           showMoreButton={scene === SceneType.UPLOAD}
-          showScrollbar={isFinal}
+          showScrollbar={scene === SceneType.UPLOAD}
           StageFrame={
             <>
               {isFinal && <FinalImage />}

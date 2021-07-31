@@ -6,7 +6,7 @@ import Konva from 'konva';
 import { setStage } from 'redux/actions/studio';
 import { useDispatch, useSelector } from 'react-redux';
 import { useResponsive } from 'utils/responsive';
-import { onStageDelete } from 'app/helpers';
+import { onStageDelete, onStageTap } from 'app/helpers';
 import { AppState } from 'redux/store';
 import isEmpty from 'ramda.isempty';
 
@@ -64,6 +64,7 @@ export const StageFrameMobile = ({
     });
     layer.add(background);
 
+    onStageTap(stage);
     onStageDelete(stage);
 
     dispatch(setStage({ stage, color: '', texture: '' }));
