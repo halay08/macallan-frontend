@@ -2,6 +2,7 @@ import styled from 'styled-components/macro';
 import { MouseEventHandler } from 'react';
 import { getStorageImageUrl } from 'app/helpers';
 import { TArtwork } from 'types';
+import _get from 'lodash.get';
 
 type Props = {
   thumbnail?: boolean;
@@ -19,7 +20,9 @@ export const ArtworkItem = ({
   btnClass = ''
 }: Props) => {
   const { imgUrl, id, thumbnails } = artwork;
-  const src = getStorageImageUrl(thumbnail ? thumbnails.url : imgUrl);
+  const thumbnailUrl = _get(thumbnails, 'url', '');
+  const imageUrl = (thumbnail && thumbnailUrl) || imgUrl;
+  const src = getStorageImageUrl(imageUrl);
 
   return (
     <Button
