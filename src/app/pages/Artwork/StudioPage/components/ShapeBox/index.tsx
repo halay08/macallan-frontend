@@ -29,7 +29,7 @@ export const ShapeBox = () => {
   const dispatch = useDispatch();
 
   const drawTexture = async (shape: string) => {
-    const [layer] = stage.getLayers().slice(-1);
+    const [, layer] = stage.getLayers();
     const canvas = getCanvas(stage, { width, height });
     const ctx = canvas.getContext('2d');
 
