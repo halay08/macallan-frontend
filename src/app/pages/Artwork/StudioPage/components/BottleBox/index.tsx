@@ -27,7 +27,7 @@ export const BottleBox = () => {
   const drawBottle = (bottle: string) => {
     const canvas = getCanvas(stage, imageSize);
     const ctx = canvas.getContext('2d');
-    const [layer] = stage.getLayers().slice(-1);
+    const [, layer] = stage.getLayers();
 
     dispatch(fetchStart());
     const bottleImage = new window.Image();

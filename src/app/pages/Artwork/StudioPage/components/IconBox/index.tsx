@@ -23,7 +23,7 @@ export const IconBox = () => {
   const dispatch = useDispatch();
 
   const drawIcon = (icon: string) => {
-    const [layer] = stage.getLayers().slice(-1);
+    const [, layer] = stage.getLayers();
 
     const iconImage = new window.Image();
     iconImage.onload = () => {

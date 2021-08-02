@@ -16,7 +16,9 @@ export const FinalImage = () => {
     if (!stage.name) return;
 
     const [transformer] = stage.find('Transformer') as Konva.Transformer[];
-    transformer.nodes([]);
+    if (transformer instanceof Konva.Transformer) {
+      transformer.nodes([]);
+    }
 
     stage.toImage({
       pixelRatio: 3,

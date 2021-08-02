@@ -63,6 +63,8 @@ export const SignOff = () => {
     stage.height(addedHeight);
     const width = stage.width();
 
+    const layer = new Konva.Layer();
+    stage.add(layer);
     addBackground({ height: addedHeight, width });
     addLogo(calcLogoPosition(width, addedHeight, logoSize));
     drawText('');
