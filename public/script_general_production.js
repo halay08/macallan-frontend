@@ -3867,7 +3867,9 @@
         class: 'ImageResource'
       },
       {
-        click: "this.mainPlayList.set('selectedIndex', 1)",
+        // click: "this.mainPlayList.set('selectedIndex', 1)",
+        click:
+          "this.mainPlayList.set('selectedIndex', 1);window.dataLayer.push({'event':'virtualExpEnter'})",
         id: 'HotspotPanoramaOverlayArea_78658C74_75B6_8830_41D8_70E64D11EA15',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -3921,14 +3923,14 @@
       {
         click:
           // "this.showPopupPanoramaOverlay(this.popup_656D3D17_759F_89FF_41D5_B2AFEBA255EC, {'iconColor':'#000000','backgroundColorDirection':'vertical','rollOverBackgroundColor':['#DDDDDD','#EEEEEE','#FFFFFF'],'paddingTop':5,'backgroundColorRatios':[0,0.09803921568627451,1],'pressedBackgroundColorDirection':'vertical','backgroundOpacity':0.3,'paddingBottom':5,'iconLineWidth':5,'pressedBackgroundOpacity':0.3,'paddingLeft':5,'rollOverIconLineWidth':5,'rollOverBorderSize':0,'pressedBackgroundColor':['#DDDDDD','#EEEEEE','#FFFFFF'],'rollOverIconHeight':20,'iconHeight':20,'rollOverIconWidth':20,'pressedIconLineWidth':5,'rollOverBackgroundColorRatios':[0,0.09803921568627451,1],'pressedBorderColor':'#000000','pressedIconWidth':20,'pressedBorderSize':0,'iconWidth':20,'pressedIconColor':'#888888','pressedBackgroundColorRatios':[0,0.09803921568627451,1],'rollOverBackgroundOpacity':0.3,'rollOverIconColor':'#666666','borderSize':0,'rollOverBorderColor':'#000000','paddingRight':5,'borderRadius':0,'pressedIconHeight':20,'backgroundColor':['#DDDDDD','#EEEEEE','#FFFFFF'],'rollOverBackgroundColorDirection':'vertical','borderColor':'#000000'}, this.res_64E3D4AF_7599_B8D0_41D5_5C7C360396A1, null, null, null, false)",
-          "this.openLink(this.translate('LinkBehaviour_9B1DEB4D_3B7D_4BAD_9BDD_2B0D7B3DCB6D.source'), '_blank')",
+          "window.dataLayer.push({'event':'virtualExpClickCollect'}); this.openLink(this.translate('LinkBehaviour_9B1DEB4D_3B7D_4BAD_9BDD_2B0D7B3DCB6D.source'), '_blank')",
         id: 'HotspotPanoramaOverlayArea_924AE16C_9E89_15F0_41E0_20CD6DA0E399',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
       },
       {
         click:
-          "this.openLink(this.translate('LinkBehaviour_AEB209D9_BCB3_AF20_41E4_047170E281C0.source'), '_blank')",
+          "window.dataLayer.push({'event':'virtualExpVirtualTasting'});this.openLink(this.translate('LinkBehaviour_AEB209D9_BCB3_AF20_41E4_047170E281C0.source'), '_blank')",
         id: 'HotspotPanoramaOverlayArea_92A61BE7_9E8B_74F1_41B1_6A3E819AB81F',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -3954,21 +3956,21 @@
       },
       {
         click:
-          "this.WebFrame_AD7D7C6C_BF73_A5E1_4167_4EFC92280EC7.set('url', this.translate('PopupWebFrameBehaviour_A9F89B90_BC91_E320_41CC_DFE9F8BD5BB6.url')); this.showWindow(this.window_A9F85B91_BC91_E320_41E7_1EB25170BEDA, null, false)",
+          "this.WebFrame_AD7D7C6C_BF73_A5E1_4167_4EFC92280EC7.set('url', this.translate('PopupWebFrameBehaviour_A9F89B90_BC91_E320_41CC_DFE9F8BD5BB6.url')); this.showWindow(this.window_A9F85B91_BC91_E320_41E7_1EB25170BEDA, null, false); window.dataLayer.push({'event':'virtualExpTaste'})",
         id: 'HotspotPanoramaOverlayArea_923B1328_9E89_157F_41D3_5FC65ED1C22D',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
       },
       {
         click:
-          "this.WebFrame_AD7C4C6C_BF73_A5E1_41E5_B83C581DD1F6.set('url', this.translate('PopupWebFrameBehaviour_AE42D499_BC90_A523_41CF_163F8B1101BC.url')); this.showWindow(this.window_AE3D1499_BC90_A523_41E2_BAE5A149DD00, null, false)",
+          "this.WebFrame_AD7C4C6C_BF73_A5E1_41E5_B83C581DD1F6.set('url', this.translate('PopupWebFrameBehaviour_AE42D499_BC90_A523_41CF_163F8B1101BC.url')); this.showWindow(this.window_AE3D1499_BC90_A523_41E2_BAE5A149DD00, null, false); window.dataLayer.push({'event':'virtualExpTaste'})",
         id: 'HotspotPanoramaOverlayArea_92EFF326_9E89_3573_41DD_2CEA914898A2',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
       },
       {
         click:
-          "this.WebFrame_AD7FAC6C_BF73_A5E1_41DE_D215CED963D6.set('url', this.translate('PopupWebFrameBehaviour_AE61A92B_BC90_AF67_41E5_2E14C557A7F0.url')); this.showWindow(this.window_AE60592B_BC90_AF67_41E2_92A871F7B288, null, false)",
+          "this.WebFrame_AD7FAC6C_BF73_A5E1_41DE_D215CED963D6.set('url', this.translate('PopupWebFrameBehaviour_AE61A92B_BC90_AF67_41E5_2E14C557A7F0.url')); this.showWindow(this.window_AE60592B_BC90_AF67_41E2_92A871F7B288, null, false); window.dataLayer.push({'event':'virtualExpTaste'})",
         id: 'HotspotPanoramaOverlayArea_921821EC_9E89_14F7_41CB_8026DDECC1EC',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -3981,7 +3983,7 @@
       },
       {
         click:
-          "this.WebFrame_AD7A4C6B_BF73_A5E7_41DA_3BC76F0E9ED7.set('url', this.translate('PopupWebFrameBehaviour_AE107AA3_BC97_AD60_41D5_0FCE4B08A06A.url')); this.showWindow(this.window_AE100AA3_BC97_AD60_41C8_EAF03D040492, null, false)",
+          "this.WebFrame_AD7A4C6B_BF73_A5E7_41DA_3BC76F0E9ED7.set('url', this.translate('PopupWebFrameBehaviour_AE107AA3_BC97_AD60_41D5_0FCE4B08A06A.url')); this.showWindow(this.window_AE100AA3_BC97_AD60_41C8_EAF03D040492, null, false);window.dataLayer.push({'event':'virtualExpMastery'})",
         id: 'HotspotPanoramaOverlayArea_7AF9C976_75BF_8830_41B9_8296DF821BD2',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -4006,14 +4008,14 @@
       },
       {
         click:
-          "this.openLink(this.translate('LinkBehaviour_AE26914D_BCB0_7F20_41CE_5003CB132CA1.source'), '_blank')",
+          "window.dataLayer.push({'event':'virtualExpCreateYourOwn'}); this.openLink(this.translate('LinkBehaviour_AE26914D_BCB0_7F20_41CE_5003CB132CA1.source'), '_blank')",
         id: 'HotspotPanoramaOverlayArea_92D69DBE_9E8B_0D50_41CD_7BE616EDABE1',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
       },
       {
         click:
-          "this.WebFrame_AD7A3C6B_BF73_A5E7_41E6_89B9211D8F03.set('url', this.translate('PopupWebFrameBehaviour_AE2056B6_BC90_A560_41C9_02B5FF38E631.url')); this.showWindow(this.window_AE2016B7_BC90_A560_41E0_E0C1B15006BA, null, false)",
+          "this.WebFrame_AD7A3C6B_BF73_A5E7_41E6_89B9211D8F03.set('url', this.translate('PopupWebFrameBehaviour_AE2056B6_BC90_A560_41C9_02B5FF38E631.url')); this.showWindow(this.window_AE2016B7_BC90_A560_41E0_E0C1B15006BA, null, false); window.dataLayer.push({'event':'virtualExpPlace'})",
         id: 'HotspotPanoramaOverlayArea_7AACE1E4_75BB_9850_41DB_13DE57A7E88B',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
