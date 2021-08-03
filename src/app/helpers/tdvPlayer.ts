@@ -7,3 +7,9 @@ export const loadScript = (url: string): Promise<HTMLScriptElement> => {
     script.onload = () => resolve(script);
   });
 };
+
+export const addDynamicScript = content => {
+  var script = document.createElement('script');
+  script.text = content;
+  document.head.appendChild(script);
+};

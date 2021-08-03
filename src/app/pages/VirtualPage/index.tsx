@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import TourHelper from './helpers';
-import { loadScript } from 'app/helpers';
+import { addDynamicScript, loadScript } from 'app/helpers';
 
 export function VirtualPage() {
   const viewerRef = useRef<HTMLDivElement>(null);
@@ -28,6 +28,10 @@ export function VirtualPage() {
       const tour = new TourHelper(viewerRef.current, preloadRef.current);
       tour.onLoad();
     })();
+
+    addDynamicScript(
+      `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9JTRN6');`
+    );
 
     return () => {
       if (tdvPlayerScript) tdvPlayerScript.remove();
