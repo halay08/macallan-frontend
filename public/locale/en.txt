@@ -16,18 +16,18 @@ Label_662EA410_758E_9FF0_41D5_F1CC7070BF20_mobile.text = Crafted without comprom
 ## Media
 
 ### Title
-panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E.label = V11_02_CC_Gallery 
+panorama_1083ACBD_0FD9_FE86_4190_07A2F2FE8E6E.label = V11_02_CC_Gallery
 panorama_79A25C10_7597_8FF0_41D5_58B98AF17C40.label = Collaboration with MC3  copy
 panorama_90789B51_9E87_15D1_41D9_77CCA65046D6.label = V12_gallery 1_edited
 panorama_919136D7_9E99_1CD0_41CC_25AF27A935A3.label = image (6)
 panorama_9345617B_9E87_15D1_41B7_729AF050AB26.label = V11_01_Mastery
 panorama_935E2477_9E89_73D1_41DF_11480B88250D.label = V11_02_CYO
-panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C.label = V11_01_Mastery_taste 
+panorama_938DB4E5_9E86_FCF1_41E3_CAE1B5FAE71C.label = V11_01_Mastery_taste
 
 ## Action
 
 ### URL
-LinkBehaviour_AE26914D_BCB0_7F20_41CE_5003CB132CA1.source = /gallery
+LinkBehaviour_AE26914D_BCB0_7F20_41CE_5003CB132CA1.source = https://www.themacallan.com/concept-no3-create-your-own-art
 LinkBehaviour_9B1DEB4D_3B7D_4BAD_9BDD_2B0D7B3DCB6D.source = https://www.themacallan.com/en/concept-number-3/where-to-purchase
 LinkBehaviour_AEB209D9_BCB3_AF20_41E4_047170E281C0.source = https://www.themacallan.com/en/concept-no3-virtual-tasting
 PopupWebFrameBehaviour_A9F89B90_BC91_E320_41CC_DFE9F8BD5BB6.url = //player.vimeo.com/video/576568466?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
