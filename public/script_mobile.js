@@ -3839,9 +3839,9 @@
         class: 'ImageResource'
       },
       {
-        // click: "this.mainPlayList.set('selectedIndex', 1)",
-        click:
-          "this.mainPlayList.set('selectedIndex', 1);window.dataLayer.push({'event':'virtualExpEnter'})",
+        click: "this.mainPlayList.set('selectedIndex', 1)",
+        // click:
+        //   "this.mainPlayList.set('selectedIndex', 1);window.dataLayer.push({'event':'virtualExpEnter'})",
         id: 'HotspotPanoramaOverlayArea_78658C74_75B6_8830_41D8_70E64D11EA15',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'any'
@@ -3872,7 +3872,7 @@
       },
       {
         click:
-          'this.setOverlaysVisibility([this.overlay_B3B9D179_BC90_5FE0_41D9_11F67C709F9C], false); this.setOverlaysVisibility([this.overlay_7A9CFBBA_75B6_8831_41B3_20DD32AA47CA,this.overlay_7A58046E_75B9_B850_41CC_E0531701F76C], true)',
+          "window.dataLayer.push({'event':'virtualExpEnter'});this.setOverlaysVisibility([this.overlay_B3B9D179_BC90_5FE0_41D9_11F67C709F9C], false); this.setOverlaysVisibility([this.overlay_7A9CFBBA_75B6_8831_41B3_20DD32AA47CA,this.overlay_7A58046E_75B9_B850_41CC_E0531701F76C], true)",
         id: 'HotspotPanoramaOverlayArea_7B8EF7A0_7589_B8D0_41DC_11CF6AD26E2D',
         class: 'HotspotPanoramaOverlayArea',
         mapColor: 'image'
